@@ -16,6 +16,12 @@
     transition: opacity .9s;
 }
 
+.hero-wrapper {
+    height: 90vh;
+    background-color: blue;
+
+}
+
 .hero-andrea {
     background-image: $hero-andrea;
 }

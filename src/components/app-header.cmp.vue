@@ -11,7 +11,7 @@
         <li>Sign in</li>
         <li>Join</li>
       </ul>
-      <!-- <button @click="log">xx</button> -->
+      <button @click="log">xx</button>
     </div>
   </div>
 </template>
@@ -26,9 +26,10 @@ export default {
   },
 
   mounted() {
+    const elNav = document.querySelector('.nav-container')
     window.addEventListener("scroll", function () {
       if (window.scrollY > 200) console.log(window.scrollY);
-      console.log(this.$refs.nav);
+      console.log(elNav);
     });
   },
 
