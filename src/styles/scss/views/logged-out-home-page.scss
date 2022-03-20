@@ -1,0 +1,37 @@
+.hero-backgrounds>div {
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    opacity: 0;
+    display: none;
+    -webkit-animation: fade 2s linear;
+    animation: fade 2s linear;
+    -webkit-transition: opacity .9s;
+    -o-transition: opacity .9s;
+    transition: opacity .9s;
+}
+
+.hero-andrea {
+    background-image: $hero-andrea;
+}
+
+.hero-moon {
+    background-image: $hero-moon;
+}
+
+.hero-gabrielle {
+    background-image: $hero-gabrielle;
+}
+
+.hero-zack {
+    background-image: $hero-zack;
+}
+
+.hero-ritika {
+    background-image: $hero-ritika;
+}

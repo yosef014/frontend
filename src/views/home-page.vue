@@ -1,7 +1,8 @@
 <template>
   <div>
     <div class="main-container">
-      <h1>home page</h1>
+      <!-- <logged-out-home-page></logged-out-home-page> -->
+      <loggedOutHomepage/>
     </div>
     <div class="trusted-by-container"> trustef by pic</div>
     <div class="popular-services-container">crusela popular services</div>
@@ -13,4 +14,12 @@
   </div>
 </template>
 
-<script></script>
+<script>
+import loggedOutHomepage from './logged-out-home-page.vue'
+  export default {
+    name: 'home-page',
+    components: {
+      loggedOutHomepage,
+    },
+  }
+</script>
