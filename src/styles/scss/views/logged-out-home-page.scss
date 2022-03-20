@@ -7,19 +7,30 @@
     bottom: 0;
     right: 0;
     z-index: 1;
-    opacity: 0;
-    display: none;
+    // opacity: 0;
+    // display: none;
     -webkit-animation: fade 2s linear;
     animation: fade 2s linear;
-    -webkit-transition: opacity .9s;
-    -o-transition: opacity .9s;
-    transition: opacity .9s;
+    -webkit-transition: opacity 2s;
+    -o-transition: opacity 2s;
+    transition: opacity 2s;
 }
 
 .hero-wrapper {
     height: 90vh;
-    background-color: blue;
+    opacity: 0;
+    font-size: 2rem;
+    width: 100vw;
+    background-repeat: no-repeat;
 
+    background-size: auto 100%;
+
+    & p {
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+        color: whitesmoke;
+    }
 }
 
 .hero-andrea {

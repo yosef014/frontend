@@ -18,7 +18,7 @@
             </p>
           </div>
         </div>
-        <div class="hero-wrapper hero-ritka">
+        <div class="hero-wrapper hero-ritika">
           <div class="seller-name">
             <p>
               Ritka,
@@ -26,7 +26,7 @@
             </p>
           </div>
         </div>
-        <div class="hero-wrapper hero-gabriella">
+        <div class="hero-wrapper hero-gabrielle">
           <div class="seller-name">
             <p>
               Gabriella,
@@ -49,7 +49,33 @@
 
 <script>
 export default {
+
+  data() {
+    return {
+      heroIdx: 0,
+    }
+  },
+
+  mounted() {
+    this.heroAnimation()
     
+  },
+
+  methods: {
+    heroAnimation() {
+          const elHeroWrappers = document.querySelectorAll('.hero-wrapper')
+
+        if (this.heroIdx > 4) this.heroIdx = 0
+          elHeroWrappers.forEach(hero => {
+            hero.style.opacity = '0'
+      });
+      elHeroWrappers[this.heroIdx].style.opacity = '1'
+      console.log("🚀 ~ file: logged-out-home-page.vue ~ line 73 ~ heroAnimation ~ elHeroWrappers[this.heroIdx].style.opacity", elHeroWrappers[this.heroIdx].style.opacity)
+      this.heroIdx++
+      setTimeout(this.heroAnimation, 6000)
+    }
+  }
+
 };
 </script>
 
