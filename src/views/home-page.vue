@@ -2,10 +2,13 @@
   <div>
     <div class="main-container">
       <!-- <logged-out-home-page></logged-out-home-page> -->
-      <loggedOutHomepage/>
+      <loggedOutHomepage />
     </div>
-    <div class="trusted-by-container"> trustef by pic</div>
-    <div class="popular-services-container">crusela popular services</div>
+    <div class="trusted-by-container">trustef by pic</div>
+    <div class="popular-services-container max-width-container">
+      <h2>Popular professional services</h2>
+      <carouselPopularServices />
+    </div>
     <div class="home-info-container">info</div>
     <div class="home-explore-marketplace-container">explore-marketplace</div>
     <div class="home-fiver-business-container">fiverr business</div>
@@ -15,11 +18,13 @@
 </template>
 
 <script>
-import loggedOutHomepage from './logged-out-home-page.vue'
+  import loggedOutHomepage from "./logged-out-home-page.vue";
+  import carouselPopularServices from "../components/carousel-popular-services.vue";
   export default {
-    name: 'home-page',
+    name: "home-page",
     components: {
       loggedOutHomepage,
+      carouselPopularServices,
     },
-  }
+  };
 </script>
