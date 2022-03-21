@@ -1,7 +1,12 @@
 <template>
   <div class="header-container-fluid fluid-el">
     <div class="nav-container" ref="nav">
-      <div class="logo">fiiver.</div>
+      <div class="logo">fiiver<span style="color: #1dbf73">.</span></div>
+      <div class="nav-search">
+        <button class="search-icon">🔍</button>
+        <input type="text" placeholder="Find Services" />
+        <button class="nav-serach-bt">Search</button>
+      </div>
       <div class="nav">
         <ul>
           <li>Fiverr Business</li>
@@ -12,7 +17,6 @@
           <li>Sign in</li>
           <li class="join">Join</li>
         </ul>
-        <!-- <button @click="log">xx</button> -->
       </div>
     </div>
   </div>
@@ -20,12 +24,7 @@
 
 <script>
 export default {
-  methods: {
-    log() {
-      // console.log(this.$refs.nav);
-      console.log("hii");
-    },
-  },
+  methods: {},
 
   mounted() {
     const elNav = document.querySelector(".nav-container");
