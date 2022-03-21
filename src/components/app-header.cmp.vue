@@ -3,7 +3,7 @@
     <div class="nav-container" ref="nav">
       <div class="logo">fiiver<span style="color: #1dbf73">.</span></div>
       <div class="nav-search">
-        <button class="search-icon">🔍</button>
+        <searchIconVue/>
         <input type="text" placeholder="Find Services" />
         <button class="nav-serach-bt">Search</button>
       </div>
@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import searchIconVue from "../svgs/search-icon.vue";
 export default {
   methods: {},
 
@@ -68,5 +69,9 @@ export default {
   },
   computed: {},
   watch: {},
+  components: {
+    searchIconVue,
+
+  }
 };
 </script>
