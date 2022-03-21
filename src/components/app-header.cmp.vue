@@ -19,6 +19,14 @@
         </ul>
       </div>
     </div>
+    {{ windowTop }}
+    <div class="categories-menu-package">
+      <div class="default-container">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque quasi,
+        dolorem perspiciatis culpa amet velit id deleniti modi incidunt. Vero
+        dolorem nam veniam quibusdam sit porro aliquam provident, cumque odio.
+      </div>
+    </div>
   </div>
 </template>
 
@@ -32,14 +40,21 @@ export default {
     window.addEventListener("scroll", function () {
       if (window.scrollY > 200) {
         console.log("200");
-
-        // console.log(elNav);
+        document.querySelector(".categories-menu-package").style.display =
+          "flex";
+        document.querySelector(".default-container").style.display = "flex";
       } else if (window.scrollY > 50) {
+        document.querySelector(".categories-menu-package").style.display =
+          "none";
+        document.querySelector(".default-container").style.display = "none";
         elNav.classList.remove("nav-container");
         elNav.classList.add("nav-container-open-one");
         elNavFluid.classList.add("header-container-fluid-close");
         elNavFluid.classList.remove("header-container-fluid");
       } else if (window.scrollY > 0) {
+        document.querySelector(".categories-menu-package").style.display =
+          "none";
+        document.querySelector(".default-container").style.display = "none";
         elNavFluid.classList.remove("header-container-fluid-close");
         elNavFluid.classList.add("header-container-fluid");
         elNav.classList.remove("nav-container-open-one");
@@ -51,5 +66,7 @@ export default {
   data: () => {
     return {};
   },
+  computed: {},
+  watch: {},
 };
 </script>

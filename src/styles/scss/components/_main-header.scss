@@ -2,6 +2,15 @@
 //     font-family: Chunk;
 //     src: url(../../../fonts//ChunkFive-Regular.otf);
 //   }
+.default-container{
+  max-width: $screen-size-xl;
+ text-align: start;
+  margin: 0 auto;
+  display: none;
+  transition: 0.5s;
+
+
+}
 .header-container-fluid {
   background-color: rgba(111, 0, 255, 0);
   height: 80px;
@@ -9,6 +18,7 @@
   position: fixed;
   z-index: 5;
   transition: 0.5s;
+ 
 
   &-close {
     background-color: rgb(255, 255, 255);
@@ -17,6 +27,24 @@
     position: fixed;
     z-index: 5;
     transition: 0.5s;
+
+    .categories-menu-package{
+      height: 40px;
+      background-color: rgb(255, 255, 255);
+      position: fixed;
+      top:80px;
+      left: 0;
+      width: 100vw;
+      border-bottom:1px solid #c5c6c9;
+      border-top:1px solid #c5c6c9;
+      display: flex;
+      align-items: center;
+      display: none;
+      transition: 0.5s;
+
+
+    
+    }
   }
 }
 .nav-container {
