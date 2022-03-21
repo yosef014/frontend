@@ -43,7 +43,7 @@
         itemsToShow: 1,
         itemsToScroll: 5,
         // slideWidth: "100px",
-        transition: 300,
+        transition: 600,
         snapAlign: "center",
       },
       slides: {
