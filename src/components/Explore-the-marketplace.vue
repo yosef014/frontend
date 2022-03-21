@@ -4,7 +4,7 @@
       <h2>Explore the marketplace</h2>
       <ul class="categories-list">
         <li v-for="icon in icons" :key="icon">
-          <a href="">
+          <a>
             <img :src="icon.url" alt="" />
             {{ icon.name }}
           </a>
