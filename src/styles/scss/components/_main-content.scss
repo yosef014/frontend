@@ -1,11 +1,11 @@
 .test {
   background-color: aqua;
 }
+//add mixin for carousel class specific for that class.
 @media only screen and (min-width: $screen-size-l) {
   .max-width-container {
     margin: 0 auto;
     max-width: 1400px;
-    padding: 32px 32px 64px;
     & h2 {
       font-size: 32px;
       line-height: 120%;
