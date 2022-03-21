@@ -6,6 +6,7 @@
   .max-width-container {
     margin: 0 auto;
     max-width: 1400px;
+    width: 100%;
     & h2 {
       font-size: 32px;
       line-height: 120%;
@@ -17,6 +18,10 @@
     }
   }
 }
+
+  .logged-out-homepage .hero-wrapper .hero-backgrounds>div {
+    background-position: bottom;
+  }
 
 .carousel__slide {
   // width: auto !important;

@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="main-container">
-      <!-- <logged-out-home-page></logged-out-home-page> -->
       <loggedOutHomepage />
     </div>
     <div class="trusted-by-container">trustef by pic</div>
