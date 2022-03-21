@@ -2,6 +2,14 @@
   background-color: aqua;
 }
 //add mixin for carousel class specific for that class.
+
+// carousel component --->
+
+@media only screen and (max-width: 700px) {
+  .carousel__slide {
+    width: 50% !important;
+  }
+}
 @media only screen and (min-width: $screen-size-l) {
   .max-width-container {
     margin: 0 auto;
@@ -25,9 +33,31 @@
   display: unset;
 }
 
+.carousel__next {
+  background-color: #fff;
+  right: 8px;
+  font-size: 24px;
+  width: 48px;
+  height: 48px;
+  text-align: center;
+  color: black;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
+}
+.carousel__prev {
+  background-color: #fff;
+  right: 8px;
+  font-size: 24px;
+  width: 48px;
+  height: 48px;
+  text-align: center;
+  color: black;
+
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
+}
 .subcategory-wrapper {
   height: 345px;
   background-color: #efeff0;
+  cursor: pointer;
 }
 .subcategory-wrapper img {
   object-fit: cover;
@@ -71,4 +101,115 @@
   line-height: 20px;
   font-weight: 400;
   display: block;
+}
+
+// carousel component --->
+
+// Explore the marketplace -------------- //
+
+.main-categories ol,
+ul {
+  list-style: none;
+  list-style-image: none;
+}
+
+.categories-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.categories-list li {
+  padding-bottom: 55px;
+  width: 20%;
+  text-align: center;
+}
+.categories-list li > a {
+  color: #222325;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.categories-list li > a:after {
+  content: "";
+  position: absolute;
+  top: 45px;
+  right: 50%;
+  -webkit-transform: translateX(50%);
+  transform: translateX(50%);
+  padding: 0 0 8px;
+  width: 48px;
+  border-bottom: 2px solid #c5c6c9;
+  transition: 0.2s ease-in-out;
+}
+.categories-list a:hover::after {
+  width: 90px;
+  border-color: #1dbf73;
+  transition: 0.2s ease-in-out;
+}
+
+.categories-list img {
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 15px;
+}
+
+// Explore the marketplace -------------- //
+
+// info home page ------------
+
+.selling-proposition-wrapper {
+  margin-bottom: 96px;
+  padding: 32px 32px 64px;
+}
+
+.selling-proposition {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+.grid-items {
+  display: flex;
+  flex: 0 1 auto;
+}
+.video-modal {
+  position: relative;
+}
+
+.video-modal .picture-wrapper:after {
+  content: "";
+  display: inline-block;
+  background: url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/desktop-play-button.c1196d6.png)
+    no-repeat;
+  background-size: 80px;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.selling-text li > h6 {
+  padding-bottom: 8px;
+  color: #404145;
+  display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  font-size: 18px;
+  line-height: 140%;
+  margin-right: 10px;
+  min-width: 24px;
+}
+.selling-text p {
+  font-size: 18px;
+  line-height: 26px;
+  padding-right: 11%;
 }
