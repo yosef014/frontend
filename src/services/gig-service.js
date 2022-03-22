@@ -597,6 +597,953 @@ function _createGigs() {
           },
         ],
       },
+      //logo gigs
+      {
+        _id: "g109",
+        category: "logo",
+        image:
+          "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/3171448/original/a41a38f3733bb97279a49d1449f7337dece50693.jpg",
+        title: "I will design 3 modern minimalist flat logo designs",
+        subCategory: "Logo Design",
+        description:
+          "Hi there ! Thanks for stopping by !!\nA Team of Talented Graphic Designer with 8+ years of experience in Graphic Industry, expertise as Logo Maker, You'll get creative & AWESOME logo design for your business.\nMy portfolio : https://www.fiverr.com/users/design_desk/portfolio/NjFiYjE4NmMwZTgwMDUwMDAxZTMzMjJh\n★ Why Us? ★\nTalented Logo Maker Team\nFully custom made, creative, original, UNIQUE and AWESOME designs\nProfessional customer support 24/7\nHigh Quality work\n100% money back policy if not satisfied\n★ WHAT DO YOU GET? ★\n✔ Highly Professional, UNIQUE & High Quality designs\n✔ UNLIMITED revisions until u r 100% satisfied\n✔ Fast turn around time 24 to 48 hours only.\n✔ 100% original & unique vector design from Adobe Illustrator\n✔ Vector Source Files (scalable without any quality loss) (AI, EPS, PDF) for the final design ✔ PROFESSIONAL Communication & Outstanding Customer Support ✔ Guaranteed High Quality work\nIf you have any question,\nFeel free to★ Contact Me! ★I'll be happy to help !\nLet's get started!\n-Your Logo Maker",
+        price: "₪33.68",
+        daysToMake: "3 Days Delivery",
+        fullname: "design_desk",
+        imgUrl:
+          "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/044fb5914a845a4eb59fc2b69f7f7b32-1634120039750/4dbc2acb-7322-4cd0-9afb-e5190e8e8a0d.jpg",
+        loc: "India",
+        memberSince: "Jun 2014",
+        avgResponceTime: "2 hours",
+        lastDelivery: "about 3 hours",
+        about:
+          "Hello! My name is VD. I am a connoisseur of art and music. I love being around nature and my pets. I have a team of professional graphic designers with an experience of 8+ years. We specialize in logo designing. We're available exclusively on fiverr to rock your world with our designing skills. Come and experience it for yourself!",
+        reviewers: [
+          {
+            name: "airbornesnow",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "The seller's communication was EXCELLENT and the service was exactly as described. When I wanted revisions, they did not hesitate to provide me with alterations of the design. Although they were nice and kind when I asked for the revisions, all the revisions were half a**ed and sloppy. Even when I provided a concept drawing for them to TRACE, the results were still not what I expected. Buyers BEWARE: The seller's communication is excellent, friendly, and VERY kind. However, if you ask for any revisions, the revisions you will receive will be sloppy and half-a**ed.",
+            reviewedAt: "Published 4 days ago",
+          },
+          {
+            name: "jacobmnb",
+            country: "United Kingdom",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
+            review:
+              "I thought this service was amazing, I bought the basic option just hoping for a basic logo, but the seller went above my expectations and provided me with a bunch of concepts that were better than I could have imagined, for £7.90 I think this service is a must-buy for anyone needing a professional-looking logo and not wanting to spend a huge amount",
+            reviewedAt: "Published 2 months ago",
+          },
+          {
+            name: "ashtonpeckham",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "The seller was very responsive. We had revisions after the initial designs were delivered and the seller made them very quickly. The logo we selected is perfect for our current needs. Recommend including your vision in the initial request so you don't end up with ideas that you don't like. There were only 2 real contenders because the Fiverr site wouldn't allow me to attach my hand drawn idea. The paperclip icon was essentially rendered inactive, even after several attempts. This is no fault of the designers; i should have been even more descriptive with my request when I was unable to attach files.",
+            reviewedAt: "Published 1 week ago",
+          },
+          {
+            name: "borowski10",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "Ultimately, I am very happy with the final logo I received. However, the seller's communication could have been better. There were a few times I asked for specific revisions and I was sent the same thing or something else that I didn't ask for. It took about 2 weeks for me to finally get what I was looking for. In the end, I got what I paid for and I am grateful for the service!",
+            reviewedAt: "Published 2 days ago",
+          },
+          {
+            name: "fowlplay_uk",
+            country: "United Kingdom",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
+            review:
+              "VD was great. I had a very specific design in mind already that I needed recreating professionally and they did not disappoint. Even when I started to get picky with the design, nothing I requested was ever too much trouble. We went through many revisions to get it to exactly how I wanted it and every interaction we had was effortless. This is the first project I'd commissioned so wasn't really sure on the correct etiquette, yet VD made things so easy for me. Can't recommend these guys enough for that",
+            reviewedAt: "Published 2 months ago",
+          },
+        ],
+        tags: [
+          {
+            name: "minimalist",
+          },
+          {
+            name: "flat",
+          },
+          {
+            name: "logo design",
+          },
+          {
+            name: "modern",
+          },
+          {
+            name: "unique",
+          },
+          {
+            name: "logo maker",
+          },
+        ],
+      },
+      {
+        _id: "g110",
+        category: "logo",
+        image:
+          "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/103152154/original/b89645456b7f6906afa872771737e980b6f57cfb.jpg",
+        title: "I will create modern unique and creative logo design",
+        description:
+          "Hi esteemed buyer!\nLooking for modern unique and creative 2d or 3d logo design? Yes, you're at the right place.\nHaving a vast experience with hundreds of satisfied customers across the globe, I extend my services to design modern unique and creative logo design to represent your brand idea in a befitting manner.\nWhat proves my individuality over others?\nQuick delivery, quality work and transforming your brain idea into a 3d creative unique and modern logo design are my attributes.\nMY GIG OFFERINGS ARE:\nBest customer care\nRevisions within 24 Hours\n100% satisfaction guaranteed\nModern unique and creative designing ideas\nLogically and aesthetically hypnotizing logos\n1 free revision after completion of order\nEditable and re-sizeable vector files\nFont download link included\nHigh resolution final files in zip\nNote: For Complex Illustrations and Mascots, please discuss in inbox before placing order! It is also not included in our packages.\nHave queries? Contact us in inbox anytime!\n★Hearing from you would be an absolute pleasure, Go ahead and ORDER NOW!★",
+        price: "₪84.20",
+        daysToMake: "2 Days Delivery",
+        fullname: "soduzai_gfx1",
+        imgUrl:
+          "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/a2dd1a0482bbfe54e61c6c2d6e64696e-1640431251801/943f73b5-dc43-4fe4-9728-9a58f0aafdbc.jpg",
+        loc: "Pakistan",
+        memberSince: "Oct 2017",
+        avgResponceTime: "1 hour",
+        lastDelivery: "about 25 minutes",
+        about:
+          "I am a professional graphics designer from PakIsTaN... Designing is not only my job, it's my Passion. All I need from you is a rough sketch of your idea. Then you can just relax and see the magic happening. Not only you'll get stunning and professional designs, but also you'll have top class custome",
+        reviewers: [
+          {
+            name: "devsreads",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "Thank you SO MUCH to the seller. He was so patient and willing to work and correct as many times as we needed as some things got miscommunicated and he easily fixed them. Thank you!!!",
+            reviewedAt: "Published 3 days ago",
+          },
+          {
+            name: "raymondyslas",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "This designer is awesome. I have got my idea materialised in an efficient manner and the way I wanted. Seeing this logo, I would say this is the best designer to do any kind of graphics work.",
+            reviewedAt: "Published 1 month ago",
+          },
+          {
+            name: "gbsol579",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "This designer is so quick and efficient in his work. My order was delivered in few hours. The design is hypnotizing and truly reflects my business idea. Highly recommended!",
+            reviewedAt: "Published 1 month ago",
+          },
+          {
+            name: "antoniodixon65",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "This is a really good design. The designer owes the skills needed to actually understand and then materailize a buyer's idea. Commendable and highly recommended.",
+            reviewedAt: "Published 1 month ago",
+          },
+          {
+            name: "allendrozdowski",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "This designer has done a fantastic job. I like the design sense and colour combination of the designer. This is what I was looking for. I highly recommend him for graphics related work.",
+            reviewedAt: "Published 1 month ago",
+          },
+        ],
+        tags: [
+          {
+            name: "modern logo",
+          },
+          {
+            name: "creative logo",
+          },
+          {
+            name: "logo design",
+          },
+          {
+            name: "unique logo",
+          },
+          {
+            name: "logo maker",
+          },
+        ],
+      },
+      {
+        _id: "g111",
+        category: "logo",
+        image:
+          "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/125798593/original/fea4f6af37e201fa9cb71a85583fedc171da2a26.jpg",
+        title: "I will design 3 modern minimalist logo design",
+        description:
+          "ModernMarvel heartily welcomes you to Minimalist Modern Logo Design gig.\nWe are Brand Creators and professional business consultants. Each business has his own story to tell and having high recall value is prime purpose behind getting a LOGO. Thus, We believe in creating simple yet effective masterpiece which blown away your customers mind.\nYour idea of getting Modern memorable and attractive logo design is just one step away. So, Lets discuss and choose a best design for your business.\nOur recommendation BRANDING PACK @ $65 ONLY:\n5 BRANDED logos with minimal designs + vector source files\nAttractive Social media covers (FB + Twitter)\nProfessional stationery design (B card + letterhead)\nUnlimited revision rounds\nExclusive customer support\nRefund & Package selection guidelines:\nIf the designs are as per your initial shared brief, refund wont be a possible option. You can ask for revision if i missed out anything.\nMy samples are from my premium / standard package.\nWe are closed on Sunday.\nMy key skills:\nMinimalist Modern Logo Design | Minimal | Modern | Typography | Line art | Custom logo | Vintage |\nKeen to Get Started!",
+        price: "₪50.52",
+        daysToMake: "1 Day Delivery",
+        fullname: "modernmarvel",
+        imgUrl:
+          "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/d366617946e54cbc9aa114f27259e3ef-1552848300306/3c155f72-15c9-47d0-8f68-b75a519a7999.jpg",
+        loc: "India",
+        memberSince: "Mar 2019",
+        avgResponceTime: "2 hours",
+        lastDelivery: "about 22 minutes",
+        about:
+          "I am a professional artist having rich experience in hand sketched and digital artwork. I have served tons of businesses with smarter business solutions. I am here to get the global exposure and would like to contribute more towards our creative community. Thanks.",
+        reviewers: [
+          {
+            name: "bartstrijbos",
+            country: "Netherlands",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f3-1f1f1.png",
+            review:
+              "Use your revisions and communication, and you will have something that works for you! I recommend modernmarvel for the price they ask! I did not know what to expect from my first buy on FIverr. The previews where what I was going for, so I thought why not give it a try. The initial delivery had two good concepts and three concepts I did not like. The two good concepts however, where not really what I wanted though. I submitted a revision proposal and hoped for the best. This is where this seller shines! From the initial designs, he worked quickly with every suggestion I made for revisions and was good in communication. I slowly saw my project evolving to something I love. Recommended!",
+            reviewedAt: "Published 2 months ago",
+          },
+          {
+            name: "v_winko33",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "Working with this seller was a great experience in that he was quick to respond (considering the 11+ hr time zone difference), friendly, reliable, and professional. He created some concepts with literally no reference the first time around, and the second time around I gave him more of an idea of what I was looking for and found the ideal logo. You get what you pay for, and the price I think is a very good deal that's hard to find. Communication +asking questions is key to get all that you want and need from this great offer. Although I am satisfied with the logo, I probably would've liked something more like the work he shows in his second picture on his profile/gigs. I do recommend him!",
+            reviewedAt: "Published 3 weeks ago",
+          },
+          {
+            name: "brendanpaull",
+            country: "Japan",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ef-1f1f5.png",
+            review:
+              'Seller was extremely communicative and always responded very quickly even on his/her day off (Sunday). While I got something that will get my started and I suppose I got what I paid for (the price was definitely quite low), I would be hard pressed to call the designs I got as "modern" or "minimalist" like the logo presented in the profile. They felt like clip-art from 10 to 15 years ago attached to my website name.',
+            reviewedAt: "Published 1 month ago",
+          },
+          {
+            name: "tracyblehm",
+            country: "Canada",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e8-1f1e6.png",
+            review:
+              "I was a little nervous as I had never hired anyone before and have had bad experiences on other platforms. However this was absolutely marvelous. I loved the design. It was shocking how fast it was done and how amazing it turned out. I will definitely be hiring them again for my other projects that are coming up. Thank-you!!",
+            reviewedAt: "Published 2 months ago",
+          },
+          {
+            name: "jai_s22",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "Using this service was a pretty decent experience. It took a bit longer than I wanted to finally get the final design. I had to go back and forth for a week trying to find the correct revision of the design. At first, I thought the experience of the designer was not the best due to finding some logos with minimal effort. Once I messaged the designer that I felt that the designs that they were producing were not satisfying me, they then were able to put a lot of effort into my ideas. I personally had to come up with the design of my logo instead of them using their experience and trusting them to come up with one themselves. Eventually, they did deliver so I am happy with the way it finished.",
+            reviewedAt: "Published 2 weeks ago",
+          },
+        ],
+        tags: [
+          {
+            name: "modern logo",
+          },
+          {
+            name: "custom logo",
+          },
+          {
+            name: "logo design",
+          },
+          {
+            name: "minimalist logo",
+          },
+          {
+            name: "website logo",
+          },
+          {
+            name: "logo maker",
+          },
+        ],
+      },
+      {
+        _id: "g112",
+        category: "logo",
+        image:
+          "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/142024147/original/25c0cb214ccc1e1458cb975cddec0e3e348f75ee.jpg",
+        title:
+          "I will do professional modern business logo design with copyrights",
+        subCategory: "Logo Design",
+        description:
+          'Greetings!! Welcome to Budding Solutions.\n"Your one-stop-shop for all your graphic needs"\nIf you are looking for a Modern and Professional Business logo design, then you are at the right place. We focus on creating simple yet effective designs that elevate your business outlook and leave an everlasting impression.\nWe stand out from our competition due to our best-in-class Customer Support and Quality Designs.\nWhy Us?\n✔ Combination of experience and creativity\n✔ Unique and original designs\n✔ Superior customer care and satisfaction\n✔ Transparent and High-resolution image types\n✔ Different types of source files (AI, EPS, PDF and SVG)\n✔ Complete Branding Guide\n✔ Unlimited revisions until you are 100% satisfied\n✔ Full Copyrights\nMASCOT DESIGNS ARE NOT INCLUDED IN BASIC OR STANDARD GIGS.\nTHE DESIGNS SHOWN ON THE PORTFOLIO ARE FROM STANDARD OR PREMIUM PACKS.\nLogo Design | Professional Logo | Modern Logo | Badge | Hand drawn | Feminine | Signature | Business Logo\nWe look forward to working with you. Please don\'t hesitate to reach out at any time with any questions.\nPlease review the FAQ section for further clarification.',
+        price: "₪151.55",
+        daysToMake: "2 Days Delivery",
+        fullname: "shailene_george",
+        imgUrl:
+          "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/3ec0d56f436079ef157dbcc1d21c4c62-1625030446037/1c926a30-7aa5-4de8-9a3b-6565be7ddd5b.jpg",
+        loc: "Pakistan",
+        memberSince: "Jun 2016",
+        avgResponceTime: "1 hour",
+        lastDelivery: "about 16 minutes",
+        about:
+          "Welcome to Budding Solutions. An agency of 15+ Graphic Designers with great expertise. We strive to provide unique & graphically rich designs with exceptional & lifetime customer service. Let us be your GO-TO option for your graphic design needs and you won't be disappointed.",
+        reviewers: [
+          {
+            name: "bossymouse",
+            country: "Netherlands",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f3-1f1f1.png",
+            review:
+              "I'd recommend this seller. She was skilled and very communicative. Also I got tons of revisions as promised and always quickly. Sometimes it was hard to get her to polish the details as I intended, I think because of the language barrier, but if a revision turned out different than I expected she started working on it again without asking questions. Lastly she gave tips about branding when needed. To be honest I'm not quite sure if the social media kit and website optimized image were worth my money, because those were mostly the same image in different ratios. But I probably had unrealistic expectations. On the other hand the copyright document is very polished and accurate!",
+            reviewedAt: "Published 1 week ago",
+          },
+          {
+            name: "coastalcleaners",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "I'm so grateful & thrilled that I can say, my experience was a sucess! I love my LOGO that Shailene created, I couldn't be happier! I reached out and let her know exactly what I needed, she promptly responded and made me an offer. I couldn't refuse, as she was more than willing to accommodate my budget. She sent me the drafts soon after, and I was pleased to see the results! I didn't need any revisions and I'm pleased to say that I've now got a NEW LOGO For my Brand/Company. I officially feel Accomplished! Thank you SO Much Shailene and Fiverr! You have made this journey so much lighter on my feet, and I would definitely recommend Shailene as an Artist and the Fiverr company!",
+            reviewedAt: "Published 3 weeks ago",
+          },
+          {
+            name: "ndethlefs",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "This was the first time I've used Fiverr and was a little worried how it would go. This was by far the best experience I've had working with someone remote and at a fair price. shailene_george always got back to me right away. I couldn't be happier with my experience and will also being recommending George to anyone I can and using again when needed. 5 stars all the way here!",
+            reviewedAt: "Published 3 weeks ago",
+          },
+          {
+            name: "mrmikevh",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "Shailene is awesome to work with. Very professional and attentive. She deliveries amazing work at a value you just can't find anywhere else. As a busy front-end developer, I find buying her premium GIG is the way to go. My clients are always blown away with her work. She has made me a customer for life with her work and her friendly personality. Thank you Shailene and bless you. Can't wait for our next GIG together.",
+            reviewedAt: "Published 2 months ago",
+          },
+          {
+            name: "j_powell23",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "A friend of mine (Maximum Performance Productions) recommended Fiverr. I'm starting a new business and needed a design to catapult us to new heights. It didn't take long to find the right artist. Shallene was able to capture my idea and interpret it into the design that I am very pleased with. Her communication skills and response time are second to none. She is very informative and answered all my questions satisfactorily. Shallene performed her tasks timely and without delay. I am forever grateful for the outstanding designs she has provided and would highly recommend her to anyone. Thank You Shallene!",
+            reviewedAt: "Published 1 week ago",
+          },
+        ],
+        tags: [
+          {
+            name: "modern logo",
+          },
+          {
+            name: "logo",
+          },
+          {
+            name: "custom logo",
+          },
+          {
+            name: "creative logo",
+          },
+          {
+            name: "professional logo",
+          },
+          {
+            name: "logo maker",
+          },
+        ],
+      },
+      // marketing gigs
+      {
+        _id: "g113",
+        category: "marketing",
+        image:
+          "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/157827646/original/8f14f50a81ddd1a60b4af990ea5154a26975d150.jpg",
+        title: "I will write you an attractive instagram bio",
+        description:
+          "The FIRST thing a potential follower sees on your page is your bio.\nStand out, and build trust with a bio that informs and captivates everyone who views it. This will not only attract new people to your page, but it will keep them there!\nYou've seen those profiles on Instagram that look amazing, and you deserve that for your business too.\nGet the Instagram bio you need, and with it, more followers and clients!\nWhat you'll receive:\n⭐ One unique, professionally designed bio\n⭐ A captivating layout that engages your viewers\n⭐ A call to action, if required\n⭐ 24 hour delivery\n⭐ 100% Satisfaction Guarantee\nLet's build you a great Instagram page that is sure to bring AND KEEP followers.\nIf you BUY a gig from me always feel free to request a revision if you need any part of your order revised. Thank you.",
+        price: "₪50.52",
+        daysToMake: "1 Day Delivery",
+        fullname: "bellavida123",
+        imgUrl:
+          "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/9e2d7f453419c08e138fbfe9e65347df-696051281638594671.588431/DD8E6DDC-C231-47D3-B61A-97274452D3BF",
+        loc: "Jamaica",
+        memberSince: "May 2018",
+        avgResponceTime: "1 hour",
+        lastDelivery: "about 23 hours",
+        about:
+          "Thanks for stopping by! I'm a Social Media Specialist with 8+ years experience. I can help with all your Social Media related tasks! Send me a message. Let's get it done!",
+        reviewers: [
+          {
+            name: "bswoll51",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "She was amazing! Told me exactly when she would start. Got it done and over-delivered! Tips to grow my following and exclusive tailoring of my bio. She can call me The Terminator because I'll be back. 🤣",
+            reviewedAt: "Published 1 month ago",
+          },
+          {
+            name: "dawnmichaela",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "My bio turned out better than I could have hoped for! She took all my words and ideas and turned it in to a clear and powerful bio. I highly recommend working with her. She is easy to communicate with, responds quickly, and got it done fast. I would definitely use her again.",
+            reviewedAt: "Published 1 week ago",
+          },
+          {
+            name: "iidark",
+            country: "United Kingdom",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
+            review:
+              "Wonderful working with this seller. The work is as promised and delivered on time and on point. I would definitely recommend their work, in fact I'm about to book another gig from them.",
+            reviewedAt: "Published 2 weeks ago",
+          },
+          {
+            name: "singh_manu1313",
+            country: "New Zealand",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f3-1f1ff.png",
+            review:
+              "She is really good. I ordered two bio and both are amazing. Very easy to convey the message. And she did exactly what i was looking for. Definitely recommend",
+            reviewedAt: "Published 1 week ago",
+          },
+          {
+            name: "charliericeiii",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "Thank you so much for creating my bios for me on my social media pages. We got it right how we wanted it to I appreciate that. God bless!",
+            reviewedAt: "Published 3 weeks ago",
+          },
+        ],
+        tags: [
+          {
+            name: "bio",
+          },
+          {
+            name: "instagram marketing",
+          },
+          {
+            name: "instagram",
+          },
+          {
+            name: "social media",
+          },
+          {
+            name: "social network",
+          },
+        ],
+      },
+      {
+        _id: "g114",
+        category: "marketing",
+        image:
+          "https://fiverr-res.cloudinary.com/video/upload/so_0.0,t_gig_cards_web/jylhbgosxfqilptpru24.png",
+        title: "I will create an effective instagram hashtag growth strategy",
+        description:
+          "Why me?\nI have worked with Fortune 500 brands such as Adidas, L’Oreal, Xiaomi & Pfizer on numerous marketing and branding campaigns.\nI’ve successfully delivered 4000+ hashtag strategies with over 2600+ happy clients to help them achieve organic instagram growth.\nWhy my service?\nI will strategically research, analyze & handpick best-performing hashtags tailored to your Instagram account. I will teach you:\n✅ How you can effectively use hashtags to rank and grow organically\n✅ How to avoid bad hashtags to avoid negative growth\n✅ Stand out from your competition and increase your sales\n✅ How to increase traffic and conversion organically\n✅ Account optimization and posting secrets to gain new Instagram followers\nWhat will you get?\n✅ Data-backed high-ranking hashtags tailored to your niche and brand\n✅ Profile optimization so you can be discovered quickly\n✅ Personalized hashtag strategy to help you grow and increase your followers\n✅ Expert video guide to teach you to find high-ranking hashtags\n✅ Monthly newsletter based on Instagram's newest algorithm updates\n✅ Masters Course 2021/2022 (Platinum or Diamond Gig)",
+        price: "₪50.52",
+        daysToMake: "3 Days Delivery",
+        fullname: "tommysiu",
+        imgUrl:
+          "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/429c1a9395f66cd8a36b38028ff35aa6-1550219507580/db25059c-6725-4e49-bf82-fa4d2af0a780.jpg",
+        loc: "Hong Kong",
+        memberSince: "Aug 2016",
+        avgResponceTime: "3 hours",
+        lastDelivery: "about 1 hour",
+        about:
+          "Hello! My name is Tommy. I am a multi-displinary marketer with experience in both the Western and Chinese digital marketing landscape. I am passionate about crafting impactful experiences and digital marketing strategies at the intersection of brand and product. I have worked in London, Hong Kong and in Shanghai for companies such as the Adidas, L'Oreal, Pfizer and Danone I currently offer Instagram growth and TikTok marketing strategies on Fiverr",
+        reviewers: [
+          {
+            name: "jayebiz",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "I am very new to organic growth and trying to work Instagram in the best way possible for my business. I found this seller on a whim and WOW. I know that a lot of his reviews say that he is amazing but I didn't expect nearly HALF of what I got. It was so good that I immediately printed it out and made it into my own little book to reference as I go through the process of building my Instagram audience. In all honesty, I think that he should charge way more for what he gives. I can't believe I got so much value at this very fair price! Thank you so much and I can't WAIT to implement your strategies starting TODAY!!",
+            reviewedAt: "Published 2 months ago",
+          },
+          {
+            name: "basayra",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              'I was very very skeptical. Since this is my 1st business. I truly appreciated I was able to communicate with him and let him know about my "unique" nitch. Before we even proceeded he asked for my Instagram to make sure he could provided the services I requested. I was not prepared for the the whole breakdown!! I am shocked as to how much information I received for the price. Not only did i receive information regarding hashtags, but when to post, what to write under the post, how to not repost to the same things to become saturated . I can\'t wait to implement this new information to my Gram. Sooooo yeah about my unique niche go follow @ba_sayra.',
+            reviewedAt: "Published 1 month ago",
+          },
+          {
+            name: "marialeeheller",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "As other sellers described- the service is excellent, especially for the price. I did notice some spelling errors but that did not detract from the overall informative report. I am very pleased with the delivery and I learned A LOT. Also, the hashtags he provided were on point- very impressed. Let me preface this by saying that I had purchased similar hashtag research from another top seller on this platform and what I received was subpar. My business has elements of sustainability that I haven't pushed too much (because the 100% sustainable products haven't launched yet), but he picked up on it and delivered results that included this. 👏👏👏",
+            reviewedAt: "Published 2 months ago",
+          },
+          {
+            name: "soniabukh",
+            country: "Italy",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ee-1f1f9.png",
+            review:
+              "Tommy is absolutely great! My expectations were high because of all the other excellent reviews, but wow he really does go above and beyond! I got the most basic hashtag strategy package and not only did he do a great job with it, he also included a lot of bonus information and tools. If you're tired of not knowing how Instagram works and trying random tactics hoping they'll work and get your account seen, let me offer you a suggestion: buy this gig! You won't regret it! I can't wait to start implementing all his great advice. P.S. Communication was great and delivery was on time!",
+            reviewedAt: "Published 2 months ago",
+          },
+          {
+            name: "ricarda20",
+            country: "Germany",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e9-1f1ea.png",
+            review:
+              "Wow, I agree with everything everyone else said: Tommy overdelivers by far. What an amazing package. Thank you so much Tommy. It will take awhile to work through it but wow, I am speechless. To everyone who is considering using Tommy's service: DO IT!",
+            reviewedAt: "Published 1 week ago",
+          },
+        ],
+        tags: [
+          {
+            name: "instagram hashtags",
+          },
+          {
+            name: "instagram marketing",
+          },
+          {
+            name: "instagram",
+          },
+          {
+            name: "instagram growth",
+          },
+        ],
+      },
+      {
+        _id: "g115",
+        category: "marketing",
+        image:
+          "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/167364631/original/ddbe1967fc0deba979b6d66f2871051245a1544a.jpeg",
+        title:
+          "I will do organic promotion and marketing for youtube monetization",
+        subCategory: "Social Media Marketing",
+        description:
+          "Do you want to Monitize your YouTube Channel?\ni'm the best for digital media marketing, i will help you make youtube monetization\nSafe methods we use:\n· Web 2.0\n· iFrame Embedding\n· PPC advertising campaign\n· Do SEO friendly Video optimization\n· Will share video in Suggested & related videos\n· Add video in Niche related playlists for more impressions\nI strictly follow YT and Fiverr TOS so it means you will get organic You Tube Promotion for your channel monetization.\nREQUIREMENT:\nChannel Link\nWhat do you get from this gig?\n● Watch time boost\n● Compliance with YT TOS\n● Fully Organic And Real Traffic\n● 100% chances of monetization\n● Naturally helps in Video Ranking\nThink that your best friend is Elon Musk, and tomorrow morning you are asking him to post a post asking people to watch your vide0, probably you will get monetized in less than an hour!\nI do the same, just without Elon Musk :)",
+        price: "₪101.04",
+        daysToMake: "7 Days Delivery",
+        fullname: "farah_youtube",
+        imgUrl:
+          "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/5db4b0cccf5a3e138a9f57542175248c-1620011414308/8d7f7d68-efe9-465e-80d2-aedcc548efdb.JPG",
+        loc: "Vietnam",
+        memberSince: "Nov 2019",
+        avgResponceTime: "1 hour",
+        lastDelivery: "about 4 hours",
+        about:
+          "I am trained in online marketing, and I have studied SEO, Ads (Google, Facebook, Bing...), I have 6 years of experience in digital marketing, in which time working at fiverr is 3 years, with more than 2000 completed orders, the main work that I do is: - Youtube seo and promotion - SEO - Website traffics - Spotify promotion - Instagram promotion Contact me if you have any questions!",
+        reviewers: [
+          {
+            name: "tonyamajette",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "The seller got me the promotion that I needed, however, she stated that I could contact her if I had any problems and I did and she was not helpful. This is my second gig with her and she was great at many things but not so much at helping me to understand or correct issues with the result of her efforts. I had planned to use her for many other gigs but in light of her response to my request for help, I cannot. I do recommend her for getting you the numbers that you need but if you are denied, do not expect any help from her to actually get passed the review process for monetization.",
+            reviewedAt: "Published 1 month ago",
+          },
+          {
+            name: "robertpetyko",
+            country: "Hungary",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ed-1f1fa.png",
+            review:
+              "She delivered as promised. I was sceptical . I bought a smallest package. My watch hour went up. Also gained a lot of subscribers. Some been deleted. But what`s been promised been delivered. So well done !",
+            reviewedAt: "Published 1 week ago",
+          },
+          {
+            name: "brucefrausto893",
+            country: "Thailand",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f9-1f1ed.png",
+            review:
+              "she increased my subscribers amount by a little over 1000 subscribers and over 4000 watch hours. I recommend to anyone who wants a boost for their channel.",
+            reviewedAt: "Published 1 month ago",
+          },
+          {
+            name: "vwgbooks",
+            country: "United Kingdom",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
+            review:
+              "The gig was good, nothing amazing. I didn't really notice any difference when using this gig. Watch time, subs didn't increase that much. I did order the lowest gig, so I wasn't expecting big numbers or anything. It was a good gig and the seller was easy to work with.",
+            reviewedAt: "Published 2 weeks ago",
+          },
+          {
+            name: "dulline",
+            country: "Romania",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f7-1f1f4.png",
+            review:
+              "I just want to be short and clear she is the BEST ! Very happy and satisfied what she did to my youtube channel ! A lot of subscribers and more what she said and more watch hours.If you want to grow your youtube channel fast and organic 100% real she is the ONE who can do it ! Thank you very much Farah !",
+            reviewedAt: "Published 2 weeks ago",
+          },
+        ],
+        tags: [
+          {
+            name: "youtube",
+          },
+          {
+            name: "monetization",
+          },
+          {
+            name: "youtube channel",
+          },
+          {
+            name: "youtube promotion",
+          },
+        ],
+      },
+      {
+        _id: "g116",
+        category: "marketing",
+        image:
+          "https://fiverr-res.cloudinary.com/video/upload/so_1.760625,t_gig_cards_web/ffupfvrslj3mos2byhrh.png",
+        title: "I will develop a content strategy for your brand or business",
+        description:
+          "Quality content, industry-specific keywords, and a social media plan will help your business and brand soar! I am a digital marketing strategist and content creator who is ready to help build your online presence.\nWhat you will get:\nAn evaluation of your current page(s) to identify your strengths and weaknesses\nA custom strategy specific to your brand, mission, and standards\nCustom designed graphics created for your target audience\nSEO optimized keywords to use in captions and as hashtags\nAround the clock customer service and communication to help you with anything and everything you need\nI am here to take your brand to the next level! Message me with any questions you have.",
+        price: "₪151.55",
+        daysToMake: "3 Days Delivery",
+        fullname: "mariarotunda",
+        imgUrl:
+          "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/d098c50d82476b11568f3a50111a8a89-1636128369729/ef737ebd-6908-47bc-be50-963dabe16d0e.jpg",
+        loc: "United States",
+        memberSince: "Jul 2020",
+        avgResponceTime: "7 hours",
+        lastDelivery: "1 week",
+        about:
+          "Hello! My name is Maria, and I am a digital marketer with over 3 years of experience working with diverse brands and businesses. I am well versed in everything marketing, SEO, graphic design, writing, and video editing. I am a one-stop shop for whatever you and your brand needs. I look to working with you!",
+        reviewers: [
+          {
+            name: "thaddeuswill410",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "Omg, This seller was amazing and exactly what we needed.. We were kinda in a funk and need to be saved. She did just that with amazing energy, a wonderful attitude and passion for what she does. The strategy was perfect, Thanks again for bringing us great value.. Highly Suggested..",
+            reviewedAt: "Published 2 weeks ago",
+          },
+          {
+            name: "nickjuliano",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "Excellent job! I’ve been using Fiverr for 3 years now and by far one of the best results/deliverables that I’ve gotten. The video describing what you did was a step above the rest. I’ll definitely be implementing your suggestions. I appreciate all of your hard work.",
+            reviewedAt: "Published 1 month ago",
+          },
+          {
+            name: "joshuanathan474",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "Really smooth transaction. She went above and beyond in detail for the marketing / brand style guides. Looking to get more tasks completed with the Seller.",
+            reviewedAt: "Published 2 months ago",
+          },
+          {
+            name: "onyxwoman",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "She did a really good job that prompted me to make some badly needed changes. The advice was really good. I especially liked the video input.",
+            reviewedAt: "Published 1 month ago",
+          },
+          {
+            name: "tcbrownvo",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review: "Provided excellent service and good direction. Thank you.",
+            reviewedAt: "Published 1 week ago",
+          },
+        ],
+        tags: [
+          {
+            name: "instagram marketing",
+          },
+          {
+            name: "web marketing",
+          },
+          {
+            name: "social media manager",
+          },
+          {
+            name: "social marketers",
+          },
+          {
+            name: "seo marketing",
+          },
+        ],
+      },
+      //research and summeries
+      {
+        _id: "g117",
+        category: "research and summeries",
+        image:
+          "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/222820209/original/50b95e0afd209c75fa3693b835fd0db671249736.png",
+        title: "I will perform research on any subject matter for you",
+        description:
+          "I have over 5 years of experience conducting high-quality, detailed research throughout my Master of Science by Research degree and PhD programme.\nThe training and projects I have undertaken in my degrees have given me the ability to efficiently source key information. In particular, the niche research required for academic theses has made me proficient at sourcing the most relevant details.\nFurthermore, I have learned how to synthesise a lot of information in a short period of time, incorporate it into further research, and write what I have learned into top-quality publications. This allows me to pinpoint the most important information and produce concise, detailed summaries.\nI will provide a document in whichever format you require (e.g. Word.docx, Adobe.pdf) complete with a detailed summary, references and links should you wish to conduct further research. If you would like me to conduct follow-up research based on what I have provided, please do not hesitate to get in touch for discounted rates.\n<---- PLEASE NOTE: I will not write academic articles, essays or papers. ---->\nPLEASE GET IN TOUCH BEFORE ORDERING TO DISCUSS YOUR REQUIREMENTS.",
+        price: "₪202.07",
+        daysToMake: "4 Days Delivery",
+        fullname: "struhenderson",
+        imgUrl:
+          "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/eb6eef20969192eca1d8b1301e91cb4f-1630440851285/60f03cc4-71f2-437b-a241-f9423b6e2728.jpg",
+        loc: "United Kingdom",
+        memberSince: "Aug 2021",
+        avgResponceTime: "2 hours",
+        lastDelivery: "4 days",
+        about:
+          "I am a current Doctoral Researcher with a strong research and scientific history, having published academic papers and presented at numerous international conferences. I have a BSc (Hons), a MScR, and have nearly finished my PhD. My experience has given me excellent research and written communication skills, as well as knowledge of how to present and illustrate data digitally. I am highly experienced in the use of the Microsoft Office and Adobe suite of apps. Outside of my career I am very interested in applying my scientific training to aspects of fitness and nutrition.",
+        reviewers: [
+          {
+            name: "veeg10",
+            country: "Jordan",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ef-1f1f4.png",
+            review:
+              "Amazing work! Every word is unique and all ideas were related to the research even though, the research question had some complexity. He even went extra miles and Straun is very genuine with great communication. I recommend Straun to anyone seeking for an excellent, clear research. THANKS! I am keen to see the next research!",
+            reviewedAt: "Published 2 months ago",
+          },
+          {
+            name: "schapes47",
+            country: "Netherlands",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f3-1f1f1.png",
+            review:
+              "Struan´s research is outstanding. Meticulous work and a stellar ability to synthesize information in the shortest amount of time. The price is also very fair taking the quality of the research into consideration. Can only recommend and if I ever need assistance in research I know whom to work with again!",
+            reviewedAt: "Published 3 weeks ago",
+          },
+          {
+            name: "harrybenham228",
+            country: "United Kingdom",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
+            review:
+              "Once again, Struan exceeded expectations and delivered an excellent research review. He implements a lot of referencing, proving his depth of research- I will definitely work with him again, thank you!",
+            reviewedAt: "Published 2 months ago",
+          },
+          {
+            name: "harrybenham228",
+            country: "United Kingdom",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
+            review:
+              "Struan's work is exceptional! His communication, service and final delivery were of the highest quality and even better than expected. I will definitely choose him for research work again!",
+            reviewedAt: "Published 2 months ago",
+          },
+          {
+            name: "bossbroc",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review: "My absolute go-to researcher!",
+            reviewedAt: "Published 3 hours ago",
+          },
+        ],
+        tags: [
+          {
+            name: "online research",
+          },
+          {
+            name: "research",
+          },
+          {
+            name: "internet researcher",
+          },
+        ],
+      },
+      {
+        _id: "g118",
+        category: "research and summeries",
+        image:
+          "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/217276086/original/6a004b8b82868ab02836bdfcb42c4a0e4b042f87.png",
+        title:
+          "I will provide quality essays research and summaries on any topic",
+        description:
+          "GET CUSTOM ORDERS, QUALITY WORK, AND AN AMAZING EXPERIENCE\nIf you're looking for a professional researcher and a committed writer for all your writing needs, click on this gig because I can't wait to work with YOU.\nI am an expert writer with over 8 years' experience. I guarantee quality, original content written from scratch, plagiarism free, and delivered within the shortest time possible. My main areas of expertise are\nResearch\nEnglish\nHistory\nBusiness\nPsychology\nnursing, arts\nEducation\nCriminal justice\nSociology\nSupply chain\nLogistics\nCase studies\nMarketing\nSummary Writing\nI will offer YOU:\n100% Plagiarism free content\nTimely turnaround\nTop-notch grammar\nWell researched and referenced content\n24/7 Customer support\nKindly contact me before placing an order.\nPS: Custom orders also available upon request",
+        price: "₪67.36",
+        daysToMake: "1 Day Delivery",
+        fullname: "victoriaeva610",
+        imgUrl:
+          "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/34a47e49caa09a703d81ef0621ad0ac1-1626197544385/3cb9eb7a-2163-4722-a1b0-0ddb9eb04d4e.png",
+        loc: "Kenya",
+        memberSince: "Jul 2021",
+        avgResponceTime: "1 hour",
+        lastDelivery: "about 16 hours",
+        about:
+          "I am an enthusiastic and proficient writer with 4+ years of research related experience. My journey in the writing industry kicked off at the University where I did countless research and gained more experience. I will assist you with any kind of research and solve your different business needs. Please reach out for excellent and timely work.",
+        reviewers: [
+          {
+            name: "isabellaava851",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "The seller went above and beyond and highly recommend u look no further. Her ability to create such detailed projects has convinced me that she is the best at what she does and will work with her again and again.",
+            reviewedAt: "Published 3 weeks ago",
+          },
+          {
+            name: "lincoingabriel",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "This seller was extremely communicative, which I really appreciated. The seller was prompt with the delivery and the work was professionally done! I would highly recommend and use the services again!",
+            reviewedAt: "Published 3 weeks ago",
+          },
+          {
+            name: "tiffanyhaddish",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "Awesome at communication and writing. Really sweet and understanding, goes above and beyond to assure customer satisfaction!! 5 out of 5 recommend!!!",
+            reviewedAt: "Published 3 weeks ago",
+          },
+          {
+            name: "loganmax688",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "a great buyer with great understanding on the task, I will definitely come again and again, I am really impressed.",
+            reviewedAt: "Published 3 weeks ago",
+          },
+          {
+            name: "candiceaponte",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "She got me my assignment back in 6 hours. Thank you so much",
+            reviewedAt: "Published 7 hours ago",
+          },
+        ],
+        tags: [
+          {
+            name: "reports",
+          },
+          {
+            name: "articles",
+          },
+          {
+            name: "internet researcher",
+          },
+          {
+            name: "summaries",
+          },
+        ],
+      },
+      {
+        _id: "g119",
+        category: "research and summeries",
+        image:
+          "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/210082068/original/f1d222ff641f41a63cce8235a6a5128f05b477bc.jpg",
+        title:
+          "I will deliver quality case study analysis, articles, research and summaries",
+        description:
+          "Hi, thank you for clicking my gig.\nKindly contact me before placing an order to discuss the requirements and check for availability.\nAre you looking for a professional for your essays, articles, case study, reflections, summary and research work? Then look no further, you are on the right PLACE.\nI am here to provide you with high-quality and professional services. I have been in the writing industry for over six years. As a researcher, I have a keen interest in identifying major problems and proposing better solutions/recommendations against them.\nWhat you will get from this gig?\nUnique and creative content\nOn-time delivery\nEngaging content\nWell researched and quality work\n100% plagiarism-free\nN/B: I OFFER SERVICES ACCORDING TO FIVERR TERMS OF SERVICE (TOS).",
+        price: "₪33.68",
+        daysToMake: "2 Days Delivery",
+        fullname: "angela_637",
+        imgUrl:
+          "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/03e667c26a63c20863e016917c423eb0-1622910916319/85930fed-bb45-4b01-b117-3913f19b77d7.PNG",
+        loc: "Kenya",
+        memberSince: "Apr 2021",
+        avgResponceTime: "1 hour",
+        lastDelivery: "about 2 hours",
+        about:
+          "I am a professional and diligent writer with more than 6 years experience as a freelance writer. My goal is your satisfaction and to deliver work that you will appreciate. Writing is my passion and I aim to do excellent work for all my clients that will meet the set goals and standards.",
+        reviewers: [
+          {
+            name: "myaznd",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "Her work is absolutely amazing ! Delivered on time and very accommodating . would definitely recommend . I will be reaching out again .",
+            reviewedAt: "Published 1 month ago",
+          },
+          {
+            name: "evanclark",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "excellent experience. Angela delivered exactly what she said she would. Very thorough and High quality of service and communication. will definitely work with again!",
+            reviewedAt: "Published 2 months ago",
+          },
+          {
+            name: "ronneishapicket",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review:
+              "Didn’t need any modifications was absolutely perfect ! Got me an A so I highly recommend! And will be shopping in the future",
+            reviewedAt: "Published 1 month ago",
+          },
+          {
+            name: "klemicha",
+            country: "Austria",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e6-1f1f9.png",
+            review:
+              "Angela did a great job in a short time, understood the task easily, communicated well & has good language skills. Thanks a lot :)",
+            reviewedAt: "Published 1 week ago",
+          },
+          {
+            name: "whatsrealeasy",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review: "great work on the research",
+            reviewedAt: "Published 4 days ago",
+          },
+        ],
+        tags: [
+          {
+            name: "research and summary",
+          },
+          {
+            name: "case study",
+          },
+          {
+            name: "research",
+          },
+          {
+            name: "summary",
+          },
+          {
+            name: "articles",
+          },
+        ],
+      },
+      {
+        _id: "g120",
+        category: "research and summeries",
+        image:
+          "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/232972469/original/679ec7f5d8e49604c2290664620969803d96f7c7.jpg",
+        title:
+          "I will do market research, business research, swot analysis, and competitive analysis",
+        description:
+          "Hello Fiverr Community,\nThis is Layee, A professional Business Consultant.\nBefore venturing in to any field in the business sector, it’s important to carry out a prior study, and carry out market research on that particular business.\nI will carry out a comprehensive market research for you, and come up with a detailed market research report.\nThe Market Research Report will cover the following areas depending on the package & availability of information: -\n· Market Research\n· Competitor analysis\n· Industry analysis\n· Product Research\n· Market Segmentation\n· Porter's Five Forces Analysis\n· Pestle Analysis\n· Market Trends\n· Market Drivers\n· Marketing Mix\n· Market Size\n· Total Available Market (TAM)\n· Demographics\n· SWOT Analysis\n· Market Growth\n· Marketing Options\n· Marketing Strategies\n· Future Markets\n· Web Research\n· Business Plan (Gig Extra)\nAnd Many More….\nThe success of your business is my primary objective/priority, and will offer all these services so that you are able to achieve your business objectives easily, and on time (or",
+        price: "₪168.39",
+        daysToMake: "1 Day Delivery",
+        fullname: "layee84",
+        imgUrl:
+          "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/b398d51589f16ed08ca0510c2c5edbe2-1636020659427/ecb5ae5e-d22a-47bc-bd9f-e7b2f99c0994.jpg",
+        loc: "Kenya",
+        memberSince: "Nov 2021",
+        avgResponceTime: "1 hour",
+        lastDelivery: "4 days",
+        about:
+          "Hi, my name is Lay. I'm a professional writer in Microsoft word, excel, PowerPoint expert with years of experience. Through my time of work, I have been able to manage tasks such as document formatting & editing, designing, cleanup, and typing of documents for both individual firms and local governments, having worked that long I'm proficient and have the capacity in executing tasks involved in different fields requested by the client. Welcome, let us work together. regards, Troyeb84.",
+        reviewers: [
+          {
+            name: "njameshoward",
+            country: "United States",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            review: "Great communication and speed",
+            reviewedAt: "Published 2 weeks ago",
+          },
+          {
+            name: "lucasnowak224",
+            country: "Pakistan",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f5-1f1f0.png",
+            review:
+              "Brilliant communication, time management and highly appreciate the hardwork and input.",
+            reviewedAt: "Published 1 month ago",
+          },
+          {
+            name: "lucasnowak224",
+            country: "Pakistan",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f5-1f1f0.png",
+            review:
+              "Met tight deadline with great communication and cooperation.",
+            reviewedAt: "Published 4 weeks ago",
+          },
+          {
+            name: "muradyoussef",
+            country: "Austria",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e6-1f1f9.png",
+            review: "verrrrrrrrrrrrrrrry gooooooooooooooooood",
+            reviewedAt: "Published 2 months ago",
+          },
+          {
+            name: "cantillo16",
+            country: "Costa Rica",
+            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e8-1f1f7.png",
+            review: "Excellent service",
+            reviewedAt: "Published 2 months ago",
+          },
+        ],
+        tags: [
+          {
+            name: "competitive analysis",
+          },
+          {
+            name: "business research",
+          },
+          {
+            name: "market research",
+          },
+          {
+            name: "reports",
+          },
+          {
+            name: "swot analysis",
+          },
+        ],
+      },
     ];
     storageService.store(KEY, gigs);
   }
