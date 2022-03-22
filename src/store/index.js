@@ -1,5 +1,5 @@
-import { createStore } from 'vuex'
-// import toyStore from './modules/toy-module.js'
+import { createStore } from "vuex";
+import gigModule from "./modules/gig-module";
 
 // create a store instance
 const store = createStore({
@@ -10,8 +10,8 @@ const store = createStore({
   actions: {},
 
   modules: {
-    // toyStore,
+    gigModule,
   },
-})
+});
 
-export default store
+export default store;

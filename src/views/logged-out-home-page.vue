@@ -113,7 +113,7 @@ export default {
   methods: {
     heroAnimation() {
       const elHeroWrappers = document.querySelectorAll(".hero-wrapper");
-      console.log(elHeroWrappers);
+      // console.log(elHeroWrappers);
 
       if (this.heroIdx > 4) this.heroIdx = 0;
       elHeroWrappers.forEach((hero) => {
