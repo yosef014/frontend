@@ -7,25 +7,39 @@
 
       <!-- list -->
     </div>
+    {{gigsToShow}}
   </div>
 </template>
 
 <script>
 import gigsPreview from "../components/gigs-preview.vue";
 import LoggedOutNavbar from "../components/logged-out-app-header.vue";
+
 export default {
   data() {
-    return {};
+    return {
+    
+    };
   },
   components: {
     gigsPreview,
     LoggedOutNavbar,
   },
-  created() {},
+ async created() {
+      // this.category = this.$route.params.gig;
+      
+    },
   computed: {
     gigs() {
       return this.$store.getters.gigs;
     },
+    gigsToShow(){
+      const category =  this.$route.params.gig;
+        
+      const gigsToDisplay= this.gigs.filter((gig)=>gig.category == category)
+      
+      console.log(gigsToDisplay);
+    }
   },
 };
 </script>
