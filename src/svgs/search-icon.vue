@@ -1,5 +1,6 @@
 <template>
-  <svg class="search-icon icon"
+  <svg
+    class="search-icon icon"
     width="20px"
     height="20px"
     viewBox="0 0 16 16"
@@ -16,8 +17,9 @@ export default {};
 </script>
 
 <style>
-    .search-icon {
-       fill: #95979d;
-        float: left;
-    }
+.search-icon {
+  fill: #95979d;
+  position: absolute;
+  
+}
 </style>
