@@ -1,8 +1,9 @@
 import { storageService } from "./storage-service";
+import { asyncStorageService } from "./async-storage-service";
 
 export const gigService = {
   query,
-  //   getById,
+  getById,
   //   remove,
   //   save,
   //   getEmptyTodo,
@@ -14,6 +15,10 @@ var gGigs = _createGigs();
 
 function query() {
   return JSON.parse(JSON.stringify(gGigs));
+}
+
+function getById(id) {
+  return asyncStorageService.getById(KEY, id);
 }
 
 _createGigs();
