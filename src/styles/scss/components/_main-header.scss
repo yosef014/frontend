@@ -160,6 +160,9 @@
     margin-left: 20px;
     display: flex;
     align-items: center;
+    transition: 0.5s;
+    display: none;
+
     input {
       background-color: #fff;
       height: 34px;

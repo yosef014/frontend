@@ -42,9 +42,13 @@ export default {
       if (window.scrollY > 200) {
         console.log("200");
         document.querySelector(".categories-menu-package").style.display =
+          document.querySelector(".nav-search").style.display =
+          "flex";
           "flex";
         document.querySelector(".default-container").style.display = "flex";
       } else if (window.scrollY > 50) {
+          document.querySelector(".nav-search").style.display =
+          "none";
         document.querySelector(".categories-menu-package").style.display =
           "none";
         document.querySelector(".default-container").style.display = "none";
@@ -53,6 +57,8 @@ export default {
         elNavFluid.classList.add("header-container-fluid-close");
         elNavFluid.classList.remove("header-container-fluid");
       } else if (window.scrollY > 0) {
+        document.querySelector(".nav-search").style.display =
+          "none";
         document.querySelector(".categories-menu-package").style.display =
           "none";
         document.querySelector(".default-container").style.display = "none";
