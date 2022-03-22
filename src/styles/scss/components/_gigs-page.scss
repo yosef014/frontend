@@ -1,0 +1,31 @@
+.gig-list{
+    margin: 0 auto;
+    gap: 16px;
+    max-width: $screen-size-l;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.gig-card{
+    border:solid 1px #e4e5e7;
+    width: 245px;
+    .gig-img img{
+        max-width: 245px;
+        max-height:200px;
+    }
+    .gig-add-by{
+
+        img{
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+        }
+    }
+    .gig-card-footer{
+        border-top:solid 1px #e4e5e7;
+        
+
+    }
+}

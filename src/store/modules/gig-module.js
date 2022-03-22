@@ -12,14 +12,12 @@ export default {
   },
   mutations: {
     setGigs(state, { gigs }) {
-      console.log(gigs);
       state.gigs = gigs;
     },
   },
   actions: {
     loadGigs({ commit, state }) {
-     const gigs = gigService.query(state.gigs);
-    //  console.log(gigs);
+     const gigs = gigService.query();
       commit({ type: "setGigs" ,gigs});
     },
   },
