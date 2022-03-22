@@ -3,7 +3,7 @@
     <div class="nav-container" ref="nav">
       <div class="logo">fiiver<span style="color: #1dbf73">.</span></div>
       <div class="nav-search">
-        <searchIconVue/>
+        <searchIconVue />
         <input type="text" placeholder="Find Services" />
         <button class="nav-serach-bt">Search</button>
       </div>
@@ -35,20 +35,18 @@ import searchIconVue from "../svgs/search-icon.vue";
 export default {
   methods: {},
 
+  created() {},
   mounted() {
     const elNav = document.querySelector(".nav-container");
     const elNavFluid = document.querySelector(".fluid-el");
     window.addEventListener("scroll", function () {
       if (window.scrollY > 200) {
-        console.log("200");
         document.querySelector(".categories-menu-package").style.display =
-          document.querySelector(".nav-search").style.display =
           "flex";
-          "flex";
+        document.querySelector(".nav-search").style.display = "flex";
         document.querySelector(".default-container").style.display = "flex";
       } else if (window.scrollY > 50) {
-          document.querySelector(".nav-search").style.display =
-          "none";
+        document.querySelector(".nav-search").style.display = "none";
         document.querySelector(".categories-menu-package").style.display =
           "none";
         document.querySelector(".default-container").style.display = "none";
@@ -56,9 +54,8 @@ export default {
         elNav.classList.add("nav-container-open-one");
         elNavFluid.classList.add("header-container-fluid-close");
         elNavFluid.classList.remove("header-container-fluid");
-      } else if (window.scrollY > 0) {
-        document.querySelector(".nav-search").style.display =
-          "none";
+      } else if (window.scrollY > 0 || window.scrollY == 0) {
+        document.querySelector(".nav-search").style.display = "none";
         document.querySelector(".categories-menu-package").style.display =
           "none";
         document.querySelector(".default-container").style.display = "none";
@@ -77,7 +74,6 @@ export default {
   watch: {},
   components: {
     searchIconVue,
-
-  }
+  },
 };
 </script>
