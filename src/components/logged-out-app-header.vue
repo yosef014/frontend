@@ -1,13 +1,13 @@
 <template>
-  <div class="logged-out-nav-container">
-    <div class="logged-out-nav" ref="nav">
+  <div :class="toggleTransperant" class="logged-out-nav-container max-width-container">
+    <div class="logged-out-nav max-width-container"  ref="nav">
       <div class="logo">fiiver<span>.</span></div>
       <div class="nav-search">
         <searchIconVue />
         <input type="text" placeholder="Find Services" />
         <button class="nav-serach-bt">Search</button>
       </div>
-      <div class="nav">
+      <div class="link-list">
         <ul>
           <li>Fiverr Business</li>
           <li>Explore</li>
@@ -20,12 +20,16 @@
       </div>
     </div>
     <!-- {{ windowTop }} -->
-    <div class="categories-menu-package">
-      <div class="default-container">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque quasi,
-        dolorem perspiciatis culpa amet velit id deleniti modi incidunt. Vero
-        dolorem nam veniam quibusdam sit porro aliquam provident, cumque odio.
-      </div>
+    <div class="categories-menu-package max-width-container">
+      <ul>
+        <li>Graphic & Design</li>
+        <li>Digital Marketing</li>
+        <li>Writing & Translation</li>
+        <li>Video & Animation</li>
+        <li>Music & Audio</li>
+        <li>Programming & Tech</li>
+        <li>Business</li>
+      </ul>
     </div>
   </div>
 </template>
@@ -33,44 +37,71 @@
 <script>
 import searchIconVue from "../svgs/search-icon.vue";
 export default {
+  data() {
+    return {
+      isTransparent: true,
+    }
+  },
+
   methods: {},
 
-  created() {},
+  created() {
+    console.log(document.querySelector(".categories-menu-package"));
+  },
   mounted() {
-    const elNav = document.querySelector(".nav-container");
-    const elNavFluid = document.querySelector(".fluid-el");
-    window.addEventListener("scroll", function () {
-      if (window.scrollY > 200) {
-        document.querySelector(".categories-menu-package").style.display =
-          "flex";
-        document.querySelector(".nav-search").style.display = "flex";
-        document.querySelector(".default-container").style.display = "flex";
-      } else if (window.scrollY > 50) {
-        document.querySelector(".nav-search").style.display = "none";
-        document.querySelector(".categories-menu-package").style.display =
-          "none";
-        document.querySelector(".default-container").style.display = "none";
-        elNav.classList.remove("nav-container");
-        elNav.classList.add("nav-container-open-one");
-        elNavFluid.classList.add("header-container-fluid-close");
-        elNavFluid.classList.remove("header-container-fluid");
-      } else if (window.scrollY > 0 || window.scrollY == 0) {
-        document.querySelector(".nav-search").style.display = "none";
-        document.querySelector(".categories-menu-package").style.display =
-          "none";
-        document.querySelector(".default-container").style.display = "none";
-        elNavFluid.classList.remove("header-container-fluid-close");
-        elNavFluid.classList.add("header-container-fluid");
-        elNav.classList.remove("nav-container-open-one");
-        elNav.classList.add("nav-container");
-      }
-    });
+    var elCatagoryMenu = document.querySelector(".categories-menu-package");
+    var elNav = document.querySelector(".logged-out-nav-container");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY < 5 ) this.isTransparent = true
+      if (window.scrollY > 10) this.isTransparent = false
+      
+      if (window.scrollY < 100) elCatagoryMenu.style.opacity = 0
+      if (window.scrollY > 200) elCatagoryMenu.style.opacity = 1
+
+      console.log("🚀 ~ file: logged-out-app-header.vue ~ line 54 ~ window.addEventListener ~ this.isTransparent", this.isTransparent)
+    })
+  
   },
 
-  data: () => {
-    return {};
+  computed: {
+    toggleTransperant() {
+      return {
+        'header-transparent': this.isTransparent === true,
+      }
+    }
   },
-  computed: {},
+  // mounted() {
+  //   const elNav = document.querySelector(".logged-out-nav-container");
+  //   const elNavFluid = document.querySelector(".fluid-el");
+  //   window.addEventListener("scroll", function () {
+  //     if (window.scrollY > 200) {
+  //       document.querySelector(".categories-menu-package").style.display =
+  //         "flex";
+  //       document.querySelector(".nav-search").style.display = "flex";
+  //       document.querySelector(".default-container").style.display = "flex";
+  //     } else if (window.scrollY > 50) {
+  //       document.querySelector(".nav-search").style.display = "none";
+  //       document.querySelector(".categories-menu-package").style.display =
+  //         "none";
+  //       document.querySelector(".default-container").style.display = "none";
+  //       elNav.classList.remove("nav-container");
+  //       elNav.classList.add("nav-container-open-one");
+  //       elNavFluid.classList.add("header-container-fluid-close");
+  //       elNavFluid.classList.remove("header-container-fluid");
+  //     } else if (window.scrollY > 0 || window.scrollY == 0) {
+  //       document.querySelector(".nav-search").style.display = "none";
+  //       document.querySelector(".categories-menu-package").style.display =
+  //         "none";
+  //       document.querySelector(".default-container").style.display = "none";
+  //       elNavFluid.classList.remove("header-container-fluid-close");
+  //       elNavFluid.classList.add("header-container-fluid");
+  //       elNav.classList.remove("nav-container-open-one");
+  //       elNav.classList.add("nav-container");
+  //     }
+    // });
+  
+
+  
   watch: {},
   components: {
     searchIconVue,
