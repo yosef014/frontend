@@ -1,23 +1,20 @@
 <template>
-
-   
-      <div class="gig-card" v-for="gig in gigs" :key="gig.id">
-        <div class="gig-img">
-          <img :src="gig.image" />
-        </div>
-        <div class="gig-add-by">
-          <img :src="gig.imgUrl" />
-          ad by : {{ gig.fullname }}
-        </div>
-        <div class="gig-title">
-          {{ gig.title }}
-        </div>
-        <div class="gig-stars-rate">⭐</div>
-        <div class="gig-card-footer">{{ gig.price }} ❤</div>
-      </div>
-
-   
-  
+  <div class="gig-card" v-for="gig in gigs" :key="gig.id">
+    <div class="gig-img">
+      <img :src="gig.image" />
+    </div>
+    <div class="gig-add-by">
+      <img :src="gig.imgUrl" />
+      ad by : {{ gig.fullname }}
+    </div>
+    <div class="gig-title">
+      {{ gig.title }}
+    </div>
+    <div class="gig-stars-rate">
+      {{ gig.rate }}⭐
+    </div>
+    <div class="gig-card-footer">{{ gig.price }} ❤</div>
+  </div>
 </template>
 
 <script>
@@ -33,7 +30,8 @@ export default {
     // appHeader,
   },
   created() {},
-  computed: {
+  computed: {},
+  methods: {
    
   },
 };
