@@ -1,7 +1,7 @@
 <template>
-  <div class="header-container-fluid fluid-el">
-    <div class="nav-container" ref="nav">
-      <div class="logo">fiiver<span style="color: #1dbf73">.</span></div>
+  <div class="logged-out-nav-container">
+    <div class="logged-out-nav" ref="nav">
+      <div class="logo">fiiver<span>.</span></div>
       <div class="nav-search">
         <searchIconVue />
         <input type="text" placeholder="Find Services" />
