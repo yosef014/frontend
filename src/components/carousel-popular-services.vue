@@ -45,6 +45,7 @@
           itemsToScroll: 5,
           transition: 600,
           snapAlign: "center",
+          wrapAround: true,
         },
         slides: [
           {
