@@ -3,8 +3,6 @@
     <div class="breadcrumbs">loaction page</div>
     <div class="gig-filters">filters</div>
     <div class="gig-list">
-       <!-- <car-preview :car="car" /> -->
-
       <div class="gig-card" v-for="gig in gigs" :key="gig.id">
         <div class="gig-img">
           <img :src="gig.image" />
@@ -26,13 +24,13 @@
 </template>
 
 <script>
-import gigsPreview from "../components/gigs-preview.vue";
+import appHeader from "../components/app-header.cmp.vue";
 export default {
   data() {
     return {};
   },
   components: {
-    gigsPreview
+    appHeader,
   },
   created() {},
   computed: {
