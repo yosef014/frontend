@@ -36,36 +36,36 @@ export default {
   methods: {},
 
   created() {},
-  mounted() {
-    const elNav = document.querySelector(".nav-container");
-    const elNavFluid = document.querySelector(".fluid-el");
-    window.addEventListener("scroll", function () {
-      if (window.scrollY > 200) {
-        document.querySelector(".categories-menu-package").style.display =
-          "flex";
-        document.querySelector(".nav-search").style.display = "flex";
-        document.querySelector(".default-container").style.display = "flex";
-      } else if (window.scrollY > 50) {
-        document.querySelector(".nav-search").style.display = "none";
-        document.querySelector(".categories-menu-package").style.display =
-          "none";
-        document.querySelector(".default-container").style.display = "none";
-        elNav.classList.remove("nav-container");
-        elNav.classList.add("nav-container-open-one");
-        elNavFluid.classList.add("header-container-fluid-close");
-        elNavFluid.classList.remove("header-container-fluid");
-      } else if (window.scrollY > 0 || window.scrollY == 0) {
-        document.querySelector(".nav-search").style.display = "none";
-        document.querySelector(".categories-menu-package").style.display =
-          "none";
-        document.querySelector(".default-container").style.display = "none";
-        elNavFluid.classList.remove("header-container-fluid-close");
-        elNavFluid.classList.add("header-container-fluid");
-        elNav.classList.remove("nav-container-open-one");
-        elNav.classList.add("nav-container");
-      }
-    });
-  },
+  // mounted() {
+  //   const elNav = document.querySelector(".nav-container");
+  //   const elNavFluid = document.querySelector(".fluid-el");
+  //   window.addEventListener("scroll", function () {
+  //     if (window.scrollY > 200) {
+  //       document.querySelector(".categories-menu-package").style.display =
+  //         "flex";
+  //       document.querySelector(".nav-search").style.display = "flex";
+  //       document.querySelector(".default-container").style.display = "flex";
+  //     } else if (window.scrollY > 50) {
+  //       document.querySelector(".nav-search").style.display = "none";
+  //       document.querySelector(".categories-menu-package").style.display =
+  //         "none";
+  //       document.querySelector(".default-container").style.display = "none";
+  //       elNav.classList.remove("nav-container");
+  //       elNav.classList.add("nav-container-open-one");
+  //       elNavFluid.classList.add("header-container-fluid-close");
+  //       elNavFluid.classList.remove("header-container-fluid");
+  //     } else if (window.scrollY > 0 || window.scrollY == 0) {
+  //       document.querySelector(".nav-search").style.display = "none";
+  //       document.querySelector(".categories-menu-package").style.display =
+  //         "none";
+  //       document.querySelector(".default-container").style.display = "none";
+  //       elNavFluid.classList.remove("header-container-fluid-close");
+  //       elNavFluid.classList.add("header-container-fluid");
+  //       elNav.classList.remove("nav-container-open-one");
+  //       elNav.classList.add("nav-container");
+  //     }
+  //   });
+  // },
 
   data: () => {
     return {};
