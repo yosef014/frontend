@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <div class="breadcrumbs">loaction page</div>
-    <div class="gig-filters">filters</div>
-    <div class="gig-list">
+
+   
       <div class="gig-card" v-for="gig in gigs" :key="gig.id">
         <div class="gig-img">
           <img :src="gig.image" />
@@ -18,25 +16,25 @@
         <div class="gig-card-footer">{{ gig.price }} ❤</div>
       </div>
 
-      <!-- list -->
-    </div>
-  </div>
+   
+  
 </template>
 
 <script>
-import appHeader from "../components/app-header.cmp.vue";
+// import appHeader from "../components/app-header.cmp.vue";
 export default {
+  props: {
+    gigs: Object,
+  },
   data() {
     return {};
   },
   components: {
-    appHeader,
+    // appHeader,
   },
   created() {},
   computed: {
-    gigs() {
-      return this.$store.getters.gigs;
-    },
+   
   },
 };
 </script>

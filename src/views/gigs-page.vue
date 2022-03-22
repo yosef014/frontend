@@ -3,9 +3,9 @@
     <div class="breadcrumbs">loaction page</div>
     <div class="gig-filters">filters</div>
     <div class="gig-list">
-       <!-- <car-preview :car="car" /> -->
+       <gigsPreview :gigs="gigs" />
 
-      <div class="gig-card" v-for="gig in gigs" :key="gig.id">
+      <!-- <div class="gig-card" v-for="gig in gigs" :key="gig.id">
         <div class="gig-img">
           <img :src="gig.image" />
         </div>
@@ -18,7 +18,7 @@
         </div>
         <div class="gig-stars-rate">⭐</div>
         <div class="gig-card-footer">{{ gig.price }} ❤</div>
-      </div>
+      </div> -->
 
       <!-- list -->
     </div>
@@ -27,12 +27,14 @@
 
 <script>
 import gigsPreview from "../components/gigs-preview.vue";
+import LoggedOutNavbar from '../components/logged-out-app-header.vue'
 export default {
   data() {
     return {};
   },
   components: {
-    gigsPreview
+    gigsPreview,
+    LoggedOutNavbar,
   },
   created() {},
   computed: {

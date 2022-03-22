@@ -4,6 +4,7 @@
 @import "./setup/setup.scss";
 @import "./basics/basics.scss";
 @import "./views/views.scss";
+@import './components/components.scss';
 // @import 'setup/mixins';
 // @import 'setup/functions';
 
@@ -13,6 +14,6 @@
 // @import 'basics/layout';
 
 // COMPONENTS
+
 @import "components/main-header";
 @import "components/main-content";
-@import "components/gigs-page";
