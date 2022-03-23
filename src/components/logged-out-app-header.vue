@@ -5,7 +5,9 @@
     class="logged-out-nav-container"
   >
     <div class="logged-out-nav max-width-container" ref="nav">
+      <router-link to="/">
       <div class="logo">fiiver<span>.</span></div>
+      </router-link>
       <div class="nav-search">
         <searchIconVue />
         <input type="text" placeholder="Find Services" />
@@ -63,7 +65,6 @@
     mounted() {
       
 
-      console.log("🚀 ~ file: logged-out-app-header.vue ~ line 67 ~ mounted ~ this.pageName", this.pageName)
       this.pageName === "home"
         ? (this.isHomePage = true)
         : (this.isHomePage = false);
