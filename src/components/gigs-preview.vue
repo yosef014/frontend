@@ -1,4 +1,13 @@
 <template>
+<<<<<<< HEAD
+  <div class="gig-card" v-for="gig in gigs" :key="gig.id">
+    <div class="gig-img">
+      <el-carousel trigger="click" height="150px">
+        <el-carousel-item v-for="cuurImg in gig.productImgs" :key="cuurImg">
+          <img :src="cuurImg" />
+        </el-carousel-item>
+      </el-carousel>
+=======
   <div class="gig-card" v-for="gig in gigs" :key="gig._id">
     <div class="gig-img" @click="this.$router.push('/tag' + '/' + gig.category + '/'+ gig._id)">
       <!-- <el-carousel trigger="click" height="150px" :autoplay="false" >
@@ -18,79 +27,36 @@
   </Carousel>
 
 
+>>>>>>> 73e337fb351c58fe5669caf1b09aa14572ff1976
     </div>
     <div class="gig-add-by">
-      
       <img :src="gig.imgUrl" />
-      
+
       ad by : {{ gig.fullname }}
     </div>
     <div class="gig-title">
       {{ gig.title }}
     </div>
-    <div class="gig-review-rate">
-      {{ gig.rate }}⭐
-    </div>
+    <div class="gig-review-rate">{{ gig.rate }}⭐</div>
     <div class="gig-card-footer">{{ gig.price }} ❤</div>
- 
-
-  
   </div>
-
-
 </template>
 
 <script>
-import { defineComponent } from 'vue'
-import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel';
-import 'vue3-carousel/dist/carousel.css';
+  // import appHeader from "../components/app-header.cmp.vue";
 
-
-export default {
-  props: {
-    gigs: Object,
-  },
-  data() {
-    return {
-      settings: {
-          itemsToShow: 1,
-          itemsToScroll: 5,
-          transition: 600,
-          snapAlign: "center",
-          wrapAround: true,
-        },
-    };
-  },
-  components: {
- Carousel,
-    Slide,
-    Pagination,
-    Navigation,  },
-  created() {},
-  computed: {},
-  methods: {
-   
-  },
-};
+  export default {
+    props: {
+      gigs: Object,
+    },
+    data() {
+      return {};
+    },
+    components: {
+      // appHeader,
+    },
+    created() {},
+    computed: {},
+    methods: {},
+  };
 </script>
-<style scoped>
-.carousel__slide > .carousel__item {
-  transform: scale(1);
-  opacity: 0.5;
-  transition: 0.5s;
-}
-.carousel__slide--visible > .carousel__item {
-  opacity: 1;
-  transform: rotateY(0);
-}
-.carousel__slide--next > .carousel__item {
-  transform: scale(0.9) translate(-10px);
-}
-.carousel__slide--prev > .carousel__item {
-  transform: scale(0.9) translate(10px);
-}
-.carousel__slide--active > .carousel__item {
-  transform: scale(1.1);
-}
-</style>
-

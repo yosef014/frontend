@@ -49,21 +49,19 @@
   import searchIconVue from "../svgs/search-icon.vue";
 
   export default {
-    props: ["pageName"],
+    components: {
+    },
     data() {
       return {
-        isTransparent: true,
         isHomePage: null,
       };
     },
 
     methods: {},
 
-    created() {
-    },
+
     mounted() {
       
-
       this.pageName === "home"
         ? (this.isHomePage = true)
         : (this.isHomePage = false);
@@ -96,22 +94,21 @@
     },
 
     computed: {
-      toggleTransperant() {
-        return {
-          isTransparent: true,
-        };
-      },
-
-      toggleFixed() {
-        return this.isHomePage ? "position: fixed" : "position: absolute";
-      },
+     
     },
-    
 
-    created() {
-      
+   
+
+
+    watch: {
+     "$route":{
+       handler(newParams){
+         console.log(newParams);
+       }
+     }
     },
-    mounted() {
+   
+    // mounted() {
       // var elCatagoryMenu = document.querySelector(".categories-menu-package");
       // var elNavSearch = document.querySelector(".nav-search");
       // var elNavLinks = document.querySelectorAll(".link-list li");
@@ -138,7 +135,7 @@
       //     elCatagoryMenu.style.opacity = 1;
       //   }
       // });
-    },
+    // },
 
     computed: {
       toggleTransperant() {

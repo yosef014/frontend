@@ -33,5 +33,8 @@
       ExploreTheMarketplace,
       infoHomepage,
     },
+        created() {
+      this.$store.dispatch({ type: "setPage", isHome:true });
+    },
   };
 </script>
