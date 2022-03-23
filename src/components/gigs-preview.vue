@@ -1,36 +1,25 @@
 <template>
-<section v-if="gigs">
-  <div class="gig-card" v-for="gig in gigs" :key="gig.id">
+  <div class="gig-card" v-for="gig in gigs" :key="gig._id">
     <div class="gig-img">
-      <!-- <el-carousel trigger="click" height="150px">
+      <!-- <el-carousel trigger="click" height="150px" :autoplay="false" >
       <el-carousel-item v-for="cuurImg in gig.productImgs" :key="cuurImg">
          <img :src="cuurImg" />
   </el-carousel-item>
     </el-carousel> -->
-    <Carousel :settings="settings" :breakpoints="breakpoints">
-    <Slide v-for="slide in slides" :key="slide">
-      <div>
-        <!-- <div class="carousel__item"> -->
 
-        <div class="subcategory-wrapper">
-          <a class="subcategory">
-            <h4>
-              <small>{{ slide.small }}</small>
-              {{ slide.h4 }}
-            </h4>
-            <picture>
-              <img :src="slide.url" alt="" />
-            </picture>
-          </a>
-          <!-- </div> -->
-        </div>
-      </div>
+
+    <Carousel>
+    <Slide v-for="cuurImg in gig.productImgs" :key="cuurImg">
+       <img :src="cuurImg" />
     </Slide>
 
     <template #addons>
       <Navigation />
+      <Pagination />
     </template>
   </Carousel>
+
+
     </div>
     <div class="gig-add-by">
       
@@ -50,12 +39,15 @@
   
   </div>
 
-</section>
+
 </template>
 
 <script>
-// import appHeader from "../components/app-header.cmp.vue";
-import { Carousel, Navigation, Slide } from "vue3-carousel"
+import { defineComponent } from 'vue'
+import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel';
+import 'vue3-carousel/dist/carousel.css';
+
+
 export default {
   props: {
     gigs: Object,
@@ -72,19 +64,35 @@ export default {
     };
   },
   components: {
-    
-      Carousel,
-      Slide,
-      Navigation,
-    
-    // appHeader,
-  },
-  created() {
-    console.log(this.gigs);
-  },
+ Carousel,
+    Slide,
+    Pagination,
+    Navigation,  },
+  created() {},
   computed: {},
   methods: {
    
   },
 };
 </script>
+<style scoped>
+.carousel__slide > .carousel__item {
+  transform: scale(1);
+  opacity: 0.5;
+  transition: 0.5s;
+}
+.carousel__slide--visible > .carousel__item {
+  opacity: 1;
+  transform: rotateY(0);
+}
+.carousel__slide--next > .carousel__item {
+  transform: scale(0.9) translate(-10px);
+}
+.carousel__slide--prev > .carousel__item {
+  transform: scale(0.9) translate(10px);
+}
+.carousel__slide--active > .carousel__item {
+  transform: scale(1.1);
+}
+</style>
+
