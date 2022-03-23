@@ -12,12 +12,17 @@ const router = createRouter({
       component: homePage,
     },
     {
-      path: '/gig',
+      path: '/tag',
+      name: 'tag',
+      component: gigList
+    },
+    {
+      path: '/tag/:gig',
       name: 'gig',
       component: gigList
     },
     {
-      path: "/gig/:id",
+      path: "/tag/gig/:id",
       name: "gig-details",
       component: gigDetails,
     },
