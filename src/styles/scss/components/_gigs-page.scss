@@ -40,6 +40,9 @@
       max-width: 275px;
       max-height: 200px;
       position: relative;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
   .gig-add-by {
@@ -52,6 +55,31 @@
   .gig-card-footer {
     border-top: solid 1px #e4e5e7;
   }
+}
+.carousel__next {
+  background-color: #fff;
+  right: 8px;
+  font-size: 24px;
+  width: 48px;
+  height: 48px;
+  text-align: center;
+  color: black;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
+}
+.carousel__prev {
+  background-color: #fff;
+  right: 8px;
+  font-size: 24px;
+  width: 48px;
+  height: 48px;
+  text-align: center;
+  color: black;
+
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
+}
+
+.carousel__item {
+  width: 15%;
 }
 
 .breadcrumbs {
@@ -66,15 +94,22 @@
   max-width: $screen-size-l;
   margin: 0 auto;
 }
+
+.click-list {
+  padding: 16px 0;
+}
 .gig-categorys-box {
-  width: 70px;
+  margin: 0 16px;
+  width: 15%;
   height: 150px;
-  border: solid 5px black;
+  border: 1px solid #e4e5e7;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 10px;
+  padding: 17px;
+  box-shadow: 0 .14px 2.29266px rgba(0,0,0,.032),0 .37px 4.42626px rgba(0,0,0,.048),0 3px 7px rgba(0,0,0,.09);
   cursor: pointer;
   
   img {

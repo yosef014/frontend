@@ -1,5 +1,9 @@
 <template>
+<<<<<<< HEAD
   <appHeader :pageName="currPage"></appHeader>
+=======
+    <!-- <appHeader :pageName="currPage"></appHeader> -->
+>>>>>>> 73e337fb351c58fe5669caf1b09aa14572ff1976
 
   <div class="logged-out-homepage-container">
     <div class="logged-out-homepage">

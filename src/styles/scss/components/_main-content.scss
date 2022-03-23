@@ -33,32 +33,13 @@
 
 .carousel__slide {
   // width: auto !important;
+  width: 15% !important;
   outline: none;
   padding: 0 18px;
   display: unset;
 }
 
-.carousel__next {
-  background-color: #fff;
-  right: 8px;
-  font-size: 24px;
-  width: 48px;
-  height: 48px;
-  text-align: center;
-  color: black;
-  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
-}
-.carousel__prev {
-  background-color: #fff;
-  right: 8px;
-  font-size: 24px;
-  width: 48px;
-  height: 48px;
-  text-align: center;
-  color: black;
 
-  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
-}
 .subcategory-wrapper {
   height: 345px;
   background-color: #efeff0;
