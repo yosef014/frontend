@@ -1,16 +1,18 @@
 <template>
-  <div>
-    <div class="breadcrumbs">
-      FIVERR > TAGS > {{ gigsToShow[0].category.toUpperCase() }} >
-    </div>
-    <h1>{{ gigsToShow[0].category }}</h1>
-    <div class="gig-filters">filters</div>
-    <div class="gig-list">
-      <gigsPreview :gigs="gigsToShow" />
+  <section>
+    <div>
+      <div class="breadcrumbs">
+        FIVERR > TAGS > {{ gigsToShow[0].category.toUpperCase() }} >
+      </div>
+      <h1>{{ gigsToShow[0].category }}</h1>
+      <div class="gig-filters">filters</div>
+      <div class="gig-list">
+        <gigsPreview :gigs="gigsToShow" />
 
-      <!-- list -->
+        <!-- list -->
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
