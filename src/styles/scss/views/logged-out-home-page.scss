@@ -1,61 +1,64 @@
-.hero-backgrounds>div {
-    background-repeat: no-repeat;
-    background-size: auto 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 0;
-    // opacity: 0;
-    // display: none;
-    -webkit-animation: fade 2s linear;
-    animation: fade 2s linear;
-    -webkit-transition: opacity 2s;
-    -o-transition: opacity 1.5s;
-    transition: opacity 1.5s;
-    background-position: bottom;
-
+.hero-backgrounds > div {
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
+  // opacity: 0;
+  // display: none;
+  -webkit-animation: fade 2s linear;
+  animation: fade 2s linear;
+  -webkit-transition: opacity 2s;
+  -o-transition: opacity 1.5s;
+  transition: opacity 1.5s;
+  background-position: bottom;
 }
 
 .hero-wrapper {
-    height: 843.5px;
-    opacity: 0;
-    font-size: 2rem;
-    position: relative;
+  height: 843.5px;
+  opacity: 0;
+  font-size: 2rem;
+  position: relative;
 
-    & p {
-        position: absolute;
-        bottom: 30px;
-        color: whitesmoke;
-    }
+  & p {
+    position: absolute;
+    bottom: 30px;
+    color: whitesmoke;
+  }
 }
 
 .hero-andrea {
-    background-image: $hero-andrea-large;
-    background-color: #023a15;
+  background-image: $hero-andrea-large;
+  background-color: #023a15;
 }
 
 .hero-moon {
-    background-image: $hero-moon-large;
-    background-color: #b64762;
+  background-image: $hero-moon-large;
+  background-color: #b64762;
 }
 
 .hero-gabrielle {
-    background-image: $hero-gabrielle-large;
-    background-color: #7d1a00;
+  background-image: $hero-gabrielle-large;
+  background-color: #7d1a00;
 }
 
 .hero-zack {
-    background-image: $hero-zack-large;
-    background-color: #023a15;
+  background-image: $hero-zack-large;
+  background-color: #023a15;
 }
 
 .hero-ritika {
-    background-image: $hero-ritika-large;
-    background-color: #540e1f;
+  background-image: $hero-ritika-large;
+  background-color: #540e1f;
 }
 
+<<<<<<< HEAD
+.popular {
+  &li {
+=======
 .popular{
     display: flex;
     flex-direction: row;
@@ -156,23 +159,54 @@
 }
 
 .seller-name {
+>>>>>>> 8a81b26014dcbc6638cb862b6747684b55de7bdb
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
-    -webkit-box-align: end;
-    -ms-flex-align: end;
-    align-items: flex-end;
-    white-space: pre-line;
-    -webkit-filter: drop-shadow(0 0 61px rgba(0,0,0,.84)),drop-shadow(0 4px 64px #000);
-    filter: drop-shadow(0 0 61px rgba(0,0,0,.84)),drop-shadow(0 4px 64px #000);
+    margin-right: 12px;
+    white-space: nowrap;
+  }
+}
+
+.search-bar-package .search_bar-package {
+  z-index: 3;
+}
+
+.hero-wrapper-container {
+  display: flex;
+  align-items: center;
+  height: 900px;
+  background-color: #023a15;
+}
+
+.header {
+  color: aliceblue;
+  max-width: 800px;
+}
+
+.hero {
+  z-index: 10;
+}
+
+.seller-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  white-space: pre-line;
+  -webkit-filter: drop-shadow(0 0 61px rgba(0, 0, 0, 0.84)),
+    drop-shadow(0 4px 64px #000);
+  filter: drop-shadow(0 0 61px rgba(0, 0, 0, 0.84)),
+    drop-shadow(0 4px 64px #000);
 }
 
 .font-domaine {
-    font-size: 70px;
-    z-index: 5;
-    font-family: $main-font;
-
+  font-size: 70px;
+  z-index: 5;
+  font-family: $main-font;
 }

@@ -1,0 +1,269 @@
+// gig sidebar details contact ------
+@media only screen and (min-width: 1160px) {
+  .gig-page .sidebar {
+    width: 33.6%;
+  }
+}
+@media only screen and (min-width: 900px) {
+  .gig-page {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+  }
+  .gig-sidebar {
+    width: 35.42%;
+    -webkit-box-ordinal-group: 21;
+    -ms-flex-order: 20;
+    order: 20;
+    padding-bottom: 32px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .gig-page {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+.gig-page {
+  max-width: 1304px;
+  margin: 0 auto;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  padding: 32px 24px 0;
+  .gig-main {
+    margin-right: 9.15%;
+    width: 57.42%;
+    display: block;
+    -webkit-box-ordinal-group: 11;
+    -ms-flex-order: 10;
+    order: 10;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+.gig-sidebar {
+  display: block;
+  //   top: 86px;
+  &-content > {
+    div {
+      margin-bottom: 16px;
+    }
+  }
+}
+
+.gig-purchase-tab {
+  order: 50;
+  border: 1px solid #dadbdd;
+  margin: 0;
+}
+
+.gig-content {
+  padding-top: 20px;
+  &-div {
+    width: 100%;
+    padding-top: 12px;
+  }
+  &-package {
+    padding-right: 24px;
+    padding-left: 24px;
+    position: relative;
+    .gig-article {
+      font-size: 14px;
+      .gig-additional-info {
+        display: flex;
+        margin-bottom: 8px;
+        .gig-delivery-wrapper {
+          .gig-delivery-icon {
+            width: 16px;
+            height: 16px;
+            fill: #62646a;
+          }
+          .gig-delivery {
+            margin-left: 8px;
+          }
+        }
+        svg {
+          float: left;
+          height: 100%;
+          width: 100%;
+        }
+      }
+      .gig-additional-info > {
+        * {
+          display: -webkit-inline-box;
+          display: -ms-inline-flexbox;
+          display: inline-flex;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+        }
+      }
+      .gig-revisions-wrapper {
+        margin-left: 16px;
+        .gig-revisions {
+          margin-left: 8px;
+        }
+        .gig-revisions-icon {
+          width: 16px;
+          height: 16px;
+          fill: #62646a;
+        }
+      }
+      .gig-features {
+        margin-bottom: 20px;
+        .gig-feature {
+          color: #95979d;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          .gig-feature-check-icon {
+            fill: #dadbdd;
+            padding-right: 12px;
+            svg {
+              width: 16px;
+              height: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+  &-header {
+    padding-bottom: 10px;
+    line-height: 21px;
+    display: block;
+    h3 {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      font-size: 28px;
+      line-height: 130%;
+      .gig-title {
+        min-height: 48px;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1 1;
+        margin-bottom: 8px;
+        line-height: 24px;
+        font-size: 16px;
+      }
+      .gig-price-wrapper {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: end;
+        -ms-flex-align: end;
+        align-items: flex-end;
+        padding-left: 10px;
+      }
+      span {
+        font-weight: 400;
+        white-space: nowrap;
+        font-size: 20px;
+        line-height: 24px;
+      }
+    }
+    b {
+      font-weight: bold;
+    }
+    p {
+      min-height: 63px;
+      word-break: break-word;
+      font-size: 14px;
+      line-height: 140%;
+      margin-top: 10px;
+    }
+  }
+  .gig-footer {
+    padding-right: 24px;
+    padding-left: 24px;
+    padding-bottom: 20px;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    .gig-purchase-btn {
+      border: 1px solid transparent;
+      border-radius: 4px;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 100%;
+      padding: 12px 24px;
+      position: relative;
+      text-align: center;
+      text-decoration: none;
+      -webkit-transition: 70ms cubic-bezier(0.75, 0, 0.25, 1);
+      -o-transition: 70ms cubic-bezier(0.75, 0, 0.25, 1);
+      transition: 70ms cubic-bezier(0.75, 0, 0.25, 1);
+      background-color: #1dbf73;
+      color: #fff;
+      span {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
+.gig-contact-seller-wrapper {
+  background-color: #fafafa;
+  padding: 24px;
+  text-align: center;
+}
+.gig-contact-seller-btn {
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 100%;
+  padding: 12px 24px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transition: 70ms cubic-bezier(0.75, 0, 0.25, 1);
+  -o-transition: 70ms cubic-bezier(0.75, 0, 0.25, 1);
+  transition: 70ms cubic-bezier(0.75, 0, 0.25, 1);
+  color: #62646a;
+  background: none;
+  border-color: currentColor;
+  width: 100%;
+}
+// gig sidebar details contact ------
