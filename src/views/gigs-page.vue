@@ -1,9 +1,9 @@
 <template>
   <div>
+    <!-- <br />
     <br />
     <br />
-    <br />
-    <br />
+    <br /> -->
     <div class="breadcrumbs">
       FIVERR > TAGS > {{ gigsToShow[0].category.toUpperCase() }} >
       <h1>{{ gigsToShow[0].category }}</h1>
@@ -26,7 +26,6 @@
     <div class="gig-list">
       <gigsPreview :gigs="gigsToShow" />
 
-      <!-- list -->
     </div>
   </div>
 </template>
@@ -34,7 +33,7 @@
 <script>
 import { defineComponent } from "vue";
 import { Carousel, Navigation, Slide } from "vue3-carousel";
-// import "vue3-carousel/dist/carousel.css";
+import "vue3-carousel/dist/carousel.css";
 import gigsPreview from "../components/gigs-preview.vue";
 import LoggedOutNavbar from "../components/logged-out-app-header.vue";
 
