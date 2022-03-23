@@ -1,4 +1,6 @@
 <template>
+    <appHeader :pageName="currPage"></appHeader>
+
   <div class="logged-out-homepage-container">
     <div class="logged-out-homepage">
       <div class="hero-wrapper-container">
@@ -99,6 +101,8 @@
 
 <script>
 import searchIconVue from "../svgs/search-icon.vue";
+import appHeader from "../components/logged-out-app-header.vue";
+
 export default {
   data() {
     return {
@@ -129,6 +133,8 @@ export default {
 
   components: {
     searchIconVue,
+    appHeader,
+
   }
 };
 </script>
