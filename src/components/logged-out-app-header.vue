@@ -26,18 +26,17 @@
     <div class="categories-menu-package">
       <ul class="max-width-container">
         <router-link to="/tag/arts and crafts">
-        <li>arts and crafts </li>
-        </router-link>
-        
-        
-        <li>data </li>
-
-        <router-link to="/tag/logo" >
-        <li>logo </li>
+          <li>arts and crafts</li>
         </router-link>
 
-        <li>marketing </li>
-        <li>research and summeries </li>
+        <li>data</li>
+
+        <router-link to="/tag/logo">
+          <li>logo</li>
+        </router-link>
+
+        <li>marketing</li>
+        <li>research and summeries</li>
         <li>Programming & Tech</li>
         <li>Business</li>
       </ul>
@@ -45,109 +44,103 @@
   </div>
 </template>
 
-tag/arts and crafts/
-tag/data entry/
-tag/logo/
-tag/marketing/
-tag/research and summeries/
-
-
+tag/arts and crafts/ tag/data entry/ tag/logo/ tag/marketing/ tag/research and
+summeries/
 
 <script>
-import searchIconVue from "../svgs/search-icon.vue";
+  import searchIconVue from "../svgs/search-icon.vue";
 
-export default {
-  props:['pageName'],
-  data() {
-    return {
-      isTransparent: true,
-      isHomePage: null,
-    }
-  },
-
-  methods: {},
-
-  created() {
-    console.log(this.isTransparent)
-  },
-  mounted() {
-    
-        console.log("🚀 ~ file: logged-out-app-header.vue ~ line 71 ~ mounted ~ this.$route", this.$route)
-
-    this.$route.name === 'home' ? this.isHomePage = true : this.isHomePage = false
-    var elCatagoryMenu = document.querySelector(".categories-menu-package");
-    var elNavSearch = document.querySelector(".nav-search");
-    var elNavLinks = document.querySelectorAll('.link-list li')
-    var elBusinessLink = document.querySelector('.business-link')
-    
-    
-    window.addEventListener("scroll", () => {
-      if (window.scrollY < 5 ) {
-        elNavLinks.forEach((link) => link.style.color = '#fff')
-        this.isTransparent = true
-      }
-      if (window.scrollY > 10) {
-        elNavLinks.forEach((link) => link.style.color = '#62646a')
-                elBusinessLink.style.color = '#1e1692'
-
-        this.isTransparent = false
-      }
-      
-      if (window.scrollY < 100) {
-        elCatagoryMenu.style.opacity = 0
-        elNavSearch.style.opacity = 0
-      }
-      if (window.scrollY > 200) {
-        elNavSearch.style.opacity = 1
-         elCatagoryMenu.style.opacity = 1
-         
-      }
-
-    })
-  
-  },
-
-  computed: {
-    toggleTransperant() {
+  export default {
+    props: ["pageName"],
+    data() {
       return {
         isTransparent: true,
+        isHomePage: null,
       };
     },
 
-    toggleFixed() {
-      return this.isHomePage ? 'position: fixed' : 'position: absolute'
-    }
-  },
-  // mounted() {
-  //   const elNav = document.querySelector(".logged-out-nav-container");
-  //   const elNavFluid = document.querySelector(".fluid-el");
-  //   window.addEventListener("scroll", function () {
-  //     if (window.scrollY > 200) {
-  //       document.querySelector(".categories-menu-package").style.display =
-  //         "flex";
-  //       document.querySelector(".nav-search").style.display = "flex";
-  //       document.querySelector(".default-container").style.display = "flex";
-  //     } else if (window.scrollY > 50) {
-  //       document.querySelector(".nav-search").style.display = "none";
-  //       document.querySelector(".categories-menu-package").style.display =
-  //         "none";
-  //       document.querySelector(".default-container").style.display = "none";
-  //       elNav.classList.remove("nav-container");
-  //       elNav.classList.add("nav-container-open-one");
-  //       elNavFluid.classList.add("header-container-fluid-close");
-  //       elNavFluid.classList.remove("header-container-fluid");
-  //     } else if (window.scrollY > 0 || window.scrollY == 0) {
-  //       document.querySelector(".nav-search").style.display = "none";
-  //       document.querySelector(".categories-menu-package").style.display =
-  //         "none";
-  //       document.querySelector(".default-container").style.display = "none";
-  //       elNavFluid.classList.remove("header-container-fluid-close");
-  //       elNavFluid.classList.add("header-container-fluid");
-  //       elNav.classList.remove("nav-container-open-one");
-  //       elNav.classList.add("nav-container");
-  //     }
+    methods: {},
+
+    created() {
+      console.log(this.isTransparent);
+    },
+    mounted() {
+      console.log(
+        "🚀 ~ file: logged-out-app-header.vue ~ line 71 ~ mounted ~ this.$route",
+        this.$route
+      );
+
+      this.$route.name === "home"
+        ? (this.isHomePage = true)
+        : (this.isHomePage = false);
+      var elCatagoryMenu = document.querySelector(".categories-menu-package");
+      var elNavSearch = document.querySelector(".nav-search");
+      var elNavLinks = document.querySelectorAll(".link-list li");
+      var elBusinessLink = document.querySelector(".business-link");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY < 5) {
+          elNavLinks.forEach((link) => (link.style.color = "#fff"));
+          this.isTransparent = true;
+        }
+        if (window.scrollY > 10) {
+          elNavLinks.forEach((link) => (link.style.color = "#62646a"));
+          elBusinessLink.style.color = "#1e1692";
+
+          this.isTransparent = false;
+        }
+
+        if (window.scrollY < 100) {
+          elCatagoryMenu.style.opacity = 0;
+          elNavSearch.style.opacity = 0;
+        }
+        if (window.scrollY > 200) {
+          elNavSearch.style.opacity = 1;
+          elCatagoryMenu.style.opacity = 1;
+        }
+      });
+    },
+
+    computed: {
+      toggleTransperant() {
+        return {
+          isTransparent: true,
+        };
+      },
+
+      toggleFixed() {
+        return this.isHomePage ? "position: fixed" : "position: absolute";
+      },
+    },
+    // mounted() {
+    //   const elNav = document.querySelector(".logged-out-nav-container");
+    //   const elNavFluid = document.querySelector(".fluid-el");
+    //   window.addEventListener("scroll", function () {
+    //     if (window.scrollY > 200) {
+    //       document.querySelector(".categories-menu-package").style.display =
+    //         "flex";
+    //       document.querySelector(".nav-search").style.display = "flex";
+    //       document.querySelector(".default-container").style.display = "flex";
+    //     } else if (window.scrollY > 50) {
+    //       document.querySelector(".nav-search").style.display = "none";
+    //       document.querySelector(".categories-menu-package").style.display =
+    //         "none";
+    //       document.querySelector(".default-container").style.display = "none";
+    //       elNav.classList.remove("nav-container");
+    //       elNav.classList.add("nav-container-open-one");
+    //       elNavFluid.classList.add("header-container-fluid-close");
+    //       elNavFluid.classList.remove("header-container-fluid");
+    //     } else if (window.scrollY > 0 || window.scrollY == 0) {
+    //       document.querySelector(".nav-search").style.display = "none";
+    //       document.querySelector(".categories-menu-package").style.display =
+    //         "none";
+    //       document.querySelector(".default-container").style.display = "none";
+    //       elNavFluid.classList.remove("header-container-fluid-close");
+    //       elNavFluid.classList.add("header-container-fluid");
+    //       elNav.classList.remove("nav-container-open-one");
+    //       elNav.classList.add("nav-container");
+    //     }
     // });
-  
 
     created() {
       console.log(document.querySelector(".categories-menu-package"));
