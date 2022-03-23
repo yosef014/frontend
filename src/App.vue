@@ -1,6 +1,6 @@
 <template>
   <main>
-    <appHeader></appHeader>
+    <appHeader :position="'fixed'" ></appHeader>
     <RouterView />
   </main>
 </template>

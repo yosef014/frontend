@@ -35,7 +35,9 @@
 
 <script>
 import searchIconVue from "../svgs/search-icon.vue";
+
 export default {
+  props:['position'],
   data() {
     return {
       isTransparent: true,
@@ -45,9 +47,10 @@ export default {
   methods: {},
 
   created() {
-    console.log(document.querySelector(".categories-menu-package"));
+
   },
   mounted() {
+    console.log(this.position);
     var elCatagoryMenu = document.querySelector(".categories-menu-package");
     var elNavSearch = document.querySelector(".nav-search");
     var elNavLinks = document.querySelectorAll('.link-list li')
@@ -88,7 +91,7 @@ export default {
     },
 
     toggleFixed() {
-      return 'position: fixed'
+      return this.position ? 'position: fixed' : 'position: absolute'
     }
   },
   // mounted() {
