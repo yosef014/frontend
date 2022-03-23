@@ -1,15 +1,20 @@
 .gig-list {
   margin: 0 auto;
+  margin-top: 20px;
   gap: 16px;
   max-width: $screen-size-l;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
 .gig-card {
   border: solid 1px #e4e5e7;
-  width: 245px;
+  width: 275px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: relative;
 
   .gig-img {
@@ -32,7 +37,7 @@
       border-radius: 10px 0px 0px 10px;
     }
     img {
-      max-width: 245px;
+      max-width: 275px;
       max-height: 200px;
       position: relative;
     }
@@ -46,5 +51,35 @@
   }
   .gig-card-footer {
     border-top: solid 1px #e4e5e7;
+  }
+}
+
+.breadcrumbs {
+  max-width: $screen-size-l;
+  margin: 0 auto;
+}
+.gig-categorys-boxes {
+  max-width: $screen-size-l;
+  margin: 0 auto;
+}
+.gig-filters {
+  max-width: $screen-size-l;
+  margin: 0 auto;
+}
+.gig-categorys-box {
+  width: 70px;
+  height: 150px;
+  border: solid 5px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+  
+  img {
+    object-fit: cover;
+    height: 60px;
+    width: 60px;
   }
 }

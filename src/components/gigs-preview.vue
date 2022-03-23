@@ -1,11 +1,25 @@
 <template>
-  <div class="gig-card" v-for="gig in gigs" :key="gig.id">
+  <div class="gig-card" v-for="gig in gigs" :key="gig._id">
     <div class="gig-img">
-      <el-carousel trigger="click" height="150px">
+      <!-- <el-carousel trigger="click" height="150px" :autoplay="false" >
       <el-carousel-item v-for="cuurImg in gig.productImgs" :key="cuurImg">
          <img :src="cuurImg" />
   </el-carousel-item>
-    </el-carousel>
+    </el-carousel> -->
+
+
+    <Carousel>
+    <Slide v-for="cuurImg in gig.productImgs" :key="cuurImg">
+       <img :src="cuurImg" />
+    </Slide>
+
+    <template #addons>
+      <Navigation />
+      <Pagination />
+    </template>
+  </Carousel>
+
+
     </div>
     <div class="gig-add-by">
       
@@ -27,7 +41,10 @@
 </template>
 
 <script>
-// import appHeader from "../components/app-header.cmp.vue";
+import { defineComponent } from 'vue'
+import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel';
+import 'vue3-carousel/dist/carousel.css';
+
 
 export default {
   props: {
@@ -37,8 +54,10 @@ export default {
     return {};
   },
   components: {
-    // appHeader,
-  },
+ Carousel,
+    Slide,
+    Pagination,
+    Navigation,  },
   created() {},
   computed: {},
   methods: {
@@ -46,3 +65,24 @@ export default {
   },
 };
 </script>
+<style scoped>
+.carousel__slide > .carousel__item {
+  transform: scale(1);
+  opacity: 0.5;
+  transition: 0.5s;
+}
+.carousel__slide--visible > .carousel__item {
+  opacity: 1;
+  transform: rotateY(0);
+}
+.carousel__slide--next > .carousel__item {
+  transform: scale(0.9) translate(-10px);
+}
+.carousel__slide--prev > .carousel__item {
+  transform: scale(0.9) translate(10px);
+}
+.carousel__slide--active > .carousel__item {
+  transform: scale(1.1);
+}
+</style>
+
