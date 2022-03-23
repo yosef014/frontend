@@ -5,7 +5,9 @@
     width: 100%;
     z-index: 9999;
     transition: 0.5s;
-    position: absolute;
+    // position: absolute;
+    margin-bottom: 20px;
+    
     
   
     .categories-menu-package {
@@ -17,7 +19,7 @@
       display: flex;
       align-items: center;
       transition: 0.5s;
-      opacity: 0;
+      opacity: 1;
       scale: 0;
       & ul {
         display: flex;
@@ -29,8 +31,7 @@
   }
 
   .header-transparent {
-    background-color: transparent;
-
+background-color: rgb(255, 255, 255);
     & ul {
       & li {
         color: #62646a;
@@ -42,7 +43,7 @@
   }
 
   .logged-out-nav {
-    // background-color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
     display: flex;
     justify-content: center;
     max-width: $screen-size-xl;
@@ -100,10 +101,11 @@
       .link-list ul {
         display: flex;
         list-style: none;
+        
   
       li {
           margin-right: 30px;
-          color: white;
+          color:#62646a;
           &:hover {
             color: #1dbf73;
             cursor: pointer;

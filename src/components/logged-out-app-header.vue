@@ -1,7 +1,6 @@
 <template>
   <div
-    :style="toggleFixed"
-    :class="toggleTransperant"
+   
     class="logged-out-nav-container"
   >
     <div class="logged-out-nav max-width-container" ref="nav">
@@ -63,36 +62,35 @@
     mounted() {
       
 
-      console.log("🚀 ~ file: logged-out-app-header.vue ~ line 67 ~ mounted ~ this.pageName", this.pageName)
-      this.pageName === "home"
-        ? (this.isHomePage = true)
-        : (this.isHomePage = false);
-      var elCatagoryMenu = document.querySelector(".categories-menu-package");
-      var elNavSearch = document.querySelector(".nav-search");
-      var elNavLinks = document.querySelectorAll(".link-list li");
-      var elBusinessLink = document.querySelector(".business-link");
+      // this.pageName === "home"
+      //   ? (this.isHomePage = true)
+      //   : (this.isHomePage = false);
+      // var elCatagoryMenu = document.querySelector(".categories-menu-package");
+      // var elNavSearch = document.querySelector(".nav-search");
+      // var elNavLinks = document.querySelectorAll(".link-list li");
+      // var elBusinessLink = document.querySelector(".business-link");
 
-      window.addEventListener("scroll", () => {
-        if (window.scrollY < 5) {
-          elNavLinks.forEach((link) => (link.style.color = "#fff"));
-          this.isTransparent = true;
-        }
-        if (window.scrollY > 10) {
-          elNavLinks.forEach((link) => (link.style.color = "#62646a"));
-          elBusinessLink.style.color = "#1e1692";
+      // window.addEventListener("scroll", () => {
+      //   if (window.scrollY < 5) {
+      //     elNavLinks.forEach((link) => (link.style.color = "#fff"));
+      //     this.isTransparent = true;
+      //   }
+      //   if (window.scrollY > 10) {
+      //     elNavLinks.forEach((link) => (link.style.color = "#62646a"));
+      //     elBusinessLink.style.color = "#1e1692";
 
-          this.isTransparent = false;
-        }
+      //     this.isTransparent = false;
+      //   }
 
-        if (window.scrollY < 100) {
-          elCatagoryMenu.style.opacity = 0;
-          elNavSearch.style.opacity = 0;
-        }
-        if (window.scrollY > 200) {
-          elNavSearch.style.opacity = 1;
-          elCatagoryMenu.style.opacity = 1;
-        }
-      });
+      //   if (window.scrollY < 100) {
+      //     elCatagoryMenu.style.opacity = 0;
+      //     elNavSearch.style.opacity = 0;
+      //   }
+      //   if (window.scrollY > 200) {
+      //     elNavSearch.style.opacity = 1;
+      //     elCatagoryMenu.style.opacity = 1;
+      //   }
+      // });
     },
 
     computed: {
@@ -112,32 +110,32 @@
       
     },
     mounted() {
-      var elCatagoryMenu = document.querySelector(".categories-menu-package");
-      var elNavSearch = document.querySelector(".nav-search");
-      var elNavLinks = document.querySelectorAll(".link-list li");
-      var elBusinessLink = document.querySelector(".business-link");
+      // var elCatagoryMenu = document.querySelector(".categories-menu-package");
+      // var elNavSearch = document.querySelector(".nav-search");
+      // var elNavLinks = document.querySelectorAll(".link-list li");
+      // var elBusinessLink = document.querySelector(".business-link");
 
-      window.addEventListener("scroll", () => {
-        if (window.scrollY < 5) {
-          elNavLinks.forEach((link) => (link.style.color = "#fff"));
-          this.isTransparent = true;
-        }
-        if (window.scrollY > 10) {
-          elNavLinks.forEach((link) => (link.style.color = "#62646a"));
-          elBusinessLink.style.color = "#1e1692";
+      // window.addEventListener("scroll", () => {
+      //   if (window.scrollY < 5) {
+      //     elNavLinks.forEach((link) => (link.style.color = "#fff"));
+      //     this.isTransparent = true;
+      //   }
+      //   if (window.scrollY > 10) {
+      //     elNavLinks.forEach((link) => (link.style.color = "#62646a"));
+      //     elBusinessLink.style.color = "#1e1692";
 
-          this.isTransparent = false;
-        }
+      //     this.isTransparent = false;
+      //   }
 
-        if (window.scrollY < 100) {
-          elCatagoryMenu.style.opacity = 0;
-          elNavSearch.style.opacity = 0;
-        }
-        if (window.scrollY > 200) {
-          elNavSearch.style.opacity = 1;
-          elCatagoryMenu.style.opacity = 1;
-        }
-      });
+      //   if (window.scrollY < 100) {
+      //     elCatagoryMenu.style.opacity = 0;
+      //     elNavSearch.style.opacity = 0;
+      //   }
+      //   if (window.scrollY > 200) {
+      //     elNavSearch.style.opacity = 1;
+      //     elCatagoryMenu.style.opacity = 1;
+      //   }
+      // });
     },
 
     computed: {
@@ -188,4 +186,3 @@
   };
 </script>
 
-    console.log("🚀 ~ file: logged-out-app-header.vue ~ line 190 ~ pageName", pageName)
