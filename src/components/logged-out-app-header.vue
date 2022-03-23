@@ -53,7 +53,7 @@ tag/research and summeries/
 import searchIconVue from "../svgs/search-icon.vue";
 
 export default {
-  props:['position'],
+  props:['pageName'],
   data() {
     return {
       isTransparent: true,
@@ -64,10 +64,12 @@ export default {
   methods: {},
 
   created() {
-    console.log("🚀 ~ file: logged-out-app-header.vue ~ line 71 ~ mounted ~ this.$route", this.$route)
-
+    console.log(this.isTransparent)
   },
   mounted() {
+    
+        console.log("🚀 ~ file: logged-out-app-header.vue ~ line 71 ~ mounted ~ this.$route", this.$route)
+
     this.$route.name === 'home' ? this.isHomePage = true : this.isHomePage = false
     var elCatagoryMenu = document.querySelector(".categories-menu-package");
     var elNavSearch = document.querySelector(".nav-search");

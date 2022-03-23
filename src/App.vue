@@ -1,6 +1,6 @@
 <template>
   <main>
-    <appHeader ></appHeader>
+    <appHeader :pageName="getRoute"></appHeader>
     <RouterView />
   </main>
 </template>
@@ -10,12 +10,18 @@
   export default {
     name: "app",
     created() {
-      console.log(this.$route);
+      console.log("🚀 ~ file: App.vue ~ line 14 ~ created ~ this.$route", this.$route)
       this.$store.dispatch({ type: "loadGigs" });
     },
     methods: {},
     components: {
       appHeader,
     },
+
+    computed: {
+      getRoute() {
+        return this.$route
+      }
+    }
   };
 </script>
