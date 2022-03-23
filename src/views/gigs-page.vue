@@ -28,9 +28,9 @@
     <div class="gig-list">
       <gigsPreview :gigs="gigsToShow" />
 
-      <!-- list -->
+        <!-- list -->
+      </div>
     </div>
-  </div>
 </template>
 
 <script>

@@ -30,7 +30,7 @@
     <div class="gig-title">
       {{ gig.title }}
     </div>
-    <div class="gig-stars-rate">
+    <div class="gig-review-rate">
       {{ gig.rate }}⭐
     </div>
     <div class="gig-card-footer">{{ gig.price }} ❤</div>
@@ -38,6 +38,8 @@
 
   
   </div>
+
+
 </template>
 
 <script>
@@ -51,7 +53,15 @@ export default {
     gigs: Object,
   },
   data() {
-    return {};
+    return {
+      settings: {
+          itemsToShow: 1,
+          itemsToScroll: 5,
+          transition: 600,
+          snapAlign: "center",
+          wrapAround: true,
+        },
+    };
   },
   components: {
  Carousel,

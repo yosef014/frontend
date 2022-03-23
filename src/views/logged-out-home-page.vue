@@ -103,11 +103,13 @@ export default {
   data() {
     return {
       heroIdx: 0,
+      currPage: this.$route.name
     };
   },
 
   mounted() {
     this.heroAnimation();
+    console.log(this.currPage);
   },
 
   methods: {
