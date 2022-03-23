@@ -46,9 +46,13 @@
 
 <script>
   import searchIconVue from "../svgs/search-icon.vue";
+  import login from "./login.vue";
 
   export default {
     props: ["pageName"],
+    components: {
+      login,
+    },
     data() {
       return {
         isTransparent: true,
@@ -58,12 +62,12 @@
 
     methods: {},
 
-    created() {
-    },
+    created() {},
     mounted() {
-      
-
-      console.log("🚀 ~ file: logged-out-app-header.vue ~ line 67 ~ mounted ~ this.pageName", this.pageName)
+      console.log(
+        "🚀 ~ file: logged-out-app-header.vue ~ line 67 ~ mounted ~ this.pageName",
+        this.pageName
+      );
       this.pageName === "home"
         ? (this.isHomePage = true)
         : (this.isHomePage = false);
@@ -106,11 +110,8 @@
         return this.isHomePage ? "position: fixed" : "position: absolute";
       },
     },
-    
 
-    created() {
-      
-    },
+    created() {},
     mounted() {
       var elCatagoryMenu = document.querySelector(".categories-menu-package");
       var elNavSearch = document.querySelector(".nav-search");
@@ -188,4 +189,5 @@
   };
 </script>
 
-    console.log("🚀 ~ file: logged-out-app-header.vue ~ line 190 ~ pageName", pageName)
+console.log("🚀 ~ file: logged-out-app-header.vue ~ line 190 ~ pageName",
+pageName)
