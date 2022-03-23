@@ -16,7 +16,7 @@
             <span>logo</span>
           </Slide>
 
-          <template #addons="{ slideWidth }">
+          <template #addons>
             <Navigation />
           </template>
         </Carousel>
