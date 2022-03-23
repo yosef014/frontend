@@ -1,13 +1,4 @@
 <template>
-<<<<<<< HEAD
-  <div class="gig-card" v-for="gig in gigs" :key="gig.id">
-    <div class="gig-img">
-      <el-carousel trigger="click" height="150px">
-        <el-carousel-item v-for="cuurImg in gig.productImgs" :key="cuurImg">
-          <img :src="cuurImg" />
-        </el-carousel-item>
-      </el-carousel>
-=======
   <div class="gig-card" v-for="gig in gigs" :key="gig._id">
     <div class="gig-img" @click="this.$router.push('/tag' + '/' + gig.category + '/'+ gig._id)">
       <!-- <el-carousel trigger="click" height="150px" :autoplay="false" >
@@ -27,7 +18,6 @@
   </Carousel>
 
 
->>>>>>> 73e337fb351c58fe5669caf1b09aa14572ff1976
     </div>
     <div class="gig-add-by">
       <img :src="gig.imgUrl" />
