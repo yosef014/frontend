@@ -21,17 +21,28 @@
     </div>
     <div class="categories-menu-package ">
       <ul class="max-width-container">
-        <li>Graphic & Design</li>
-        <li>Digital Marketing</li>
-        <li>Writing & Translation</li>
-        <li>Video & Animation</li>
-        <li>Music & Audio</li>
+        <router-link to="/tag/arts-and-crafts">
+        <li>arts and crafts </li>
+
+        </router-link>
+        <li>data </li>
+        <li>logo </li>
+        <li>marketing </li>
+        <li>research and summeries </li>
         <li>Programming & Tech</li>
         <li>Business</li>
       </ul>
     </div>
   </div>
 </template>
+
+tag/arts and crafts/
+tag/data entry/
+tag/logo/
+tag/marketing/
+tag/research and summeries/
+
+
 
 <script>
 import searchIconVue from "../svgs/search-icon.vue";
