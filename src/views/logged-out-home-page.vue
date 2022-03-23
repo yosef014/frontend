@@ -98,12 +98,17 @@
     data() {
       return {
         heroIdx: 0,
-        currPage: this.$route.name,
+        heroTimeout: null,
       };
     },
 
     mounted() {
       this.heroAnimation();
+    },
+
+    umounted() {
+      clearTimeout(this.heroTimeout)
+      log('timeout ended')
     },
 
     methods: {
@@ -116,7 +121,7 @@
         });
         elHeroWrappers[this.heroIdx].style.opacity = "1";
         this.heroIdx++;
-        setTimeout(this.heroAnimation, 6000);
+        this.heroTimeout = setTimeout(this.heroAnimation, 6000);
       },
     },
 
