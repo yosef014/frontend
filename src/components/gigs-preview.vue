@@ -18,11 +18,15 @@
       {{ gig.rate }}⭐
     </div>
     <div class="gig-card-footer">{{ gig.price }} ❤</div>
+  
+
+  
   </div>
 </template>
 
 <script>
 // import appHeader from "../components/app-header.cmp.vue";
+
 export default {
   props: {
     gigs: Object,
