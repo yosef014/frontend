@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import homePage from "../views/home-page.vue";
-import gigList from "../views/gigs-page.vue";
+import gigList from "../views/explore-page.vue";
 import gigDetails from "../views/gig-details.vue";
 
 const router = createRouter({
