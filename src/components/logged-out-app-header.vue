@@ -26,7 +26,11 @@
 
         </router-link>
         <li>data </li>
+        
+        <router-link to="/tag/logo" >
         <li>logo </li>
+
+        </router-link>
         <li>marketing </li>
         <li>research and summeries </li>
         <li>Programming & Tech</li>
