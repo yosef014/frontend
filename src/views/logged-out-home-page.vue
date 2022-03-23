@@ -1,5 +1,5 @@
 <template>
-    <appHeader :pageName="currPage"></appHeader>
+    <!-- <appHeader :pageName="currPage"></appHeader> -->
 
   <div class="logged-out-homepage-container">
     <div class="logged-out-homepage">
