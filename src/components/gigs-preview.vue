@@ -1,52 +1,49 @@
 <template>
-  <div class="gig-card" v-for="gig in gigs" :key="gig._id">
-    <div class="gig-img" @click="this.$router.push('/tag' + '/' + gig.category + '/'+ gig._id)">
-      <!-- <el-carousel trigger="click" height="150px" :autoplay="false" >
+  <section v-if="gig" class="gig-preview">
+    <!-- <div class="gig-img" @click="this.$router.push('/tag' + '/' + gig.category + '/'+ gig._id)"> -->
+
+    <el-carousel :autoplay="false" trigger="click" height="197px">
       <el-carousel-item v-for="currImg in gig.productImgs" :key="currImg">
-         <img :src="currImg" />
-  </el-carousel-item>
-    </el-carousel> -->
-    <Carousel>
-    <Slide v-for="currImg in gig.productImgs" :key="currImg">
-       <img :src="currImg" />
-    </Slide>
+        <div class="img-container">
+          <img :src="currImg" @click="this.$router.push('/tag' + '/' + gig.category + '/'+ gig._id)"/>
+        </div>
+      </el-carousel-item>
+    </el-carousel>
 
-    <template #addons>
-      <Navigation />
-      <Pagination />
-    </template>
-  </Carousel>
-
-
-    </div>
-    <div class="gig-add-by">
+    <div class="owner-prev">
       <img :src="gig.imgUrl" />
+      <div class="owner-name-level">
+         {{ gig.fullname }}
+        <h5>Level 2 seller</h5>
+      </div>
+    </div>
 
-      ad by : {{ gig.fullname }}
+    <p :title="gig.title" class="title" @click="this.$router.push('/tag' + '/' + gig.category + '/'+ gig._id)">{{ gig.title }}</p>
+
+    <div class="owner-rating">{{ gig.rate }}⭐ <span>(1K+)</span></div>
+
+    <div class="gig-footer">
+      <el-tooltip content="Add to favorite" placement="top"> ❤ </el-tooltip>
+
+      <div class="price">
+        <h6>starting at</h6>
+        <span> ${{ gig.price }}</span>
+      </div>
     </div>
-    <div class="gig-title">
-      {{ gig.title }}
-    </div>
-    <div class="gig-review-rate">{{ gig.rate }}⭐</div>
-    <div class="gig-card-footer">{{ gig.price }} ❤</div>
-  </div>
+  </section>
 </template>
 
 <script>
-  // import appHeader from "../components/app-header.cmp.vue";
-
-  export default {
-    props: {
-      gigs: Object,
-    },
-    data() {
-      return {};
-    },
-    components: {
-      // appHeader,
-    },
-    created() {},
-    computed: {},
-    methods: {},
-  };
+export default {
+  props: {
+    gig: Object,
+  },
+  data() {
+    return {};
+  },
+  components: {},
+  created() {},
+  computed: {},
+  methods: {},
+};
 </script>
