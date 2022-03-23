@@ -21,16 +21,17 @@
     </div>
     <div class="categories-menu-package ">
       <ul class="max-width-container">
-        <router-link to="/tag/arts-and-crafts">
+        <router-link to="/tag/arts and crafts">
         <li>arts and crafts </li>
-
         </router-link>
-        <li>data </li>
         
+        
+        <li>data </li>
+
         <router-link to="/tag/logo" >
         <li>logo </li>
-
         </router-link>
+
         <li>marketing </li>
         <li>research and summeries </li>
         <li>Programming & Tech</li>
@@ -56,16 +57,18 @@ export default {
   data() {
     return {
       isTransparent: true,
+      isHomePage: null,
     }
   },
 
   methods: {},
 
   created() {
+    console.log("🚀 ~ file: logged-out-app-header.vue ~ line 71 ~ mounted ~ this.$route", this.$route)
 
   },
   mounted() {
-    console.log(this.position);
+    this.$route.name === 'home' ? this.isHomePage = true : this.isHomePage = false
     var elCatagoryMenu = document.querySelector(".categories-menu-package");
     var elNavSearch = document.querySelector(".nav-search");
     var elNavLinks = document.querySelectorAll('.link-list li')
@@ -106,7 +109,7 @@ export default {
     },
 
     toggleFixed() {
-      return this.position ? 'position: fixed' : 'position: absolute'
+      return this.isHomePage ? 'position: fixed' : 'position: absolute'
     }
   },
   // mounted() {

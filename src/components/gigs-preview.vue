@@ -16,7 +16,7 @@
     <div class="gig-title">
       {{ gig.title }}
     </div>
-    <div class="gig-stars-rate">
+    <div class="gig-review-rate">
       {{ gig.rate }}⭐
     </div>
     <div class="gig-card-footer">{{ gig.price }} ❤</div>

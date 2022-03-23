@@ -1,6 +1,6 @@
 <template>
   <main>
-    <appHeader :position="'fixed'" ></appHeader>
+    <appHeader ></appHeader>
     <RouterView />
   </main>
 </template>
@@ -10,6 +10,7 @@
   export default {
     name: "app",
     created() {
+      console.log(this.$route);
       this.$store.dispatch({ type: "loadGigs" });
     },
     methods: {},
