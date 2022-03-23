@@ -44,9 +44,6 @@
   </div>
 </template>
 
-tag/arts and crafts/ tag/data entry/ tag/logo/ tag/marketing/ tag/research and
-summeries/
-
 <script>
   import searchIconVue from "../svgs/search-icon.vue";
 
@@ -62,15 +59,12 @@ summeries/
     methods: {},
 
     created() {
-      console.log(this.isTransparent);
     },
     mounted() {
-      console.log(
-        "🚀 ~ file: logged-out-app-header.vue ~ line 71 ~ mounted ~ this.$route",
-        this.$route
-      );
+      
 
-      this.$route.name === "home"
+      console.log("🚀 ~ file: logged-out-app-header.vue ~ line 67 ~ mounted ~ this.pageName", this.pageName)
+      this.pageName === "home"
         ? (this.isHomePage = true)
         : (this.isHomePage = false);
       var elCatagoryMenu = document.querySelector(".categories-menu-package");
@@ -112,39 +106,10 @@ summeries/
         return this.isHomePage ? "position: fixed" : "position: absolute";
       },
     },
-    // mounted() {
-    //   const elNav = document.querySelector(".logged-out-nav-container");
-    //   const elNavFluid = document.querySelector(".fluid-el");
-    //   window.addEventListener("scroll", function () {
-    //     if (window.scrollY > 200) {
-    //       document.querySelector(".categories-menu-package").style.display =
-    //         "flex";
-    //       document.querySelector(".nav-search").style.display = "flex";
-    //       document.querySelector(".default-container").style.display = "flex";
-    //     } else if (window.scrollY > 50) {
-    //       document.querySelector(".nav-search").style.display = "none";
-    //       document.querySelector(".categories-menu-package").style.display =
-    //         "none";
-    //       document.querySelector(".default-container").style.display = "none";
-    //       elNav.classList.remove("nav-container");
-    //       elNav.classList.add("nav-container-open-one");
-    //       elNavFluid.classList.add("header-container-fluid-close");
-    //       elNavFluid.classList.remove("header-container-fluid");
-    //     } else if (window.scrollY > 0 || window.scrollY == 0) {
-    //       document.querySelector(".nav-search").style.display = "none";
-    //       document.querySelector(".categories-menu-package").style.display =
-    //         "none";
-    //       document.querySelector(".default-container").style.display = "none";
-    //       elNavFluid.classList.remove("header-container-fluid-close");
-    //       elNavFluid.classList.add("header-container-fluid");
-    //       elNav.classList.remove("nav-container-open-one");
-    //       elNav.classList.add("nav-container");
-    //     }
-    // });
+    
 
     created() {
-      console.log(document.querySelector(".categories-menu-package"));
-      console.log("logged created test", this.$route.params);
+      
     },
     mounted() {
       var elCatagoryMenu = document.querySelector(".categories-menu-package");
@@ -222,3 +187,5 @@ summeries/
     },
   };
 </script>
+
+    console.log("🚀 ~ file: logged-out-app-header.vue ~ line 190 ~ pageName", pageName)
