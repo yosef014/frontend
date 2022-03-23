@@ -1,6 +1,10 @@
 <template>
-  <div :style="toggleFixed" :class="toggleTransperant" class="logged-out-nav-container">
-    <div class="logged-out-nav max-width-container"  ref="nav">
+  <div
+    :style="toggleFixed"
+    :class="toggleTransperant"
+    class="logged-out-nav-container"
+  >
+    <div class="logged-out-nav max-width-container" ref="nav">
       <div class="logo">fiiver<span>.</span></div>
       <div class="nav-search">
         <searchIconVue />
@@ -19,7 +23,7 @@
         </ul>
       </div>
     </div>
-    <div class="categories-menu-package ">
+    <div class="categories-menu-package">
       <ul class="max-width-container">
         <li>Graphic & Design</li>
         <li>Digital Marketing</li>
@@ -34,98 +38,93 @@
 </template>
 
 <script>
-import searchIconVue from "../svgs/search-icon.vue";
-export default {
-  data() {
-    return {
-      isTransparent: true,
-    }
-  },
-
-  methods: {},
-
-  created() {
-    console.log(document.querySelector(".categories-menu-package"));
-  },
-  mounted() {
-    var elCatagoryMenu = document.querySelector(".categories-menu-package");
-    var elNavSearch = document.querySelector(".nav-search");
-    var elNavLinks = document.querySelectorAll('.link-list li')
-    var elBusinessLink = document.querySelector('.business-link')
-    
-    
-    window.addEventListener("scroll", () => {
-      if (window.scrollY < 5 ) {
-        elNavLinks.forEach((link) => link.style.color = '#fff')
-        this.isTransparent = true
-      }
-      if (window.scrollY > 10) {
-        elNavLinks.forEach((link) => link.style.color = '#62646a')
-                elBusinessLink.style.color = '#1e1692'
-
-        this.isTransparent = false
-      }
-      
-      if (window.scrollY < 100) {
-        elCatagoryMenu.style.opacity = 0
-        elNavSearch.style.opacity = 0
-      }
-      if (window.scrollY > 200) {
-        elNavSearch.style.opacity = 1
-         elCatagoryMenu.style.opacity = 1
-         
-      }
-
-    })
-  
-  },
-
-  computed: {
-    toggleTransperant() {
+  import searchIconVue from "../svgs/search-icon.vue";
+  export default {
+    data() {
       return {
-        'header-transparent': this.isTransparent === true,
-      }
+        isTransparent: true,
+      };
     },
 
-    toggleFixed() {
-      return 'position: fixed'
-    }
-  },
-  // mounted() {
-  //   const elNav = document.querySelector(".logged-out-nav-container");
-  //   const elNavFluid = document.querySelector(".fluid-el");
-  //   window.addEventListener("scroll", function () {
-  //     if (window.scrollY > 200) {
-  //       document.querySelector(".categories-menu-package").style.display =
-  //         "flex";
-  //       document.querySelector(".nav-search").style.display = "flex";
-  //       document.querySelector(".default-container").style.display = "flex";
-  //     } else if (window.scrollY > 50) {
-  //       document.querySelector(".nav-search").style.display = "none";
-  //       document.querySelector(".categories-menu-package").style.display =
-  //         "none";
-  //       document.querySelector(".default-container").style.display = "none";
-  //       elNav.classList.remove("nav-container");
-  //       elNav.classList.add("nav-container-open-one");
-  //       elNavFluid.classList.add("header-container-fluid-close");
-  //       elNavFluid.classList.remove("header-container-fluid");
-  //     } else if (window.scrollY > 0 || window.scrollY == 0) {
-  //       document.querySelector(".nav-search").style.display = "none";
-  //       document.querySelector(".categories-menu-package").style.display =
-  //         "none";
-  //       document.querySelector(".default-container").style.display = "none";
-  //       elNavFluid.classList.remove("header-container-fluid-close");
-  //       elNavFluid.classList.add("header-container-fluid");
-  //       elNav.classList.remove("nav-container-open-one");
-  //       elNav.classList.add("nav-container");
-  //     }
-    // });
-  
+    methods: {},
 
-  
-  watch: {},
-  components: {
-    searchIconVue,
-  },
-};
+    created() {
+      console.log(document.querySelector(".categories-menu-package"));
+      console.log("logged created test", this.$route.params);
+    },
+    mounted() {
+      var elCatagoryMenu = document.querySelector(".categories-menu-package");
+      var elNavSearch = document.querySelector(".nav-search");
+      var elNavLinks = document.querySelectorAll(".link-list li");
+      var elBusinessLink = document.querySelector(".business-link");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY < 5) {
+          elNavLinks.forEach((link) => (link.style.color = "#fff"));
+          this.isTransparent = true;
+        }
+        if (window.scrollY > 10) {
+          elNavLinks.forEach((link) => (link.style.color = "#62646a"));
+          elBusinessLink.style.color = "#1e1692";
+
+          this.isTransparent = false;
+        }
+
+        if (window.scrollY < 100) {
+          elCatagoryMenu.style.opacity = 0;
+          elNavSearch.style.opacity = 0;
+        }
+        if (window.scrollY > 200) {
+          elNavSearch.style.opacity = 1;
+          elCatagoryMenu.style.opacity = 1;
+        }
+      });
+    },
+
+    computed: {
+      toggleTransperant() {
+        return {
+          "header-transparent": this.isTransparent === true,
+        };
+      },
+
+      toggleFixed() {
+        return "position: fixed";
+      },
+    },
+    // mounted() {
+    //   const elNav = document.querySelector(".logged-out-nav-container");
+    //   const elNavFluid = document.querySelector(".fluid-el");
+    //   window.addEventListener("scroll", function () {
+    //     if (window.scrollY > 200) {
+    //       document.querySelector(".categories-menu-package").style.display =
+    //         "flex";
+    //       document.querySelector(".nav-search").style.display = "flex";
+    //       document.querySelector(".default-container").style.display = "flex";
+    //     } else if (window.scrollY > 50) {
+    //       document.querySelector(".nav-search").style.display = "none";
+    //       document.querySelector(".categories-menu-package").style.display =
+    //         "none";
+    //       document.querySelector(".default-container").style.display = "none";
+    //       elNav.classList.remove("nav-container");
+    //       elNav.classList.add("nav-container-open-one");
+    //       elNavFluid.classList.add("header-container-fluid-close");
+    //       elNavFluid.classList.remove("header-container-fluid");
+    //     } else if (window.scrollY > 0 || window.scrollY == 0) {
+    //       document.querySelector(".nav-search").style.display = "none";
+    //       document.querySelector(".categories-menu-package").style.display =
+    //         "none";
+    //       document.querySelector(".default-container").style.display = "none";
+    //       elNavFluid.classList.remove("header-container-fluid-close");
+    //       elNavFluid.classList.add("header-container-fluid");
+    //       elNav.classList.remove("nav-container-open-one");
+    //       elNav.classList.add("nav-container");
+    //     }
+    // });
+
+    watch: {},
+    components: {
+      searchIconVue,
+    },
+  };
 </script>

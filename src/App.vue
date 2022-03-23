@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import appHeader from'./components/logged-out-app-header.vue'
+  import appHeader from "./components/logged-out-app-header.vue";
   export default {
     name: "app",
     created() {
