@@ -1,1 +1,46 @@
 // mixin like buttons and cards here
+
+@mixin btn-small {
+  padding: 8px 16px;
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 0 3px 3px 0;
+  border: none;
+  text-align: center;
+  background-color: #1dbf73;
+  color: #fff;
+}
+
+@mixin btn-large {
+  padding: 8px 16px;
+  height: 48px;
+  
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 0 3px 3px 0;
+  border: none;
+  text-align: center;
+  background-color: #1dbf73;
+  color: #fff;
+}
+
+@mixin nav-input {
+  width: 100%;
+  border-right: 0;
+  border-radius: 3px 0 0 3px;
+  padding: 7px 7px 7px 28px;
+  background-color: #fff;
+  height: 34px;
+  font-size: 15px;
+  box-shadow: none;
+  cursor: text;
+  outline: none;
+  text-indent: 0px;
+  text-shadow: none;
+  text-transform: none;
+  &:focus {
+    outline: none;
+  }
+}

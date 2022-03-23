@@ -1,6 +1,4 @@
 <template>
-
-
   <div class="logged-out-homepage-container">
     <div class="logged-out-homepage">
       <div class="hero-wrapper-container">
@@ -95,13 +93,12 @@
 
 <script>
   import searchIconVue from "../svgs/search-icon.vue";
-  import appHeader from "../components/logged-out-app-header.vue";
 
   export default {
     data() {
       return {
         heroIdx: 0,
-        currPage: this.$route.name,
+        heroTimeout: null,
       };
     },
 
@@ -109,10 +106,14 @@
       this.heroAnimation();
     },
 
+    umounted() {
+      clearTimeout(this.heroTimeout)
+      log('timeout ended')
+    },
+
     methods: {
       heroAnimation() {
         const elHeroWrappers = document.querySelectorAll(".hero-wrapper");
-        // console.log(elHeroWrappers);
 
         if (this.heroIdx > 4) this.heroIdx = 0;
         elHeroWrappers.forEach((hero) => {
@@ -120,13 +121,12 @@
         });
         elHeroWrappers[this.heroIdx].style.opacity = "1";
         this.heroIdx++;
-        setTimeout(this.heroAnimation, 6000);
+        this.heroTimeout = setTimeout(this.heroAnimation, 6000);
       },
     },
 
     components: {
       searchIconVue,
-      appHeader,
     },
   };
 </script>

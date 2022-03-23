@@ -1,16 +1,17 @@
 
-.logged-out-nav-container:parent{
-  background-color: #1dbf73;
-}
+// .logged-out-nav-container:parent{
+//   background-color: #1dbf73;
+// }
 
 .logged-out-nav-container {
-    background-color: rgb(255, 255, 255);
+    background-color: white;
     height: 80px;
     width: 100%;
     z-index: 9999;
     transition: 0.5s;
     // position: absolute;
     margin-bottom: 20px;
+    position: fixed;
     
     
   
@@ -30,40 +31,37 @@
         & li {
           padding-left: 15px;
         }
+
+       
       }
     }
   }
 
   .header-transparent {
-background-color: rgb(255, 255, 255);
+      background-color: transparent;
     & ul {
       & li {
         color: #62646a;
 
       }
     }
-
-    
   }
 
   .logged-out-nav {
-    background-color: rgb(255, 255, 255);
     display: flex;
-    justify-content: center;
     max-width: $screen-size-xl;
     align-items: center;
     height: 80px;
     margin: 0 auto;
     width: 100%;
-
-    
   }
     
       .logo {
-        color: black;
+        // color: black;
         font-family: Chunk;
         font-size: xx-large;
         margin-left: 2rem;
+        padding-inline-start: 1rem;
       }
       .nav-search {
         margin-right: auto;
@@ -72,46 +70,38 @@ background-color: rgb(255, 255, 255);
         align-items: center;
         width: 100%;
         max-width: 374px;
-        input {
-          background-color: #fff;
-          height: 34px;
-          border: 1px solid #c5c6c9;
-          border-left: 0px;
-          font-size: 15px;
-          box-shadow: none;
-          // padding: 8px 7px 7px 34px;
-  
-          cursor: text;
-          outline: none;
-          text-indent: 0px;
-          text-shadow: none;
-          text-transform: none;
-          &:focus {
-            outline: none;
+
+        button {
+          @include btn-small;
+          &:hover {
+            background-color: #19a463;
+            border-color: #19a463;
           }
+        }
+
+        input {
+          @include nav-input
         }
       }
      
-      .nav-serach-bt {
-       height: 34px;
-       background-color: #1dbf73;
-       color: white;
-       border: 1px solid #c5c6c9;
-       border-left: 0px;
-       padding: 8px 16px;
-  
-  
-      }
       .link-list ul {
         display: flex;
         list-style: none;
+       & i {
+          text-decoration: none;
+          
+          
+          
+        }
+
         
   
-      li {
+      &>* {
           margin-right: 30px;
           color:#62646a;
+
           &:hover {
-            color: #1dbf73;
+            color: #1dbf73 !important;
             cursor: pointer;
 
           }
@@ -126,47 +116,7 @@ background-color: rgb(255, 255, 255);
           &:hover {
             border: solid 1px #1dbf73;
             background-color: #1dbf73;
-            color: white;
+            color: white !important;
           }
         }
       }
-    
-  
-  
-    .logo {
-      color: black;
-      font-family: Chunk;
-      font-size: xx-large;
-      margin-left: 2rem;
-    }
-    .nav-search {
-      margin-right: auto;
-      margin-left: 20px;
-      display: flex;
-      align-items: center;
-      input {
-        background-color: #fff;
-        height: 34px;
-        border: 1px solid #c5c6c9;
-        border-left: 0px;
-        font-size: 15px;
-        box-shadow: none;
-        padding: 8px 7px 7px 24px;
-  
-        cursor: text;
-        outline: none;
-        text-indent: 0px;
-        text-shadow: none;
-        text-transform: none;
-        &:focus {
-          outline: none;
-        }
-      }
-  
-      .search-icon {
-        margin-left: 4px;
-      }
-    }
-   
-  
-  
