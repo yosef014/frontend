@@ -1,5 +1,6 @@
-import { createRouter, createWebHistory } from "vue-router";
-import homePage from "../views/home-page.vue";
+import { createRouter, createWebHistory } from 'vue-router'
+import homePage from '../views/home-page.vue'
+import gigList from '../views/gigs-page.vue'
 import gigDetails from "../views/gig-details.vue";
 
 const router = createRouter({
@@ -11,11 +12,22 @@ const router = createRouter({
       component: homePage,
     },
     {
+      path: '/tag',
+      name: 'tag',
+      component: gigList
+    },
+    {
+      path: '/tag/:gig',
+      name: 'gig',
+      component: gigList
+    },
+    {
       path: "/gig/:id",
       name: "gig-details",
       component: gigDetails,
     },
-  ],
+  ]
+
 });
 
 export default router;

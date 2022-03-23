@@ -17,8 +17,8 @@ export default {
   },
   actions: {
     loadGigs({ commit, state }) {
-      gigService.query(state.gigs);
-      commit({ type: "setGigs" });
+     const gigs = gigService.query();
+      commit({ type: "setGigs" ,gigs});
     },
   },
 };
