@@ -54,11 +54,6 @@ tag/research and summeries/
 
 
 <script>
-<<<<<<< HEAD
-  import searchIconVue from "../svgs/search-icon.vue";
-  export default {
-    data() {
-=======
 import searchIconVue from "../svgs/search-icon.vue";
 
 export default {
@@ -114,15 +109,11 @@ export default {
 
   computed: {
     toggleTransperant() {
->>>>>>> 4a4d4380c144c97d437ad53b7276b06bfbd8ebbb
       return {
         isTransparent: true,
       };
     },
 
-<<<<<<< HEAD
-    methods: {},
-=======
     toggleFixed() {
       return this.isHomePage ? 'position: fixed' : 'position: absolute'
     }
@@ -157,7 +148,6 @@ export default {
   //     }
     // });
   
->>>>>>> 4a4d4380c144c97d437ad53b7276b06bfbd8ebbb
 
     created() {
       console.log(document.querySelector(".categories-menu-package"));
