@@ -1,5 +1,5 @@
 <template>
-  <div :class="toggleTransperant" class="logged-out-nav-container">
+  <div :style="toggleFixed" :class="toggleTransperant" class="logged-out-nav-container">
     <div class="logged-out-nav max-width-container"  ref="nav">
       <div class="logo">fiiver<span>.</span></div>
       <div class="nav-search">
@@ -85,6 +85,10 @@ export default {
       return {
         'header-transparent': this.isTransparent === true,
       }
+    },
+
+    toggleFixed() {
+      return 'position: fixed'
     }
   },
   // mounted() {
