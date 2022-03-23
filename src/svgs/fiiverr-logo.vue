@@ -3,7 +3,7 @@
     width="89"
     height="27"
     viewBox="0 0 89 27"
-    fill="none"
+    :fill="color"
     xmlns="http://www.w3.org/2000/svg"
   >
     <g fill="#404145">
@@ -20,7 +20,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+    props: ['color']
+};
 </script>
 
 <style></style>
