@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.26.1",
     "body-parser": "^1.19.2",
+    "element-plus": "^2.1.4",
     "vue": "^3.2.31",
     "vue-router": "^4.0.14",
     "vue3-carousel": "^0.1.36",
