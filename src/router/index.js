@@ -22,7 +22,7 @@ const router = createRouter({
       component: gigList,
     },
     {
-      path: "/tag/gig/:id",
+      path: "/tag/:gig/:id",
       name: "gig-details",
       component: gigDetails,
     },
