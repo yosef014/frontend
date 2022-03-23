@@ -1,9 +1,11 @@
 <template>
   <div class="gig-card" v-for="gig in gigs" :key="gig.id">
     <div class="gig-img">
-      <span class="arrow-left">⬅</span>
-      <span class="arrow-right">➡</span>
-      <img :src="gig.image" />
+      <el-carousel trigger="click" height="150px">
+      <el-carousel-item v-for="cuurImg in gig.productImgs" :key="cuurImg">
+         <img :src="cuurImg" />
+  </el-carousel-item>
+    </el-carousel>
     </div>
     <div class="gig-add-by">
       
@@ -18,7 +20,7 @@
       {{ gig.rate }}⭐
     </div>
     <div class="gig-card-footer">{{ gig.price }} ❤</div>
-  
+ 
 
   
   </div>
