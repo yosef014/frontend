@@ -1,7 +1,6 @@
 <template>
   <main>
-        <appHeader></appHeader>
-
+    <appHeader></appHeader>
     <RouterView />
   </main>
 </template>
@@ -18,8 +17,6 @@
       appHeader,
     },
 
-    computed: {
-      
-    }
+    computed: {},
   };
 </script>
