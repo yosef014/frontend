@@ -50,6 +50,18 @@ export default {
   computed: {
     tableDataToShow(){
       let tableDataToShow 
+      this.ordersToShow.foreach((order)=>{
+        let tableData= [
+        {
+          date: order.buyer.username,
+          name: order.gig.title,
+          state: order.createdAt,
+          city: order.gig.timeToDeliver,
+          address: order.price,
+          zip: order.buyer.username,
+          tag: order.buyer.username,
+        }]
+      })
 
     },
     loggedinUser() {
