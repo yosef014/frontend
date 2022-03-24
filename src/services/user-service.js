@@ -6,6 +6,7 @@ export const userService = {
   query,
   getById,
   login,
+  save,
   // signup,
   // logout,
   //   remove,
@@ -27,6 +28,14 @@ function getById(id) {
 }
 function login(userCred) {
   return utilService.saveToSessionStorage(LOGGEDIN, userCred);
+}
+
+function save(order) {
+  const orderToSave = JSON.parse(JSON.stringify(order));
+  const savedOrder = orderToSave._id ? _update(orderToSave) : _add(orderToSave);
+
+  storageService.store(KEY, gUsers);
+  return savedOrder;
 }
 
 _createUsers();
