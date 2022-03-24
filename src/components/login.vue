@@ -37,6 +37,19 @@
             <div class="login-form-separator">
               <span>OR</span>
             </div>
+            <form @submit.prevent="login">
+              <input
+                type="text"
+                v-model="loginCred.username"
+                placeholder="Enter username"
+              />
+              <input
+                type="text"
+                v-model="loginCred.password"
+                placeholder="Enter password"
+              />
+              <button>Login</button>
+            </form>
           </div>
           <p>some text</p>
           <button @click="isOpen = false">Close</button>
@@ -47,12 +60,34 @@
 </template>
 
 <script>
+  // import { userService } from "../services/user-service";
   export default {
     name: "login",
     data() {
       return {
         isOpen: false,
+        loginCred: {
+          username: "",
+        },
       };
+    },
+    computed: {
+      loggedInUser() {
+        return this.$store.getters.loggedinUser;
+      },
+    },
+    methods: {
+      async login() {
+        try {
+          console.log(this.loggedInUser);
+          await this.$store.dispatch({
+            type: "login",
+            userCred: this.loginCred,
+          });
+        } catch (err) {
+          console.log(err);
+        }
+      },
     },
   };
 </script>
