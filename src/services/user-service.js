@@ -25,13 +25,15 @@ _createUsers();
 function _createUsers() {
   let users = storageService.load(KEY);
   if (!users || !users.length) {
-    users = [{
+    users = [
+      {
       "_id": "u101",
       "fullname": "User 1",
       "imgUrl": "/img/img1.jpg",
       "username": "user1",
       "password": "123",
       "level": "basic/premium",
+      "ordersId": ["sdsadmf123"],
       "reviews": [
         {
           "id": "1234123",
@@ -44,7 +46,8 @@ function _createUsers() {
           }
         }
       ],
-    },]
+    },
+  ]
 
     storageService.store(KEY, users);
   }
