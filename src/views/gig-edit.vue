@@ -1,22 +1,17 @@
 <template>
   <section class="bgc-grey grid-narrow main-layout">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 
- 
-
-
-
-    <br>
-    <br>
+    <br />
+    <br />
     <section v-if="gigToEdit" class="edit-gig-container">
-
-      {{gigToEdit}}
+      {{ gigToEdit }}
       <div class="gig-title grid-div">
         <p>Gig Title:</p>
         <el-input
@@ -27,13 +22,13 @@
         ></el-input>
       </div>
       <div class="description grid-div">
-          <p>Gig Description:</p>
-          <el-input
-            type="textarea"
-            v-model="gigToEdit.description"
-            placeholder="Describe youre gig"
-          ></el-input>
-        </div>
+        <p>Gig Description:</p>
+        <el-input
+          type="textarea"
+          v-model="gigToEdit.description"
+          placeholder="Describe youre gig"
+        ></el-input>
+      </div>
       <div class="gig-category grid-div">
         <p>Category:</p>
         <el-select v-model="gigToEdit.category" placeholder="Category">
@@ -58,7 +53,7 @@
 
       <div class="image-upload grid-div">
         <p>Images:</p>
-        <img-upload></img-upload>
+        <img-upload @save="saveImg" />
       </div>
 
       <div class="package">
@@ -82,7 +77,6 @@
 
         <div class="revision grid-div">
           <p>Revisions:</p>
-          
         </div>
       </div>
       <div class="btn-div">
@@ -92,81 +86,80 @@
   </section>
 </template>
 
-
 <script>
-import { gigService } from "../services/gig-service.js";
+  import { gigService } from "../services/gig-service.js";
+  import imgUpload from "../components/img-upload.vue";
 
-export default {
-  data() {
-    return {
-      gigToEdit: null,
-      imgUrls: [],
-      categories: [
-        "logo",
-        "arts and crafts",
-        "data entry",
-        "marketing",
-        "research and summeries",
-      ],
-      imgUrls: [],
-      userAvatar: null,
-    };
-  },
-  created() {
-    this.loadGig();
-  },
-  computed: {
-    gigId() {
-      return this.$route.params.gigId;
+  export default {
+    components: {
+      imgUpload,
     },
-  },
-  methods: {
-    saveImg(imgUrl) {
-      this.imgUrls.push(imgUrl);
+    data() {
+      return {
+        gigToEdit: null,
+        imgUrls: [],
+        categories: [
+          "logo",
+          "arts and crafts",
+          "data entry",
+          "marketing",
+          "research and summeries",
+        ],
+        imgUrls: [],
+        userAvatar: null,
+      };
     },
-    setAvatar(imgUrl) {
-      this.userAvatar = imgUrl;
+    created() {
+      this.loadGig();
     },
-    async loadGig() {
-      if (this.gigId) {
-        const gig = await gigService.getById(this.gigId);
-        this.gigToEdit = JSON.parse(JSON.stringify(gig));
-      } else {
-        this.gigToEdit = gigService.getEmptyGig();
-      }
+    computed: {
+      gigId() {
+        return this.$route.params.gigId;
+      },
     },
-    async save() {
-      if (this.gigToEdit._id) {
-        try {
-          console.log("GigToEdit",this.gigToEdit);
-          await this.$store.dispatch({
-            type: "updateGig",
-            gig: this.gigToEdit,
-          });
-          this.$router.push("/seller/edit");
-        } catch (err) {
-          console.log("Editing Error (gig-edit):", err);
-        }
-      } else {
-        try {
-          const savedGig = await this.$store.dispatch({
-            type: "addGig",
-            gig: this.gigToEdit,
-          });
+    methods: {
+      saveImg(imgUrl) {
+        this.gigToEdit.productImgs.push(imgUrl);
+      },
+      setAvatar(imgUrl) {
+        this.userAvatar = imgUrl;
+      },
+      async loadGig() {
+        if (this.gigId) {
+          const gig = await gigService.getById(this.gigId);
+          this.gigToEdit = JSON.parse(JSON.stringify(gig));
+        } else {
           this.gigToEdit = gigService.getEmptyGig();
-          this.$router.push("/user");
-        } catch (err) {
-          console.log("Adding Error (gig-edit):", err);
         }
-      }
+      },
+      async save() {
+        if (this.gigToEdit._id) {
+          try {
+            console.log("GigToEdit", this.gigToEdit);
+            await this.$store.dispatch({
+              type: "updateGig",
+              gig: this.gigToEdit,
+            });
+            this.$router.push("/seller/edit");
+          } catch (err) {
+            console.log("Editing Error (gig-edit):", err);
+          }
+        } else {
+          try {
+            const savedGig = await this.$store.dispatch({
+              type: "addGig",
+              gig: this.gigToEdit,
+            });
+            this.gigToEdit = gigService.getEmptyGig();
+            this.$router.push("/user");
+          } catch (err) {
+            console.log("Adding Error (gig-edit):", err);
+          }
+        }
+      },
     },
-  },
-  components: {
-
-    
-  },
-};
+    components: {},
+  };
 </script>
 
-<style>
-</style>
+<style></style>

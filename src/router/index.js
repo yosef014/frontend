@@ -3,6 +3,7 @@ import homePage from "../views/home-page.vue";
 import gigList from "../views/explore-page.vue";
 import gigDetails from "../views/gig-details.vue";
 import userProfile from "../views/profile-page.vue";
+import gigPurchasePage from "../views/gig-purchase-page.vue";
 import gigEdit from "../views/gig-edit.vue";
 import sellerPage from "../views/seller-page.vue";
 import sellerOrders from "../views/seller-orders.vue";
@@ -20,7 +21,7 @@ const router = createRouter({
       name: "tag",
       component: gigList,
     },
-  
+
     {
       path: "/tag/:gig",
       name: "gig",
@@ -30,6 +31,11 @@ const router = createRouter({
       path: "/tag/:gig/:id",
       name: "gig-details",
       component: gigDetails,
+    },
+    {
+      path: "/checkout/:id",
+      name: "gig-purchase-page",
+      component: gigPurchasePage,
     },
     {
       path: "/tag/:gig/:id",
@@ -52,7 +58,7 @@ const router = createRouter({
       component: sellerOrders,
     },
     {
-      path: '/user',
+      path: "/user",
       name: "prifil-page",
       component: userProfile,
       // children: [
