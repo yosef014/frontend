@@ -1,5 +1,5 @@
 import { createStore } from "vuex";
-import gigModule from "./modules/gig-module";
+import { gigStore } from "./modules/gig-store";
 import { orderStore } from './modules/order.store'
 import { userStore } from './modules/user.store'
 
@@ -14,7 +14,7 @@ const store = createStore({
   actions: {},
 
   modules: {
-    gigModule,
+    gigStore,
     orderStore,
     userStore,
 
