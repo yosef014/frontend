@@ -17,12 +17,12 @@
         <ul>
           <span :style="setLinkColor">Fiverr Business</span>
           <router-link to="tag/">
-            <li>Explore</li>
+            <li ref="link">Explore</li>
           </router-link>
-          <li>English</li>
-          <li>ILS</li>
-          <li>Become a Seller</li>
-          <li>Sign in</li>
+          <li ref="link">English</li>
+          <li ref="link">ILS</li>
+          <li ref="link">Become a Seller</li>
+          <li ref="link">Sign in</li>
           <li class="join">Join</li>
         </ul>
       </div>
@@ -72,6 +72,8 @@ export default {
       this.isShowCatagories = true;
       this.isShowNavSearch = true;
       this.logoColorState = false;
+      this.linkColorState = false;
+      this.elNavLinks.forEach((link) => (link.style.color = "#62646a"));
     },
 
     stickNavbar() {
@@ -79,6 +81,8 @@ export default {
       this.isShowCatagories = false;
       this.isShowNavSearch = false;
       this.logoColorState = true;
+      this.linkColorState = false;
+      this.elNavLinks.forEach((link) => (link.style.color = "#fff"));
     },
 
     onScroll() {
@@ -112,11 +116,9 @@ export default {
     // if (this.isHomePage === false) return
     this.elNavLinks = document.querySelectorAll(".link-list li");
     if (this.isHomePage) {
-        this.elNavLinks.forEach((link) => (link.style.color = "#fff"));
-    window.addEventListener("scroll", this.onScroll);
-
+      this.elNavLinks.forEach((link) => (link.style.color = "#fff"));
+      window.addEventListener("scroll", this.onScroll);
     }
-
   },
 
   watch: {
@@ -145,13 +147,7 @@ export default {
       return this.isShowCatagories ? "opacity: 1" : "opacity: 0";
     },
 
-    // showNavSearch() {
-    //   return this.isShowNavSearch ? "opacity: 1" : "opacity: 0";
-    // },
-
-    toggleFixed() {
-      return "position: fixed";
-    },
+    
 
     setLogoColor() {
       return this.logoColorState ? "fill: #fff" : "fill: #404145";
