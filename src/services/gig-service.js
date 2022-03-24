@@ -1,12 +1,14 @@
 import { storageService } from "./storage-service";
 import { asyncStorageService } from "./async-storage-service";
+import {utilService} from './util-service'
+
 
 export const gigService = {
   query,
   getById,
-  //   remove,
-  //   save,
-  //   getEmptyTodo,
+    remove,
+    save,
+  getEmptyGig,
 };
 
 const KEY = "gigsDB";
@@ -19,6 +21,61 @@ function query() {
 
 function getById(id) {
   return asyncStorageService.getById(KEY, id);
+}
+
+function save(gig) {
+  const gigToSave = JSON.parse(JSON.stringify(gig))
+  const savedGig = (gigToSave._id) ? _update(gigToSave) : _add(gigToSave)
+
+  storageService.store(KEY, gGigs)
+  return savedGig;
+}
+
+
+function remove(id) {
+  const idx = gTodos.findIndex(gig => gig._id === id)
+  gGigs.splice(idx, 1)
+  storageService.store(KEY, gGigs)
+}
+
+function _add(gig) {
+  gig._id = utilService.makeId()
+  gGigs.unshift(gig)
+  return gig
+}
+
+function _update(gig) {
+  const idx = gGigs.findIndex(currGig => currGig._id === gig._id)
+  gGigs.splice(idx, 1, gig)
+  return gig
+}
+
+
+
+function getEmptyGig() {
+
+
+  return {
+    "title": '',
+    "category": [],
+    "productImgs": [],
+    "description": "",
+    "price": null,
+    "daysToMake": '',
+    "fullname": '',
+    "imgUrl": '',
+    "loc": '',
+    "memberSince": "Jul 2021",
+    "avgResponceTime": "1 hour",
+    "lastDelivery": "1 week",
+    "rate": 0,
+    "about": '',
+    "reviewers": []
+  }
+
+
+
+
 }
 
 _createGigs();
