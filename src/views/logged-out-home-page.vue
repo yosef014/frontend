@@ -76,20 +76,7 @@
                   <a>{{popularCatagory.name}}</a>
                   </router-link>
                 </li>
-                <!-- <li>
-                  <a>Digital Marketing</a>
-                </li>
-                <li>
-                  <a>Rsearch And Summeries</a>
-                </li>
-                <li>
-                  <router-link to="/tag/logo">
-                    <a>Logo Design</a>
-                  </router-link>
-                </li>
-                <li>
-                  <a>NFT Art</a>
-                </li> -->
+                
               </ul>
             </div>
           </div>
@@ -152,23 +139,21 @@ export default {
   },
 
   mounted() {
+    this.elHeroWrappers = document.querySelector('.hero-wrappers')
     this.heroAnimation();
     
   },
 
   umounted() {
     clearTimeout(this.heroTimeout);
-    log("timeout ended");
   },
 
   methods: {
     heroAnimation() {
+      if (this.$route.path !== '/') return
       const elHeroWrappers = document.querySelectorAll(".hero-wrapper");
-      if (!elHeroWrappers[this.heroIdx]) return;
       if (this.heroIdx > 4) this.heroIdx = 0;
-      elHeroWrappers.forEach((hero) => {
-        hero.style.opacity = "0";
-      });
+      elHeroWrappers.forEach((hero) => hero.style.opacity = "0")
       elHeroWrappers[this.heroIdx].style.opacity = "1";
       this.heroIdx++;
       this.heroTimeout = setTimeout(this.heroAnimation, 6000);

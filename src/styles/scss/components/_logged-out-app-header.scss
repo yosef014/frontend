@@ -58,7 +58,7 @@
       background-color: transparent;
     & ul {
       & li {
-        color: #62646a;
+        // color: #62646a;
 
       }
     }
@@ -87,6 +87,7 @@
         align-items: center;
         width: 100%;
         max-width: 374px;
+        transition: all .5s;
 
         .search-icon {
           margin-inline-start: 10px
