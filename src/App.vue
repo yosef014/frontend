@@ -14,20 +14,37 @@
       this.$store.dispatch({ type: "loadGigs" });
       this.$store.dispatch({ type: "loadOrders" });
     },
-    methods: {},
+
+    data() {
+      return {
+        appHeader: null,
+
+      }
+    },
+
+    methods: {
+      appHeader: 'appHeader',
+      
+    },
     components: {
       appHeader,
     },
+
+    // @GUY - שמתי פה דברים שיעזרו לי בהמשף ךרנדר קומפוננטה דינמית באפ הדר
     watch: {
       $route: {
         handler({path}) {
-          console.log(path)
+          if (path === '/') this.appHeader = 'appHeader'
+          if (path === '/business') this.appHeader = 'businessHeader'
+          if (path === '/seller') this.appHeader = 'sellerHeader'
         }
       }
     },
 
     computed: {
-      
+      setAppHeader() {
+        return this.appHeader
+      }
     }
   };
 </script>

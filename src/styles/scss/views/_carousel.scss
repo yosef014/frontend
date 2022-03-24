@@ -1,25 +1,65 @@
-// .carousel__slide {
-//   // width: auto !important;
-//   width: 15% !important;
-//   outline: none;
-//   padding: 0 18px;
-//   display: unset;
+// all carousel items in popular service container
+#app
+  > main
+  > div:nth-child(2)
+  > div.popular-services-container.max-width-container
+  > section
+  > div
+  > ol
+  > * {
+  width: 250px;
+  outline: none;
+  padding: 0 18px;
+  display: unset;
+}
+
+//all carousel images in gig list
+
+  .gig-preview {
+      & .el-carousel.el-carousel--horizontal
+      > ul {
+          display: none;
+
+  }
+}
+
+// all carousel images in gig preview
+
+.gig-gallery-component > section > div > ol > li.carousel__slide.carousel__slide--active.carousel__slide--visible > div {
+    width: 100%;
+    height: 100%;
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+//all carousel buttons in gig preview
+
+.gig-gallery-component > section > ol {
+    padding: 0px;
+    li {
+        .carousel__pagination-button {
+            width: 30px;
+            background-color: #4D5656;
+            transition: .5s;
+            
+        }
+        .carousel__pagination-button--active {
+            background-color: #1dbf73;
+            transition: .5ss;
+        }
+    }
+}
+
+// @media only screen and (max-width: 1000px) {
+//     .gig-gallery-component > .carousel {
+//         width: 400px;
+//         height: 400px;
+//         img {
+//             width: 100%;
+//             height: 100%;
+//         }
+//     }
 // }
 
-// .subcategory-wrapper {
-//   height: 345px;
-//   background-color: #efeff0;
-//   cursor: pointer;
-//   img {
-//     object-fit: cover;
-//     display: block;
-//     height: 345px;
-//     width: 100%;
-//     border-radius: 4px;
-//     -webkit-transition: opacity 0.3s ease-in-out;
-//     -o-transition: opacity 0.3s ease-in-out;
-//     transition: opacity 0.3s ease-in-out;
-//     position: absolute;
-//     top: 0;
-//   }
-// }

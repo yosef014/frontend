@@ -22,9 +22,9 @@
           </ul>
           <footer class="gig-footer">
             <button class="gig-purchase-btn">
-              <rotuer-link to="/">
+              <router-link to="/">
                 Continue <span>({{ gig.price }})</span>
-              </rotuer-link>
+              </router-link>
             </button>
           </footer>
         </form>

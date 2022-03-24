@@ -38,6 +38,9 @@
       Slide,
       Navigation,
     },
+
+    
+
     data() {
       return {
         settings: {
@@ -128,7 +131,9 @@
             snapAlign: "start",
           },
         },
+
       };
     },
+   
   };
 </script>

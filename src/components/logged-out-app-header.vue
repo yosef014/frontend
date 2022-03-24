@@ -94,8 +94,8 @@ export default {
           path: "programming and tech",
         },
         {
-          name: "Business",
-          path: "business",
+          name: "All",
+          path: "all",
         },
       ],
     };
