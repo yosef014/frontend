@@ -10,9 +10,10 @@
     z-index: 9999;
     transition: 0.5s;
     // position: absolute;
-    margin-bottom: 20px;
     position: fixed;
+
     top: 0px;
+    
     
     
   
@@ -22,15 +23,30 @@
       width: 100vw;
       border-bottom: 1px solid #c5c6c9;
       border-top: 1px solid #c5c6c9;
-      display: flex;
-      align-items: center;
       transition: 0.5s;
       opacity: 1;
       scale: 0;
-      & ul {
+      ul {
         display: flex;
-        & li {
-          padding-left: 15px;
+        height: 100%;
+        align-items: center;
+        
+        li {
+          font-family: macan-light;
+          height: 100%;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          & a {
+            color: black;
+          }
+
+          &:hover {
+
+            box-shadow: 0px 2px 0px 0px #19a463 ;
+
+          }
         }
 
        
@@ -72,6 +88,10 @@
         width: 100%;
         max-width: 374px;
 
+        .search-icon {
+          margin-inline-start: 10px
+        }
+
         button {
           @include btn-small;
           &:hover {
@@ -104,6 +124,10 @@
           &:hover {
             color: #1dbf73 !important;
             cursor: pointer;
+            &:not(:last-child) {
+              box-shadow: 0px 2px 0px 0px #19a463 ;
+
+            }
 
           }
         }

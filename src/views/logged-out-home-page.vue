@@ -70,11 +70,17 @@
             <div class="popular">
               Popular:
               <ul>
-                <li>
-                  <a>Website Design</a>
+                
+                <li  v-for="popularCatagory in getPopularCatagories" :key="popularCatagory.name">
+                  <router-link :to="popularCatagory.route">
+                  <a>{{popularCatagory.name}}</a>
+                  </router-link>
+                </li>
+                <!-- <li>
+                  <a>Digital Marketing</a>
                 </li>
                 <li>
-                  <a>WordPress</a>
+                  <a>Rsearch And Summeries</a>
                 </li>
                 <li>
                   <router-link to="/tag/logo">
@@ -83,7 +89,7 @@
                 </li>
                 <li>
                   <a>NFT Art</a>
-                </li>
+                </li> -->
               </ul>
             </div>
           </div>
@@ -102,11 +108,52 @@ export default {
     return {
       heroIdx: 0,
       heroTimeout: null,
+      catagories: [
+      {
+        name: 'Digital Marketing',
+        route: '/tag/digital marketing',
+        searchCount: 5,
+      },
+      {
+        name: 'Research And Marketing',
+        route: '/tag/research and marketing',
+        searchCount: 4,
+      },
+      {
+        name: 'Logo Design',
+        route: '/logo design',
+        searchCount: 3,
+      },
+      {
+        name: 'Data Analysis',
+        route: '/data analysis',
+        searchCount: 5,
+      },
+      {
+        name: 'Programming And Tech',
+        route: '/programming and tech',
+        searchCount: 4,
+      },
+      {
+        name: 'Business',
+        route: '/business',
+        searchCount: 5,
+      }
+      ],
+      
     };
+  },
+
+
+  computed: {
+    getPopularCatagories() {
+      return this.catagories.sort((a,b) => b.searchCount - a.searchCount).splice(0,4);
+    }
   },
 
   mounted() {
     this.heroAnimation();
+    
   },
 
   umounted() {
@@ -117,7 +164,7 @@ export default {
   methods: {
     heroAnimation() {
       const elHeroWrappers = document.querySelectorAll(".hero-wrapper");
-      if (!elHeroWrappers) return;
+      if (!elHeroWrappers[this.heroIdx]) return;
       if (this.heroIdx > 4) this.heroIdx = 0;
       elHeroWrappers.forEach((hero) => {
         hero.style.opacity = "0";

@@ -81,8 +81,7 @@ export default {
       this.logoColorState = true;
     },
 
-    isScroll() {
-      console.log("scrolling");
+    onScroll() {
       if (window.scrollY < 5) {
         this.elNavLinks.forEach((link) => (link.style.color = "#fff"));
         this.isShowNavbar = false;
@@ -112,11 +111,9 @@ export default {
   mounted() {
     // if (this.isHomePage === false) return
     this.elNavLinks = document.querySelectorAll(".link-list li");
-    console.log("🚀 ~ file: logged-out-app-header.vue ~ line 115 ~ mounted ~ this.elNavLinks", this.elNavLinks)
     if (this.isHomePage) {
-      console.log('in home page')
         this.elNavLinks.forEach((link) => (link.style.color = "#fff"));
-    window.addEventListener("scroll", this.isScroll);
+    window.addEventListener("scroll", this.onScroll);
 
     }
 
@@ -127,11 +124,10 @@ export default {
       handler({ path }) {
         this.isHomePage = path === "/";
         if (!this.isHomePage) {
-          console.log("moved from the homepage", path);
-          removeEventListener("scroll", this.isScroll);
-          this.unstickNavbar;
+          removeEventListener("scroll", this.onScroll);
+          this.unstickNavbar();
         } else {
-          window.addEventListener("scroll", this.isScroll);
+          window.addEventListener("scroll", this.onScroll);
           this.stickNavbar();
         }
       },

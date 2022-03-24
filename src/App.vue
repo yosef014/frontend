@@ -12,6 +12,7 @@
     name: "app",
     created() {
       this.$store.dispatch({ type: "loadGigs" });
+      this.$store.dispatch({ type: "loadOrders" });
     },
     methods: {},
     components: {
