@@ -4,8 +4,8 @@
     <div class="breadcrumbs">
      <span @click="this.$router.push('/')" > FIVERR</span> > 
      <span @click="this.$router.push('/tag')">TAGS</span> >
-     <span> {{  this.$route.params.gig.toUpperCase() }} </span>>
-      <h1>{{ this.$route.params.gig }}</h1>
+     <span> {{  breadcrumbsToShow.toUpperCase() }} </span>>
+      <h1>{{ breadcrumbsToShow }}</h1>
       {{ gigsToShow.length }} services available
     </div>
     <gigTabsCarousel></gigTabsCarousel>
@@ -52,6 +52,11 @@ export default {
       return gig.category.some((tab) => category.includes(tab))
     })
       return gigsToDisplay;
+    },
+    breadcrumbsToShow(){
+      if (this.$route.params.gig) return this.$route.params.gig
+      return "all gigs"
+
     },
      trttt() {
       let lest = JSON.parse(JSON.stringify(this.gigs));
