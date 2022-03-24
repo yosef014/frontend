@@ -25,11 +25,15 @@ _createGigs();
 function _createGigs() {
   let gigs = storageService.load(KEY);
   if (!gigs || !gigs.length) {
-    gigs =  [
+    gigs = [
       {
         "_id": "g101",
         "title": "I will do hyper realistic pencil portrait by hand drawing",
-        "category": "arts and crafts",
+        "category": [
+          "marketing",
+          "logo",
+          "research and summeries"
+        ],
         "productImgs": [
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/68762796/original/3e060210316e42972fbe0b478a67f315d3263a64.jpg",
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/132488260/original/955d6d66789bd57075f25da7de2b3a4233b2e26a.jpg",
@@ -106,7 +110,11 @@ function _createGigs() {
         "_id": "g102",
         "image": "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/197422311/original/1907136f4b9684daa164acfa5cfedc6035b771b1.jpg",
         "title": "I will do hyper realistic pencil sketch portrait by hand drawing",
-        "category": "arts and crafts",
+        "category": [
+          "arts and crafts",
+          "data entry",
+          "research and summeries"
+        ],
         "productImgs": [
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/103068639/original/6fc1138155083b9ffc1e14be3bb8e7036bee0356.jpg",
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/91164/original/7a37b6aeebd243f148e71ed76bd8120e88155471.jpg",
@@ -146,7 +154,11 @@ function _createGigs() {
         "_id": "g103",
         "image": "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/155512325/original/9d62fbdec2b0bffd0318f9af43c2de023b62f5f0.jpg",
         "title": "I will draw a hyperrealistic portrait of face or entire body and animals",
-        "category": "arts and crafts",
+        "category": [
+          "arts and crafts",
+          "logo",
+          "arts and crafts"
+        ],
         "productImgs": [
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/attachments/delivery/asset/907e9cc6a0dfc3023841f8c061af2d40-1612374611/Rig-Tours-10.jpg",
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/146428100/original/43a4e8ca36aee84bd3e2d9388f8e31f1adf3366e.png",
@@ -222,7 +234,11 @@ function _createGigs() {
       {
         "_id": "g104",
         "image": "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/207813409/original/9557f50a12d8fccb5c52fb65b35f91cc036f99c6.jpg",
-        "category": "arts and crafts",
+        "category": [
+          "data entry",
+          "marketing",
+          "arts and crafts"
+        ],
         "productImgs": [
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/146428100/original/43a4e8ca36aee84bd3e2d9388f8e31f1adf3366e.png",
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/145155138/original/fb51086fd4e7fe74fe60f72015f07f3311224e14.png",
@@ -288,7 +304,11 @@ function _createGigs() {
       {
         "_id": "g105",
         "image": "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/207580502/original/6d05bb9cde191b9423733c6b49d0e11892e35ee0.jpg",
-        "category": "data entry",
+        "category": [
+          "data entry",
+          "arts and crafts",
+          "research and summeries"
+        ],
         "productImgs": [
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/68213576/original/175585d6eb852131867449d113e2c4ed75e67a13.png",
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/68213576/original/175585d6eb852131867449d113e2c4ed75e67a13.png",
@@ -365,7 +385,11 @@ function _createGigs() {
       {
         "_id": "g106",
         "image": "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/156250659/original/694e80206bfd8cebf4e950fd073d382ed0fcd20a.jpg",
-        "category": "data entry",
+        "category": [
+          "research and summeries",
+          "research and summeries",
+          "research and summeries"
+        ],
         "productImgs": [
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/132488260/original/955d6d66789bd57075f25da7de2b3a4233b2e26a.jpg",
           "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/123518981/original/6b57c2c591ff0513ab3ca5bedaba7107114ff831/design-a-professional-signature-logo-in-24hrs.jpg",
@@ -442,7 +466,11 @@ function _createGigs() {
       {
         "_id": "g107",
         "image": "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/156250659/original/694e80206bfd8cebf4e950fd073d382ed0fcd20a.jpg",
-        "category": "data entry",
+        "category": [
+          "data entry",
+          "arts and crafts",
+          "logo"
+        ],
         "productImgs": [
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/attachments/delivery/asset/907e9cc6a0dfc3023841f8c061af2d40-1612374611/Rig-Tours-10.jpg",
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/6140105/original/8bd93aca256ce30d7c73209105b50e12b247f404.jpg",
@@ -519,7 +547,11 @@ function _createGigs() {
       {
         "_id": "g108",
         "image": "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/199776653/original/b710f145db1a54491e2d777831107c0174c78565.png",
-        "category": "data entry",
+        "category": [
+          "marketing",
+          "research and summeries",
+          "logo"
+        ],
         "productImgs": [
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/99066472/original/3d22deef9c60a97ff3acee145f22d5d077a16aa0.png",
           "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/123518981/original/110019e76de514a1dd1984d234c9fd477efd1e77/design-a-professional-signature-logo-in-24hrs.jpg",
@@ -595,7 +627,11 @@ function _createGigs() {
       },
       {
         "_id": "g109",
-        "category": "logo",
+        "category": [
+          "data entry",
+          "data entry",
+          "logo"
+        ],
         "productImgs": [
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/103837432/original/9943dc7e5846e8fa3befd5b90b60dcf4f11bac7c.jpg",
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/132488260/original/955d6d66789bd57075f25da7de2b3a4233b2e26a.jpg",
@@ -676,7 +712,11 @@ function _createGigs() {
       },
       {
         "_id": "g110",
-        "category": "logo",
+        "category": [
+          "marketing",
+          "research and summeries",
+          "logo"
+        ],
         "productImgs": [
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/4259374/original/9338a69d06a32a6434c3a493258eca38ad2611f0.png",
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/194009784/original/5d2ce9be504e32084e203aaf20151469c65107b3.jpg",
@@ -753,7 +793,11 @@ function _createGigs() {
       },
       {
         "_id": "g111",
-        "category": "logo",
+        "category": [
+          "marketing",
+          "arts and crafts",
+          "logo"
+        ],
         "productImgs": [
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/162295509/original/81ad3690b23118c3da1461f15dfbb3046f0dcb3d.png",
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/99365338/original/cf8a3d6811de78361dd1bd896d10712ce97fd6f1.jpg",
@@ -833,7 +877,11 @@ function _createGigs() {
       },
       {
         "_id": "g112",
-        "category": "logo",
+        "category": [
+          "logo",
+          "logo",
+          "logo"
+        ],
         "productImgs": [
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/162295509/original/81ad3690b23118c3da1461f15dfbb3046f0dcb3d.png",
           "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/123518981/original/110019e76de514a1dd1984d234c9fd477efd1e77/design-a-professional-signature-logo-in-24hrs.jpg",
@@ -914,7 +962,11 @@ function _createGigs() {
       },
       {
         "_id": "g113",
-        "category": "marketing",
+        "category": [
+          "data entry",
+          "marketing",
+          "marketing"
+        ],
         "productImgs": [
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/621340/original/a5624b7fbe6e0ec37e94894fd3ea68251a0fae5c.png",
           "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/123518981/original/110019e76de514a1dd1984d234c9fd477efd1e77/design-a-professional-signature-logo-in-24hrs.jpg",
@@ -991,7 +1043,11 @@ function _createGigs() {
       },
       {
         "_id": "g114",
-        "category": "marketing",
+        "category": [
+          "logo",
+          "research and summeries",
+          "research and summeries"
+        ],
         "productImgs": [
           "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/123518981/original/6b57c2c591ff0513ab3ca5bedaba7107114ff831/design-a-professional-signature-logo-in-24hrs.jpg",
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/162295509/original/81ad3690b23118c3da1461f15dfbb3046f0dcb3d.png",
@@ -1065,7 +1121,11 @@ function _createGigs() {
       },
       {
         "_id": "g115",
-        "category": "marketing",
+        "category": [
+          "logo",
+          "logo",
+          "research and summeries"
+        ],
         "productImgs": [
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/145155138/original/fb51086fd4e7fe74fe60f72015f07f3311224e14.png",
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/145155138/original/fb51086fd4e7fe74fe60f72015f07f3311224e14.png",
@@ -1140,7 +1200,11 @@ function _createGigs() {
       },
       {
         "_id": "g116",
-        "category": "marketing",
+        "category": [
+          "data entry",
+          "research and summeries",
+          "research and summeries"
+        ],
         "productImgs": [
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/85010751/original/e98fcdc7ab0538c8381eb99887b64dbe42a93caf.png",
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/756993/original/25cb6cee0b0a3b28d3650b13b1dd6de4956e28c5.jpg",
@@ -1217,7 +1281,11 @@ function _createGigs() {
       },
       {
         "_id": "g117",
-        "category": "research and summeries",
+        "category": [
+          "research and summeries",
+          "marketing",
+          "arts and crafts"
+        ],
         "productImgs": [
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/621340/original/a5624b7fbe6e0ec37e94894fd3ea68251a0fae5c.png",
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/756993/original/25cb6cee0b0a3b28d3650b13b1dd6de4956e28c5.jpg",
@@ -1288,7 +1356,11 @@ function _createGigs() {
       },
       {
         "_id": "g118",
-        "category": "research and summeries",
+        "category": [
+          "arts and crafts",
+          "marketing",
+          "logo"
+        ],
         "productImgs": [
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/125591662/original/8fe883adb620795bf7808202a13dc25525875109.png",
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/104176703/original/1e4f1323093a63a2beb0cc1ea4388fab6333799a.png",
@@ -1362,7 +1434,11 @@ function _createGigs() {
       },
       {
         "_id": "g119",
-        "category": "research and summeries",
+        "category": [
+          "logo",
+          "marketing",
+          "research and summeries"
+        ],
         "productImgs": [
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/194009784/original/5d2ce9be504e32084e203aaf20151469c65107b3.jpg",
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/132488260/original/955d6d66789bd57075f25da7de2b3a4233b2e26a.jpg",
@@ -1439,7 +1515,11 @@ function _createGigs() {
       },
       {
         "_id": "g120",
-        "category": "research and summeries",
+        "category": [
+          "data entry",
+          "data entry",
+          "research and summeries"
+        ],
         "productImgs": [
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/146428100/original/43a4e8ca36aee84bd3e2d9388f8e31f1adf3366e.png",
           "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/162295509/original/81ad3690b23118c3da1461f15dfbb3046f0dcb3d.png",

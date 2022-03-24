@@ -4,8 +4,8 @@
     <div class="breadcrumbs">
      <span @click="this.$router.push('/')" > FIVERR</span> > 
      <span @click="this.$router.push('/tag')">TAGS</span> >
-     <span> {{ gigsToShow[0].category.toUpperCase() }} </span>>
-      <h1>{{ gigsToShow[0].category }}</h1>
+     <span> {{  this.$route.params.gig.toUpperCase() }} </span>>
+      <h1>{{ this.$route.params.gig }}</h1>
       {{ gigsToShow.length }} services available
     </div>
     <gigTabsCarousel></gigTabsCarousel>
@@ -16,7 +16,7 @@
         <gigsPreview :gig="gig" />
       </li>
     </ul>
-<!-- <pre>   {{trttt}}
+<!-- <pre>   {{taggss}}
 </pre> -->
    </div>
 </template>
@@ -47,7 +47,10 @@ export default {
     gigsToShow() {
       const category = this.$route.params.gig;
       if (!category) return this.gigs;
-      const gigsToDisplay = this.gigs.filter((gig) => gig.category == category);
+      // const gigsToDisplay = this.gigs.filter((gig) => gig.category == category);
+      const gigsToDisplay = this.gigs.filter((gig) => {
+      return gig.category.some((tab) => category.includes(tab))
+    })
       return gigsToDisplay;
     },
      trttt() {
@@ -61,8 +64,26 @@ export default {
       });
       return newdb;
     },
+     taggss() {
+      let lest = JSON.parse(JSON.stringify(this.gigs));
+
+      const newdb = lest.map((gigg) => {
+        let nweTags = [this.getRandomTag(),this.getRandomTag(),this.getRandomTag()];
+         gigg.category = nweTags;
+         return gigg
+
+      });
+      return newdb;
+    },
   },
    methods: {
+      getRandomTag() {
+      const tags = [
+       "logo","arts and crafts","data entry","logo","marketing","research and summeries"
+      ];
+      const random = Math.floor(Math.random() * tags.length);
+      return (random, tags[random]);
+    },
     getRandomImg() {
       const imgsUrls = [
         "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/123518981/original/6b57c2c591ff0513ab3ca5bedaba7107114ff831/design-a-professional-signature-logo-in-24hrs.jpg",
