@@ -127,7 +127,7 @@ function _createOrders() {
           description: "deeescriptionn",
           timeToDeliver: "2",
         },
-        status: "pending",
+        status: "approved",
       },
     ]),
       storageService.store(KEY, orders);
