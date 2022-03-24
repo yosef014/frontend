@@ -16,8 +16,8 @@
         <gigsPreview :gig="gig" />
       </li>
     </ul>
-<pre>   {{trttt}}
-</pre>
+<!-- <pre>   {{trttt}}
+</pre> -->
    </div>
 </template>
 
