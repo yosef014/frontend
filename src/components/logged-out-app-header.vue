@@ -16,7 +16,7 @@
       <div class="link-list">
         <ul>
           <span :style="setLinkColor">Fiverr Business</span>
-          <router-link to="gig">
+          <router-link to="tag/">
             <li>Explore</li>
           </router-link>
           <li>English</li>
