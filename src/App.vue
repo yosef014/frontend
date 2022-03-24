@@ -18,6 +18,13 @@
     components: {
       appHeader,
     },
+    watch: {
+      $route: {
+        handler({path}) {
+          console.log(path)
+        }
+      }
+    },
 
     computed: {
       

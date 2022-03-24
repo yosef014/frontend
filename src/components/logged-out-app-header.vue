@@ -1,12 +1,15 @@
 <template>
   <div
-    :style="setNavbarPosition"
+    :style="{ position: isHomePage ? 'fixed' : 'absolute' }"
     :class="showNavbar"
     class="logged-out-nav-container"
   >
-    <div class="logged-out-nav max-width-container" ref="nav">
+    <div class="logged-out-nav max-width-container">
       <router-link to="/">
-        <FiiverrLogo class="logo" :style="setLogoColor"></FiiverrLogo>
+        <FiiverrLogo
+          class="logo"
+          :style="{ fill: logoColorState ? '#fff' : '#404145' }"
+        ></FiiverrLogo>
       </router-link>
       <div :style="{ opacity: isShowNavSearch ? 1 : 0 }" class="nav-search">
         <searchIconVue />
@@ -15,31 +18,33 @@
       </div>
       <div class="link-list">
         <ul>
-          <span :style="setLinkColor">Fiverr Business</span>
-          <router-link to="tag/">
+          <span :style="{ color: linkColorState ? '#fff' : '#1E1692' }"
+            >Fiverr Business</span
+          >
+          <router-link to="/tag">
             <li>Explore</li>
           </router-link>
-          <li>English</li>
           <li>ILS</li>
-          <li>Become a Seller</li>
-          <li>Sign in</li>
+          <router-link to="become a seller">
+            <li>Become a Seller</li>
+          </router-link>
+          <router-link to="sign in">
+            <li>Sign in</li>
+          </router-link>
           <li class="join">Join</li>
         </ul>
       </div>
     </div>
-    <div :style="showCatagories" class="categories-menu-package">
+    <div
+      :style="{ opacity: isShowCatagories ? 1 : 0 }"
+      class="categories-menu-package"
+    >
       <ul class="max-width-container">
-        <router-link to="/tag/arts and crafts">
-          <li>arts and crafts</li>
-        </router-link>
-        <li>data</li>
-        <router-link to="/tag/logo">
-          <li>logo</li>
-        </router-link>
-        <li>marketing</li>
-        <li>research and summeries</li>
-        <li>Programming & Tech</li>
-        <li>Business</li>
+        <li v-for="catagory in catagories" :key="catagory.name">
+          <router-link :to="'/tag/' + catagory.path">
+            <a>{{ catagory.name }}</a>
+          </router-link>
+        </li>
       </ul>
     </div>
   </div>
@@ -63,6 +68,36 @@ export default {
       logoColorState: true,
       linkColorState: false,
       elNavLinks: null,
+      catagories: [
+        {
+          name: "Arts And Drafts",
+          path: "arts and drafts",
+        },
+        {
+          name: "Data",
+          path: "data",
+        },
+        {
+          name: "Logo",
+          path: "logo",
+        },
+        {
+          name: "Marketing",
+          path: "marketing",
+        },
+        {
+          name: "Research And Summeries",
+          path: "research and summeries",
+        },
+        {
+          name: "Programming & Tech",
+          path: "programming and tech",
+        },
+        {
+          name: "Business",
+          path: "business",
+        },
+      ],
     };
   },
 
@@ -72,6 +107,8 @@ export default {
       this.isShowCatagories = true;
       this.isShowNavSearch = true;
       this.logoColorState = false;
+      this.linkColorState = false;
+      this.elNavLinks.forEach((link) => (link.style.color = "#62646a"));
     },
 
     stickNavbar() {
@@ -79,6 +116,8 @@ export default {
       this.isShowCatagories = false;
       this.isShowNavSearch = false;
       this.logoColorState = true;
+      this.linkColorState = false;
+      this.elNavLinks.forEach((link) => (link.style.color = "#fff"));
     },
 
     onScroll() {
@@ -106,17 +145,8 @@ export default {
     },
   },
 
-  //THE BUG CAUSED BY THE EVENT LISTENER - IT LISTENS FOR SCROLL ALL THE TIME, FIND
-  // A WAY TO CANCEL IT WHEN MOVING FROM THE HOME PAGE
   mounted() {
-    // if (this.isHomePage === false) return
     this.elNavLinks = document.querySelectorAll(".link-list li");
-    if (this.isHomePage) {
-        this.elNavLinks.forEach((link) => (link.style.color = "#fff"));
-    window.addEventListener("scroll", this.onScroll);
-
-    }
-
   },
 
   watch: {
@@ -128,6 +158,8 @@ export default {
           this.unstickNavbar();
         } else {
           window.addEventListener("scroll", this.onScroll);
+          this.elNavLinks.forEach((link) => (link.style.color = "#fff"));
+
           this.stickNavbar();
         }
       },
@@ -139,30 +171,6 @@ export default {
       return {
         "header-transparent": this.isShowNavbar === false,
       };
-    },
-
-    showCatagories() {
-      return this.isShowCatagories ? "opacity: 1" : "opacity: 0";
-    },
-
-    // showNavSearch() {
-    //   return this.isShowNavSearch ? "opacity: 1" : "opacity: 0";
-    // },
-
-    toggleFixed() {
-      return "position: fixed";
-    },
-
-    setLogoColor() {
-      return this.logoColorState ? "fill: #fff" : "fill: #404145";
-    },
-
-    setLinkColor() {
-      return this.linkColorState ? "color: #fff" : "color: #1E1692";
-    },
-
-    setNavbarPosition() {
-      return this.isHomePage ? "position: fixed" : "position: absolute";
     },
   },
 
