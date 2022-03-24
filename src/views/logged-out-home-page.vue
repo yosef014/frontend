@@ -147,7 +147,7 @@ export default {
 
   computed: {
     getPopularCatagories() {
-      return this.catagories.sort((a,b) => a.searchCount - b.searchCount).splice(0,4);
+      return this.catagories.sort((a,b) => b.searchCount - a.searchCount).splice(0,4);
     }
   },
 
