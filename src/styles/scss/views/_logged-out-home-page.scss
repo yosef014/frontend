@@ -55,6 +55,8 @@
   background-color: #540e1f;
 }
 
+
+
 .popular {
   display: flex;
   font-size: 14px;
@@ -129,7 +131,7 @@ form {
     height: 48px;
     padding: 12px 24px;
     text-shadow: none;
-    background-color: #1dbf73;
+    background-color: #19a463;
     color: #fff;
     border: 1px solid transparent;
     transition: 70ms cubic-bezier(0.75, 0, 0.25, 1);
@@ -141,7 +143,7 @@ form {
     border-bottom-right-radius: 4px;
 
     &:hover {
-      background-color: #19a463;
+      background-color: #1dbf73;
     }
   }
 }
@@ -166,6 +168,13 @@ form {
   align-items: center;
   height: 842px;
   background-color: #023a15;
+}
+
+.categories-menu-package {
+    ul {
+      display: flex;
+      justify-content: space-around;
+    }
 }
 
 .header {
@@ -198,7 +207,7 @@ form {
 }
 
 .font-domaine {
-  font-size: 70px;
+  font-size: 50px;
   z-index: 5;
   font-family: domaine-display-web-medium-italic;
 }

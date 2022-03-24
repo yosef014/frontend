@@ -1,10 +1,14 @@
 <template>
-  <div :style="setNavbarPosition" :class="showNavbar" class="logged-out-nav-container">
+  <div
+    :style="setNavbarPosition"
+    :class="showNavbar"
+    class="logged-out-nav-container"
+  >
     <div class="logged-out-nav max-width-container" ref="nav">
       <router-link to="/">
         <FiiverrLogo class="logo" :style="setLogoColor"></FiiverrLogo>
       </router-link>
-      <div :style="showNavSearch" class="nav-search">
+      <div :style="{ opacity: isShowNavSearch ? 1 : 0 }" class="nav-search">
         <searchIconVue />
         <input type="text" placeholder="Find Services" />
         <button>Search</button>
@@ -12,7 +16,9 @@
       <div class="link-list">
         <ul>
           <span :style="setLinkColor">Fiverr Business</span>
-          <li>Explore</li>
+          <router-link to="gig">
+            <li>Explore</li>
+          </router-link>
           <li>English</li>
           <li>ILS</li>
           <li>Become a Seller</li>
@@ -43,56 +49,91 @@
 import searchIconVue from "../svgs/search-icon.vue";
 import fiiverrLogoVue from "../svgs/fiiverr-logo.vue";
 import FiiverrLogo from "../svgs/fiiverr-logo.vue";
+import { remove } from "@vue/shared";
 export default {
   components: {
     fiiverrLogoVue,
   },
   data() {
     return {
-      isHomePage: null,
-      isShowNavbar: false,
+      isHomePage: true,
+      isShowNavbar: true,
       isShowCatagories: false,
       isShowNavSearch: false,
-      logoColorState: false,
+      logoColorState: true,
       linkColorState: false,
+      elNavLinks: null,
     };
   },
 
-  methods: {},
+  methods: {
+    unstickNavbar() {
+      this.isShowNavbar = true;
+      this.isShowCatagories = true;
+      this.isShowNavSearch = true;
+      this.logoColorState = false;
+    },
 
-  mounted() {
-    var elNavLinks = document.querySelectorAll(".link-list li");
+    stickNavbar() {
+      this.isShowNavbar = false;
+      this.isShowCatagories = false;
+      this.isShowNavSearch = false;
+      this.logoColorState = true;
+    },
 
-    window.addEventListener("scroll", () => {
+    isScroll() {
+      console.log("scrolling");
       if (window.scrollY < 5) {
-        elNavLinks.forEach((link) => (link.style.color = "#fff"));
-        this.isShowNavbar = true;
+        this.elNavLinks.forEach((link) => (link.style.color = "#fff"));
+        this.isShowNavbar = false;
         this.logoColorState = true;
         this.linkColorState = true;
       }
       if (window.scrollY > 10) {
-        elNavLinks.forEach((link) => (link.style.color = "#62646a"));
+        this.elNavLinks.forEach((link) => (link.style.color = "#62646a"));
         this.linkColorState = false;
-        this.isShowNavbar = false;
+        this.isShowNavbar = true;
+        this.logoColorState = false;
       }
 
-      if (window.scrollY < 100) {
+      if (window.scrollY < 200) {
         this.isShowCatagories = false;
         this.isShowNavSearch = false;
-        this.logoColorState = false;
       }
       if (window.scrollY > 200) {
         this.isShowNavSearch = true;
         this.isShowCatagories = true;
       }
-    });
+    },
+  },
+
+  //THE BUG CAUSED BY THE EVENT LISTENER - IT LISTENS FOR SCROLL ALL THE TIME, FIND
+  // A WAY TO CANCEL IT WHEN MOVING FROM THE HOME PAGE
+  mounted() {
+    // if (this.isHomePage === false) return
+    this.elNavLinks = document.querySelectorAll(".link-list li");
+    console.log("🚀 ~ file: logged-out-app-header.vue ~ line 115 ~ mounted ~ this.elNavLinks", this.elNavLinks)
+    if (this.isHomePage) {
+      console.log('in home page')
+        this.elNavLinks.forEach((link) => (link.style.color = "#fff"));
+    window.addEventListener("scroll", this.isScroll);
+
+    }
+
   },
 
   watch: {
     $route: {
-      handler({path}) {
-            this.isHomePage = path === "/";
-
+      handler({ path }) {
+        this.isHomePage = path === "/";
+        if (!this.isHomePage) {
+          console.log("moved from the homepage", path);
+          removeEventListener("scroll", this.isScroll);
+          this.unstickNavbar;
+        } else {
+          window.addEventListener("scroll", this.isScroll);
+          this.stickNavbar();
+        }
       },
     },
   },
@@ -100,7 +141,7 @@ export default {
   computed: {
     showNavbar() {
       return {
-        "header-transparent": this.isShowNavbar === true,
+        "header-transparent": this.isShowNavbar === false,
       };
     },
 
@@ -108,16 +149,16 @@ export default {
       return this.isShowCatagories ? "opacity: 1" : "opacity: 0";
     },
 
-    showNavSearch() {
-      return this.isShowNavSearch ? "opacity: 1" : "opacity: 0";
-    },
+    // showNavSearch() {
+    //   return this.isShowNavSearch ? "opacity: 1" : "opacity: 0";
+    // },
 
     toggleFixed() {
       return "position: fixed";
     },
 
     setLogoColor() {
-      return this.logoColorState ? "fill: #fff" : "fill: #19a463";
+      return this.logoColorState ? "fill: #fff" : "fill: #404145";
     },
 
     setLinkColor() {
@@ -125,8 +166,8 @@ export default {
     },
 
     setNavbarPosition() {
-      return this.isHomePage ? 'position: fixed' : 'position: absolute'
-    }
+      return this.isHomePage ? "position: fixed" : "position: absolute";
+    },
   },
 
   components: {

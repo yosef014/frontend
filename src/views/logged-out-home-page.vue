@@ -77,7 +77,9 @@
                   <a>WordPress</a>
                 </li>
                 <li>
-                  <a>Logo Design</a>
+                  <router-link to="/tag/logo">
+                    <a>Logo Design</a>
+                  </router-link>
                 </li>
                 <li>
                   <a>NFT Art</a>
@@ -88,47 +90,48 @@
         </div>
       </div>
     </div>
+    
   </div>
 </template>
 
 <script>
-  import searchIconVue from "../svgs/search-icon.vue";
+import searchIconVue from "../svgs/search-icon.vue";
 
-  export default {
-    data() {
-      return {
-        heroIdx: 0,
-        heroTimeout: null,
-      };
+export default {
+  data() {
+    return {
+      heroIdx: 0,
+      heroTimeout: null,
+    };
+  },
+
+  mounted() {
+    this.heroAnimation();
+  },
+
+  umounted() {
+    clearTimeout(this.heroTimeout);
+    log("timeout ended");
+  },
+
+  methods: {
+    heroAnimation() {
+      const elHeroWrappers = document.querySelectorAll(".hero-wrapper");
+      if (!elHeroWrappers) return;
+      if (this.heroIdx > 4) this.heroIdx = 0;
+      elHeroWrappers.forEach((hero) => {
+        hero.style.opacity = "0";
+      });
+      elHeroWrappers[this.heroIdx].style.opacity = "1";
+      this.heroIdx++;
+      this.heroTimeout = setTimeout(this.heroAnimation, 6000);
     },
+  },
 
-    mounted() {
-      this.heroAnimation();
-    },
-
-    umounted() {
-      clearTimeout(this.heroTimeout)
-      log('timeout ended')
-    },
-
-    methods: {
-      heroAnimation() {
-        const elHeroWrappers = document.querySelectorAll(".hero-wrapper");
-
-        if (this.heroIdx > 4) this.heroIdx = 0;
-        elHeroWrappers.forEach((hero) => {
-          hero.style.opacity = "0";
-        });
-        elHeroWrappers[this.heroIdx].style.opacity = "1";
-        this.heroIdx++;
-        this.heroTimeout = setTimeout(this.heroAnimation, 6000);
-      },
-    },
-
-    components: {
-      searchIconVue,
-    },
-  };
+  components: {
+    searchIconVue,
+  },
+};
 </script>
 
 <style></style>
