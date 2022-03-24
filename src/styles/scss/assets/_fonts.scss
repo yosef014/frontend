@@ -1,51 +1,74 @@
+/* cyrillic-ext */
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCAIT5lu.woff2)
+    format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F,
+    U+FE2E-FE2F;
+}
+/* vietnamese */
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCIIT5lu.woff2)
+    format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
+    U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+
 //logo
 @font-face {
-    font-family: BrixSlab;
-    src: url(@/styles/scss/assets/fonts/BrixSlab/BrixSlab-Bold.otf);
+  font-family: BrixSlab;
+  src: url(@/styles/scss/assets/fonts/BrixSlab/BrixSlab-Bold.otf);
 }
 @font-face {
-    font-family: chank-five;
-    src: url(@/styles/scss/assets/fonts/ChunkFive/ChunkFive-Regular.otf);
+  font-family: chank-five;
+  src: url(@/styles/scss/assets/fonts/ChunkFive/ChunkFive-Regular.otf);
 }
 
 // body:
 
 @font-face {
-    font-family: domain-display-web-bold;
-    src: url(@/styles/scss/assets/fonts/domaine-display-web-bold/domaine-display-web-bold.woff2);
+  font-family: domain-display-web-bold;
+  src: url(@/styles/scss/assets/fonts/domaine-display-web-bold/domaine-display-web-bold.woff2);
 }
 
 @font-face {
-    font-family: domaine-display-web-medium-italic;
-    src: url(@/styles/scss/assets/fonts/domaine-display-web-medium-italic/macan-bold.502483a.woff2);
+  font-family: domaine-display-web-medium-italic;
+  src: url(@/styles/scss/assets/fonts/domaine-display-web-medium-italic/macan-bold.502483a.woff2);
 }
 
 @font-face {
-    font-family: macan-bold;
-    src: url(@/styles/scss/assets/fonts/macan-bold/macan-bold.502483a.woff2);
+  font-family: macan-bold;
+  src: url(@/styles/scss/assets/fonts/macan-bold/macan-bold.502483a.woff2);
 }
 
 @font-face {
-    font-family: macan-light;
-    src: url(@/styles/scss/assets/fonts/macan-light/macan-light.9b72a31.woff2);
+  font-family: macan-light;
+  src: url(@/styles/scss/assets/fonts/macan-light/macan-light.9b72a31.woff2);
 }
 
 @font-face {
-    font-family: macan-regular;
-    src: url(@/styles/scss/assets/fonts/macan-regular/macan-regular.3d263b5.woff2);
+  font-family: macan-regular;
+  src: url(@/styles/scss/assets/fonts/macan-regular/macan-regular.3d263b5.woff2);
 }
 
 @font-face {
-    font-family: macan-semibold;
-    src: url(@/styles/scss/assets/fonts/macan-semibold/macan-semibold.d147812.woff2);
+  font-family: macan-semibold;
+  src: url(@/styles/scss/assets/fonts/macan-semibold/macan-semibold.d147812.woff2);
 }
 
 @font-face {
-    font-family: bebas-regular;
-    src: url(@/styles/scss/assets/fonts/Bebas_Neue/BebasNeue-Regular.ttf);
+  font-family: bebas-regular;
+  src: url(@/styles/scss/assets/fonts/Bebas_Neue/BebasNeue-Regular.ttf);
 }
 
 @font-face {
-    font-family: display;
-    src: url(@/styles/scss/assets/fonts/domaine-display-web-medium-italic.woff2);
+  font-family: display;
+  src: url(@/styles/scss/assets/fonts/domaine-display-web-medium-italic.woff2);
 }

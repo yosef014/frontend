@@ -5,11 +5,11 @@
 
 // carousel component --->
 
-@media only screen and (max-width: 700px) {
-  .carousel__slide {
-    width: 50% !important;
-  }
-}
+// @media only screen and (max-width: 700px) {
+//   .carousel__slide {
+//     width: 50% !important;
+//   }
+// }
 @media only screen and (min-width: $screen-size-l) {
   .max-width-container {
     margin: 0 auto;
@@ -31,22 +31,57 @@
   background-position: bottom;
 }
 
+.subcategory-wrapper img {
+  object-fit: cover;
+  display: block;
+  height: 345px;
+  width: 100%;
+  border-radius: 4px;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  position: absolute;
+  top: 0;
+}
 
-
-
-
-// .subcategory-wrapper img {
-//   object-fit: cover;
-//   display: block;
-//   height: 345px;
-//   width: 100%;
-//   border-radius: 4px;
-//   -webkit-transition: opacity 0.3s ease-in-out;
-//   -o-transition: opacity 0.3s ease-in-out;
-//   transition: opacity 0.3s ease-in-out;
-//   position: absolute;
-//   top: 0;
+// .carousel__slide {
+//   // width: auto !important;
+//   width: 15% !important;
+//   outline: none;
+//   padding: 0 18px;
+//   display: unset;
 // }
+
+.subcategory-wrapper img {
+  object-fit: cover;
+  display: block;
+  height: 345px;
+  width: 100%;
+  border-radius: 4px;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  position: absolute;
+  top: 0;
+}
+
+.subcategory-wrapper {
+  height: 345px;
+  background-color: #efeff0;
+  cursor: pointer;
+  img {
+    object-fit: cover;
+    display: block;
+    height: 345px;
+    width: 100%;
+    border-radius: 4px;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+    position: absolute;
+    top: 0;
+  }
+}
 
 .subcategory {
   position: relative;
