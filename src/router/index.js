@@ -3,6 +3,7 @@ import homePage from "../views/home-page.vue";
 import gigList from "../views/explore-page.vue";
 import gigDetails from "../views/gig-details.vue";
 import userProfile from "../views/profile-page.vue";
+import gigPurchasePage from "../views/gig-purchase-page.vue";
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -28,12 +29,17 @@ const router = createRouter({
       component: gigDetails,
     },
     {
+      path: "/checkout/:id",
+      name: "gig-purchase-page",
+      component: gigPurchasePage,
+    },
+    {
       path: "/tag/:gig/:id",
       name: "gig-details",
       component: gigDetails,
     },
     {
-      path: '/user',
+      path: "/user",
       name: "prifil-page",
       component: userProfile,
       // children: [

@@ -1,5 +1,6 @@
 <template>
   <div v-if="gig" class="gig-page">
+    <login></login>
     <section class="gig-sidebar">
       <div class="gig-purchase-tab">
         <form class="gig-purchase-content">
@@ -20,13 +21,13 @@
             <li class="gig-feature"></li>
             <li class="gig-feature"></li>
           </ul>
-          <footer class="gig-footer">
-            <button class="gig-purchase-btn">
-              <rotuer-link to="/">
+          <router-link :to="'/checkout/' + gig._id">
+            <footer class="gig-footer">
+              <button class="gig-purchase-btn">
                 Continue <span>({{ gig.price }})</span>
-              </rotuer-link>
-            </button>
-          </footer>
+              </button>
+            </footer>
+          </router-link>
         </form>
       </div>
 
@@ -106,10 +107,12 @@
   import { gigService } from "../services/gig-service";
   import gigDetailsGalleryCarousel from "../components/gig-details-gallery-carousel.vue";
   import gigDetailsReviewsCarousel from "../components/gig-details-reviews-carousel.vue";
+  import login from "../components/login.vue";
   export default {
     components: {
       gigDetailsGalleryCarousel,
       gigDetailsReviewsCarousel,
+      login,
     },
     data() {
       return {
@@ -119,7 +122,6 @@
     async created() {
       const { id } = this.$route.params;
       this.gig = await gigService.getById(id);
-
     },
   };
 </script>
