@@ -158,14 +158,13 @@ export default {
 
   umounted() {
     clearTimeout(this.heroTimeout);
-    log("timeout ended");
   },
 
   methods: {
     heroAnimation() {
       const elHeroWrappers = document.querySelectorAll(".hero-wrapper");
-      if (!elHeroWrappers[this.heroIdx]) return;
       if (this.heroIdx > 4) this.heroIdx = 0;
+      // if (!elHeroWrappers[this.heroIdx]) return;
       elHeroWrappers.forEach((hero) => {
         hero.style.opacity = "0";
       });
