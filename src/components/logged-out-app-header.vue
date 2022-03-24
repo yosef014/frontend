@@ -125,7 +125,7 @@ export default {
         this.isHomePage = path === "/";
         if (!this.isHomePage) {
           removeEventListener("scroll", this.onScroll);
-          this.unstickNavbar;
+          this.unstickNavbar();
         } else {
           window.addEventListener("scroll", this.onScroll);
           this.stickNavbar();

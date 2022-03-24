@@ -39,6 +39,14 @@
 .gig-categorys-boxes {
   max-width: $screen-size-l;
   margin: 0 auto;
+
+  & li {
+    width: 15% !important;
+    font-family: macan-regular;
+    :hover {
+      color: #1dbf73;
+    }
+  }
 }
 .gig-filters {
   max-width: $screen-size-l;
@@ -61,7 +69,6 @@
   padding: 17px;
   box-shadow: 0 0.14px 2.29266px rgba(0, 0, 0, 0.032),
     0 0.37px 4.42626px rgba(0, 0, 0, 0.048), 0 3px 7px rgba(0, 0, 0, 0.09);
-  cursor: pointer;
 
   img {
     object-fit: cover;
@@ -97,6 +104,37 @@
       // color: #1dbf73;
     }
 
+    & .el-carousel__container {
+      height: 154px !important;
+
+      button {
+        height: 24px;
+        width: 24px;
+        border-radius: 70%;
+      }
+
+      button:nth-child(1) {
+        background-color: #f2f3f4;
+        color: black;
+        border-bottom-left-radius: 0px;
+        border-top-left-radius: 0px;
+        left: 0px;
+        & .el-icon {
+          right: 3px;
+        }
+      }
+      button:nth-child(2) {
+        background-color: #f2f3f4;
+        color: black;
+        border-bottom-right-radius: 0px;
+        border-top-right-radius: 0px;
+        right: 0px;
+        & .el-icon {
+          left: 3px;
+        }
+      }
+    }
+
     h4 {
       font-size: 0.875rem;
       font-family: macan-bold;
@@ -124,10 +162,10 @@
       height: 43px;
       line-height: 1.375;
       color: #222325;
-      cursor: pointer;
       transition-timing-function: ease-in-out;
       &:hover {
         color: #1dbf73;
+        cursor: pointer;
       }
     }
 

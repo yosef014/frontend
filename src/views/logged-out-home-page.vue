@@ -164,7 +164,7 @@ export default {
   methods: {
     heroAnimation() {
       const elHeroWrappers = document.querySelectorAll(".hero-wrapper");
-      if (!elHeroWrappers) return;
+      if (!elHeroWrappers[this.heroIdx]) return;
       if (this.heroIdx > 4) this.heroIdx = 0;
       elHeroWrappers.forEach((hero) => {
         hero.style.opacity = "0";
