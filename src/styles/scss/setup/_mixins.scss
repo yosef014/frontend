@@ -10,6 +10,8 @@
   text-align: center;
   background-color: #1dbf73;
   color: #fff;
+  height: 34px;
+  font-family: macan-bold;
 }
 
 @mixin btn-large {
@@ -29,8 +31,10 @@
 @mixin nav-input {
   width: 100%;
   border-right: 0;
+  font-family: macan-light;
+  border-color: #dadbdd;
   border-radius: 3px 0 0 3px;
-  padding: 7px 7px 7px 28px;
+  padding: 7px 7px 7px 38px;
   background-color: #fff;
   height: 34px;
   font-size: 15px;

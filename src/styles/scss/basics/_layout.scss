@@ -5,7 +5,28 @@
     height:60px;
 }
 .popular-services-container{
+
+    &.max-width-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
     height:60vh;
+    h2 {
+        
+    }
+    & li {
+        width: 20% !important;
+    }
+
+    & .carousel__prev {
+        position: absolute;
+        left: 18px;
+    }
+    & .carousel__next {
+        position: absolute;
+        right: 18px;
+    }
 }
 .home-info-container{
     background-color: #f1fdf7;

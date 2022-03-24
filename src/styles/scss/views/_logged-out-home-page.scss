@@ -64,7 +64,8 @@
   color: #fff;
   padding-top: 24px;
   align-items: center;
-  ul {
+  font-family: macan-semibold;
+   ul {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
@@ -72,8 +73,7 @@
     margin-left: 12px;
     list-style: none;
     list-style-image: none;
-    li {
-      cursor: pointer;
+     li {
       margin-right: 12px;
       white-space: nowrap;
       background-color: transparent;
@@ -87,9 +87,15 @@
       transition-duration: 0.2s;
       transition-timing-function: ease-in-out;
       transition-delay: 0s;
+      font-family: macan-semibold;
+      cursor: pointer;
 
       &:hover {
         background-color: #fff;
+        
+
+      }
+      & a:hover {
         color: #404145;
       }
     }
@@ -125,6 +131,11 @@ form {
     border-radius: 4px 0 0 4px;
     border-right: 0;
     outline: none;
+    ::placeholder {
+      font-family: bebas-regular;
+
+      
+    }
   }
   button {
     font-size: 16px;
@@ -202,12 +213,15 @@ form {
   filter: drop-shadow(0 0 61px rgba(0, 0, 0, 0.84)),
     drop-shadow(0 4px 64px #000);
     p {
-      font-family: chank-five;
+      font-family: babas-regular;
+      font-size: 1rem;
+      font-weight: 400;
     }
 }
 
 .font-domaine {
   font-size: 50px;
+  margin-bottom: 2rem;
   z-index: 5;
   font-family: domaine-display-web-medium-italic;
 }

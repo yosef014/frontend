@@ -42,7 +42,7 @@
       return {
         settings: {
           itemsToShow: 1,
-          itemsToScroll: 5,
+          itemsToScroll: 4,
           transition: 600,
           snapAlign: "center",
           wrapAround: true,

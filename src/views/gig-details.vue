@@ -188,7 +188,6 @@ TEST TEST TEST TESTTEST TEST TEST TESTTEST TEST TEST TESTTEST TEST TEST TEST </p
       const { id } = this.$route.params;
       this.gig = await gigService.getById(id);
 
-      console.log(this.gig);
     },
   };
 </script>
