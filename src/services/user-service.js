@@ -16,8 +16,7 @@ export const userService = {
     changeScore
 }
 
-// Debug technique
-window.userService = userService
+
 
 
 function getUsers() {

@@ -74,7 +74,7 @@ export const gigStore = {
             const filterBy = state.filterBy ? state.filterBy : ''
             commit({ type: 'setLoading', isLoading: true })
             try {
-                const gigs = await gigService.query(filterBy);
+                const gigs = await gigService.getGigs(filterBy);
                 commit({ type: 'setGigs', gigs });
             } catch (err) {
                 console.log('Error in Query Gigs (Store):', err);
