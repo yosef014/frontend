@@ -55,8 +55,6 @@
   background-color: #540e1f;
 }
 
-
-
 .popular {
   display: flex;
   font-size: 14px;
@@ -65,7 +63,7 @@
   padding-top: 24px;
   align-items: center;
   font-family: macan-semibold;
-   ul {
+  ul {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
@@ -73,7 +71,7 @@
     margin-left: 12px;
     list-style: none;
     list-style-image: none;
-     li {
+    li {
       margin-right: 12px;
       white-space: nowrap;
       background-color: transparent;
@@ -92,14 +90,11 @@
 
       &:hover {
         background-color: #fff;
-        
-
       }
       & a {
         color: #fff;
         :hover {
           color: #404145;
-
         }
       }
     }
@@ -111,6 +106,7 @@ form {
   height: auto;
   position: relative;
   color: #62646a;
+  width: 90%;
   .search-icon {
     position: absolute;
     z-index: 5;
@@ -137,8 +133,6 @@ form {
     outline: none;
     ::placeholder {
       font-family: bebas-regular;
-
-      
     }
   }
   button {
@@ -164,11 +158,11 @@ form {
 }
 
 // .search-bar-package {
-  
+
 //   & form {
 //     display: flex;
 //     flex-direction: row;
-    
+
 //     width: 100%;
 //     z-index: 3;
 
@@ -186,15 +180,16 @@ form {
 }
 
 .categories-menu-package {
-    ul {
-      display: flex;
-      justify-content: space-around;
-    }
+  ul {
+    display: flex;
+    justify-content: space-around;
+  }
 }
 
 .header {
   color: aliceblue;
   max-width: 800px;
+  margin-inline-start: 3rem;
 }
 
 .hero {
@@ -216,16 +211,17 @@ form {
     drop-shadow(0 4px 64px #000);
   filter: drop-shadow(0 0 61px rgba(0, 0, 0, 0.84)),
     drop-shadow(0 4px 64px #000);
-    p {
-      font-family: babas-regular;
-      font-size: 1rem;
-      font-weight: 400;
-    }
+  p {
+    font-family: babas-regular;
+    font-size: 1rem;
+    font-weight: 400;
+  }
 }
 
 .font-domaine {
   font-size: 50px;
   margin-bottom: 2rem;
+
   z-index: 5;
   font-family: domaine-display-web-medium-italic;
 }

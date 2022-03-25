@@ -1,7 +1,7 @@
 <template>
   <div
     :style="{ position: isHomePage ? 'fixed' : 'absolute' }"
-    :class="showNavbar"
+    :class="onShowNavbar"
     class="logged-out-nav-container"
   >
     <div class="logged-out-nav max-width-container">
@@ -18,17 +18,15 @@
       </div>
       <div class="link-list">
         <ul>
-          <span :style="{ color: linkColorState ? '#fff' : '#1E1692' }"
-            >Fiverr Business</span
-          >
-          <router-link to="/tag">
-            <li>Explore</li>
-          </router-link>
-          <li>ILS</li>
-          <router-link to="become a seller">
-            <li>Become a Seller</li>
-          </router-link>
-          <!-- <router-link to="sign in"> -->
+          <li v-for="navLink in navLinks" :key="navLink">
+            <router-link :to="navLink.route">
+              <a
+                :style="navLink.name === 'business-link' ? setLinkColor : ''"
+                :class="navLink.class"
+                >{{ navLink.name }}</a
+              >
+            </router-link>
+          </li>
           <li @click="toggleLogin(showModal.isLogin)">
             Sign in
             <Modal v-model="showModal.isLogin" :close="toggleLoginClose">
@@ -37,7 +35,6 @@
               </div>
             </Modal>
           </li>
-          <!-- </router-link> -->
           <li @click="toggleSignUp(showModal.isSignUp)" class="join">
             Join
             <Modal v-model="showModal.isSignUp" :close="toggleClose">
@@ -68,9 +65,9 @@
   import searchIconVue from "../svgs/search-icon.vue";
   import fiiverrLogoVue from "../svgs/fiiverr-logo.vue";
   import FiiverrLogo from "../svgs/fiiverr-logo.vue";
+  import { remove } from "@vue/shared";
   import login from "./login.vue";
   import signUp from "./sign-up.vue";
-  import { remove } from "@vue/shared";
   export default {
     components: {
       fiiverrLogoVue,
@@ -118,6 +115,38 @@
           {
             name: "Business",
             path: "business",
+          },
+        ],
+        navLinks: [
+          {
+            name: "Fiiverr Business",
+            route: "fiiver business",
+            class: "nav-link business-link",
+          },
+          {
+            name: "Explore",
+            route: "explore",
+            class: "nav-link",
+          },
+          {
+            name: "ILS",
+            route: "ils",
+            class: "nav-link currency",
+          },
+          {
+            name: "Become A Seller",
+            route: "become a seller",
+            class: "nav-link",
+          },
+          {
+            name: "Sign In",
+            route: "sign in",
+            class: "nav-link",
+          },
+          {
+            name: "Join",
+            route: "sign in",
+            class: "join",
           },
         ],
       };
@@ -201,10 +230,13 @@
     },
 
     computed: {
-      showNavbar() {
+      onShowNavbar() {
         return {
           "header-transparent": this.isShowNavbar === false,
         };
+      },
+      setLinkColor() {
+        return { color: linkColorState ? "#fff" : "#1E1692" };
       },
     },
 

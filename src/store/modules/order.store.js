@@ -73,7 +73,7 @@ export const orderStore = {
             const filterBy = state.filterBy ? state.filterBy : ''
             commit({ type: 'setLoading', isLoading: true })
             try {
-                const orders = await orderService.query(filterBy);
+                const orders = await orderService.getOrders(filterBy);
                 commit({ type: 'setOrders', orders });
             } catch (err) {
                 console.log('Error in Query Orders (Store):', err);

@@ -2,28 +2,8 @@ import { userService } from "../../services/user-service";
 
 export const userStore = {
   state: {
-    // loggedinUser: userService.getLoggedinUser(),
-    loggedinUser: {
-      _id: "u101",
-      fullname: "emil guzlan",
-      imgUrl:
-        "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/4abf6f5b58e4d78cfb7c410cf8d7a9ac-1626111679444/4a04b77c-22ee-4ce8-b4be-747fd059e9ff.jpg",
-      username: "user1",
-      level: "basic/premium",
-      ordersId: ["sdsadmf123"],
-      reviews: [
-        {
-          id: "1234123",
-          txt: "Very kind and works fast",
-          rate: 4,
-          by: {
-            _id: "u102",
-            fullname: "user2",
-            imgUrl: "/img/img2.jpg",
-          },
-        },
-      ],
-    },
+    loggedinUser: userService.getLoggedinUser(),
+ 
     users: [],
     watchedUser: null,
   },
@@ -41,6 +21,7 @@ export const userStore = {
   mutations: {
     setLoggedinUser(state, { user }) {
       state.loggedinUser = user ? { ...user } : null;
+      console.log( state.loggedinUser);
     },
     setWatchedUser(state, { user }) {
       state.watchedUser = user;
@@ -136,6 +117,7 @@ export const userStore = {
       }
     },
     async updateUserPref({ commit }, { user }) {
+     
       try {
         const updatedUser = await userService.updateUserPref(user);
         commit({ type: "setUserPref" }, { updatedUser });

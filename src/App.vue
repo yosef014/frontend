@@ -23,7 +23,7 @@
     },
 
     methods: {
-      appHeader: 'appHeader',
+    component: 'appHeader',
       
     },
     components: {

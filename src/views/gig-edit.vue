@@ -1,15 +1,6 @@
 <template>
-  <section class="bgc-grey grid-narrow main-layout">
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-
-    <br />
-    <br />
+  <section class="bgc-grey grid-narrow main-layout page-content-container">
+    
     <section v-if="gigToEdit" class="edit-gig-container">
       {{ gigToEdit }}
       <div class="gig-title grid-div">
