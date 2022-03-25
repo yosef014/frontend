@@ -22,7 +22,6 @@ function getGigs() {
 async function getById(gigId) {
     // const gig = await storageService.get('gig', gigId)
     const gig = await httpService.get(`gig/${gigId}`)
-    gWatchedGig = gig;
     return gig;
 }
 function remove(gigId) {

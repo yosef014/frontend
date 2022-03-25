@@ -22,7 +22,6 @@ function getOrders() {
 async function getById(orderId) {
     // const order = await storageService.get('order', orderId)
     const order = await httpService.get(`order/${orderId}`)
-    gWatchedOrder = order;
     return order;
 }
 function remove(orderId) {
