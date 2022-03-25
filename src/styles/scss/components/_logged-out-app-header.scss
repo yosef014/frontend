@@ -1,3 +1,9 @@
+.login-active {
+  background-color: #1dbf73;
+  color: #fff !important;
+  border: none !important;
+}
+
 .logged-out-nav-container {
   background-color: white;
   height: 80px;
@@ -12,24 +18,25 @@
     height: 40px;
     background-color: rgb(255, 255, 255);
     width: 100vw;
-    border-bottom: 1px solid #c5c6c9;
-    border-top: 1px solid #c5c6c9;
-    transition: 0.5s;
-    opacity: 1;
-    scale: 0;
+    border-bottom: 1px solid #e4e5e7;
+    border-top: 1px solid #e4e5e7;
+    transition: 0.4s;
+    opacity: 0;
+    transform: rotateX(90deg);
     ul {
       display: flex;
       height: 100%;
       align-items: center;
 
       li {
-        font-family: macan-light;
         height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
         & a {
-          color: black;
+          font-family: macan-light;
+          color: #74767e;
+  
         }
 
         &:hover {
@@ -38,6 +45,18 @@
       }
     }
   }
+}
+
+.menu-package-open {
+  border-bottom: 1px solid #e4e5e7;
+  opacity: 1 !important;
+  -webkit-transform: rotateX(0deg);
+  transform: rotateX(0deg) !important;
+  -webkit-transition: -webkit-transform .2s;
+  transition: -webkit-transform .1s;
+  -o-transition: transform .1s;
+  transition: transform .1s;
+  transition: transform .1s,-webkit-transform .1s;
 }
 
 //nav links with transparent mode
@@ -52,6 +71,10 @@
         .business-link {
           color: white;
         }
+      }
+      .join {
+        border: 1px solid #fff;
+        color: #fff;
       }
   }
 }

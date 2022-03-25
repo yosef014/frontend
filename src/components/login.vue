@@ -1,6 +1,5 @@
 <template>
   <div class="login-popup">
-    <button v-if="!isOpen" @click="isOpen = true">Sign in</button>
     <div class="login-popup-modal" v-if="!isOpen">
       <div>
         <div class="login-header">

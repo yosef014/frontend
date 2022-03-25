@@ -1,6 +1,7 @@
 <template>
   <div class="page-content-container">
     <div v-if="gig" class="gig-page">
+     
       <section class="gig-sidebar">
         <div class="gig-purchase-tab">
           <form class="gig-purchase-content">

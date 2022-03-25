@@ -1,7 +1,5 @@
 <template>
 <div class="page-content-container">
-
-
   <section v-if="gig" class="gig-checkout-page gig-page">
     <div class="gig-order-preview">
       <img :src="gig.productImgs[0]" alt="" />
