@@ -27,22 +27,6 @@
               >
             </router-link>
           </li>
-          <li @click="toggleLogin(showModal.isLogin)">
-            Sign in
-            <Modal v-model="showModal.isLogin" :close="toggleLoginClose">
-              <div class="modal">
-                <login :close="toggleLoginClose" />
-              </div>
-            </Modal>
-          </li>
-          <li @click="toggleSignUp(showModal.isSignUp)" class="join">
-            Join
-            <Modal v-model="showModal.isSignUp" :close="toggleClose">
-              <div class="modal">
-                <sign-up :close="toggleClose" />
-              </div>
-            </Modal>
-          </li>
         </ul>
       </div>
     </div>
