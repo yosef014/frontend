@@ -1,6 +1,12 @@
 <template>
+<<<<<<< HEAD
   <div v-if="gig" class="page-content-container">
     <div class="gig-page">
+=======
+  <div class="page-content-container">
+    <div v-if="gig" class="gig-page">
+     
+>>>>>>> 24cab53bde6879288ff1c02001f10d1a38162fc5
       <section class="gig-sidebar">
         <div class="gig-purchase-tab">
           <form class="gig-purchase-content">

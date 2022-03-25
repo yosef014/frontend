@@ -85,17 +85,19 @@
       transition-duration: 0.2s;
       transition-timing-function: ease-in-out;
       transition-delay: 0s;
-      font-family: macan-semibold;
+      // font-family: macan-semibold;
       cursor: pointer;
 
       &:hover {
         background-color: #fff;
+        a {
+          color: #404145;
+        }
       }
       & a {
         color: #fff;
-        :hover {
-          color: #404145;
-        }
+        font-family: macan-semibold;
+
       }
     }
   }
@@ -212,7 +214,7 @@ form {
   filter: drop-shadow(0 0 61px rgba(0, 0, 0, 0.84)),
     drop-shadow(0 4px 64px #000);
   p {
-    font-family: babas-regular;
+    font-family: macan-regular;
     font-size: 1rem;
     font-weight: 400;
   }
