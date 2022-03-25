@@ -63,7 +63,7 @@
 
 <script>
   export default {
-    props: { close: Function },
+    // props: { close: Function },
     data() {
       return {
         isOpen: false,

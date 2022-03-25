@@ -1,48 +1,77 @@
-
 // import { storageService } from './async-storage.service'
-import { httpService } from './http-service'
+import { httpService } from "./http-service";
 // import { socketService, SOCKET_EVENT_USER_UPDATED } from './socket.service'
 
+const STORAGE_KEY_LOGGEDIN_USER = "orderLS";
+
 export const orderService = {
-   
-    getOrders,
-    getById,
-    remove,
-    update,
-}
+  getOrders,
+  getById,
+  remove,
+  update,
+  save,
+  getEmptyOrder,
+};
 
-
-
-
-function getOrders() {
-    // return storageService.query('order')
-    return httpService.get(`order`)
+async function getOrders() {
+  // return storageService.query('order')
+  return await httpService.get(`order`);
 }
 
 async function getById(orderId) {
-    // const order = await storageService.get('order', orderId)
-    const order = await httpService.get(`order/${orderId}`)
-    return order;
+  // const order = await storageService.get('order', orderId)
+  const order = await httpService.get(`order/${orderId}`);
+  return order;
 }
-function remove(orderId) {
-    // return storageService.remove('order', orderId)
-    return httpService.delete(`order/${orderId}`)
+async function remove(orderId) {
+  // return storageService.remove('order', orderId)
+  return await httpService.delete(`order/${orderId}`);
+}
+async function save(order) {
+  if (order._id) {
+    return await httpService.put(`order/${order._id}`, order);
+  } else {
+    return await httpService.post("order", order);
+  }
 }
 
 async function update(order) {
-    // await storageService.put('order', order)
-    order = await httpService.put(`order/${order._id}`, order)
-    // Handle case in which admin updates other order's details
-    if (getLoggedinOrder()._id === order._id) _saveLocalOrder(order)
-    return order;
+  // await storageService.put('order', order)
+  order = await httpService.put(`order/${order._id}`, order);
+  // Handle case in which admin updates other order's details
+  if (getLoggedinOrder()._id === order._id) _saveLocalOrder(order);
+  return order;
+}
+
+function getEmptyOrder() {
+  return Promise.resolve({
+    createdAt: "",
+    description: "",
+    price: null,
+    timeToDeliver: "",
+    imgUrl: "",
+    seller: {
+      _id: "",
+      fullname: "",
+      imgUrl: "",
+    },
+    buyer: {
+      _id: "",
+      fullname: "",
+      imgUrl: "",
+    },
+    gig: {
+      _id: "",
+      category: "",
+    },
+    status: "Pending",
+  });
 }
 
 function _saveLocalOrder(order) {
-    sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(order))
-    return order
+  sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(order));
+  return order;
 }
-
-
 
 // (async ()=>{
 //     await userService.signup({fullname: 'Puki Norma', username: 'user1', password:'123',score: 10000, isAdmin: false})
@@ -50,9 +79,7 @@ function _saveLocalOrder(order) {
 //     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
 // })();
 
-
-
-// This IIFE functions for Dev purposes 
+// This IIFE functions for Dev purposes
 // It allows testing of real time updates (such as sockets) by listening to storage events
 // (async () => {
 //     var user = getLoggedinUser()
@@ -77,16 +104,6 @@ function _saveLocalOrder(order) {
 //     var user = getLoggedinUser()
 //     if (user) socketService.emit('set-user-socket', user._id)
 // })();
-
-
-
-
-
-
-
-
-
-
 
 // import { storageService } from "./storage-service";
 // import { asyncStorageService } from "./async-storage-service";

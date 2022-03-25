@@ -63,7 +63,7 @@
   // import { userService } from "../services/user-service";
   export default {
     name: "login",
-    props: { close: Function, open: Function },
+    // props: { close: Function, open: Function },
     data() {
       return {
         isOpen: false,

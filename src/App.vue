@@ -1,6 +1,6 @@
 <template>
   <main>
-        <appHeader></appHeader>
+    <appHeader></appHeader>
 
     <RouterView />
   </main>
@@ -8,6 +8,7 @@
 
 <script>
   import appHeader from "./components/logged-out-app-header.vue";
+  // import appHeader from "./components/logged-out-app-header-test.vue";
   export default {
     name: "app",
     created() {
@@ -18,13 +19,11 @@
     data() {
       return {
         appHeader: null,
-
-      }
+      };
     },
 
     methods: {
-    component: 'appHeader',
-      
+      component: "appHeader",
     },
     components: {
       appHeader,
@@ -33,18 +32,18 @@
     // @GUY - שמתי פה דברים שיעזרו לי בהמשף ךרנדר קומפוננטה דינמית באפ הדר
     watch: {
       $route: {
-        handler({path}) {
-          if (path === '/') this.appHeader = 'appHeader'
-          if (path === '/business') this.appHeader = 'businessHeader'
-          if (path === '/seller') this.appHeader = 'sellerHeader'
-        }
-      }
+        handler({ path }) {
+          if (path === "/") this.appHeader = "appHeader";
+          if (path === "/business") this.appHeader = "businessHeader";
+          if (path === "/seller") this.appHeader = "sellerHeader";
+        },
+      },
     },
 
     computed: {
       setAppHeader() {
-        return this.appHeader
-      }
-    }
+        return this.appHeader;
+      },
+    },
   };
 </script>
