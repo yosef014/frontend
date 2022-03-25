@@ -1,7 +1,6 @@
 <template>
   <div v-if="gig" class="gig-page">
-    <login></login>
-    <section class="gig-sidebar">
+    <section @handleScroll="handleScroll" class="gig-sidebar">
       <div class="gig-purchase-tab">
         <form class="gig-purchase-content">
           <h3>
@@ -95,9 +94,66 @@
       <div class="gig-description">
         <header><h2 class="gig-section-title">About This Gig</h2></header>
         <div class="gig-description-content">
-          {{ gig.description }}
+          <p>
+            {{ gig.description }}
+          </p>
         </div>
         <!-- <button class="collapse-button">+ See More</button> -->
+      </div>
+      <div class="gig-about-seller">
+        <h2>About The Seller</h2>
+        <div class="gig-about-seller-header">
+          <div class="gig-seller-profile-pic">
+            <img
+              src="https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/851682dc8f4fb93905e5db125ce56655-1552635815584/83c9dc85-a0fd-4bcc-a0e5-b6a3e886ca77.jpg"
+              alt=""
+            />
+          </div>
+          <div class="gig-seller-label">
+            <p>{{ gig.fullname }}</p>
+            <p>
+              My Specialty :
+              <span v-for="category in gig.category" :key="category">
+                {{ category }}
+              </span>
+            </p>
+            <p>
+              Reviews:
+              <span> ({{ reviewsLength }}) </span>
+            </p>
+          </div>
+        </div>
+        <div class="gig-seller-description-header">
+          <ul>
+            <li>
+              From
+              <p>
+                {{ gig.loc }}
+              </p>
+            </li>
+            <li>
+              Member since
+              <p>
+                {{ gig.memberSince }}
+              </p>
+            </li>
+            <li>
+              Avg. response time
+              <p>
+                {{ gig.avgResponceTime }}
+              </p>
+            </li>
+            <li>
+              Last delivery
+              <p>
+                {{ gig.lastDelivery }}
+              </p>
+            </li>
+          </ul>
+          <div class="gig-seller-description">
+            {{ gig.about }}
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -107,21 +163,49 @@
   import { gigService } from "../services/gig-service";
   import gigDetailsGalleryCarousel from "../components/gig-details-gallery-carousel.vue";
   import gigDetailsReviewsCarousel from "../components/gig-details-reviews-carousel.vue";
-  import login from "../components/login.vue";
   export default {
     components: {
       gigDetailsGalleryCarousel,
       gigDetailsReviewsCarousel,
-      login,
     },
     data() {
       return {
         gig: null,
+        limitPosition: 120,
+        scrolled: false,
+        lastPosition: 0,
       };
+    },
+    computed: {
+      reviewsLength() {
+        return this.gig.reviewers.length;
+      },
     },
     async created() {
       const { id } = this.$route.params;
       this.gig = await gigService.getById(id);
+      window.addEventListener("scroll", this.handleScroll);
+      console.log(this.handleScroll);
+    },
+    unmounted() {
+      window.removeEventListener("scroll", this.handleScroll);
+    },
+    methods: {
+      handleScroll() {
+        if (
+          this.lastPosition < window.scrollY &&
+          this.limitPosition < window.scrollY
+        ) {
+          this.scrolled = true;
+          // move up!
+        }
+        if (this.lastPosition > window.scrollY) {
+          this.scrolled = false;
+          // move down
+        }
+        this.lastPosition = window.scrollY;
+        // this.scrolled = window.scrollY > 250;
+      },
     },
   };
 </script>

@@ -1,4 +1,4 @@
-.login-popup {
+.signup-popup {
   position: fixed;
   &-modal {
     position: absolute;
@@ -17,10 +17,10 @@
     }
   }
 }
-.login-header {
+.signup-header {
   padding: 32px 0;
 }
-// .login-popup-modal {
+// .signup-popup-modal {
 //   position: absolute;
 //   top: 0;
 //   left: 0;
@@ -31,11 +31,8 @@
 //   justify-content: center;
 //   align-items: center;
 // }
-.backgroundcolorred {
-  background-color: red;
-  opacity: 0.7;
-}
-.login-popup-modal > div {
+
+.signup-popup-modal > div {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -50,7 +47,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.login-google-btn {
+.signup-google-btn {
   align-items: center;
   background: #fff;
   border: 1px solid #e4e5e7;
@@ -72,7 +69,7 @@
     width: 100%;
   }
 }
-.login-form-separator {
+.signup-form-separator {
   border-bottom: 1px solid #e4e5e7;
   height: 12px;
   margin: 20px 0 32px;
@@ -87,7 +84,7 @@
     text-transform: uppercase;
   }
 }
-.login-form {
+.signup-form {
   flex-direction: column;
   input {
     border: 1px solid #c5c6c9;

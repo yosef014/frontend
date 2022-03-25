@@ -28,10 +28,24 @@
           <router-link to="become a seller">
             <li>Become a Seller</li>
           </router-link>
-          <router-link to="sign in">
-            <li>Sign in</li>
-          </router-link>
-          <li class="join">Join</li>
+          <!-- <router-link to="sign in"> -->
+          <li @click="toggleLogin(showModal.isLogin)">
+            Sign in
+            <Modal v-model="showModal.isLogin" :close="toggleLoginClose">
+              <div class="modal">
+                <login :close="toggleLoginClose" />
+              </div>
+            </Modal>
+          </li>
+          <!-- </router-link> -->
+          <li @click="toggleSignUp(showModal.isSignUp)" class="join">
+            Join
+            <Modal v-model="showModal.isSignUp" :close="toggleClose">
+              <div class="modal">
+                <sign-up :close="toggleClose" />
+              </div>
+            </Modal>
+          </li>
         </ul>
       </div>
     </div>
@@ -54,13 +68,21 @@
   import searchIconVue from "../svgs/search-icon.vue";
   import fiiverrLogoVue from "../svgs/fiiverr-logo.vue";
   import FiiverrLogo from "../svgs/fiiverr-logo.vue";
+  import login from "./login.vue";
+  import signUp from "./sign-up.vue";
   import { remove } from "@vue/shared";
   export default {
     components: {
       fiiverrLogoVue,
+      login,
+      signUp,
     },
     data() {
       return {
+        showModal: {
+          isLogin: false,
+          isSignUp: false,
+        },
         isHomePage: true,
         isShowNavbar: true,
         isShowCatagories: false,
@@ -102,6 +124,18 @@
     },
 
     methods: {
+      toggleLogin() {
+        this.showModal.isLogin = true;
+      },
+      toggleClose() {
+        this.showModal.isSignUp = false;
+      },
+      toggleSignUp() {
+        this.showModal.isSignUp = true;
+      },
+      toggleLoginClose() {
+        this.showModal.isLogin = false;
+      },
       unstickNavbar() {
         this.isShowNavbar = true;
         this.isShowCatagories = true;
@@ -180,3 +214,16 @@
     },
   };
 </script>
+<style scoped lang="scss">
+  .modal {
+    width: 300px;
+    padding: 30px;
+    box-sizing: border-box;
+    background-color: #fff;
+    font-size: 20px;
+    text-align: center;
+  }
+  body {
+    opacity: 0.7;
+  }
+</style>
