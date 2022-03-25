@@ -1,7 +1,7 @@
 <template>
   <div
     :style="{ position: isHomePage ? 'fixed' : 'absolute' }"
-    :class="showNavbar"
+    :class="onShowNavbar"
     class="logged-out-nav-container"
   >
     <div class="logged-out-nav max-width-container">
@@ -18,7 +18,16 @@
       </div>
       <div class="link-list">
         <ul>
-          <span :style="{ color: linkColorState ? '#fff' : '#1E1692' }"
+          <li v-for="navLink in navLinks" :key="navLink">
+            <router-link :to="navLink.route">
+              <a
+                :style="navLink.name === 'business-link' ? setLinkColor : ''"
+                :class="navLink.class"
+                >{{ navLink.name }}</a
+              >
+            </router-link>
+          </li>
+          <!-- <span :style="{ color: linkColorState ? '#fff' : '#1E1692' }"
             >Fiverr Business</span
           >
           <router-link to="/tag">
@@ -31,7 +40,7 @@
           <router-link to="sign in">
             <li>Sign in</li>
           </router-link>
-          <li class="join">Join</li>
+          <li class="join">Join</li> -->
         </ul>
       </div>
     </div>
@@ -51,132 +60,167 @@
 </template>
 
 <script>
-  import searchIconVue from "../svgs/search-icon.vue";
-  import fiiverrLogoVue from "../svgs/fiiverr-logo.vue";
-  import FiiverrLogo from "../svgs/fiiverr-logo.vue";
-  import { remove } from "@vue/shared";
-  export default {
-    components: {
-      fiiverrLogoVue,
-    },
-    data() {
-      return {
-        isHomePage: true,
-        isShowNavbar: true,
-        isShowCatagories: false,
-        isShowNavSearch: false,
-        logoColorState: true,
-        linkColorState: false,
-        elNavLinks: null,
-        catagories: [
-          {
-            name: "Arts And Drafts",
-            path: "arts and drafts",
-          },
-          {
-            name: "Data",
-            path: "data",
-          },
-          {
-            name: "Logo",
-            path: "logo",
-          },
-          {
-            name: "Marketing",
-            path: "marketing",
-          },
-          {
-            name: "Research And Summeries",
-            path: "research and summeries",
-          },
-          {
-            name: "Programming & Tech",
-            path: "programming and tech",
-          },
-          {
-            name: "Business",
-            path: "business",
-          },
-        ],
-      };
+import searchIconVue from "../svgs/search-icon.vue";
+import fiiverrLogoVue from "../svgs/fiiverr-logo.vue";
+import FiiverrLogo from "../svgs/fiiverr-logo.vue";
+import { remove } from "@vue/shared";
+export default {
+  components: {
+    fiiverrLogoVue,
+  },
+  data() {
+    return {
+      isHomePage: true,
+      isShowNavbar: true,
+      isShowCatagories: false,
+      isShowNavSearch: false,
+      logoColorState: true,
+      linkColorState: false,
+      elNavLinks: null,
+      catagories: [
+        {
+          name: "Arts And Drafts",
+          path: "arts and drafts",
+        },
+        {
+          name: "Data",
+          path: "data",
+        },
+        {
+          name: "Logo",
+          path: "logo",
+        },
+        {
+          name: "Marketing",
+          path: "marketing",
+        },
+        {
+          name: "Research And Summeries",
+          path: "research and summeries",
+        },
+        {
+          name: "Programming & Tech",
+          path: "programming and tech",
+        },
+        {
+          name: "Business",
+          path: "business",
+        },
+      ],
+      navLinks: [
+        {
+          name: "Fiiverr Business",
+          route: "fiiver business",
+          class: "nav-link business-link",
+        },
+        {
+          name: "Explore",
+          route: "explore",
+          class: "nav-link",
+        },
+        {
+          name: "ILS",
+          route: "ils",
+          class: "nav-link currency",
+        },
+        {
+          name: "Become A Seller",
+          route: "become a seller",
+          class: "nav-link",
+        },
+        {
+          name: "Sign In",
+          route: "sign in",
+          class: "nav-link",
+        },
+        {
+          name: "Join",
+          route: "sign in",
+          class: "join",
+        },
+      ],
+    };
+  },
+
+  methods: {
+    unstickNavbar() {
+      this.isShowNavbar = true;
+      this.isShowCatagories = true;
+      this.isShowNavSearch = true;
+      this.logoColorState = false;
+      this.linkColorState = false;
+      this.elNavLinks.forEach((link) => (link.style.color = "#62646a"));
     },
 
-    methods: {
-      unstickNavbar() {
-        this.isShowNavbar = true;
-        this.isShowCatagories = true;
-        this.isShowNavSearch = true;
-        this.logoColorState = false;
-        this.linkColorState = false;
-        this.elNavLinks.forEach((link) => (link.style.color = "#62646a"));
-      },
+    stickNavbar() {
+      this.isShowNavbar = false;
+      this.isShowCatagories = false;
+      this.isShowNavSearch = false;
+      this.logoColorState = true;
+      this.linkColorState = false;
+      this.elNavLinks.forEach((link) => (link.style.color = "#fff"));
+    },
 
-      stickNavbar() {
+    onScroll() {
+      if (window.scrollY < 5) {
+        this.elNavLinks.forEach((link) => (link.style.color = "#fff"));
         this.isShowNavbar = false;
+        this.logoColorState = true;
+        this.linkColorState = true;
+      }
+      if (window.scrollY > 10) {
+        this.elNavLinks.forEach((link) => (link.style.color = "#62646a"));
+        this.linkColorState = false;
+        this.isShowNavbar = true;
+        this.logoColorState = false;
+      }
+
+      if (window.scrollY < 200) {
         this.isShowCatagories = false;
         this.isShowNavSearch = false;
-        this.logoColorState = true;
-        this.linkColorState = false;
-        this.elNavLinks.forEach((link) => (link.style.color = "#fff"));
-      },
+      }
+      if (window.scrollY > 200) {
+        this.isShowNavSearch = true;
+        this.isShowCatagories = true;
+      }
+    },
+  },
 
-      onScroll() {
-        if (window.scrollY < 5) {
+  mounted() {
+    this.elNavLinks = document.querySelectorAll(".link-list li");
+  },
+
+  watch: {
+    $route: {
+      handler({ path }) {
+        this.isHomePage = path === "/";
+        if (!this.isHomePage) {
+          removeEventListener("scroll", this.onScroll);
+          this.unstickNavbar();
+        } else {
+          window.addEventListener("scroll", this.onScroll);
           this.elNavLinks.forEach((link) => (link.style.color = "#fff"));
-          this.isShowNavbar = false;
-          this.logoColorState = true;
-          this.linkColorState = true;
-        }
-        if (window.scrollY > 10) {
-          this.elNavLinks.forEach((link) => (link.style.color = "#62646a"));
-          this.linkColorState = false;
-          this.isShowNavbar = true;
-          this.logoColorState = false;
-        }
 
-        if (window.scrollY < 200) {
-          this.isShowCatagories = false;
-          this.isShowNavSearch = false;
-        }
-        if (window.scrollY > 200) {
-          this.isShowNavSearch = true;
-          this.isShowCatagories = true;
+          this.stickNavbar();
         }
       },
     },
+  },
 
-    mounted() {
-      this.elNavLinks = document.querySelectorAll(".link-list li");
+  computed: {
+    onShowNavbar() {
+      return {
+        "header-transparent": this.isShowNavbar === false,
+      };
     },
+    setLinkColor() {
+      return {color: linkColorState ? '#fff' : '#1E1692'}
+    }
+  },
 
-    watch: {
-      $route: {
-        handler({ path }) {
-          this.isHomePage = path === "/";
-          if (!this.isHomePage) {
-            removeEventListener("scroll", this.onScroll);
-            this.unstickNavbar();
-          } else {
-            window.addEventListener("scroll", this.onScroll);
-            this.elNavLinks.forEach((link) => (link.style.color = "#fff"));
-
-            this.stickNavbar();
-          }
-        },
-      },
-    },
-
-    computed: {
-      showNavbar() {
-        return {
-          "header-transparent": this.isShowNavbar === false,
-        };
-      },
-    },
-
-    components: {
-      searchIconVue,
-      FiiverrLogo,
-    },
-  };
+  components: {
+    searchIconVue,
+    FiiverrLogo,
+  },
+};
 </script>

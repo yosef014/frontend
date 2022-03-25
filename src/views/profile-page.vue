@@ -1,11 +1,6 @@
 <template>
-  <section>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+  <section class="page-content-container">
+    
     <div class="prifile-page-layout-fluid">
       <div class="prifile-page-layout">
         <div class="profile-page-aside-left">

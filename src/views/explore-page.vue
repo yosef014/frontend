@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page-content-container">
     
     <div class="breadcrumbs">
      <span @click="this.$router.push('/')" > FIVERR</span> > 

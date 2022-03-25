@@ -1,14 +1,6 @@
 <template>
-  <section>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+  <section class="page-content-container">
+
     <!-- <el-table :data="tableData" style="width: 100%" :row-class-name="getClassNames"	>
       <el-table-column  prop="BUYER" label="BUYER" width="100" />
       <el-table-column prop="GIG" label="GIG" width="150" />
