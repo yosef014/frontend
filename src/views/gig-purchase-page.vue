@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <div class="page-content-container">
     <section v-if="gig" class="gig-checkout-page gig-page">
       <div class="gig-order-preview">
@@ -21,22 +20,6 @@
         </form>
       </div>
     </section>
-=======
-<div class="page-content-container">
-  <section v-if="gig" class="gig-checkout-page gig-page">
-    <div class="gig-order-preview">
-      <img :src="gig.productImgs[0]" alt="" />
-      <p>{{ gig.title }}on</p>
-      {{ gig.rate }}
-      {{ gig.review }}
-    </div>
-    <div class="gig-checkout-tab">
-      <form class="gig-purchase-content">
-        <button @click="purchase" v-if="loggedInUser">PURCHASE</button>
-      </form>
-    </div>
-  </section>
->>>>>>> 24cab53bde6879288ff1c02001f10d1a38162fc5
   </div>
 </template>
 
