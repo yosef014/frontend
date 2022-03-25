@@ -27,20 +27,6 @@
               >
             </router-link>
           </li>
-          <!-- <span :style="{ color: linkColorState ? '#fff' : '#1E1692' }"
-            >Fiverr Business</span
-          >
-          <router-link to="/tag">
-            <li>Explore</li>
-          </router-link>
-          <li>ILS</li>
-          <router-link to="become a seller">
-            <li>Become a Seller</li>
-          </router-link>
-          <router-link to="sign in">
-            <li>Sign in</li>
-          </router-link>
-          <li class="join">Join</li> -->
         </ul>
       </div>
     </div>
