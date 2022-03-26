@@ -25,7 +25,7 @@
   import gigsPreview from "../components/gigs-preview.vue";
   import gigTabsCarousel from "../components/gigs-tabs-carousel.vue";
   import LoggedOutNavbar from "../components/logged-out-app-header.vue";
-  // import LoggedOutNavbar from "../components/logged-out-app-header-test.vue";
+  // import LoggedOutNavbar from "../components/logged-out-app-header-copy.vue";
 
   export default {
     data() {

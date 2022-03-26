@@ -8,7 +8,7 @@
 
 <script>
   import appHeader from "./components/logged-out-app-header.vue";
-  // import appHeader from "./components/logged-out-app-header-test.vue";
+  // import appHeader from "./components/logged-out-app-header-copy.vue";
   export default {
     name: "app",
     created() {

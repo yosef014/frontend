@@ -19,7 +19,6 @@
           <div class="preview-profile-btn">
             <p>Preview Fiverr Profile</p>
           </div>
-          
         </div>
 
         <div class="profile-page-aside-right">
@@ -64,41 +63,47 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      userProfileNavLink: [
-        {
-          name: "ACTIVITY GIGS",
-        },
-        {
-          name: "DRAFTS",
-        },
-        {
-          name: "PAUSED",
-        },
-      ],
-    };
-  },
-  created() {},
-  computed: {
-    loggedinUser() {
-      return this.$store.getters.loggedinUser;
+  export default {
+    data() {
+      return {
+        userProfileNavLink: [
+          {
+            name: "ACTIVITY GIGS",
+          },
+          {
+            name: "DRAFTS",
+          },
+          {
+            name: "PAUSED",
+          },
+        ],
+      };
     },
-    orders() {
-      return this.$store.getters.orders;
-    },
-    ordersToShow() {
-      return this.orders.filter((order) => {
-        return order.seller._id == this.loggedinUser._id;
-      });
-    },
-  },
+    created() {},
+    computed: {
+      loggedinUser() {
+        return this.$store.getters.loggedinUser;
+      },
+      created() {},
+      computed: {
+        loggedinUser() {
+          return this.$store.getters.loggedinUser;
+        },
+        orders() {
+          return this.$store.getters.orders;
+        },
+        ordersToShow() {
+          return this.orders.filter((order) => {
+            return order.seller._id == this.loggedinUser._id;
+          });
+        },
+      },
 
-  methods: {},
+      methods: {},
 
-  components: {},
-};
+      components: {},
+    },
+  };
 </script>
 
 <style></style>
