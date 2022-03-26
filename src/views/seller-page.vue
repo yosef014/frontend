@@ -34,32 +34,26 @@
           </nav>
           <ul class="my-orders-label">
             <li class="gig-add-card gig-card">
-              <a @click="this.$router.push('/seller/edit')" class="gig-add-btn"> + </a>
+              <a @click="this.$router.push('/seller/edit')" class="gig-add-btn">
+                +
+              </a>
               <span>Create a new gig</span>
             </li>
           </ul>
 
-
- <li v-for="gig in gigsToShow" :key="gig._id">
-        <OrdersPreview :gig="gig" />
-        
-      </li>
-        
-
-          
-
-       
+          <li v-for="order in ordersToShow" :key="order._id">
+            <OrdersPreview :order="order" />
+          </li>
         </div>
       </div>
     </div>
+    <!-- {{gigsToShow}} -->
   </section>
 </template>
 
 <script>
 import OrdersPreview from "../components/orders-preview.vue";
 export default {
-  
-
   data() {
     return {
       userProfileNavLink: [
@@ -92,19 +86,18 @@ export default {
       return this.$store.getters.gigs;
     },
     gigsToShow() {
-      if(!this.gigs) return
-      if(!this.loggedinUser) return
+      // if (!this.gigs) return;
       return this.gigs.filter((gig) => {
         return gig.owner._id == this.loggedinUser._id;
       });
     },
   },
 
-      methods: {},
+  methods: {},
 
   components: {
-    OrdersPreview
-},
+    OrdersPreview,
+  },
 };
 </script>
 

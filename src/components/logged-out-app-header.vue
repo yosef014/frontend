@@ -17,7 +17,7 @@
           :style="{ fill: logoColorState ? '#fff' : '#404145' }"
         ></FiiverrLogo>
       </router-link>
-      <div :style="{opacity: isShowNavSearch ? 1 : 0 }" class="nav-search">
+      <div :style="{ opacity: isShowNavSearch ? 1 : 0 }" class="nav-search">
         <searchIconVue />
         <input type="text" placeholder="Find Services" />
         <button @click="toggleLogin">Search</button>
@@ -35,17 +35,20 @@
           </li>
           <li>
             <a>
-              <a class="nav-link" @click="toggleLogin">Sign In</a>
+              <a
+                :class="{ 'login-active': showModal.isLogin === true }"
+                class="nav-link"
+                @click="toggleLogin"
+                >Sign In</a
+              >
             </a>
           </li>
           <li>
             <a>
               <a
-                :class="{
-                  'login-active': showModal.isLogin || showModal.isSignUp,
-                }"
+                :class="{ 'signup-active': showModal.isSignUp === true }"
                 class="join"
-                @click="toggleLogin"
+                @click="toggleSignup"
                 >Join</a
               >
             </a>
@@ -53,10 +56,7 @@
         </ul>
       </div>
     </div>
-    <div
-      :style="toggleCategoriesMenu"
-      class="categories-menu-package"
-    >
+    <div :style="toggleCategoriesMenu" class="categories-menu-package">
       <ul class="max-width-container">
         <li v-for="catagory in catagories" :key="catagory.name">
           <router-link :to="'/tag/' + catagory.path">
@@ -153,28 +153,22 @@
 
     methods: {
       toggleLogin() {
-        this.showModal.isLogin = !this.showModal.isLogin;
+        this.showModal.isLogin = true;
         document.querySelector("body").classList.toggle("disable-scrolling");
-
-        console.log(
-          "🚀 ~ file: logged-out-app-header.vue ~ line 149 ~ toggleLogin ~ this.showModal.isLogin",
-          this.showModal.isLogin
-        );
       },
-      toggleSignUp() {
-        this.showModal.isSignUp = !this.showModal.isSignUp;
+      toggleSignup() {
+        this.showModal.isSignUp = true;
         document.querySelector("body").classList.toggle("disable-scrolling");
       },
       closeModal() {
         this.showModal.isSignUp = false;
         this.showModal.isLogin = false;
-        let body = document.body;
-        // body.classList.remove("disable-scrolling");
+        document.body.classList.toggle("disable-scrolling");
       },
 
       unstickNavbar() {
         this.isShowNavbar = true;
-        this.isShowCatagories = true;
+        this.isShowCategories = true;
         this.isShowNavSearch = true;
         this.logoColorState = false;
         this.linkColorState = false;
@@ -182,7 +176,7 @@
 
       stickNavbar() {
         this.isShowNavbar = false;
-        this.isShowCatagories = false;
+        this.isShowCategories = false;
         this.isShowNavSearch = false;
         this.logoColorState = true;
         this.linkColorState = false;
@@ -237,19 +231,16 @@
 
     computed: {
       toggleCategoriesMenu() {
-        return {opacity: this.isShowCategories ? 1 : 0,
-                transform: this.isShowCategories ? 'rotateX(0deg)' : ''
-        }
+        return {
+          opacity: this.isShowCategories ? 1 : 0,
+          transform: this.isShowCategories ? "rotateX(0deg)" : "rotateX(90deg)",
+        };
       },
       onShowNavbar() {
         return {
           "header-transparent": this.isShowNavbar === false,
         };
       },
-
     },
-
-    
   };
 </script>
-

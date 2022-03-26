@@ -1,7 +1,14 @@
 .login-active {
+  color: $clr-green;
+  z-index: 9;
+}
+
+.signup-active {
+  
   background-color: #1dbf73;
   color: #fff !important;
   border: none !important;
+  z-index: 9;
 }
 
 .logged-out-nav-container {
@@ -165,7 +172,6 @@
       position: relative;
       margin-top: -7px;
       font-family: macan-regular;
-      z-index: 999;
       &:hover {
         border: solid 1px #1dbf73;
         background-color: #1dbf73;
