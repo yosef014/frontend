@@ -53,6 +53,11 @@ const router = createRouter({
       component: gigEdit,
     },
     {
+      path: "/seller/edit/:id",
+      name: "gig-seller-edit",
+      component: gigEdit,
+    },
+    {
       path: "/seller/orders",
       name: "seller-orders",
       component: sellerOrders,

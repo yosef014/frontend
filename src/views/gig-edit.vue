@@ -1,6 +1,5 @@
 <template>
   <section class="bgc-grey grid-narrow main-layout page-content-container">
-    {{ gigToEdit }}
     <section v-if="gigToEdit" class="edit-gig-container">
       <h1>create new gig</h1>
       <div class="gig-title grid-div">
@@ -105,7 +104,7 @@ export default {
   },
   computed: {
     gigId() {
-      return this.$route.params.gigId;
+      return this.$route.params.id;
     },
     loggedinUser() {
       return this.$store.getters.loggedinUser;
@@ -120,9 +119,12 @@ export default {
     },
     async loadGig() {
       if (this.gigId) {
+        
         const gig = await gigService.getById(this.gigId);
         this.gigToEdit = JSON.parse(JSON.stringify(gig));
       } else {
+                console.log('ein');
+
         this.gigToEdit = gigService.getEmptyGig();
       }
     },

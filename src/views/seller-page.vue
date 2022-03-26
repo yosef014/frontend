@@ -40,8 +40,8 @@
           </ul>
 
 
- <li v-for="order in ordersToShow" :key="order._id">
-        <OrdersPreview :order="order" />
+ <li v-for="gig in gigsToShow" :key="gig._id">
+        <OrdersPreview :gig="gig" />
         
       </li>
         
@@ -52,7 +52,6 @@
         </div>
       </div>
     </div>
-  <!-- {{gigsToShow}} -->
   </section>
 </template>
 
@@ -94,9 +93,8 @@ export default {
     },
     gigsToShow() {
       if(!this.gigs) return
+      if(!this.loggedinUser) return
       return this.gigs.filter((gig) => {
-        console.log(this.loggedinUser._id);
-        console.log(gig.owner._id);
         return gig.owner._id == this.loggedinUser._id;
       });
     },
