@@ -70,7 +70,6 @@
 
 <script>
   import searchIconVue from "../svgs/search-icon.vue";
-  import fiiverrLogoVue from "../svgs/fiiverr-logo.vue";
   import FiiverrLogo from "../svgs/fiiverr-logo.vue";
   import { remove } from "@vue/shared";
   import Login from "./login.vue";
@@ -78,7 +77,8 @@
   import { useDeprecateAppendToBody } from "element-plus";
   export default {
     components: {
-      fiiverrLogoVue,
+      searchIconVue,
+      FiiverrLogo,
       Login,
       SignUp,
     },
@@ -91,7 +91,7 @@
         isHomePage: true,
         isGigDetailsPage: false,
         isShowNavbar: true,
-        isShowCatagories: false,
+        isShowCategories: false,
         isShowNavSearch: false,
         logoColorState: true,
         linkColorState: false,
@@ -201,12 +201,12 @@
         }
 
         if (window.scrollY < 200) {
-          this.isShowCatagories = false;
+          this.isShowCategories = false;
           this.isShowNavSearch = false;
         }
         if (window.scrollY > 200) {
           this.isShowNavSearch = true;
-          this.isShowCatagories = true;
+          this.isShowCategories = true;
         }
       },
     },
@@ -249,12 +249,7 @@
 
     },
 
-    components: {
-      searchIconVue,
-      FiiverrLogo,
-      Login,
-      SignUp,
-    },
+    
   };
 </script>
 
