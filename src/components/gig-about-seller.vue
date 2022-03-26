@@ -3,10 +3,7 @@
     <h2>About The Seller</h2>
     <div class="gig-about-seller-header">
       <div class="gig-seller-profile-pic">
-        <img
-          src="https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/851682dc8f4fb93905e5db125ce56655-1552635815584/83c9dc85-a0fd-4bcc-a0e5-b6a3e886ca77.jpg"
-          alt=""
-        />
+        <img :src="gig.imgUrl" alt="" />
       </div>
       <div class="gig-seller-label">
         <p>{{ gig.fullname }}</p>

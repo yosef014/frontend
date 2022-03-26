@@ -82,6 +82,7 @@ export default {
         isSignUp: false,
       },
       isHomePage: true,
+      isGigDetailsPage: false,
       isShowNavbar: true,
       isShowCatagories: false,
       isShowNavSearch: false,
@@ -140,6 +141,7 @@ export default {
           class: "nav-link",
         },
       ],
+      
     };
   },
 
@@ -192,6 +194,8 @@ export default {
         this.isShowCatagories = true;
       }
     },
+
+
   },
 
   mounted() {
@@ -199,16 +203,17 @@ export default {
 
   watch: {
     $route: {
-      handler({ path }) {
+      handler({ path, name }) {
         this.isHomePage = path === "/";
         if (!this.isHomePage) {
           removeEventListener("scroll", this.onScroll);
           this.unstickNavbar();
         } else {
           window.addEventListener("scroll", this.onScroll);
-
           this.stickNavbar();
         }
+        if (name === 'gig-details') this.isGigDetailsPage = true
+        else this.isGigDetailsPage = false
       },
     },
     showModal: {

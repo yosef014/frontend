@@ -23,6 +23,13 @@
   }
 }
 
+.gig-details-header {
+  margin: 20px 0px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
 .gig-page {
   max-width: 1304px;
   margin: 0 auto;
@@ -90,50 +97,51 @@
   }
 }
 .gig-categories-breadcrumbs {
-  padding-bottom: 10px;
-  display: block;
-  // font-size: 14px;
+  height: 3rem;
+  display: flex;
+  align-items: center;
   ul {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    padding: 0;
-    list-style: none;
+
     li {
       display: flex;
       align-items: center;
+      >* {
+        margin-inline-end: 5px;
+      }
+
       a {
-        color: #446ee7;
+        color: #62646a;
+        
         text-decoration: none;
         transition: color 0.2s;
         &:hover {
-          color: #1dbf73;
           text-decoration: underline;
-        }
-      }
-      .gig-breadcrumb-icon {
-        margin: 0 8px;
-        fill: #74767e;
-        background: none;
-        border: none;
-        display: inline-block;
-        padding: 0;
-        svg {
-          width: 12px;
-          height: 12px;
+          cursor: pointer;
         }
       }
     }
   }
 }
-// .gig-sidebar {
-//   margin: 0 auto;
-//   // position: relative;
-//   display: flex;
-//   flex-direction: column;
-//   padding: 32px 24px 0;
-// }
+
+
 .gig-sidebar {
+  position: fixed;
+  margin-top: 2%;
+  margin-bottom: 50%;
+  right: 35px;
+  
+  width: 35%;
+  .contact-seller-wrapper {
+    
+    width: 100%;
+    padding: 2rem;
+    background-color: #fafafa;
+    display: flex;
+    align-items: center;
+  }
+
   .gig-purchase-tab {
     padding-top: 12px;
   }
@@ -145,11 +153,13 @@
     h3 {
       display: flex;
       justify-content: space-between;
-      min-height: 48px;
+      height: 2rem;
+
       margin-bottom: 8px;
     }
     p {
       min-height: 63px;
+      
     }
     .gig-footer {
       padding-bottom: 20px;
@@ -176,9 +186,9 @@
       display: inline-block;
       background-color: #1dbf73;
       font-size: 16px;
-      font-weight: 600;
-      line-height: 100%;
-      padding: 12px 24px;
+      
+      
+      
       position: relative;
       text-align: center;
       text-decoration: none;
@@ -189,31 +199,32 @@
     }
   }
   .gig-contact-seller {
-    margin-top: 16px;
-    background-color: #fafafa;
-    padding: 24px;
-    .gig-contact-seller-btn {
-      border: 1px solid transparent;
-      border-radius: 4px;
+
+    &:hover {
+
+      background: #74767e;
+      border-color: transparent;
+      color: #fff;
       cursor: pointer;
-      display: inline-block;
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 100%;
-      padding: 12px 24px;
-      position: relative;
-      text-align: center;
-      text-decoration: none;
-      transition: 70ms cubic-bezier(0.75, 0, 0.25, 1);
-      color: #62646a;
-      background: none;
-      border-color: currentColor;
-      width: 100%;
-      &:hover {
-        background: #74767e;
-        border-color: transparent;
-        color: #fff;
+
+      .arrow-down {
+        fill: #fff;
       }
+    }
+
+      width: 100%;
+      height: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #62646a;
+      border-radius: 4px;
+      background: #fafafa;
+
+    .gig-contact-seller-btn {
+      margin-inline-end: 1rem;
+      
+      
     }
   }
 }
@@ -267,12 +278,6 @@
 .gig-seller-order-queue {
   color: #95979d;
   margin-right: 8px;
-}
-
-.gig-purchase-tab {
-  order: 50;
-  border: 1px solid #dadbdd;
-  margin: 0;
 }
 
 .gig-content {
@@ -511,11 +516,55 @@
     .gig-seller-description {
       line-height: 150%;
       text-align: left;
-      border-top: 1px solid #dadbdd;
       padding-top: 15px;
       margin: 0;
     }
   }
 }
 
-// gig sidebar details contact ------
+.gig-details-navbar-container {
+  background-color: #fff;
+  z-index: 8;
+  width: 100vw;
+  height: 40px;
+  // display: flex;
+  // align-items: center;
+  opacity: 1;
+  position: fixed;
+  border-bottom :1px solid #e4e5e7;
+
+  // opacity: 0;
+  .gig-details-navbar {
+    display: flex;
+    
+    height: 100%;
+    li {
+      display: flex;
+      align-items: center;
+    justify-content: center;
+      height: 100%;
+      margin: 0 23px;
+      &:hover {
+        cursor: pointer;
+
+        a {
+          color: #74767e;
+        }
+      }
+      a {
+        color: #95979d;
+        font-family: macan-regular;
+        
+        
+      }
+    }
+  }
+}
+
+.gig-nav-link-active {
+  box-shadow: 0px 2px 0px 0px #19a463;
+  & a {
+    color: black !important;
+  }
+
+}

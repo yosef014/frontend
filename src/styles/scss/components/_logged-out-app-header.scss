@@ -36,7 +36,6 @@
         & a {
           font-family: macan-light;
           color: #74767e;
-  
         }
 
         &:hover {
@@ -52,35 +51,32 @@
   opacity: 1 !important;
   -webkit-transform: rotateX(0deg);
   transform: rotateX(0deg) !important;
-  -webkit-transition: -webkit-transform .2s;
-  transition: -webkit-transform .1s;
-  -o-transition: transform .1s;
-  transition: transform .1s;
-  transition: transform .1s,-webkit-transform .1s;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.1s;
+  -o-transition: transform 0.1s;
+  transition: transform 0.1s;
+  transition: transform 0.1s, -webkit-transform 0.1s;
 }
 
 //nav links with transparent mode
 .header-transparent {
   background-color: transparent;
   & ul li {
-      a {
-        .nav-link {
-          color: white
-        }
+    a {
+      .nav-link {
+        color: white;
+      }
 
-        .business-link {
-          color: white;
-        }
+      .business-link {
+        color: white;
       }
-      .join {
-        border: 1px solid #fff;
-        color: #fff;
-      }
+    }
+    .join {
+      border: 1px solid #fff;
+      color: #fff;
+    }
   }
 }
-
-
-
 
 .logged-out-nav {
   display: flex;
@@ -130,57 +126,51 @@
 
 // }
 
-
 //nav links without transparent mode
 .link-list {
-
   height: 100%;
   ul {
-  display: flex;
-  justify-content: space-between;
-  list-style: none;
-  height: 100%;
-  & i {
-    text-decoration: none;
-  }
-
-  & li {
-    margin-right: 30px;
-    // color: #62646a;
-    font-family: macan-regular;
-    height: 100%;
     display: flex;
-    align-items: center;
-
-    .business-link {
-      color: #1E1692;
+    justify-content: space-between;
+    list-style: none;
+    height: 100%;
+    & i {
+      text-decoration: none;
     }
 
+    & li {
+      margin-right: 30px;
+      // color: #62646a;
+      font-family: macan-regular;
+      height: 100%;
+      display: flex;
+      align-items: center;
+
+      .business-link {
+        color: #1e1692;
+      }
 
       a .nav-link:hover {
         color: #1dbf73 !important;
         cursor: pointer;
-        
       }
-
-
-   
-  }
-  .join {
-    border: solid 1px #1dbf73;
-    height: 100%;
-    color: #1dbf73;
-    padding: 7px 20px;
-    border-radius: 4px;
-    position: relative;
-    margin-top: -7px;
-    font-family: macan-regular;
-    &:hover {
+    }
+    .join {
       border: solid 1px #1dbf73;
-      background-color: #1dbf73;
-      color: white !important;
+      height: 100%;
+      color: #1dbf73;
+      padding: 7px 20px;
+      border-radius: 4px;
+      position: relative;
+      margin-top: -7px;
+      font-family: macan-regular;
+      &:hover {
+        border: solid 1px #1dbf73;
+        background-color: #1dbf73;
+        color: white !important;
+      }
     }
   }
 }
 
-}
+
