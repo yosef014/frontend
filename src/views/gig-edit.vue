@@ -1,8 +1,8 @@
 <template>
   <section class="bgc-grey grid-narrow main-layout page-content-container">
-    
+    {{ gigToEdit }}
     <section v-if="gigToEdit" class="edit-gig-container">
-      {{ gigToEdit }}
+      <h1>create new gig</h1>
       <div class="gig-title grid-div">
         <p>Gig Title:</p>
         <el-input
@@ -78,79 +78,90 @@
 </template>
 
 <script>
-  import { gigService } from "../services/gig-service.js";
-  import imgUpload from "../components/img-upload.vue";
+import { gigService } from "../services/gig-service.js";
+import imgUpload from "../components/img-upload.vue";
 
-  export default {
-    components: {
-      imgUpload,
+export default {
+  components: {
+    imgUpload,
+  },
+  data() {
+    return {
+      gigToEdit: null,
+      imgUrls: [],
+      categories: [
+        "logo",
+        "arts and crafts",
+        "data entry",
+        "marketing",
+        "research and summeries",
+      ],
+      imgUrls: [],
+      userAvatar: null,
+    };
+  },
+  created() {
+    this.loadGig();
+  },
+  computed: {
+    gigId() {
+      return this.$route.params.gigId;
     },
-    data() {
-      return {
-        gigToEdit: null,
-        imgUrls: [],
-        categories: [
-          "logo",
-          "arts and crafts",
-          "data entry",
-          "marketing",
-          "research and summeries",
-        ],
-        imgUrls: [],
-        userAvatar: null,
-      };
+    loggedinUser() {
+      return this.$store.getters.loggedinUser;
     },
-    created() {
-      this.loadGig();
+  },
+  methods: {
+    saveImg(imgUrl) {
+      this.gigToEdit.productImgs.push(imgUrl);
     },
-    computed: {
-      gigId() {
-        return this.$route.params.gigId;
-      },
+    setAvatar(imgUrl) {
+      this.userAvatar = imgUrl;
     },
-    methods: {
-      saveImg(imgUrl) {
-        this.gigToEdit.productImgs.push(imgUrl);
-      },
-      setAvatar(imgUrl) {
-        this.userAvatar = imgUrl;
-      },
-      async loadGig() {
-        if (this.gigId) {
-          const gig = await gigService.getById(this.gigId);
-          this.gigToEdit = JSON.parse(JSON.stringify(gig));
-        } else {
+    async loadGig() {
+      if (this.gigId) {
+        const gig = await gigService.getById(this.gigId);
+        this.gigToEdit = JSON.parse(JSON.stringify(gig));
+      } else {
+        this.gigToEdit = gigService.getEmptyGig();
+      }
+    },
+    async save() {
+      if (this.gigToEdit._id) {
+        try {
+          console.log("GigToEdit", this.gigToEdit);
+          await this.$store.dispatch({
+            type: "updateGig",
+            gig: this.gigToEdit,
+          });
+          this.$router.push("/seller");
+          console.log(this.gigToEdit);
+        } catch (err) {
+          console.log("Editing Error (gig-edit):", err);
+        }
+      } else {
+        try {
+          this.gigToEdit.category = [this.gigToEdit.category];
+          this.gigToEdit.owner = {
+            _id: this.loggedinUser._id,
+            fullname: this.loggedinUser.username,
+            imgUrl: this.loggedinUser.imgUrl,
+            username: this.loggedinUser.fullname,
+            level: this.loggedinUser.level,
+          };
+          const savedGig = await this.$store.dispatch({
+            type: "addGig",
+            gig: this.gigToEdit,
+          });
           this.gigToEdit = gigService.getEmptyGig();
+          this.$router.push("/seller");
+        } catch (err) {
+          console.log("Adding Error (gig-edit):", err);
         }
-      },
-      async save() {
-        if (this.gigToEdit._id) {
-          try {
-            console.log("GigToEdit", this.gigToEdit);
-            await this.$store.dispatch({
-              type: "updateGig",
-              gig: this.gigToEdit,
-            });
-            this.$router.push("/seller/edit");
-          } catch (err) {
-            console.log("Editing Error (gig-edit):", err);
-          }
-        } else {
-          try {
-            const savedGig = await this.$store.dispatch({
-              type: "addGig",
-              gig: this.gigToEdit,
-            });
-            this.gigToEdit = gigService.getEmptyGig();
-            this.$router.push("/user");
-          } catch (err) {
-            console.log("Adding Error (gig-edit):", err);
-          }
-        }
-      },
+      }
     },
-    components: {},
-  };
+  },
+};
 </script>
 
 <style></style>
