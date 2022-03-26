@@ -19,7 +19,6 @@
           <div class="preview-profile-btn">
             <p>Preview Fiverr Profile</p>
           </div>
-          
         </div>
 
         <div class="profile-page-aside-right">
@@ -103,7 +102,7 @@ export default {
     },
   },
 
-  methods: {},
+      methods: {},
 
   components: {
     OrdersPreview

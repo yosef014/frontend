@@ -1,7 +1,6 @@
 <template>
-  <div class="signup-popup">
-    <button v-if="!isOpen" @click="isOpen = true">Sign in</button>
-    <div class="signup-popup-modal" v-if="!isOpen">
+  <div class="signup-popup" @click.prevent.stop="closeModal">
+    <div class="signup-popup-modal" v-if="!isOpen" @click.stop>
       <div>
         <div class="signup-header">
           <h2>Sign up to Fiiver</h2>
@@ -55,7 +54,6 @@
             <button>Sign Up</button>
           </form>
         </div>
-        <button @click="close">Close</button>
       </div>
     </div>
   </div>
@@ -71,6 +69,9 @@
       };
     },
     methods: {
+      closeModal() {
+        this.$emit("closeModal");
+      },
       async signup() {
         try {
           await this.$store.dispatch({
