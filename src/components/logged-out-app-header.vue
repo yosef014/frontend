@@ -45,7 +45,7 @@
                   'login-active': showModal.isLogin || showModal.isSignUp,
                 }"
                 class="join"
-                @click="toggleLogin"
+                @click="toggleSignup"
                 >Join</a
               >
             </a>
@@ -169,12 +169,12 @@
         this.showModal.isSignUp = false;
         this.showModal.isLogin = false;
         let body = document.body;
-        // body.classList.remove("disable-scrolling");
+        body.classList.toggle("disable-scrolling");
       },
 
       unstickNavbar() {
         this.isShowNavbar = true;
-        this.isShowCatagories = true;
+        this.isShowCategories = true;
         this.isShowNavSearch = true;
         this.logoColorState = false;
         this.linkColorState = false;
@@ -182,7 +182,7 @@
 
       stickNavbar() {
         this.isShowNavbar = false;
-        this.isShowCatagories = false;
+        this.isShowCategories = false;
         this.isShowNavSearch = false;
         this.logoColorState = true;
         this.linkColorState = false;
@@ -238,7 +238,7 @@
     computed: {
       toggleCategoriesMenu() {
         return {opacity: this.isShowCategories ? 1 : 0,
-                transform: this.isShowCategories ? 'rotateX(0deg)' : ''
+                transform: this.isShowCategories ? 'rotateX(0deg)' : 'rotateX(90deg)'
         }
       },
       onShowNavbar() {
