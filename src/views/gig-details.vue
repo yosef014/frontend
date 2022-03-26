@@ -60,7 +60,7 @@
               <!-- //import picture from database/json to here -->
               <img
                 class="B9j8CWn"
-                src="https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/851682dc8f4fb93905e5db125ce56655-1552635815584/83c9dc85-a0fd-4bcc-a0e5-b6a3e886ca77.jpg"
+                :src="gig.imgUrl"
                 alt="raziul99"
                 loading="lazy"
               />
@@ -140,7 +140,7 @@
         return await this.gig.reviewers.length;
       },
       loggedInUser() {
-        return this.$store.getters.loggedinUser && "please login";
+        return this.$store.getters.loggedinUser;
       },
     },
     methods: {

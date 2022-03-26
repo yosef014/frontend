@@ -10,13 +10,11 @@
         <p>price: ({{ gig.price }})</p>
       </div>
       <div class="gig-checkout-tab">
-        <form class="gig-purchase-content">
+        <form @submit.prevent="purchase" class="gig-purchase-content">
           <p>price: ({{ gig.price }})</p>
           <p>-serivce fee {{ serviceFee }}</p>
           <p>final price {{ finalPrice }}</p>
-          <button @click.prevent="purchase" v-if="loggedInUser">
-            Purchase
-          </button>
+          <button v-if="loggedInUser">Purchase</button>
         </form>
       </div>
     </section>
@@ -72,9 +70,15 @@
           _id: this.gig._id,
           title: this.gig.title,
         };
-        console.log(order);
-        debugger;
-        await this.$store.dispatch({ type: "addOrder", order });
+        try {
+          await this.$store.dispatch({
+            type: "addOrder",
+            order,
+          });
+        } catch (err) {
+          // showMsg(`unable to add order: ${savedOrder} `, "danger");
+          console.log("Adding Error (checkout):", err);
+        }
       },
     },
   };

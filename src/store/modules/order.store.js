@@ -38,7 +38,8 @@ export const orderStore = {
     },
     addOrder(state, { savedOrder }) {
       console.log(savedOrder);
-      state.orders.unshift(savedOrder);
+      // state.orders.unshift(savedOrder);
+      state.orders = savedOrder;
     },
     updateOrder(state, { savedOrder }) {
       const idx = state.orders.findIndex(
@@ -90,6 +91,8 @@ export const orderStore = {
       try {
         const savedOrder = await orderService.save(order);
         commit({ type: "addOrder", savedOrder });
+        console.log(order);
+        console.log(savedOrder);
         return savedOrder;
       } catch (err) {
         console.log("Adding Error (Store):", err);
