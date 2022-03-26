@@ -17,7 +17,7 @@
           :style="{ fill: logoColorState ? '#fff' : '#404145' }"
         ></FiiverrLogo>
       </router-link>
-      <div :class="toggleCatagoriesMenu" class="nav-search">
+      <div :style="{opacity: isShowNavSearch ? 1 : 0 }" class="nav-search">
         <searchIconVue />
         <input type="text" placeholder="Find Services" />
         <button @click="toggleLogin">Search</button>
@@ -47,7 +47,7 @@
       </div>
     </div>
     <div
-      :class="toggleCatagoriesMenu"
+      :style="toggleCategoriesMenu"
       class="categories-menu-package"
     >
       <ul class="max-width-container">
@@ -84,19 +84,19 @@ export default {
       isHomePage: true,
       isGigDetailsPage: false,
       isShowNavbar: true,
-      isShowCatagories: false,
+      isShowCategories: false,
       isShowNavSearch: false,
       logoColorState: true,
       linkColorState: false,
       elNavLinks: null,
       catagories: [
         {
-          name: "Arts And Crafts",
-          path: "arts and crafts",
+          name: "Arts And Drafts",
+          path: "arts and drafts",
         },
         {
-          name: "Data Entry",
-          path: "data entry",
+          name: "Data",
+          path: "data",
         },
         {
           name: "Logo",
@@ -159,7 +159,7 @@ export default {
 
     unstickNavbar() {
       this.isShowNavbar = true;
-      this.isShowCatagories = true;
+      this.isShowCategories = true;
       this.isShowNavSearch = true;
       this.logoColorState = false;
       this.linkColorState = false;
@@ -167,7 +167,7 @@ export default {
 
     stickNavbar() {
       this.isShowNavbar = false;
-      this.isShowCatagories = false;
+      this.isShowCategories = false;
       this.isShowNavSearch = false;
       this.logoColorState = true;
       this.linkColorState = false;
@@ -186,12 +186,12 @@ export default {
       }
 
       if (window.scrollY < 200) {
-        this.isShowCatagories = false;
+        this.isShowCategories = false;
         this.isShowNavSearch = false;
       }
       if (window.scrollY > 200) {
         this.isShowNavSearch = true;
-        this.isShowCatagories = true;
+        this.isShowCategories = true;
       }
     },
 
@@ -232,8 +232,10 @@ export default {
       };
     },
 
-    toggleCatagoriesMenu() {
-      return {"menu-package-open": this.isShowCatagories === true}
+    toggleCategoriesMenu() {
+      return {opacity: this.isShowCategories ? 1 : 0,
+              transform: this.isShowCategories ? 'rotateX(0deg)' : ''
+      }
     },
 
     // isModalOpen() {
