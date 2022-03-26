@@ -4,6 +4,12 @@
     :class="onShowNavbar"
     class="logged-out-nav-container"
   >
+    <div v-if="showModal.isLogin">
+      <login @closeModal="closeModal" />
+    </div>
+    <div v-if="showModal.isSignUp">
+      <sign-up @closeModal="closeModal" />
+    </div>
     <div class="logged-out-nav max-width-container">
       <router-link to="/">
         <FiiverrLogo
@@ -11,10 +17,10 @@
           :style="{ fill: logoColorState ? '#fff' : '#404145' }"
         ></FiiverrLogo>
       </router-link>
-      <div :style="{ opacity: isShowNavSearch ? 1 : 0 }" class="nav-search">
+      <div :class="toggleCatagoriesMenu" class="nav-search">
         <searchIconVue />
         <input type="text" placeholder="Find Services" />
-        <button>Search</button>
+        <button @click="toggleLogin">Search</button>
       </div>
       <div class="link-list">
         <ul>
@@ -27,29 +33,27 @@
               >
             </router-link>
           </li>
-          <li @click="toggleLogin(showModal.isLogin)">
-            Sign in
-            <Modal v-model="showModal.isLogin" :close="toggleLoginClose">
-              <div class="modal">
-                <login :close="toggleLoginClose" />
-              </div>
-            </Modal>
+          <li>
+            <a>
+              <a class="nav-link" @click="toggleLogin">Sign In</a>
+            </a>
           </li>
-          <li @click="toggleSignUp(showModal.isSignUp)" class="join">
-            Join
-            <Modal v-model="showModal.isSignUp" :close="toggleClose">
-              <div class="modal">
-                <sign-up :close="toggleClose" />
-              </div>
-            </Modal>
+          <li>
+            <a>
+              <a
+                :class="{
+                  'login-active': showModal.isLogin || showModal.isSignUp,
+                }"
+                class="join"
+                @click="toggleSignUp"
+                >Join</a
+              >
+            </a>
           </li>
         </ul>
       </div>
     </div>
-    <div
-      :style="{ opacity: isShowCatagories ? 1 : 0 }"
-      class="categories-menu-package"
-    >
+    <div :class="toggleCatagoriesMenu" class="categories-menu-package">
       <ul class="max-width-container">
         <li v-for="catagory in catagories" :key="catagory.name">
           <router-link :to="'/tag/' + catagory.path">
@@ -68,6 +72,7 @@
   import { remove } from "@vue/shared";
   import login from "./login.vue";
   import signUp from "./sign-up.vue";
+  import { useDeprecateAppendToBody } from "element-plus";
   export default {
     components: {
       fiiverrLogoVue,
@@ -81,6 +86,7 @@
           isSignUp: false,
         },
         isHomePage: true,
+        isGigDetailsPage: false,
         isShowNavbar: true,
         isShowCatagories: false,
         isShowNavSearch: false,
@@ -89,12 +95,12 @@
         elNavLinks: null,
         catagories: [
           {
-            name: "Arts And Drafts",
-            path: "arts and drafts",
+            name: "Arts And Crafts",
+            path: "arts and crafts",
           },
           {
-            name: "Data",
-            path: "data",
+            name: "Data Entry",
+            path: "data entry",
           },
           {
             name: "Logo",
@@ -144,16 +150,23 @@
 
     methods: {
       toggleLogin() {
-        this.showModal.isLogin = true;
-      },
-      toggleClose() {
-        this.showModal.isSignUp = false;
+        this.showModal.isLogin = !this.showModal.isLogin;
+        document.querySelector("body").classList.toggle("disable-scrolling");
+
+        console.log(
+          "🚀 ~ file: logged-out-app-header.vue ~ line 149 ~ toggleLogin ~ this.showModal.isLogin",
+          this.showModal.isLogin
+        );
       },
       toggleSignUp() {
-        this.showModal.isSignUp = true;
+        this.showModal.isSignUp = !this.showModal.isSignUp;
+        document.querySelector("body").classList.toggle("disable-scrolling");
       },
-      toggleLoginClose() {
+      closeModal() {
+        this.showModal.isSignUp = false;
         this.showModal.isLogin = false;
+        let body = document.body;
+        // body.classList.remove("disable-scrolling");
       },
       unstickNavbar() {
         this.isShowNavbar = true;
@@ -161,7 +174,6 @@
         this.isShowNavSearch = true;
         this.logoColorState = false;
         this.linkColorState = false;
-        this.elNavLinks.forEach((link) => (link.style.color = "#62646a"));
       },
 
       stickNavbar() {
@@ -170,18 +182,15 @@
         this.isShowNavSearch = false;
         this.logoColorState = true;
         this.linkColorState = false;
-        this.elNavLinks.forEach((link) => (link.style.color = "#fff"));
       },
 
       onScroll() {
         if (window.scrollY < 5) {
-          this.elNavLinks.forEach((link) => (link.style.color = "#fff"));
           this.isShowNavbar = false;
           this.logoColorState = true;
           this.linkColorState = true;
         }
         if (window.scrollY > 10) {
-          this.elNavLinks.forEach((link) => (link.style.color = "#62646a"));
           this.linkColorState = false;
           this.isShowNavbar = true;
           this.logoColorState = false;
@@ -198,23 +207,26 @@
       },
     },
 
-    mounted() {
-      this.elNavLinks = document.querySelectorAll(".link-list li");
-    },
+    mounted() {},
 
     watch: {
       $route: {
-        handler({ path }) {
+        handler({ path, name }) {
           this.isHomePage = path === "/";
           if (!this.isHomePage) {
             removeEventListener("scroll", this.onScroll);
             this.unstickNavbar();
           } else {
             window.addEventListener("scroll", this.onScroll);
-            this.elNavLinks.forEach((link) => (link.style.color = "#fff"));
-
             this.stickNavbar();
           }
+          if (name === "gig-details") this.isGigDetailsPage = true;
+          else this.isGigDetailsPage = false;
+        },
+      },
+      showModal: {
+        handler({ isLogin }) {
+          console.log("login state changed", isLogin);
         },
       },
     },
@@ -225,9 +237,17 @@
           "header-transparent": this.isShowNavbar === false,
         };
       },
-      setLinkColor() {
-        return { color: linkColorState ? "#fff" : "#1E1692" };
+
+      toggleCatagoriesMenu() {
+        return { "menu-package-open": this.isShowCatagories === true };
       },
+
+      // isModalOpen() {
+      //   return {"blurred-body": this.showModal.isLogin || this.showModal.isSignUp}
+      // }
+      // setLinkColor() {
+      //   return { color: linkColorState ? "#fff" : "#1E1692" };
+      // },
     },
 
     components: {

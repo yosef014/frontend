@@ -1,15 +1,15 @@
 .login-popup {
   position: fixed;
   width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(1px);
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(1px);
 
   &-modal {
     position: absolute;
     top: 0;
     left: 0;
-    
+
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,6 +1,6 @@
 <template>
-  <div class="login-popup">
-    <div class="login-popup-modal" v-if="!isOpen">
+  <div class="login-popup" @click.prevent.stop="closeModal">
+    <div @click.stop class="login-popup-modal" v-if="!isOpen">
       <div>
         <div class="login-header">
           <h2>Sign In to Fiiver</h2>
@@ -50,9 +50,14 @@
           </form>
         </div>
         <p>Not a member yet?</p>
-        <button @click="open">Join now</button>
+        <button @click="showModal">Join now</button>
+        <Modal v-model="isShow" :close="closeModal">
+          <div class="modal">
+            <signup></signup>
 
-        <button @click="close">Close</button>
+            <button @click="closeModal">close</button>
+          </div>
+        </Modal>
       </div>
     </div>
   </div>
@@ -66,6 +71,7 @@
     data() {
       return {
         isOpen: false,
+        isShow: false,
         loginCred: {
           username: "",
         },
@@ -77,8 +83,11 @@
       },
     },
     methods: {
-      close() {
-        console.log("close from login", this.close);
+      closeModal() {
+        this.$emit("closeModal");
+      },
+      showModal() {
+        this.isShow = true;
       },
       open() {
         console.log("open from login", this.open);
