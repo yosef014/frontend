@@ -1,6 +1,5 @@
 <template>
   <section class="page-content-container">
-    
     <div class="prifile-page-layout-fluid">
       <div class="prifile-page-layout">
         <div class="profile-page-aside-left">
@@ -17,10 +16,11 @@
 
         <div class="profile-page-aside-right">
           <div class="my-orders-label">my gigs</div>
-              <el-button type="success" @click="this.$router.push('/gig')" >Create New Gig</el-button>
+          <el-button type="success" @click="this.$router.push('/gig')"
+            >Create New Gig</el-button
+          >
 
           <div class="my-orders-list">
-            
             <div
               class="my-orders-preview"
               v-for="order in ordersToShow"
@@ -44,29 +44,29 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {};
-  },
-  created() {},
-  computed: {
-    loggedinUser() {
-      return this.$store.getters.loggedinUser;
+  export default {
+    data() {
+      return {};
     },
-    orders() {
-      return this.$store.getters.orders;
+    created() {},
+    computed: {
+      loggedinUser() {
+        return this.$store.getters.loggedinUser;
+      },
+      orders() {
+        return this.$store.getters.orders;
+      },
+      ordersToShow() {
+        return this.orders.filter((order) => {
+          return order.seller._id == this.loggedinUser._id;
+        });
+      },
     },
-    ordersToShow() {
-      return this.orders.filter((order) => {
-        return order.seller._id == this.loggedinUser._id;
-      });
-    },
-  },
 
-  methods: {},
+    methods: {},
 
-  components: {},
-};
+    components: {},
+  };
 </script>
 
 <style></style>

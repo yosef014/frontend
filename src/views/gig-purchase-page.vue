@@ -111,71 +111,23 @@
         console.log("purchase button");
         const order = JSON.parse(JSON.stringify(this.order));
         order.title = this.gig.title;
-        order.createdAt = Date.now();
+        order.price = this.finalPrice;
+        order.description = this.gig.description;
         order.buyer = {
           _id: this.loggedInUser,
           fullname: this.loggedInUser,
         };
         order.seller = {
-          _id: "the ID of the SELLER",
-          fullname: this.gig.fullname,
+          _id: this.gig.owner._id,
+          fullname: this.gig.owner.fullname,
+          imgUrl: this.gig.owner.imgUrl,
         };
         order.gig = {
           _id: this.gig._id,
           title: this.gig.title,
         };
         console.log(order);
-        debugger;
         await this.$store.dispatch({ type: "addOrder", order });
-      },
-      async created() {
-        this.loadGig();
-      },
-      computed: {
-        loggedInUser() {
-          return this.$store.getters.loggedinUser;
-        },
-        reviewsLength() {
-          return this.gig.reviewers.length;
-        },
-        finalPrice() {
-          const finalPrice = this.gig.price - this.serviceFee;
-          return finalPrice;
-        },
-      },
-      methods: {
-        async loadGig() {
-          const { id } = this.$route.params;
-          this.gig = await gigService.getById(id);
-          this.order = await orderService.getEmptyOrder();
-        },
-        async purchase() {
-          console.log("purchase button");
-          const order = JSON.parse(JSON.stringify(this.order));
-          order.title = this.gig.title;
-          order.createdAt = Date.now();
-          order.buyer = {
-            _id: this.loggedInUser,
-            fullname: this.loggedInUser,
-          };
-          order.seller = {
-            _id: "the ID of the SELLER",
-            fullname: this.gig.fullname,
-          };
-          order.gig = {
-            _id: this.gig._id,
-            title: this.gig.title,
-          };
-          try {
-            await this.$store.dispatch({
-              type: "addOrder",
-              order,
-            });
-          } catch (err) {
-            // showMsg(`unable to add order: ${savedOrder} `, "danger");
-            console.log("Adding Error (checkout):", err);
-          }
-        },
       },
     },
   };
