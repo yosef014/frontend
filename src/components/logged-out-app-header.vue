@@ -35,15 +35,18 @@
           </li>
           <li>
             <a>
-              <a class="nav-link" @click="toggleLogin">Sign In</a>
+              <a
+                :class="{ 'login-active': showModal.isLogin === true }"
+                class="nav-link"
+                @click="toggleLogin"
+                >Sign In</a
+              >
             </a>
           </li>
           <li>
             <a>
               <a
-                :class="{
-                  'login-active': showModal.isLogin || showModal.isSignUp,
-                }"
+                :class="{ 'signup-active': showModal.isSignUp === true }"
                 class="join"
                 @click="toggleSignup"
                 >Join</a
@@ -150,23 +153,17 @@
 
     methods: {
       toggleLogin() {
-        this.showModal.isLogin = !this.showModal.isLogin;
+        this.showModal.isLogin = true;
         document.querySelector("body").classList.toggle("disable-scrolling");
-
-        console.log(
-          "🚀 ~ file: logged-out-app-header.vue ~ line 149 ~ toggleLogin ~ this.showModal.isLogin",
-          this.showModal.isLogin
-        );
       },
-      toggleSignUp() {
-        this.showModal.isSignUp = !this.showModal.isSignUp;
+      toggleSignup() {
+        this.showModal.isSignUp = true;
         document.querySelector("body").classList.toggle("disable-scrolling");
       },
       closeModal() {
         this.showModal.isSignUp = false;
         this.showModal.isLogin = false;
-        let body = document.body;
-        body.classList.toggle("disable-scrolling");
+        document.body.classList.toggle("disable-scrolling");
       },
 
       unstickNavbar() {
