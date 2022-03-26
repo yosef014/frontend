@@ -17,7 +17,7 @@
           :style="{ fill: logoColorState ? '#fff' : '#404145' }"
         ></FiiverrLogo>
       </router-link>
-      <div :style="{opacity: isShowNavSearch ? 1 : 0 }" class="nav-search">
+      <div :style="{ opacity: isShowNavSearch ? 1 : 0 }" class="nav-search">
         <searchIconVue />
         <input type="text" placeholder="Find Services" />
         <button @click="toggleLogin">Search</button>
@@ -53,10 +53,7 @@
         </ul>
       </div>
     </div>
-    <div
-      :style="toggleCategoriesMenu"
-      class="categories-menu-package"
-    >
+    <div :style="toggleCategoriesMenu" class="categories-menu-package">
       <ul class="max-width-container">
         <li v-for="catagory in catagories" :key="catagory.name">
           <router-link :to="'/tag/' + catagory.path">
@@ -169,7 +166,7 @@
         this.showModal.isSignUp = false;
         this.showModal.isLogin = false;
         let body = document.body;
-        // body.classList.remove("disable-scrolling");
+        body.classList.toggle("disable-scrolling");
       },
 
       unstickNavbar() {
@@ -237,19 +234,16 @@
 
     computed: {
       toggleCategoriesMenu() {
-        return {opacity: this.isShowCategories ? 1 : 0,
-                transform: this.isShowCategories ? 'rotateX(0deg)' : ''
-        }
+        return {
+          opacity: this.isShowCategories ? 1 : 0,
+          transform: this.isShowCategories ? "rotateX(0deg)" : "",
+        };
       },
       onShowNavbar() {
         return {
           "header-transparent": this.isShowNavbar === false,
         };
       },
-
     },
-
-    
   };
 </script>
-
