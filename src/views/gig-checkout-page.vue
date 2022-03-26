@@ -31,7 +31,7 @@
               v-for="feature in gigFeaturesList"
               :key="feature"
             >
-              <Checkmark />
+              <CheckmarkIcon />
               <p class="feature-desc">{{ feature }}</p>
             </li>
           </ul>
@@ -61,12 +61,12 @@
 <script>
   import { gigService } from "../services/gig-service";
   import { orderService } from "../services/order-service";
-  import Checkmark from "../svgs/check-mark.vue";
-  import Star from "../svgs/star.vue";
+  import CheckmarkIcon from "../svgs/check-mark-icon.vue";
+  import StarIcon from "../svgs/star-icon.vue";
   export default {
     components: {
-      Checkmark,
-      Star,
+      CheckmarkIcon,
+      StarIcon,
     },
     data() {
       return {
@@ -124,8 +124,6 @@
           _id: this.gig._id,
           title: this.gig.title,
         };
-        console.log(order);
-        debugger;
         await this.$store.dispatch({ type: "addOrder", order });
       },
       async created() {
@@ -182,16 +180,5 @@
 </script>
 
 <style>
-  .gig-purchase-content {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    border: 1px solid #ddd;
-    padding: 20px;
-    box-sizing: border-box;
-    position: relative;
-  }
-  .gig-order-preview {
-    width: 66%;
-  }
+  
 </style>

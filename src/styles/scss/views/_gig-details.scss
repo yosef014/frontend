@@ -107,13 +107,13 @@
     li {
       display: flex;
       align-items: center;
-      >* {
+      > * {
         margin-inline-end: 5px;
       }
 
       a {
         color: #62646a;
-        
+
         text-decoration: none;
         transition: color 0.2s;
         &:hover {
@@ -125,18 +125,18 @@
   }
 }
 
-
 .gig-sidebar {
+  >* {
+    padding: 24px;
+
+  }
   position: fixed;
   margin-top: 2%;
   margin-bottom: 50%;
   right: 35px;
-  
   width: 35%;
   .contact-seller-wrapper {
-    
     width: 100%;
-    padding: 2rem;
     background-color: #fafafa;
     display: flex;
     align-items: center;
@@ -144,12 +144,16 @@
 
   .gig-purchase-tab {
     padding-top: 12px;
+    border: 1px solid grey;
+    margin-bottom: 2rem;
   }
   .gig-purchase-content {
     display: flex;
     flex-direction: column;
-    padding-right: 24px;
-    padding-left: 24px;
+    & button {
+      padding: 1rem;
+      color: white;
+    }
     h3 {
       display: flex;
       justify-content: space-between;
@@ -159,10 +163,8 @@
     }
     p {
       min-height: 63px;
-      
     }
     .gig-footer {
-      padding-bottom: 20px;
       display: flex;
       flex-direction: column;
     }
@@ -186,9 +188,7 @@
       display: inline-block;
       background-color: #1dbf73;
       font-size: 16px;
-      
-      
-      
+
       position: relative;
       text-align: center;
       text-decoration: none;
@@ -199,9 +199,7 @@
     }
   }
   .gig-contact-seller {
-
     &:hover {
-
       background: #74767e;
       border-color: transparent;
       color: #fff;
@@ -212,19 +210,17 @@
       }
     }
 
-      width: 100%;
-      height: 2.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid #62646a;
-      border-radius: 4px;
-      background: #fafafa;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #62646a;
+    border-radius: 4px;
+    background: #fafafa;
 
     .gig-contact-seller-btn {
       margin-inline-end: 1rem;
-      
-      
     }
   }
 }
@@ -531,17 +527,17 @@
   // align-items: center;
   opacity: 1;
   position: fixed;
-  border-bottom :1px solid #e4e5e7;
+  border-bottom: 1px solid #e4e5e7;
 
   // opacity: 0;
   .gig-details-navbar {
     display: flex;
-    
+
     height: 100%;
     li {
       display: flex;
       align-items: center;
-    justify-content: center;
+      justify-content: center;
       height: 100%;
       margin: 0 23px;
       &:hover {
@@ -554,8 +550,6 @@
       a {
         color: #95979d;
         font-family: macan-regular;
-        
-        
       }
     }
   }
@@ -566,5 +560,4 @@
   & a {
     color: black !important;
   }
-
 }

@@ -3,7 +3,7 @@ import homePage from "../views/home-page.vue";
 import gigList from "../views/explore-page.vue";
 import gigDetails from "../views/gig-details.vue";
 import userProfile from "../views/profile-page.vue";
-import gigPurchasePage from "../views/gig-purchase-page.vue";
+import gigCheckoutPage from "../views/gig-checkout-page.vue";
 import gigEdit from "../views/gig-edit.vue";
 import sellerPage from "../views/seller-page.vue";
 import sellerOrders from "../views/seller-orders.vue";
@@ -34,8 +34,8 @@ const router = createRouter({
     },
     {
       path: "/checkout/:id",
-      name: "gig-purchase-page",
-      component: gigPurchasePage,
+      name: "gig-checkout-page",
+      component: gigCheckoutPage,
     },
     {
       path: "/tag/:gig/:id",

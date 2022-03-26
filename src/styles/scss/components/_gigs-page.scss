@@ -206,15 +206,14 @@
     }
 
     .owner-rating {
+      display: flex;
       padding: 10px 12px;
       font-family: macan-regular;
       font-weight: 700;
       font-size: 14px;
       color: rgb(255, 190, 91);
       fill: rgb(255, 190, 91);
-      .fa-star {
-        margin-right: 5px;
-      }
+      
       span:last-child {
         color: #b5b6ba;
         font-weight: 400;
@@ -239,8 +238,9 @@
       align-items: center;
 
       .price {
+        
         display: flex;
-        align-items: center;
+        flex-direction: column;
         font-family: macan-regular;
         margin-top: 1px;
         h6 {

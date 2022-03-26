@@ -91,12 +91,12 @@ export default {
       elNavLinks: null,
       catagories: [
         {
-          name: "Arts And Drafts",
-          path: "arts and drafts",
+          name: "Arts And Crafts",
+          path: "arts and crafts",
         },
         {
-          name: "Data",
-          path: "data",
+          name: "Data Entry",
+          path: "data entry",
         },
         {
           name: "Logo",

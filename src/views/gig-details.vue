@@ -14,7 +14,7 @@
     <div v-if="gig" class="gig-page">
       <section class="gig-sidebar">
         <div class="gig-purchase-tab">
-          <form class="gig-purchase-content">
+          <div class="gig-purchase-content">
             <h3>
               <b class="gig-title">Silver</b>
               <span class="gig-price">{{ gig.price }}</span>
@@ -39,12 +39,12 @@
                 </button>
               </footer>
             </router-link>
-          </form>
+          </div>
         </div>
         <div class="contact-seller-wrapper">
           <div class="gig-contact-seller">
             <span class="gig-contact-seller-btn">Contact Seller</span>
-            <arrowDown class="arrow-down" />
+            <ArrowDownIcon class="arrow-down" />
           </div>
         </div>
       </section>
@@ -82,13 +82,11 @@
                   ><div class="gig-seller-level-div">Level 2 Seller</div></span
                 >
                 <div class="gig-seller-rating">
-                  <div class="gig-seller-stars">
-                    <span class="gig-seller-star"></span
-                    ><span class="gig-seller-star"></span
-                    ><span class="gig-seller-star"></span
-                    ><span class="gig-seller-star"></span
-                    ><span class="gig-seller-star"></span>
-                  </div>
+                  <ul  class="gig-seller-stars">
+                      <li v-for="star in starsToRender" :key="star">
+                        <StarIcon />
+                      </li>
+                  </ul>
                   <b class="gig-seller-rating-score">4.9</b
                   ><span class="gig-seller-ratings-count">(194)</span>
                 </div>
@@ -127,22 +125,20 @@
   import gigDetailsGalleryCarousel from "../components/gig-details-gallery-carousel.vue";
   import gigDetailsReviewsCarousel from "../components/gig-details-reviews-carousel.vue";
   import gigAboutSeller from "../components/gig-about-seller.vue";
-  import arrowRight from "../svgs/arrow-right.vue";
-  import arrowDown from "../svgs/arrow-down.vue";
+  import ArrowRightIcon from "../svgs/arrow-right-icon.vue";
+  import ArrowDownIcon from "../svgs/arrow-down-icon.vue";
   export default {
     components: {
       gigDetailsGalleryCarousel,
       gigDetailsReviewsCarousel,
       gigAboutSeller,
-      arrowRight,
-      arrowDown,
+      ArrowRightIcon,
+      ArrowDownIcon,
     },
     data() {
       return {
         gig: null,
-        limitPosition: 120,
         isSticky: false,
-        lastPosition: 0,
         currSection: null,
         gigDetailsNavLinks: [
           {
@@ -189,19 +185,17 @@
           ? { position: "fixed", top: "0" }
           : { position: "absolute", top: 120 + "px" };
       },
+
+      starsToRender() {
+        return this.gig
+      }
     },
     methods: {
       async loadGig() {
         const { id } = this.$route.params;
         this.gig = await gigService.getById(id);
       },
-      computed: {
-        async reviewsLength() {
-          return await this.gig.reviewers.length;
-        },
-        loggedInUser() {
-          return this.$store.getters.loggedinUser;
-        },
+      
         handleScroll() {
           if (window.scrollY > 120) this.isSticky = true;
           else this.isSticky = false;
@@ -214,8 +208,8 @@
           });
         },
       },
-    },
-  };
+    }
+  
 </script>
 
 <style></style>

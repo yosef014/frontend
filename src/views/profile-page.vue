@@ -1,7 +1,7 @@
 <template>
   <section class="page-content-container">
     
-    <div class="prifile-page-layout-fluid">
+    <div class="prifile-page-layout-fluid max-width-container">
       <div class="prifile-page-layout">
         <div class="profile-page-aside-left">
           <div class="profile-pic">

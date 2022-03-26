@@ -1,26 +1,46 @@
 <template>
   <section class="page-content-container">
-    
     <div class="prifile-page-layout-fluid">
       <div class="prifile-page-layout">
         <div class="profile-page-aside-left">
-          <div class="profile-pic">
-            <img :src="loggedinUser.imgUrl" alt="" srcset="" />
-            name:{{ loggedinUser.username }}
-          </div>
           <div class="user-info">
-            {{ loggedinUser.fullname }}
-            <br />
-            lavel:{{ loggedinUser.level }}
+            <div class="profile-pic">
+              <img :src="loggedinUser.imgUrl" alt="" srcset="" />
+            </div>
+            <p>
+              {{ loggedinUser.username }}
+            </p>
+            <!-- We need to compute user level to upperCase -->
+            <p>{{ loggedinUser.level }} user</p>
+            <p>
+              {{ loggedinUser.fullname }}
+            </p>
           </div>
+          <div class="preview-profile-btn">
+            <p>Preview Fiverr Profile</p>
+          </div>
+          
         </div>
 
         <div class="profile-page-aside-right">
-          <div class="my-orders-label">my gigs</div>
-              <el-button type="success" @click="this.$router.push('/gig')" >Create New Gig</el-button>
+          <nav class="user-profile-navbar">
+            <ul class="nav-links">
+              <li
+                v-for="userProfileNavLink in userProfileNavLink"
+                :key="userProfileNavLink"
+              >
+                {{ userProfileNavLink.name }}
+              </li>
+            </ul>
+          </nav>
+          <ul class="my-orders-label">
+            <li class="gig-add-card gig-card">
+              <a @click="this.$router.push('/gig')" class="gig-add-btn"> + </a>
+              <span>Create a new gig</span>
+            </li>
+          </ul>
 
           <div class="my-orders-list">
-            
             <div
               class="my-orders-preview"
               v-for="order in ordersToShow"
@@ -46,7 +66,19 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      userProfileNavLink: [
+        {
+          name: "ACTIVITY GIGS",
+        },
+        {
+          name: "DRAFTS",
+        },
+        {
+          name: "PAUSED",
+        },
+      ],
+    };
   },
   created() {},
   computed: {
