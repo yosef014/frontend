@@ -4,11 +4,13 @@ import { httpService } from './http-service'
 // import { socketService, SOCKET_EVENT_USER_UPDATED } from './socket.service'
 
 export const gigService = {
-   
+
     getGigs,
     getById,
     remove,
     update,
+    getEmptyGig,
+    save
 }
 
 
@@ -41,7 +43,15 @@ function _saveLocalGig(gig) {
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(gig))
     return gig
 }
-
+async function save(gig) {
+    const savedGig = gig
+    console.log('saved gig:::::',savedGig);
+    if (savedGig._id) {
+      return await httpService.put(`gig/${savedGig._id}`, savedGig);
+    } else {
+      return await httpService.post('gig', savedGig);
+    }
+  }
 
 
 // import { storageService } from "./storage-service";
@@ -98,31 +108,36 @@ function _saveLocalGig(gig) {
 
 
 
-// function getEmptyGig() {
+function getEmptyGig() {
 
 
-//   return {
-//     "title": '',
-//     "category": [],
-//     "productImgs": [],
-//     "description": "",
-//     "price": null,
-//     "daysToMake": '',
-//     "fullname": '',
-//     "imgUrl": '',
-//     "loc": '',
-//     "memberSince": "Jul 2021",
-//     "avgResponceTime": "1 hour",
-//     "lastDelivery": "1 week",
-//     "rate": 0,
-//     "about": '',
-//     "reviewers": []
-//   }
+    return {
+        "title": '',
+        "category": [],
+        "productImgs": [],
+        "description": "",
+        "price": null,
+        "daysToMake": '',
+        "loc": '',
+        "memberSince": "Jul 2021",
+        "avgResponceTime": "1 hour",
+        "lastDelivery": "1 week",
+        "rate": 0,
+        "about": '',
+        "owner": {
+            "_id": "623f4e421513c14a270f61a4",
+            "fullname": "frederickkessie",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/4abf6f5b58e4d78cfb7c410cf8d7a9ac-1626111679444/4a04b77c-22ee-4ce8-b4be-747fd059e9ff.jpg",
+            "username": "guy123",
+            "level": "premium",
+            "reviewers": []
+        }
 
 
 
 
-// }
+    }
+}
 
 // _createGigs();
 // function _createGigs() {
