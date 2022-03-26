@@ -35,47 +35,44 @@
           </nav>
           <ul class="my-orders-label">
             <li class="gig-add-card gig-card">
-              <a @click="this.$router.push('/gig')" class="gig-add-btn"> + </a>
+              <a @click="this.$router.push('/seller/edit')" class="gig-add-btn"> + </a>
               <span>Create a new gig</span>
             </li>
           </ul>
 
-          <div class="my-orders-list">
-            <div
-              class="my-orders-preview"
-              v-for="order in ordersToShow"
-              :key="order._id"
-            >
-              <img :src="order.gig.img" class="gig-preview-pic" />
-              {{ order.gig.title }}
-              <div class="seller-preview-info">
-                <img :src="order.seller.imgUrl" class="seller-preview-pic" />
-                {{ order.seller.username }}
-              </div>
-              ${{ order.gig.price }}
-            </div>
 
-            <br />
-          </div>
+ <li v-for="order in ordersToShow" :key="order._id">
+        <OrdersPreview :order="order" />
+        
+      </li>
+        
+
+          
+
+       
         </div>
       </div>
     </div>
+  <!-- {{gigsToShow}} -->
   </section>
 </template>
 
 <script>
+import OrdersPreview from "../components/orders-preview.vue";
 export default {
+  
+
   data() {
     return {
       userProfileNavLink: [
         {
-          name: "ACTIVITY GIGS",
+          name: "My Active Gigs",
         },
         {
-          name: "DRAFTS",
+          name: "Orders manager",
         },
         {
-          name: "PAUSED",
+          name: "Dashboard",
         },
       ],
     };
@@ -93,11 +90,24 @@ export default {
         return order.seller._id == this.loggedinUser._id;
       });
     },
+    gigs() {
+      return this.$store.getters.gigs;
+    },
+    gigsToShow() {
+      if(!this.gigs) return
+      return this.gigs.filter((gig) => {
+        console.log(this.loggedinUser._id);
+        console.log(gig.owner._id);
+        return gig.owner._id == this.loggedinUser._id;
+      });
+    },
   },
 
   methods: {},
 
-  components: {},
+  components: {
+    OrdersPreview
+},
 };
 </script>
 
