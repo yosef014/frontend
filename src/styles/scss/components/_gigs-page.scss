@@ -44,10 +44,7 @@
     width: 15% !important;
 
     font-family: macan-regular;
-    :hover {
-      color: #1dbf73;
-
-    }
+    
   }
 }
 .gig-filters {
@@ -71,11 +68,12 @@
   padding: 17px;
   box-shadow: 0 0.14px 2.29266px rgba(0, 0, 0, 0.032),
     0 0.37px 4.42626px rgba(0, 0, 0, 0.048), 0 3px 7px rgba(0, 0, 0, 0.09);
+  cursor: pointer;
 
-
-    :hover {
-      box-shadow: 0 3.4623px 6.1418px rgba(0,0,0,.05),0 7.92923px 12.9218px rgba(0,0,0,.05),0 9px 15px rgba(0,0,0,.08);
-      cursor: pointer;
+    &:hover {
+      box-shadow: 0 3.4623px 6.1418px rgba(0,0,0,.0523),0 7.92923px 12.9218px rgba(0,0,0,.0476886),0 9px 15px rgba(0,0,0,.08);      & span {
+          color: #1dbf73;
+      }
     }
 
   img {
