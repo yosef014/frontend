@@ -1,13 +1,12 @@
 .gig-checkout-page {
   display: flex;
-  // flex-wrap: wrap;
+  // background-color: #f7f7f7;
+  flex-wrap: wrap;
   
 
   .gig-order-preview {
     display: flex;
-    
-    
-
+    height: 50%;
     & section {
       display: flex;
       flex-direction: column;
@@ -35,18 +34,30 @@
   flex-direction: column;
 }
 .gig-checkout-summary {
+  border: 1px solid #dddddd;
   display: flex;
   flex-direction: column;
   height: 20rem;
-  width: 30%;
+  width: 18.75rem;
+  padding: 1rem 1.5rem;
+  background-color: #fff;
   .title {
     margin-bottom:1rem ;
+    font-family: macan-bold;
+  }
+
+  & ul {
+    flex: 1;
   }
   & li {
     display: flex;
     justify-content: space-between;
-    height: 30px;
+    height: 50px;
     align-items: center;
+    border-bottom: 1px solid #dddddd;
+    & p {
+      font-family: macan-regular;
+    }
   }
 
   & button {
@@ -68,6 +79,7 @@
   flex-direction: column;
   width: 50%;
   height: 50%;
+  padding-top: 1rem;
   
   .details-title {
     margin-bottom: 1rem;
@@ -89,10 +101,11 @@
   }
 }
 
-.block-one {
-  padding-left: 1rem;
+.gig-order-preview .block-one {
+  padding: 0 1rem;
   h1 {
     margin-bottom: 1rem;
+    font-family: macan-bold;
   }
 
   h3 {
@@ -104,7 +117,20 @@
   }
 }
 
+.gig-order-preview .block-two {
+  width: 30%;
+  height: 30%;
+  
+  & img {
+    object-fit: cover;
+    width: 14rem;
+    height: 8rem;
+  }
+}
 
-.gig-rate>* {
+
+
+
+.block-one .gig-rate>* {
   margin-inline-end: 1rem;
 }

@@ -5,7 +5,7 @@
       <div class="prifile-page-layout">
         <div class="profile-page-aside-left">
           <div class="profile-pic">
-            <img :src="loggedinUser.imgUrl ? loggedinUser.imgUrl : loggedinUser.avatar.default " alt=""  />
+            <img :src="loggedinUser.imgUrl " alt=""  />
             name:{{ loggedinUser.username }}
           </div>
           <div class="user-info">
@@ -62,9 +62,6 @@ export default {
     },
     ordersToShow() {
       return this.orders.filter((order) => {
-        console.log(order);
-        console.log(order.buyer._id);
-        console.log(this.loggedinUser);
         order.buyer._id == this.loggedinUser._id;
         return order;
       });

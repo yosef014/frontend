@@ -5,6 +5,19 @@
         <div class="gig-order-preview">
           <section class="block-two">
             <img :src="gig.productImgs[0]" alt="" />
+            <div class="gig-order-details">
+          <h1 class="details-title">Order Details</h1>
+          <ul class="gig-features">
+            <li
+              class="gig-feature"
+              v-for="feature in gigFeaturesList"
+              :key="feature"
+            >
+              <CheckmarkIcon />
+              <p class="feature-desc">{{ feature }}</p>
+            </li>
+          </ul>
+        </div>
           </section>
           <section class="block-one">
             <h1>{{ gig.title }}</h1>
@@ -23,22 +36,11 @@
             <h3>{{ gig.price }}</h3>
           </section>
         </div>
-        <div class="gig-order-details">
-          <h1 class="details-title">Order Details</h1>
-          <ul class="gig-features">
-            <li
-              class="gig-feature"
-              v-for="feature in gigFeaturesList"
-              :key="feature"
-            >
-              <CheckmarkIcon />
-              <p class="feature-desc">{{ feature }}</p>
-            </li>
-          </ul>
-        </div>
+        
       </div>
       <div class="gig-checkout-summary">
         <h1 class="title">Price Summary</h1>
+        <ul>
         <li>
           <p>Subtotal</p>
           <p>{{ gig.price }}</p>
@@ -51,6 +53,8 @@
           <p>Final Price</p>
           <p>{{ finalPrice }}</p>
         </li>
+
+        </ul>
         <button @click.prevent="purchase" v-if="loggedInUser">Purchase</button>
         <button v-else>Log In To Purchase!</button>
       </div>

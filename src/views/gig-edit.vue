@@ -1,78 +1,77 @@
 <template>
-  <section class="bgc-grey grid-narrow main-layout page-content-container">
-    {{ gigToEdit }}
+  <section class="max-width-container page-content-container">
     <section v-if="gigToEdit" class="edit-gig-container">
-      <h1>create new gig</h1>
-      <div class="gig-title grid-div">
-        <p>Gig Title:</p>
-        <el-input
-          type="textarea"
-          v-model="gigToEdit.title"
-          class="title"
-          placeholder="I will do something i'm really goo at"
-        ></el-input>
-      </div>
-      <div class="description grid-div">
-        <p>Gig Description:</p>
-        <el-input
-          type="textarea"
-          v-model="gigToEdit.description"
-          placeholder="Describe youre gig"
-        ></el-input>
-      </div>
-      <div class="gig-category grid-div">
-        <p>Category:</p>
-        <el-select v-model="gigToEdit.category" placeholder="Category">
-          <el-option
-            v-for="item in categories"
-            :key="item.label"
-            :label="item"
-            :value="item"
-          >
-          </el-option>
-        </el-select>
-      </div>
+      <section class="gig-edit-form-left">
+        <section class="section-one">
+          <div class="gig-title grid-div">
+            <h3>Gig Title:</h3>
+            <el-input
+              type="textarea"
+              v-model="gigToEdit.title"
+              class="title-input"
+              placeholder="I will do something i'm really good at"
+            ></el-input>
+          </div>
 
-      <div class="price grid-div">
-        <p>Price ($):</p>
-        <el-input
-          type="number"
-          placeholder="Price"
-          v-model.number="gigToEdit.price"
-        ></el-input>
-      </div>
-
-      <div class="image-upload grid-div">
-        <p>Images:</p>
-        <img-upload @save="saveImg" />
-      </div>
-
-      <div class="package">
-        <p class="package-title">What's in the package:</p>
-        <div class="day-to-deliver grid-div">
-          <p>Dellvery Time (Days):</p>
+          <h3>Gig Description:</h3>
           <el-input
-            type="number"
-            placeholder="Dellvery Time"
-            v-model.number="gigToEdit.avgResponceTime"
+            class="gig-description-textarea"
+            type="textarea"
+            v-model="gigToEdit.description"
+            placeholder="Describe your gig"
           ></el-input>
-        </div>
-        <div class="grid-div">
-          <p>Package Description:</p>
+        </section>
+        <section class="section-two">
+          <div class="category-group-form">
+            <h3>Category:</h3>
+            <el-select v-model="gigToEdit.category" placeholder="Category">
+              <el-option
+                v-for="item in categories"
+                :key="item.label"
+                :label="item"
+                :value="item"
+              >
+              </el-option>
+            </el-select>
+          </div>
+          <div class="delivery-time-form">
+            <h3>Dellvery Time (Days):</h3>
+            <el-input
+              type="number"
+              placeholder="Dellvery Time"
+              v-model.number="gigToEdit.avgResponceTime"
+            ></el-input>
+          </div>
+          <div class="gig-price-form">
+            <h3>Price ($):</h3>
+            <el-input
+              type="number"
+              placeholder="Price"
+              v-model.number="gigToEdit.price"
+            ></el-input>
+          </div>
+        </section>
+        <section class="section-three">
+          <img-upload class="image-uploader" @save="saveImg" />
+        </section>
+      </section>
+      <section class="gig-edit-form-right">
+        <section class="section-four">
+          <h3>Package Description:</h3>
           <el-input
             type="textarea"
             v-model="gigToEdit.description"
             placeholder="Describe your package gig"
+            class="package-description-input"
           ></el-input>
+          <div class="revision grid-div">
+            <h3>Revisions:</h3>
+          </div>
+        </section>
+        <div class="btn-div">
+          <button @click="save">Create Gig</button>
         </div>
-
-        <div class="revision grid-div">
-          <p>Revisions:</p>
-        </div>
-      </div>
-      <div class="btn-div">
-        <button @click="save">Create Gig</button>
-      </div>
+      </section>
     </section>
   </section>
 </template>
@@ -105,7 +104,7 @@ export default {
   },
   computed: {
     gigId() {
-      return this.$route.params.gigId;
+      return this.$route.params.id;
     },
     loggedinUser() {
       return this.$store.getters.loggedinUser;
@@ -123,6 +122,8 @@ export default {
         const gig = await gigService.getById(this.gigId);
         this.gigToEdit = JSON.parse(JSON.stringify(gig));
       } else {
+        console.log("ein");
+
         this.gigToEdit = gigService.getEmptyGig();
       }
     },

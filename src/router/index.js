@@ -2,7 +2,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import homePage from "../views/home-page.vue";
 import gigList from "../views/explore-page.vue";
 import gigDetails from "../views/gig-details.vue";
-import userProfile from "../views/profile-page.vue";
+import userPage from "../views/user-page.vue";
 import gigCheckoutPage from "../views/gig-checkout-page.vue";
 import gigEdit from "../views/gig-edit.vue";
 import sellerPage from "../views/seller-page.vue";
@@ -59,14 +59,19 @@ const router = createRouter({
       component: gigEdit,
     },
     {
+      path: "/seller/edit/:id",
+      name: "gig-seller-edit",
+      component: gigEdit,
+    },
+    {
       path: "/seller/orders",
       name: "seller-orders",
       component: sellerOrders,
     },
     {
       path: "/user",
-      name: "prifil-page",
-      component: userProfile,
+      name: "user-page",
+      component: userPage,
       // children: [
       //   {
       //     path: 'orders',

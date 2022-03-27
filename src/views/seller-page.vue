@@ -39,20 +39,24 @@
               </a>
               <span>Create a new gig</span>
             </li>
+            <li v-for="order in ordersToShow" :key="order._id">
+              <OrdersPreview :order="order" />
+            </li>
           </ul>
 
-          <li v-for="order in ordersToShow" :key="order._id">
-            <OrdersPreview :order="order" />
+          <li v-for="gig in gigsToShow" :key="gig._id">
+            <sellerGigsPreview :gig="gig" />
           </li>
         </div>
       </div>
     </div>
     <!-- {{gigsToShow}} -->
+    <!-- {{loggedinUser}} -->
   </section>
 </template>
 
 <script>
-import OrdersPreview from "../components/orders-preview.vue";
+import sellerGigsPreview from "../components/seller-gigs-preview.vue";
 export default {
   data() {
     return {
@@ -86,10 +90,8 @@ export default {
       return this.$store.getters.gigs;
     },
     gigsToShow() {
-      if (!this.gigs) return;
+      // if (!this.gigs) return;
       return this.gigs.filter((gig) => {
-        console.log(this.loggedinUser._id);
-        console.log(gig.owner._id);
         return gig.owner._id == this.loggedinUser._id;
       });
     },
@@ -98,7 +100,7 @@ export default {
   methods: {},
 
   components: {
-    OrdersPreview,
+    sellerGigsPreview,
   },
 };
 </script>

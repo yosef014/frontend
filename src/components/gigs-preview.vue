@@ -1,7 +1,7 @@
 <template>
+
   <section v-if="gig" class="gig-preview">
     <!-- <div class="gig-img" @click="this.$router.push('/tag' + '/' + gig.category + '/'+ gig._id)"> -->
-
     <el-carousel :autoplay="false" trigger="click" height="197px">
       <el-carousel-item v-for="currImg in gig.productImgs" :key="currImg">
         <div class="img-container">
@@ -16,7 +16,7 @@
     </el-carousel>
 
     <div class="owner-prev">
-      <img :src="gig.imgUrl" />
+      <img :src="gig.owner.imgUrl" />
       <div class="owner-name-level">
         {{ gig.fullname }}
         <h5>Level 2 seller</h5>
