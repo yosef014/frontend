@@ -19,12 +19,16 @@
       </router-link>
       <div :style="{ opacity: isShowNavSearch ? 1 : 0 }" class="nav-search">
         <searchIconVue />
-         <div class="nav-search-results-box" v-if="categoryiesToShow">
-                  <h3>Services</h3>
-                <div class="nav-serach-result-list" v-for="res in categoryiesToShow" :key="res">
-                  <span @click="categoryChosen(res)">{{res}}</span>
-                </div>
-              </div>
+        <div class="nav-search-results-box" v-if="categoryiesToShow">
+          <h3>Services</h3>
+          <div
+            class="nav-serach-result-list"
+            v-for="res in categoryiesToShow"
+            :key="res"
+          >
+            <span @click="categoryChosen(res)">{{ res }}</span>
+          </div>
+        </div>
         <input type="text" placeholder="Find Services" v-model="inputLine" />
         <button>Search</button>
       </div>
@@ -90,8 +94,16 @@ export default {
   },
   data() {
     return {
-      inputLine:'',
-      categoryies:['logo','arts and crafts','research and summeries','data entry','marketing','business','programming and tech'],
+      inputLine: "",
+      categoryies: [
+        "logo",
+        "arts and crafts",
+        "research and summeries",
+        "data entry",
+        "marketing",
+        "business",
+        "programming and tech",
+      ],
       showModal: {
         isLogin: false,
         isSignUp: false,
@@ -137,7 +149,7 @@ export default {
       navLinks: [
         {
           name: "Fiiverr Business",
-          route: "/tag/fiiver%20business",
+          route: "/tag/fiiver business",
           class: "nav-link business-link",
         },
         {
@@ -160,9 +172,9 @@ export default {
   },
 
   methods: {
-    categoryChosen(res){
-      this.inputLine=''
- this.$router.push('/tag' + '/' + res )
+    categoryChosen(res) {
+      this.inputLine = "";
+      this.$router.push("/tag" + "/" + res);
     },
     toggleLogin() {
       this.showModal.isLogin = true;
@@ -242,11 +254,11 @@ export default {
   },
 
   computed: {
-     categoryiesToShow(){
-            if  (!this.inputLine) return false
+    categoryiesToShow() {
+      if (!this.inputLine) return false;
 
-         const regex = new RegExp(this.inputLine, 'i');
-           return this.categoryies.filter(category => regex.test(category))
+      const regex = new RegExp(this.inputLine, "i");
+      return this.categoryies.filter((category) => regex.test(category));
     },
     toggleCategoriesMenu() {
       return {

@@ -1,22 +1,23 @@
 .profile-page-layout-fluid {
   background-color: #f7f7f7;
   padding: 1rem 0;
+  display: flex;
 }
 
 .profile-page-layout {
   margin: 0 auto;
   display: flex;
-  justify-content: center;
   max-width: $screen-size-l;
   gap: 40px;
-  width: 100%;
+  width: 100vw;
   height: 60vh;
+  justify-content: space-between;
 
   .profile-page-aside-left {
     padding: 2rem;
     height: 100%;
-    width: 20rem;
-    max-width: $screen-size-l;
+    width: 40%;
+    min-width: 20rem;
     background-color: #fff;
     display: flex;
     flex-direction: column;
@@ -42,7 +43,7 @@
       }
 
       & > *:not(:first-child) {
-        height: 10%;
+        height: 2.5rem;
         display: flex;
         align-items: center;
         font-size: 1.5rem;
@@ -120,7 +121,7 @@
     justify-content: center;
 
     .gig-card {
-      height: 15rem;
+      height: 16rem;
       width: 12rem;
       border: 1px solid grey;
       background-color: #fff;
@@ -159,7 +160,6 @@
     flex-direction: column;
     align-items: center;
     height: 60vh;
-    width: 50vw;
 
     .my-orders-label {
       display: flex;
@@ -216,6 +216,10 @@
   }
   & .title {
     flex: 1;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    overflow: hidden;
   }
   .owner-prev-container {
     display: flex;
@@ -248,10 +252,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     .card-actions {
       display: flex;
       align-items: center;
       width: 40%;
+      height: auto;
       justify-content: space-between;
       & > *:hover {
         cursor: pointer;

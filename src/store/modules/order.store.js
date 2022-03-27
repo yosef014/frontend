@@ -88,6 +88,7 @@ export const orderStore = {
       }
     },
     async addOrder({ commit }, { order }) {
+      commit({ type: "setLoading", isLoading: true });
       try {
         const savedOrder = await orderService.save(order);
         commit({ type: "addOrder", savedOrder });
@@ -97,7 +98,7 @@ export const orderStore = {
       } catch (err) {
         console.log("Adding Error (Store):", err);
         throw err;
-      }
+      } 
     },
     async updateOrder({ commit }, { order }) {
       try {

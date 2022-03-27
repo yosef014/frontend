@@ -76,7 +76,6 @@
       return {
         gig: null,
         order: null,
-        serviceFee: Math.floor(Math.random() * (10 - 20) + 12).toFixed(2),
         gigFeaturesList: [
           "Commercial Use",
           "Color",
@@ -100,7 +99,9 @@
         const finalPrice = this.gig.price - this.serviceFee;
         return (finalPrice).toFixed(2);
       },
-
+      serviceFee(){
+        return ((this.gig.price * 10)/100).toFixed(2)
+      },
       starsToRender() {
         return Math.floor(this.gig.rate + 1);
       },
@@ -112,7 +113,6 @@
         this.order = await orderService.getEmptyOrder();
       },
       async purchase() {
-        console.log("purchase button");
         const order = JSON.parse(JSON.stringify(this.order));
         order.createdAt = Date.now();
         order.imgUrl = this.gig.productImgs[0],
@@ -138,6 +138,7 @@
           productImgs:this.gig.productImgs,
         };
         await this.$store.dispatch({ type: "addOrder", order });
+        this.$router.push('/user');
       },
     },
   };

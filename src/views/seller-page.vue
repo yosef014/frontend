@@ -1,7 +1,7 @@
 <template>
   <section class="page-content-container">
     <div class="profile-page-layout-fluid">
-      <div class="profile-page-layout">
+      <div class="profile-page-layout max-width-container">
         <div class="profile-page-aside-left">
               <h1>prifile user</h1>
           <div class="user-info">
@@ -34,7 +34,7 @@
               <span>Create a new gig</span>
             </li>
             <li class="gig-card" v-for="gig in gigsToShow" :key="gig._id">
-            <sellerGigsPreview :gig="gig" />
+              <sellerGigsPreview :gig="gig" />
             </li>
             <li class="gig-card" v-for="gig in gigsToShow" :key="gig._id">
               <sellerGigsPreview :gig="gig" />

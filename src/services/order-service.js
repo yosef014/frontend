@@ -27,12 +27,12 @@ async function remove(orderId) {
   // return storageService.remove('order', orderId)
   return await httpService.delete(`order/${orderId}`);
 }
-async function save(order) {
-  if (order._id) {
-    return await httpService.put(`order/${order._id}`, order);
-  } else {
-    return await httpService.post("order", order);
-  }
+async function save(order, delay=2000) {
+    if (order._id) {
+      return await httpService.put(`order/${order._id}`, order);
+    } else {
+      return await httpService.post("order", order);
+    }
 }
 
 async function update(order) {

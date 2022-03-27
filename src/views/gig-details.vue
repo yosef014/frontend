@@ -117,6 +117,19 @@
         </div>
       </div>
     </div>
+      <!-- <el-input
+            type="textarea"
+            v-model="reviewToAdd.review"
+            placeholder="What was your goal in buying this Gig? How did the seller help you achieve it?"
+          ></el-input>
+          <button @click="addReview()">add</button>
+     {{gig.reviewers}} -->
+     <!-- <h4>Reviews: </h4>
+      <ul>
+        <li v-for="review in gig.reviewers" :key="review">
+          <p>{{ review.review }}</p>
+        </li>
+      </ul>  -->
   </div>
 </template>
 
@@ -138,6 +151,9 @@
     data() {
       return {
         gig: null,
+         reviewToAdd: {
+        review: "",
+        },
         isSticky: false,
         currSection: null,
         gigDetailsNavLinks: [
@@ -164,8 +180,8 @@
         ],
       };
     },
-    created() {
-      this.loadGig();
+    async created() {
+      await this.loadGig();
       window.addEventListener("scroll", this.handleScroll);
     },
     unmounted() {
@@ -173,11 +189,9 @@
       this.loadGig();
     },
     computed: {
-      async reviewsLength() {
-        return await this.gig.reviewers.length;
-      },
+   
       loggedInUser() {
-        return this.$store.getters.loggedinUser && "please login";
+        return this.$store.getters.loggedinUser;
       },
 
       setSticky() {
@@ -188,14 +202,21 @@
 
       starsToRender() {
         return this.gig
-      }
+      },
     },
     methods: {
       async loadGig() {
         const { id } = this.$route.params;
         this.gig = await gigService.getById(id);
+        
       },
-      
+      // async addReview() {
+      // const review = this.reviewToAdd;
+      // review.username = this.loggedInUser.username
+      // review.fullname = this.loggedInUser.fullname
+      // this.gig.reviewers.push(review)
+      // this.$store.dispatch({type:'updateGig', gig:this.gig})
+      //  },
         handleScroll() {
           if (window.scrollY > 120) this.isSticky = true;
           else this.isSticky = false;
