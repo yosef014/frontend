@@ -8,6 +8,7 @@ import gigEdit from "../views/gig-edit.vue";
 import sellerPage from "../views/seller-page.vue";
 import sellerOrders from "../views/seller-orders.vue";
 import signUp from "@/components/sign-up.vue";
+import test from "@/components/test.vue"
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -16,6 +17,11 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: homePage,
+    },
+    {
+      path: "/test",
+      name: "test",
+      component: test,
     },
     {
       path: "/tag",

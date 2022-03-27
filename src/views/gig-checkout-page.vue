@@ -36,7 +36,6 @@
             <h3>{{ gig.price }}</h3>
           </section>
         </div>
-        
       </div>
       <div class="gig-checkout-summary">
         <h1 class="title">Price Summary</h1>

@@ -180,8 +180,8 @@
         ],
       };
     },
-    async created() {
-      await this.loadGig();
+    created() {
+       this.loadGig();
       window.addEventListener("scroll", this.handleScroll);
     },
     unmounted() {
@@ -208,7 +208,6 @@
       async loadGig() {
         const { id } = this.$route.params;
         this.gig = await gigService.getById(id);
-        
       },
       // async addReview() {
       // const review = this.reviewToAdd;
