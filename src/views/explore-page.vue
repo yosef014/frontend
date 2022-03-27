@@ -15,35 +15,8 @@
       {{ gigsToShow.length }} Services Available
     </div>
     <gigTabsCarousel></gigTabsCarousel>
-
     <div class="gig-filters">
-      <section class="">
-        <el-input
-          v-model="filterBy.seller"
-          @input="setFilter"
-          placeholder="Filter by seller"
-        />
-
-        <div>
-          <el-radio-group v-model="filterBy.sortBy" @change="setFilter">
-            <el-radio-button label="title" />
-            <el-radio-button label="Price" />
-            <el-radio-button label="rate" />
-          </el-radio-group>
-        </div>
-
-
-      </section>
-
-      <div class="slider-demo-block">
-        <el-slider
-          v-model="filterBy.price"
-          range
-          show-stops
-          :max="250"
-          @change="setFilter"
-        />
-      </div>
+      <filtereEplore> </filtereEplore>
     </div>
     <ul class="gig-list grid">
       <li v-for="gig in gigsToShow" :key="gig._id">
@@ -58,6 +31,7 @@ import { ref } from "vue";
 import { Carousel, Navigation, Slide } from "vue3-carousel";
 import gigsPreview from "../components/gigs-preview.vue";
 import gigTabsCarousel from "../components/gigs-tabs-carousel.vue";
+import filtereEplore from "../components/filter-explore.vue";
 export default {
   data() {
     return {
@@ -74,6 +48,7 @@ export default {
     Carousel,
     Slide,
     Navigation,
+    filtereEplore,
   },
   async created() {},
   computed: {
