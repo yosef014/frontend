@@ -21,7 +21,8 @@
         <p>
       level:    {{ loggedinUser.level }}
         </p>
-        <button>Preview seller controll</button>
+        <button @click="this.$router.push('/seller')
+">Preview seller controll</button>
       </div>
 
 
@@ -47,7 +48,6 @@
         <td><button>tallk whit seller</button></td>
       </tr>
     </table>
-
       </div>
 
       </div>
@@ -71,8 +71,7 @@ export default {
     ordersToShow() {
       return this.orders.filter((order) => {
         console.log(order.buyer._id);
-        order.buyer._id == this.loggedinUser._id;
-        return order;
+       return order.buyer._id == this.loggedinUser._id;
       });
     },
   },
