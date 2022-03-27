@@ -4,7 +4,7 @@
       <section class="gig-edit-form-left">
         <section class="section-one">
           <div class="gig-title grid-div">
-            <h3>Gig Title:</h3>
+            <h3>Gig Title</h3>
             <el-input
               type="textarea"
               v-model="gigToEdit.title"
@@ -13,7 +13,7 @@
             ></el-input>
           </div>
 
-          <h3>Gig Description:</h3>
+          <h3>Gig Description</h3>
           <el-input
             class="gig-description-textarea"
             type="textarea"
@@ -23,7 +23,7 @@
         </section>
         <section class="section-two">
           <div class="category-group-form">
-            <h3>Category:</h3>
+            <h3>Category</h3>
             <el-select v-model="gigToEdit.category" placeholder="Category">
               <el-option
                 v-for="item in categories"
@@ -35,7 +35,7 @@
             </el-select>
           </div>
           <div class="delivery-time-form">
-            <h3>Dellvery Time (Days):</h3>
+            <h3>Dellvery Time (Days)</h3>
             <el-input
               type="number"
               placeholder="Dellvery Time"
@@ -43,7 +43,7 @@
             ></el-input>
           </div>
           <div class="gig-price-form">
-            <h3>Price ($):</h3>
+            <h3>Price ($)</h3>
             <el-input
               type="number"
               placeholder="Price"

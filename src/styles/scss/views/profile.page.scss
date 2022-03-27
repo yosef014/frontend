@@ -1,8 +1,9 @@
-.prifile-page-layout-fluid {
+.profile-page-layout-fluid {
   background-color: #f7f7f7;
+  padding: 1rem 0;
 }
 
-.prifile-page-layout {
+.profile-page-layout {
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -10,12 +11,11 @@
   gap: 40px;
   width: 100%;
   height: 60vh;
-  
 
   .profile-page-aside-left {
     padding: 2rem;
     height: 100%;
-    width: 30%;
+    width: 50%;
     max-width: $screen-size-l;
     background-color: #fff;
     display: flex;
@@ -24,18 +24,17 @@
     justify-content: space-between;
 
     .user-info {
-        margin: 0 auto;
-        height: 70%;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+      margin: 0 auto;
+      height: 50%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
+      .profile-pic {
+        width: 50%;
+      }
 
-        .profile-pic {
-            width: 50%;
-        }
-        
       img {
         height: 100%;
         width: 100%;
@@ -43,99 +42,114 @@
       }
 
       & > *:not(:first-child) {
-        height: 10%;  
+        height: 10%;
         display: flex;
-          align-items: center;
-          font-size: 1.5rem;
+        align-items: center;
+        font-size: 1.5rem;
       }
     }
   }
 
   .preview-profile-btn {
+    padding: 0.6rem 1.5rem;
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid #74767e;
+    color: #74767e;
+    font-family: macan-regular;
 
+    &:hover {
+      background-color: #74767e;
+      color: white;
+      cursor: pointer;
+    }
   }
 
   .user-profile-navbar {
-      display: flex;
-      width: 100%;
-      height: 10%;
-      background-color: white;
-      border: $navbar-border;
-      margin-bottom: 1rem;
+    display: flex;
+    width: 100%;
+    height: 10%;
+    background-color: white;
+    border: $navbar-border;
+    margin-bottom: 1rem;
 
     .nav-links {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+
+      & li {
+        font-family: macan-regular;
         display: flex;
-        justify-content: space-around;
         align-items: center;
-        width: 100%;
         height: 100%;
+        color: $clr-grey;
 
-        & li {
-            font-family: macan-regular;
-            display: flex;
-            align-items: center;
-            height: 100%;
-            color: $clr-grey;
-
-            &:hover {
-                box-shadow: $navbar-hover-shadow;
-                cursor: pointer;
-                color: $clr-green;
-            }
+        &:hover {
+          box-shadow: $navbar-hover-shadow;
+          cursor: pointer;
+          color: $clr-green;
         }
+      }
 
-        &.active {
-            box-shadow: $navbar-hover-shadow;
-            color: $clr-green;
-        }
-        
-  } 
-
+      &.active {
+        box-shadow: $navbar-hover-shadow;
+        color: $clr-green;
+      }
+    }
   }
 
   .gig-add-card {
-      text-align: center;
+    text-align: center;
+  }
+
+  .gig-form-left,
+  .gig-form-right {
+    & h3 {
+      font-family: macan-regular;
+    }
   }
 
   .my-orders-label {
-      flex-wrap: wrap;
+    flex-wrap: wrap;
+    display: flex;
+    height: 70%;
+
+    .gig-card {
+      height: 15rem;
+      width: 12rem;
+      border: 1px solid grey;
+      background-color: #fff;
+      margin: 0 1rem 1rem 0;
       display: flex;
-      height: 70%;
-
-      .gig-card {
-          height: 15rem;
-          width: 12rem;
-          border: 1px solid grey;
-          background-color: #fff;
-          margin: 0 1rem 1rem 0;
-          display: flex;
-          flex-direction: column;
-          img {
-              height: 30%;
-              width: 100%;
-          }
-          h2 {
-              flex: 1;
-          }
-
-          .gig-add-btn {
-            content: '+';
-            background-color: #78cdd2;
-            color: #fff;
-            font-size: 48px;
-            font-weight: 400;
-            width: 66px;
-            height: 66px;
-            border-radius: 50%;
-            display: block;
-            margin: 80px auto 20px;
-            line-height: 61px;
-            &:hover {
-                cursor: pointer;
-            }
-          }
-
+      flex-direction: column;
+      img {
+        height: 30%;
+        width: 100%;
       }
+      h2 {
+        flex: 1;
+      }
+
+      .gig-add-btn {
+        content: "+";
+        background-color: #78cdd2;
+        color: #fff;
+        font-size: 48px;
+        font-weight: 400;
+        width: 66px;
+        height: 66px;
+        border-radius: 50%;
+        display: block;
+        margin: 80px auto 20px;
+        line-height: 61px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
   }
 
   .profile-page-aside-right {

@@ -1,7 +1,17 @@
-
 .el-input {
   font-family: macan-light;
   font-size: 1rem;
+}
+
+.edit-gig-container > * > * > * {
+  font-family: macan-regular;
+}
+
+.edit-gig-container > * > * > * {
+  & h3 {
+    padding-bottom: 1rem;
+  }
+  padding-bottom: 1rem;
 }
 
 .gig-edit-form-left {
@@ -29,20 +39,17 @@
   & * {
     width: 100%;
   }
-  
 }
 
 .section-three {
   width: 100%;
 }
 
-.package-description-input textarea{
+.package-description-input textarea {
   height: 200px;
-  
 }
 
 .gig-description-textarea textarea {
-
   height: 200px;
 }
 
@@ -58,9 +65,9 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  height: 70vh;
+  height: 80vh;
   background-color: #f7f7f7;
-  
+
   textarea {
     width: 100%;
     font-family: macan-light;
@@ -68,8 +75,6 @@
     resize: none;
   }
   button {
-    
-    
     height: 3rem;
     width: 100%;
     padding: 1rem 1.5rem;
@@ -81,7 +86,7 @@
     font-size: 0.875rem;
     color: white;
   }
-  
+
   .package {
     border-top: 1px solid #e4e5e7;
     padding-top: 20px;

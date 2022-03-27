@@ -1,7 +1,7 @@
 <template>
   <section class="page-content-container">
-    <div class="prifile-page-layout-fluid">
-      <div class="prifile-page-layout">
+    <div class="profile-page-layout-fluid">
+      <div class="profile-page-layout">
         <div class="profile-page-aside-left">
           <div class="user-info">
             <div class="profile-pic">
@@ -39,8 +39,11 @@
               </a>
               <span>Create a new gig</span>
             </li>
-            <li v-for="order in ordersToShow" :key="order._id">
+            <li class="gig-card" v-for="order in ordersToShow" :key="order._id">
               <OrdersPreview :order="order" />
+            </li>
+            <li class="gig-card">
+              <p>gig title</p>
             </li>
           </ul>
         </div>
