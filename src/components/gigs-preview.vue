@@ -18,7 +18,7 @@
     <div class="owner-prev">
       <img :src="gig.owner.imgUrl" />
       <div class="owner-name-level">
-        {{ gig.fullname }}
+        {{ gig.owner.username }}
         <h5>Level 2 seller</h5>
       </div>
     </div>

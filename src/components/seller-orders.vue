@@ -1,22 +1,5 @@
 <template>
   <section class="page-content-container">
-
-    <!-- <el-table :data="tableData" style="width: 100%" :row-class-name="getClassNames"	>
-      <el-table-column  prop="BUYER" label="BUYER" width="100" />
-      <el-table-column prop="GIG" label="GIG" width="150" />
-      <el-table-column prop="DATE" label="DATE" width="100" />
-      <el-table-column prop="DUE" label="DUE ON" width="100" />
-      <el-table-column prop="TOTAL" label="TOTAL" width="60" />
-      <el-table-column prop="STATUS" label="STATUS" width="120" />
-      <el-table-column fixed="right" label="ACTIONS" width="120" >
-        <template #default>
-          <el-button type="text" size="small" @click="handleClick(tableData)"
-            >Detail</el-button
-          >
-          <el-button type="text" size="small">Edit</el-button>
-        </template>
-      </el-table-column>
-    </el-table> -->
     <table>
       <tr>
         <th>BUYER</th>
