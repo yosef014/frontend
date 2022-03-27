@@ -69,6 +69,11 @@
     created() {
       this.loadGig();
     },
+    computed: {
+      reviewsLength() {
+        return  this.gig.reviewers.length;
+      },
+    },
     methods: {
       async loadGig() {
         const { id } = this.$route.params;
