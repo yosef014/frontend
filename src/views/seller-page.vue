@@ -39,17 +39,15 @@
               </a>
               <span>Create a new gig</span>
             </li>
-            <li class="gig-card" v-for="order in ordersToShow" :key="order._id">
-              <OrdersPreview :order="order" />
+            <li class="gig-card" v-for="gig in gigsToShow" :key="gig._id">
+            <sellerGigsPreview :gig="gig" />
             </li>
             <li class="gig-card">
               <p>gig title</p>
             </li>
           </ul>
 
-          <li v-for="gig in gigsToShow" :key="gig._id">
-            <sellerGigsPreview :gig="gig" />
-          </li>
+         
         </div>
       </div>
     </div>

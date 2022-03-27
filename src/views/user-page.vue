@@ -34,7 +34,7 @@
         <th>STATUS</th>
       </tr>
       <tr v-for="order in ordersToShow" :key="order">
-        <td>כאן יהיה תמונה</td>
+        <td><img :src="order.gig.productImgs[0]" alt="" srcset=""></td>
         <td>{{order.gig.title}}</td>
         <td>{{order.buyer.username}}</td>
         <td>{{new Date(order.createdAt).toLocaleDateString('iw-IL')}}</td>
