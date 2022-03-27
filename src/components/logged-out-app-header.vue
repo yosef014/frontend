@@ -19,8 +19,14 @@
       </router-link>
       <div :style="{ opacity: isShowNavSearch ? 1 : 0 }" class="nav-search">
         <searchIconVue />
-        <input type="text" placeholder="Find Services" />
-        <button @click="toggleLogin">Search</button>
+         <div class="nav-search-results-box" v-if="categoryiesToShow">
+                  <h3>Services</h3>
+                <div class="nav-serach-result-list" v-for="res in categoryiesToShow" :key="res">
+                  <span @click="categoryChosen(res)">{{res}}</span>
+                </div>
+              </div>
+        <input type="text" placeholder="Find Services" v-model="inputLine" />
+        <button>Search</button>
       </div>
       <div class="link-list">
         <ul>
@@ -84,6 +90,8 @@ export default {
   },
   data() {
     return {
+      inputLine:'',
+      categoryies:['logo','arts and crafts','research and summeries','data entry','marketing','business','programming and tech'],
       showModal: {
         isLogin: false,
         isSignUp: false,
@@ -152,6 +160,10 @@ export default {
   },
 
   methods: {
+    categoryChosen(res){
+      this.inputLine=''
+ this.$router.push('/tag' + '/' + res )
+    },
     toggleLogin() {
       this.showModal.isLogin = true;
       document.querySelector("body").classList.toggle("disable-scrolling");
@@ -230,6 +242,12 @@ export default {
   },
 
   computed: {
+     categoryiesToShow(){
+            if  (!this.inputLine) return false
+
+         const regex = new RegExp(this.inputLine, 'i');
+           return this.categoryies.filter(category => regex.test(category))
+    },
     toggleCategoriesMenu() {
       return {
         opacity: this.isShowCategories ? 1 : 0,

@@ -25,7 +25,7 @@ export default {
         {
           url: "https://fiverr-res.cloudinary.com/image/upload/v1584948052/general_assets/categories/nsc_01/2360.svg",
           h4: "All",
-          route: "all",
+          route: "",
         },
         {
           url: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/graphics-design.d32a2f8.svg",

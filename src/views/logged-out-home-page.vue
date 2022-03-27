@@ -164,7 +164,9 @@ export default {
   },
 
   methods: {
-  
+  catagoryChoosen(){
+
+  },
     heroAnimation() {
       if (this.$route.path !== "/") return;
       const elHeroWrappers = document.querySelectorAll(".hero-wrapper");
