@@ -1,41 +1,42 @@
 <template>
   <section class="page-content-container">
+    <charts></charts>
     <table>
       <tr>
         <th>BUYER</th>
         <th>GIG</th>
         <th>DATE</th>
-        <th>DADUE ONTE</th>
         <th>TOTAL</th>
         <th>STATUS</th>
         <th>ACTIONS</th>
       </tr>
       <tr v-for="order in ordersToShow" :key="order">
-        <td>{{order.buyer.username}}</td>
-        <td>{{order.gig.title}}</td>
-        <td>{{new Date(order.createdAt).toLocaleDateString('iw-IL')}}</td>
-        <td>{{order.gig.timeToDeliver + ' '+ 'days'}}</td>
-        <td>{{order.gig.price +'$'}}</td>
-        <td>{{order.status}}</td>
-        <td><button @click="changeStatus('approved', order)">✔</button><button @click="changeStatus('closed',order)">❌</button></td>
+        <td>{{ order.buyer.username }}</td>
+        <td>{{ order.gig.title }}</td>
+        <td>{{ new Date(order.createdAt).toLocaleDateString("iw-IL") }}</td>
+        <td>{{ order.gig.price + "$" }}</td>
+        <td>{{ order.status }}</td>
+        <td>
+          <button @click="changeStatus('approved', order)">✔</button
+          >
+          <button @click="changeStatus('closed', order)">❌</button>
+        </td>
       </tr>
     </table>
   </section>
 </template>
 
 <script>
+import charts from "../components/charts.vue";
+
 export default {
   data() {
     return {
-      tableData:[]
+      tableData: [],
     };
   },
-  created() {
-   
-  },
+  created() {},
   computed: {
-
-
     loggedinUser() {
       return this.$store.getters.loggedinUser;
     },
@@ -44,20 +45,23 @@ export default {
     },
     ordersToShow() {
       return this.orders.filter((order) => {
-        return order.seller._id == this.loggedinUser._id;
+        console.log(this.loggedinUser._id);
+        return order.seller?._id == this.loggedinUser._id;
       });
     },
   },
 
   methods: {
-    changeStatus(status,OldOrder) {
+    changeStatus(status, OldOrder) {
       const order = JSON.parse(JSON.stringify(OldOrder));
-      order.status=status
+      order.status = status;
       this.$store.dispatch({ type: "updateOrder", order });
     },
-   
   },
 
-  components: {},
+  components: {
+    charts,
+  },
+  
 };
 </script>
