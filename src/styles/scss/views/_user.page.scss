@@ -1,0 +1,30 @@
+.user-page-layout-container{
+    background-color: gray;
+    width: $screen-size-l;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+
+    .user-page-left{
+        background-color: beige;
+        display: flex;
+        flex-direction: column;
+        img{
+            width: 200px;
+            border-radius: 50%;
+        }
+    }
+
+    .user-page-orders-main{
+        background-color: bisque;
+
+        .user-page-orders-list{
+            background-color: rgb(196, 251, 255);
+
+        }
+        img{
+            width: 100px;
+        }
+    }
+}
