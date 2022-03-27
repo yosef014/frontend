@@ -56,6 +56,7 @@
         </ul>
         <button @click.prevent="purchase" v-if="loggedInUser" v-loading.fullscreen.lock="fullscreenLoading">Purchase</button>
         <button v-else>Log In To Purchase!</button>
+        <button @click="sendMsg" >notification socket test</button>
       </div>
     </section>
   </div>
@@ -66,6 +67,7 @@
   import { orderService } from "../services/order-service";
   import CheckmarkIcon from "../svgs/check-mark-icon.vue";
   import StarIcon from "../svgs/star-icon.vue";
+  import { socketService } from "../services/socket.service";
   export default {
     components: {
       CheckmarkIcon,
@@ -87,6 +89,14 @@
     },
     async created() {
       this.loadGig();
+       socketService.setup();
+      socketService.emit("chat topic", this.topic);
+      socketService.on("chat addMsg", this.addMsg);
+    },
+     unmounted() {
+    socketService.off("chat addMsg", this.addMsg);
+    socketService.off("chat userTyping", this.isTyping);
+    // socketService.terminate();
     },
     computed: {
       loggedInUser() {
@@ -107,6 +117,9 @@
       },
     },
     methods: {
+      sendMsg() {
+      socketService.emit("chat newMsg", 'test test from checkout-page');
+      },
       async loadGig() {
         const { id } = this.$route.params;
         this.gig = await gigService.getById(id);
