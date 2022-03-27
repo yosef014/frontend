@@ -15,7 +15,7 @@
 
           <h3>Gig Description:</h3>
           <el-input
-          class="gig-description-textarea"
+            class="gig-description-textarea"
             type="textarea"
             v-model="gigToEdit.description"
             placeholder="Describe your gig"
@@ -52,7 +52,7 @@
           </div>
         </section>
         <section class="section-three">
-            <img-upload class="image-uploader" @save="saveImg" />
+          <img-upload class="image-uploader" @save="saveImg" />
         </section>
       </section>
       <section class="gig-edit-form-right">
@@ -68,11 +68,10 @@
             <h3>Revisions:</h3>
           </div>
         </section>
-      <div class="btn-div">
-        <button @click="save">Create Gig</button>
-      </div>
+        <div class="btn-div">
+          <button @click="save">Create Gig</button>
+        </div>
       </section>
-
     </section>
   </section>
 </template>
@@ -105,7 +104,7 @@ export default {
   },
   computed: {
     gigId() {
-      return this.$route.params.gigId;
+      return this.$route.params.id;
     },
     loggedinUser() {
       return this.$store.getters.loggedinUser;
@@ -123,6 +122,8 @@ export default {
         const gig = await gigService.getById(this.gigId);
         this.gigToEdit = JSON.parse(JSON.stringify(gig));
       } else {
+        console.log("ein");
+
         this.gigToEdit = gigService.getEmptyGig();
       }
     },

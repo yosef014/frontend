@@ -86,10 +86,8 @@ export default {
       return this.$store.getters.gigs;
     },
     gigsToShow() {
-      if (!this.gigs) return;
+      // if (!this.gigs) return;
       return this.gigs.filter((gig) => {
-        console.log(this.loggedinUser._id);
-        console.log(gig.owner._id);
         return gig.owner._id == this.loggedinUser._id;
       });
     },
