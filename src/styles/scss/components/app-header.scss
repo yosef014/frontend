@@ -1,10 +1,27 @@
 .login-active {
   color: $clr-green;
   z-index: 9;
+  background-color: green;
+}
+
+.notification-indicator {
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  border-radius: 50%;
+  top: 3.125rem;
+}
+
+.logged-user-avatar {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #19a463;
+  display: flex;
 }
 
 .signup-active {
-  
   background-color: #1dbf73;
   color: #fff !important;
   border: none !important;
@@ -152,7 +169,6 @@
       height: 100%;
       display: flex;
       align-items: center;
-      
 
       .business-link {
         color: #1e1692;
@@ -181,7 +197,7 @@
   }
 }
 
-.nav-search-results-box{
+.nav-search-results-box {
   background-color: #fff;
   border: solid 1px rgb(107, 107, 107);
   width: 300px;
@@ -189,4 +205,3 @@
   top: 60px;
   z-index: 10;
 }
-
