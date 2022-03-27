@@ -38,8 +38,8 @@ export const orderStore = {
     },
     addOrder(state, { savedOrder }) {
       console.log(savedOrder);
-      // state.orders.unshift(savedOrder);
-      state.orders = savedOrder;
+      state.orders.unshift(savedOrder);
+      // state.orders = savedOrder;
     },
     updateOrder(state, { savedOrder }) {
       const idx = state.orders.findIndex(
@@ -120,7 +120,7 @@ export const orderStore = {
       }
     },
     async getUserOrders({ commit }) {
-      let orders = await orderService.query();
+      let orders = await orderService.getOrders();
       commit({ type: "setOrders", orders });
     },
     setFilterOrder({ commit, dispatch }, { filterBy }) {

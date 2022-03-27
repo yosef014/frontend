@@ -46,15 +46,20 @@
               <p>gig title</p>
             </li>
           </ul>
+
+          <li v-for="gig in gigsToShow" :key="gig._id">
+            <sellerGigsPreview :gig="gig" />
+          </li>
         </div>
       </div>
     </div>
     <!-- {{gigsToShow}} -->
+    <!-- {{loggedinUser}} -->
   </section>
 </template>
 
 <script>
-import OrdersPreview from "../components/orders-preview.vue";
+import sellerGigsPreview from "../components/seller-gigs-preview.vue";
 export default {
   data() {
     return {
@@ -98,7 +103,7 @@ export default {
   methods: {},
 
   components: {
-    OrdersPreview,
+    sellerGigsPreview,
   },
 };
 </script>

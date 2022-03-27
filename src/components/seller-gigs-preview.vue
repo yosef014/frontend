@@ -1,11 +1,12 @@
 <template>
+
   <section v-if="gig" class="orders-preview">
     <div class="img-container">
       <img :src="gig.productImgs[0]" />
     </div>
 
     <div class="owner-prev">
-      <img :src="gig.owner.imageUrl" />
+      <img :src="gig.owner.imgUrl" />
 
       <div class="owner-name-level">
         {{ gig.owner.username }}

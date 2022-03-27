@@ -71,13 +71,13 @@
                 <!-- //import picture from database/json to here -->
                 <img
                   class="B9j8CWn"
-                  :src="gig.imgUrl"
+                  :src="gig.owner.imgUrl"
                   alt="raziul99"
                   loading="lazy"
                 />
               </div>
               <div class="gig-seller-details">
-                <div class="gig-seller-name">{{ gig.fullname }}</div>
+                <div class="gig-seller-name">{{ gig.owner.fullname }}</div>
                 <span class="gig-seller-level"
                   ><div class="gig-seller-level-div">Level 2 Seller</div></span
                 >

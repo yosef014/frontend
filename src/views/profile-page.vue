@@ -5,7 +5,7 @@
       <div class="prifile-page-layout">
         <div class="profile-page-aside-left">
           <div class="profile-pic">
-            <img :src="loggedinUser.imgUrl" alt="" srcset="" />
+            <img :src="loggedinUser.imgUrl " alt=""  />
             name:{{ loggedinUser.username }}
           </div>
           <div class="user-info">
@@ -43,10 +43,17 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      user:null
+    };
   },
-  created() {},
+  created() {
+  
+  },
   computed: {
+    users(){
+      return this.$store.getters.users;
+    },
     loggedinUser() {
       return this.$store.getters.loggedinUser;
     },
@@ -55,14 +62,15 @@ export default {
     },
     ordersToShow() {
       return this.orders.filter((order) => {
-        console.log(order.buyer._id);
         order.buyer._id == this.loggedinUser._id;
         return order;
       });
     },
   },
 
-  methods: {},
+  methods: {
+
+  },
 
   components: {},
 };

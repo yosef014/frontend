@@ -65,7 +65,7 @@
           <button>Login</button>
         </form>
         <p>Not a member yet?</p>
-        <button>Join now</button>
+        <!-- <button>Join now</button> -->
       </div>
     </div>
   </div>
@@ -96,12 +96,14 @@
         this.$emit("closeModal");
       },
       async login() {
+        if (!this.loginCred.username || !this.loginCred.password) return 
         try {
           console.log(this.loggedInUser);
           await this.$store.dispatch({
             type: "login",
             userCred: this.loginCred,
           });
+          this.$emit("closeModal");
           this.$router.push("/");
         } catch (err) {
           console.log(err);
