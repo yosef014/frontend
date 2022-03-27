@@ -12,7 +12,7 @@
       <Slide v-for="gigReview in gig.reviewers" :key="gigReview">
         <div class="gig-carousel__item">
           <div class="gig-review-user-profile-img">
-            <img src="" alt="" />
+            <img :src="gigReview.imgUrl" alt="" />
           </div>
           <div class="gig-carousel-details">
             <div class="gig-review-header">

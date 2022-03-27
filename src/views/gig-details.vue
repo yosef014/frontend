@@ -115,20 +115,10 @@
         <div id="seller-description" class="gig-about-seller-wrapper">
           <gig-about-seller :gig="gig" />
         </div>
+        <div class="gig-details-wrapper">
+          <gig-details-reviews :gig="gig"/>
+        </div>
       </div>
-      <!-- <el-input
-            type="textarea"
-            v-model="reviewToAdd.review"
-            placeholder="What was your goal in buying this Gig? How did the seller help you achieve it?"
-          ></el-input>
-          <button @click="addReview()">add</button>
-     {{gig.reviewers}} -->
-     <!-- <h4>Reviews: </h4>
-      <ul>
-        <li v-for="review in gig.reviewers" :key="review">
-          <p>{{ review.review }}</p>
-        </li>
-      </ul>  -->
     </div>
   </div>
 </template>
@@ -140,6 +130,7 @@
   import gigAboutSeller from "../components/gig-about-seller.vue";
   import ArrowRightIcon from "../svgs/arrow-right-icon.vue";
   import ArrowDownIcon from "../svgs/arrow-down-icon.vue";
+  import gigDetailsReviews from "../components/gig-details-reviews.vue";
   export default {
     components: {
       gigDetailsGalleryCarousel,
@@ -147,13 +138,11 @@
       gigAboutSeller,
       ArrowRightIcon,
       ArrowDownIcon,
+      gigDetailsReviews,
     },
     data() {
       return {
         gig: null,
-         reviewToAdd: {
-        review: "",
-        },
         isSticky: false,
         currSection: null,
         gigDetailsNavLinks: [
@@ -210,13 +199,6 @@
         this.gig = await gigService.getById(id);
         
       },
-      // async addReview() {
-      // const review = this.reviewToAdd;
-      // review.username = this.loggedInUser.username
-      // review.fullname = this.loggedInUser.fullname
-      // this.gig.reviewers.push(review)
-      // this.$store.dispatch({type:'updateGig', gig:this.gig})
-      //  },
         handleScroll() {
           if (window.scrollY > 120) this.isSticky = true;
           else this.isSticky = false;
@@ -233,4 +215,6 @@
   
 </script>
 
-<style></style>
+<style>
+
+</style>
