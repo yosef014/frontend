@@ -16,9 +16,9 @@ export const gigService = {
 
 
 
-function getGigs() {
+function getGigs(filterBy) {
     // return storageService.query('gig')
-    return httpService.get(`gig`)
+    return httpService.get(`gig`, filterBy)
 }
 
 async function getById(gigId) {
