@@ -63,9 +63,16 @@
                   type="search"
                   autocomplete="off"
                   placeholder='Try "building mobile app"'
-                  value=""
+                  v-model="inputLine"
+
                 /><button class="">Search</button>
               </form>
+              <div class="search-results-box" v-if="categoryiesToShow">
+                  <h3>Services</h3>
+                <div class="result-list" v-for="res in categoryiesToShow" :key="res">
+                  <span @click=" this.$router.push('/tag' + '/' + res )">{{res}}</span>
+                </div>
+              </div>
             </div>
             <div class="popular">
               Popular:
@@ -93,6 +100,8 @@ import searchIconVue from "../svgs/search-icon.vue";
 export default {
   data() {
     return {
+      inputLine:'',
+      categoryies:['logo','arts and crafts','research and summeries','data entry','marketing','business','programming and tech'],
       heroIdx: 0,
       heroTimeout: null,
       catagories: [
@@ -136,9 +145,16 @@ export default {
         .sort((a, b) => b.searchCount - a.searchCount)
         .splice(0, 4);
     },
+    categoryiesToShow(){
+            if  (!this.inputLine) return false
+
+         const regex = new RegExp(this.inputLine, 'i');
+           return this.categoryies.filter(category => regex.test(category))
+    }
   },
 
   mounted() {
+   
     this.elHeroWrappers = document.querySelector(".hero-wrappers");
     this.heroAnimation();
   },
@@ -148,6 +164,9 @@ export default {
   },
 
   methods: {
+  catagoryChoosen(){
+
+  },
     heroAnimation() {
       if (this.$route.path !== "/") return;
       const elHeroWrappers = document.querySelectorAll(".hero-wrapper");

@@ -17,7 +17,7 @@
             </p>
           </div>
           <div class="preview-profile-btn">
-            <p>Preview Fiverr Profile</p>
+            <p @click="this.$router.push('/user')">Preview Fiverr Profile</p>
           </div>
         </div>
 
@@ -39,8 +39,8 @@
               </a>
               <span>Create a new gig</span>
             </li>
-            <li class="gig-card" v-for="order in ordersToShow" :key="order._id">
-              <OrdersPreview :order="order" />
+            <li class="gig-card" v-for="gig in gigsToShow" :key="gig._id">
+            <sellerGigsPreview :gig="gig" />
             </li>
             <li class="gig-card" v-for="gig in gigsToShow" :key="gig._id">
               <sellerGigsPreview :gig="gig" />
