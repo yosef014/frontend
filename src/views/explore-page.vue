@@ -1,5 +1,5 @@
 <template>
-  <div class="page-content-container">
+  <div class="page-content-container" v-if="gigsToShow">
     <div class="breadcrumbs">
       <span @click="this.$router.push('/')"> FIVERR</span> >
       <span @click="this.$router.push('/tag')">TAGS</span> >

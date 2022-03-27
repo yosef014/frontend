@@ -1,15 +1,15 @@
 <template>
-
-  <section v-if="gig" class="orders-preview">
-    <div class="img-container">
+  <section v-if="gig" class="seller-orders-preview-card">
+    <div class="seller-gig-img-container">
       <img :src="gig.productImgs[0]" />
     </div>
 
-    <div class="owner-prev">
-      <img :src="gig.owner.imgUrl" />
-
-      <div class="owner-name-level">
-        {{ gig.owner.username }}
+    <div class="owner-prev-container">
+      <div class="owner-profile-pic">
+        <img :src="gig.owner.imgUrl" />
+      </div>
+      <div class="owner-info">
+        <p>{{ gig.owner.username }}</p>
         <h5>Level 2 seller</h5>
       </div>
     </div>
@@ -18,40 +18,41 @@
     </p>
 
     <div class="owner-rating">
-      <span>time to deliver</span> {{ gig.daysToMake }}days
+      <span>Delivery in:</span> {{ gig.daysToMake }} days
     </div>
 
-    <div class="gig-footer">
-      <el-tooltip content="Add to favorite" placement="top"> </el-tooltip>
+    <div class="seller-gig-footer">
+      <div class="card-actions">
+        <EditIcon @click="this.$router.push('/seller/edit' + '/' + gig._id)">
+          edit
+        </EditIcon>
+        <TrashIcon />
+        <el-tooltip content="Add to favorite" placement="top"
+          ><FavoriteIcon
+        /></el-tooltip>
+      </div>
 
       <div class="price">
-        <h6>price</h6>
-        <span> {{ gig.price }}$</span>
-        <button @click="this.$router.push('/seller/edit' + '/' + gig._id)
-">edit</button>
+        <span> ${{ gig.price }}</span>
       </div>
     </div>
-    sdfsdfsf
   </section>
 </template>
 
 <script>
-
+import FavoriteIcon from "../svgs/favorite-icon.vue";
+import EditIcon from "../svgs/edit-icon.vue";
+import TrashIcon from "../svgs/trash-icon.vue";
 export default {
   props: {
     gig: Object,
   },
-  components: {
- 
-  },
+  components: { FavoriteIcon, EditIcon, TrashIcon },
   data() {
     return {};
   },
-  created() {
-  },
-  computed: {
-   
-  },
+  created() {},
+  computed: {},
   methods: {},
 };
 </script>
