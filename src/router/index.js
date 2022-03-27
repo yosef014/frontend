@@ -6,6 +6,7 @@ import userPage from "../views/user-page.vue";
 import gigCheckoutPage from "../views/gig-checkout-page.vue";
 import gigEdit from "../views/gig-edit.vue";
 import sellerPage from "../views/seller-page.vue";
+import chat from "../views/chat.vue";
 import signUp from "@/components/sign-up.vue";
 
 const router = createRouter({
@@ -61,6 +62,11 @@ const router = createRouter({
       path: "/seller/edit/:id",
       name: "gig-seller-edit",
       component: gigEdit,
+    },
+    {
+      path: "/chat",
+      name: "chat",
+      component: chat,
     },
   
     {
