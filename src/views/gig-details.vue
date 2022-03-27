@@ -116,7 +116,6 @@
           <gig-about-seller :gig="gig" />
         </div>
       </div>
-    </div>
       <!-- <el-input
             type="textarea"
             v-model="reviewToAdd.review"
@@ -130,6 +129,7 @@
           <p>{{ review.review }}</p>
         </li>
       </ul>  -->
+    </div>
   </div>
 </template>
 
@@ -180,8 +180,8 @@
         ],
       };
     },
-    created() {
-       this.loadGig();
+    async created() {
+      await this.loadGig();
       window.addEventListener("scroll", this.handleScroll);
     },
     unmounted() {
@@ -208,6 +208,7 @@
       async loadGig() {
         const { id } = this.$route.params;
         this.gig = await gigService.getById(id);
+        
       },
       // async addReview() {
       // const review = this.reviewToAdd;
