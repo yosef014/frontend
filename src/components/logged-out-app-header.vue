@@ -129,12 +129,12 @@
         navLinks: [
           {
             name: "Fiiverr Business",
-            route: "fiiver business",
+            route: "/tag/fiiver%20business",
             class: "nav-link business-link",
           },
           {
             name: "Explore",
-            route: "explore",
+            route: "tag",
             class: "nav-link",
           },
           {

@@ -108,22 +108,22 @@ export default {
       },
       {
         name: 'Logo Design',
-        route: '/logo design',
+        route: '/tag/logo design',
         searchCount: 3,
       },
       {
         name: 'Data Analysis',
-        route: '/data analysis',
+        route: '/tag/data analysis',
         searchCount: 5,
       },
       {
         name: 'Programming And Tech',
-        route: '/programming and tech',
+        route: '/tag/arts and crafts',
         searchCount: 4,
       },
       {
         name: 'Business',
-        route: '/business',
+        route: '/tag/fiiver business',
         searchCount: 5,
       }
       ],
