@@ -72,7 +72,7 @@
       return {
         gig: null,
         order: null,
-        serviceFee: 5.92,
+        serviceFee: Math.floor(Math.random() * (10 - 20) + 12).toFixed(2),
         gigFeaturesList: [
           "Commercial Use",
           "Color",
@@ -94,7 +94,7 @@
       },
       finalPrice() {
         const finalPrice = this.gig.price - this.serviceFee;
-        return finalPrice;
+        return (finalPrice).toFixed(2);
       },
 
       starsToRender() {
@@ -110,21 +110,28 @@
       async purchase() {
         console.log("purchase button");
         const order = JSON.parse(JSON.stringify(this.order));
-        order.title = this.gig.title;
-        order.price = this.finalPrice;
+        order.createdAt = Date.now();
+        order.imgUrl = this.gig.productImgs[0],
         order.description = this.gig.description;
+        order.title = this.gig.title
         order.buyer = {
-          _id: this.loggedInUser,
-          fullname: this.loggedInUser,
+          _id: this.loggedInUser._id,
+          fullname: this.loggedInUser.fullname,
+          imgUrl:this.loggedInUser.imgUrl,
+          username:this.loggedInUser.username,
         };
         order.seller = {
           _id: this.gig.owner._id,
           fullname: this.gig.owner.fullname,
+          username: this.gig.owner.username,
           imgUrl: this.gig.owner.imgUrl,
         };
         order.gig = {
           _id: this.gig._id,
           title: this.gig.title,
+          category: this.gig.category,
+          price: this.gig.price,
+          productImgs:this.gig.productImgs,
         };
         await this.$store.dispatch({ type: "addOrder", order });
       },

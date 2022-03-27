@@ -93,6 +93,7 @@
             type: "signup",
             userCred: this.signupCred,
           });
+           this.$emit("closeModal");
           this.$router.push("/");
         } catch (err) {
           console.log(err);

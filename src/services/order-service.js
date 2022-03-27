@@ -63,10 +63,14 @@ function getEmptyOrder() {
     gig: {
       _id: "",
       category: "",
+      price: null,
+        description: "",
+        timeToDeliver: "",
     },
     status: "Pending",
   });
 }
+
 
 function _saveLocalOrder(order) {
   sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(order));

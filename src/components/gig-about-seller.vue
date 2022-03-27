@@ -3,10 +3,10 @@
     <h2>About The Seller</h2>
     <div class="gig-about-seller-header">
       <div class="gig-seller-profile-pic">
-        <img :src="gig.imgUrl" alt="" />
+        <img :src="gig.owner.imgUrl" alt="" />
       </div>
       <div class="gig-seller-label">
-        <p>{{ gig.fullname }}</p>
+        <p>{{ gig.owner.fullname }}</p>
         <p>
           My Specialty :
           <span v-for="category in gig.category" :key="category">
