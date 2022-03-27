@@ -3,17 +3,18 @@
     <div class="profile-page-layout-fluid">
       <div class="profile-page-layout max-width-container">
         <div class="profile-page-aside-left">
+              <h1>prifile user</h1>
           <div class="user-info">
             <div class="profile-pic">
               <img :src="loggedinUser.imgUrl" alt="" srcset="" />
             </div>
             <p>
-              {{ loggedinUser.username }}
+            user name:  {{ loggedinUser.username }}
             </p>
             <!-- We need to compute user level to upperCase -->
             <p>{{ loggedinUser.level }} user</p>
             <p>
-              {{ loggedinUser.fullname }}
+          full name    {{ loggedinUser.fullname }}
             </p>
           </div>
           <div class="preview-profile-btn">
@@ -22,17 +23,10 @@
         </div>
 
         <div class="profile-page-aside-right">
-          <nav class="user-profile-navbar">
-            <ul class="nav-links">
-              <li
-                v-for="userProfileNavLink in userProfileNavLink"
-                :key="userProfileNavLink"
-              >
-                {{ userProfileNavLink.name }}
-              </li>
-            </ul>
-          </nav>
-          <ul class="my-orders-label">
+          <el-tabs type="border-card">
+    <el-tab-pane label="My Active Gigs">
+
+ <ul class="my-orders-label">
             <li class="gig-add-card gig-card">
               <a @click="this.$router.push('/seller/edit')" class="gig-add-btn">
                 +
@@ -46,11 +40,26 @@
               <sellerGigsPreview :gig="gig" />
             </li>
           </ul>
+
+    </el-tab-pane>
+    <el-tab-pane label="Orders manager">Orders manager</el-tab-pane>
+    <el-tab-pane label="Dashboard">Dashboard</el-tab-pane>
+  </el-tabs>
+          <!-- <nav class="user-profile-navbar">
+            <ul class="nav-links">
+              <li
+                v-for="userProfileNavLink in userProfileNavLink"
+                :key="userProfileNavLink"
+              >
+                {{ userProfileNavLink.name }}
+              </li>
+            </ul>
+          </nav> -->
+         
         </div>
       </div>
     </div>
-    <!-- {{gigsToShow}} -->
-    <!-- {{loggedinUser}} -->
+
   </section>
 </template>
 
