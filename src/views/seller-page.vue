@@ -42,7 +42,10 @@
           </ul>
 
     </el-tab-pane>
-    <el-tab-pane label="Orders manager">Orders manager</el-tab-pane>
+    <el-tab-pane label="Orders manager">
+<sellerOrders></sellerOrders>
+
+    </el-tab-pane>
     <el-tab-pane label="Dashboard">Dashboard</el-tab-pane>
   </el-tabs>
           <!-- <nav class="user-profile-navbar">
@@ -65,6 +68,7 @@
 
 <script>
 import sellerGigsPreview from "../components/seller-gigs-preview.vue";
+import sellerOrders from "../components/seller-orders.vue";
 export default {
   data() {
     return {
@@ -109,6 +113,7 @@ export default {
 
   components: {
     sellerGigsPreview,
+    sellerOrders,
   },
 };
 </script>
