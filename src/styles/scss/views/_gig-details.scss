@@ -126,15 +126,14 @@
 }
 
 .gig-sidebar {
-  >* {
+  > * {
     padding: 24px;
-
   }
   position: fixed;
   margin-top: 2%;
   margin-bottom: 50%;
   right: 35px;
-  width: 35%;
+  width: 20rem;
   .contact-seller-wrapper {
     width: 100%;
     background-color: #fafafa;

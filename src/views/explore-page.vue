@@ -1,11 +1,18 @@
 <template>
   <div class="page-content-container" v-if="gigsToShow">
     <div class="breadcrumbs">
-      <span @click="this.$router.push('/')"> FIVERR</span> >
-      <span @click="this.$router.push('/tag')">TAGS</span> >
+      <span @click="this.$router.push('/')"> FIIVERR</span> >
+      <span @click="this.$router.push('/tag')">SERVICES</span> >
       <span> {{ breadcrumbsToShow.toUpperCase() }} </span>>
-      <h1>{{ breadcrumbsToShow }}</h1>
-      {{ gigsToShow.length }} services available
+      <h1>
+        {{
+          breadcrumbsToShow
+            .split(" ")
+            .map((word) => word.split("")[0].toUpperCase() + word.substring(1))
+            .join(" ")
+        }}
+      </h1>
+      {{ gigsToShow.length }} Services Available
     </div>
     <gigTabsCarousel></gigTabsCarousel>
 
@@ -22,8 +29,6 @@
 import { Carousel, Navigation, Slide } from "vue3-carousel";
 import gigsPreview from "../components/gigs-preview.vue";
 import gigTabsCarousel from "../components/gigs-tabs-carousel.vue";
-import LoggedOutNavbar from "../components/logged-out-app-header.vue";
-
 export default {
   data() {
     return {};
@@ -34,7 +39,6 @@ export default {
     Carousel,
     Slide,
     Navigation,
-    LoggedOutNavbar,
   },
   async created() {},
   computed: {
@@ -55,6 +59,7 @@ export default {
       return "all gigs";
     },
   },
+
   methods: {},
 };
 </script>
