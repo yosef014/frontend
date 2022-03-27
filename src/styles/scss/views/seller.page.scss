@@ -15,7 +15,7 @@
   .profile-page-aside-left {
     padding: 2rem;
     height: 100%;
-    width: 50%;
+    width: 20rem;
     max-width: $screen-size-l;
     background-color: #fff;
     display: flex;
@@ -125,13 +125,13 @@
       margin: 0 1rem 1rem 0;
       display: flex;
       flex-direction: column;
-      img {
-        height: 30%;
-        width: 100%;
-      }
-      h2 {
-        flex: 1;
-      }
+      // img {
+      //   height: 30%;
+      //   width: 100%;
+      // }
+      // h2 {
+      //   flex: 1;
+      // }
 
       .gig-add-btn {
         content: "+";
@@ -187,6 +187,72 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+      }
+    }
+  }
+}
+
+// seller gigs section
+
+.seller-orders-preview-card {
+  display: flex;
+  flex-direction: column;
+  height: 15rem;
+  width: 12rem;
+  & > *:not(:first-child) {
+    padding: 0 0.5rem;
+  }
+  .seller-gig-img-container {
+    height: 6rem;
+    width: 11.85rem;
+    margin-bottom: 0.5rem;
+    & img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  & .title {
+    flex: 1;
+  }
+  .owner-prev-container {
+    display: flex;
+    width: 12rem;
+    height: 2rem;
+
+    .owner-info {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding-inline-start: 1rem;
+    }
+    .owner-profile-pic {
+      display: flex;
+      width: 2rem;
+
+      & img {
+        border-radius: 50%;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .seller-gig-footer {
+    border-top: 1px solid grey;
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .card-actions {
+      display: flex;
+      align-items: center;
+      width: 40%;
+      justify-content: space-between;
+      & > *:hover {
+        cursor: pointer;
       }
     }
   }
