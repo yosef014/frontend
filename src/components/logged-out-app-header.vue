@@ -69,178 +69,178 @@
 </template>
 
 <script>
-  import searchIconVue from "../svgs/search-icon.vue";
-  import FiiverrLogo from "../svgs/fiiverr-logo.vue";
-  import { remove } from "@vue/shared";
-  import Login from "./login.vue";
-  import SignUp from "./sign-up.vue";
-  import { useDeprecateAppendToBody } from "element-plus";
-  export default {
-    components: {
-      searchIconVue,
-      FiiverrLogo,
-      Login,
-      SignUp,
-    },
-    data() {
-      return {
-        showModal: {
-          isLogin: false,
-          isSignUp: false,
+import searchIconVue from "../svgs/search-icon.vue";
+import FiiverrLogo from "../svgs/fiiverr-logo.vue";
+import { remove } from "@vue/shared";
+import Login from "./login.vue";
+import SignUp from "./sign-up.vue";
+import { useDeprecateAppendToBody } from "element-plus";
+export default {
+  components: {
+    searchIconVue,
+    FiiverrLogo,
+    Login,
+    SignUp,
+  },
+  data() {
+    return {
+      showModal: {
+        isLogin: false,
+        isSignUp: false,
+      },
+      isHomePage: true,
+      isGigDetailsPage: false,
+      isShowNavbar: true,
+      isShowCategories: false,
+      isShowNavSearch: false,
+      logoColorState: true,
+      linkColorState: false,
+      elNavLinks: null,
+      catagories: [
+        {
+          name: "Arts And Crafts",
+          path: "arts and crafts",
         },
-        isHomePage: true,
-        isGigDetailsPage: false,
-        isShowNavbar: true,
-        isShowCategories: false,
-        isShowNavSearch: false,
-        logoColorState: true,
-        linkColorState: false,
-        elNavLinks: null,
-        catagories: [
-          {
-            name: "Arts And Crafts",
-            path: "arts and crafts",
-          },
-          {
-            name: "Data Entry",
-            path: "data entry",
-          },
-          {
-            name: "Logo",
-            path: "logo",
-          },
-          {
-            name: "Marketing",
-            path: "marketing",
-          },
-          {
-            name: "Research And Summeries",
-            path: "research and summeries",
-          },
-          {
-            name: "Programming & Tech",
-            path: "programming and tech",
-          },
-          {
-            name: "Business",
-            path: "business",
-          },
-        ],
-        navLinks: [
-          {
-            name: "Fiiverr Business",
-            route: "/tag/fiiver%20business",
-            class: "nav-link business-link",
-          },
-          {
-            name: "Explore",
-            route: "tag",
-            class: "nav-link",
-          },
-          {
-            name: "ILS",
-            route: "ils",
-            class: "nav-link currency",
-          },
-          {
-            name: "Become A Seller",
-            route: "become a seller",
-            class: "nav-link",
-          },
-        ],
-      };
+        {
+          name: "Data Entry",
+          path: "data entry",
+        },
+        {
+          name: "Logo Design",
+          path: "logo",
+        },
+        {
+          name: "Marketing",
+          path: "marketing",
+        },
+        {
+          name: "Research And Summeries",
+          path: "research and summeries",
+        },
+        {
+          name: "Programming & Tech",
+          path: "programming and tech",
+        },
+        {
+          name: "Business",
+          path: "business",
+        },
+      ],
+      navLinks: [
+        {
+          name: "Fiiverr Business",
+          route: "/tag/fiiver%20business",
+          class: "nav-link business-link",
+        },
+        {
+          name: "Explore",
+          route: "/tag",
+          class: "nav-link",
+        },
+        {
+          name: "ILS",
+          route: "ils",
+          class: "nav-link currency",
+        },
+        {
+          name: "Become A Seller",
+          route: "become a seller",
+          class: "nav-link",
+        },
+      ],
+    };
+  },
+
+  methods: {
+    toggleLogin() {
+      this.showModal.isLogin = true;
+      document.querySelector("body").classList.toggle("disable-scrolling");
+    },
+    toggleSignup() {
+      this.showModal.isSignUp = true;
+      document.querySelector("body").classList.toggle("disable-scrolling");
+    },
+    closeModal() {
+      this.showModal.isSignUp = false;
+      this.showModal.isLogin = false;
+      document.body.classList.toggle("disable-scrolling");
     },
 
-    methods: {
-      toggleLogin() {
-        this.showModal.isLogin = true;
-        document.querySelector("body").classList.toggle("disable-scrolling");
-      },
-      toggleSignup() {
-        this.showModal.isSignUp = true;
-        document.querySelector("body").classList.toggle("disable-scrolling");
-      },
-      closeModal() {
-        this.showModal.isSignUp = false;
-        this.showModal.isLogin = false;
-        document.body.classList.toggle("disable-scrolling");
-      },
+    unstickNavbar() {
+      this.isShowNavbar = true;
+      this.isShowCategories = true;
+      this.isShowNavSearch = true;
+      this.logoColorState = false;
+      this.linkColorState = false;
+    },
 
-      unstickNavbar() {
-        this.isShowNavbar = true;
-        this.isShowCategories = true;
-        this.isShowNavSearch = true;
-        this.logoColorState = false;
-        this.linkColorState = false;
-      },
+    stickNavbar() {
+      this.isShowNavbar = false;
+      this.isShowCategories = false;
+      this.isShowNavSearch = false;
+      this.logoColorState = true;
+      this.linkColorState = false;
+    },
 
-      stickNavbar() {
+    onScroll() {
+      if (window.scrollY < 5) {
         this.isShowNavbar = false;
+        this.logoColorState = true;
+        this.linkColorState = true;
+      }
+      if (window.scrollY > 10) {
+        this.linkColorState = false;
+        this.isShowNavbar = true;
+        this.logoColorState = false;
+      }
+
+      if (window.scrollY < 200) {
         this.isShowCategories = false;
         this.isShowNavSearch = false;
-        this.logoColorState = true;
-        this.linkColorState = false;
-      },
+      }
+      if (window.scrollY > 200) {
+        this.isShowNavSearch = true;
+        this.isShowCategories = true;
+      }
+    },
+  },
 
-      onScroll() {
-        if (window.scrollY < 5) {
-          this.isShowNavbar = false;
-          this.logoColorState = true;
-          this.linkColorState = true;
-        }
-        if (window.scrollY > 10) {
-          this.linkColorState = false;
-          this.isShowNavbar = true;
-          this.logoColorState = false;
-        }
+  mounted() {},
 
-        if (window.scrollY < 200) {
-          this.isShowCategories = false;
-          this.isShowNavSearch = false;
+  watch: {
+    $route: {
+      handler({ path, name }) {
+        this.isHomePage = path === "/";
+        if (!this.isHomePage) {
+          removeEventListener("scroll", this.onScroll);
+          this.unstickNavbar();
+        } else {
+          window.addEventListener("scroll", this.onScroll);
+          this.stickNavbar();
         }
-        if (window.scrollY > 200) {
-          this.isShowNavSearch = true;
-          this.isShowCategories = true;
-        }
+        if (name === "gig-details") this.isGigDetailsPage = true;
+        else this.isGigDetailsPage = false;
       },
     },
-
-    mounted() {},
-
-    watch: {
-      $route: {
-        handler({ path, name }) {
-          this.isHomePage = path === "/";
-          if (!this.isHomePage) {
-            removeEventListener("scroll", this.onScroll);
-            this.unstickNavbar();
-          } else {
-            window.addEventListener("scroll", this.onScroll);
-            this.stickNavbar();
-          }
-          if (name === "gig-details") this.isGigDetailsPage = true;
-          else this.isGigDetailsPage = false;
-        },
-      },
-      showModal: {
-        handler({ isLogin }) {
-          console.log("login state changed", isLogin);
-        },
+    showModal: {
+      handler({ isLogin }) {
+        console.log("login state changed", isLogin);
       },
     },
+  },
 
-    computed: {
-      toggleCategoriesMenu() {
-        return {
-          opacity: this.isShowCategories ? 1 : 0,
-          transform: this.isShowCategories ? "rotateX(0deg)" : "rotateX(90deg)",
-        };
-      },
-      onShowNavbar() {
-        return {
-          "header-transparent": this.isShowNavbar === false,
-        };
-      },
+  computed: {
+    toggleCategoriesMenu() {
+      return {
+        opacity: this.isShowCategories ? 1 : 0,
+        transform: this.isShowCategories ? "rotateX(0deg)" : "rotateX(90deg)",
+      };
     },
-  };
+    onShowNavbar() {
+      return {
+        "header-transparent": this.isShowNavbar === false,
+      };
+    },
+  },
+};
 </script>

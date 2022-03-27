@@ -70,20 +70,20 @@
             <div class="popular">
               Popular:
               <ul>
-                
-                <li  v-for="popularCatagory in getPopularCatagories" :key="popularCatagory.name">
+                <li
+                  v-for="popularCatagory in getPopularCatagories"
+                  :key="popularCatagory.name"
+                >
                   <router-link :to="popularCatagory.route">
-                  <a>{{popularCatagory.name}}</a>
+                    <a>{{ popularCatagory.name }}</a>
                   </router-link>
                 </li>
-                
               </ul>
             </div>
           </div>
         </div>
       </div>
     </div>
-    
   </div>
 </template>
 
@@ -96,52 +96,51 @@ export default {
       heroIdx: 0,
       heroTimeout: null,
       catagories: [
-      {
-        name: 'Digital Marketing',
-        route: '/tag/digital marketing',
-        searchCount: 5,
-      },
-      {
-        name: 'Research And Marketing',
-        route: '/tag/research and marketing',
-        searchCount: 4,
-      },
-      {
-        name: 'Logo Design',
-        route: '/tag/logo design',
-        searchCount: 3,
-      },
-      {
-        name: 'Data Analysis',
-        route: '/tag/data analysis',
-        searchCount: 5,
-      },
-      {
-        name: 'Programming And Tech',
-        route: '/tag/arts and crafts',
-        searchCount: 4,
-      },
-      {
-        name: 'Business',
-        route: '/tag/fiiver business',
-        searchCount: 5,
-      }
+        {
+          name: "Digital Marketing",
+          route: "/tag/digital marketing",
+          searchCount: 5,
+        },
+        {
+          name: "Research And Marketing",
+          route: "/tag/research and marketing",
+          searchCount: 4,
+        },
+        {
+          name: "Logo Design",
+          route: "/tag/logo",
+          searchCount: 3,
+        },
+        {
+          name: "Data Analysis",
+          route: "/tag/data analysis",
+          searchCount: 5,
+        },
+        {
+          name: "Programming And Tech",
+          route: "/tag/arts and crafts",
+          searchCount: 4,
+        },
+        {
+          name: "Business",
+          route: "/tag/fiiver business",
+          searchCount: 5,
+        },
       ],
-      
     };
   },
 
-
   computed: {
     getPopularCatagories() {
-      return this.catagories.sort((a,b) => b.searchCount - a.searchCount).splice(0,4);
-    }
+      return this.catagories
+        .sort((a, b) => b.searchCount - a.searchCount)
+        .splice(0, 4);
+    },
   },
 
   mounted() {
-    this.elHeroWrappers = document.querySelector('.hero-wrappers')
+    this.elHeroWrappers = document.querySelector(".hero-wrappers");
     this.heroAnimation();
-    
   },
 
   umounted() {
@@ -150,10 +149,10 @@ export default {
 
   methods: {
     heroAnimation() {
-      if (this.$route.path !== '/') return
+      if (this.$route.path !== "/") return;
       const elHeroWrappers = document.querySelectorAll(".hero-wrapper");
       if (this.heroIdx > 4) this.heroIdx = 0;
-      elHeroWrappers.forEach((hero) => hero.style.opacity = "0")
+      elHeroWrappers.forEach((hero) => (hero.style.opacity = "0"));
       elHeroWrappers[this.heroIdx].style.opacity = "1";
       this.heroIdx++;
       this.heroTimeout = setTimeout(this.heroAnimation, 6000);
