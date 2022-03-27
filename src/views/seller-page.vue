@@ -39,11 +39,10 @@
               </a>
               <span>Create a new gig</span>
             </li>
+            <li v-for="order in ordersToShow" :key="order._id">
+              <OrdersPreview :order="order" />
+            </li>
           </ul>
-
-          <li v-for="order in ordersToShow" :key="order._id">
-            <OrdersPreview :order="order" />
-          </li>
         </div>
       </div>
     </div>

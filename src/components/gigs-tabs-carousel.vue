@@ -3,7 +3,7 @@
     <div class="gig-categorys-boxes">
       <Carousel :itemsToShow="5">
         <Slide v-for="slide in slides" :key="slide" class="gig-categorys-box">
-          <img :src="slide.url" alt="" @click="pushToPage(slide.h4)" />
+          <img :src="slide.url" alt="" @click="pushToPage(slide.route)" />
           <span>{{ slide.h4 }}</span>
         </Slide>
 
@@ -24,31 +24,43 @@ export default {
       slides: [
         {
           url: "https://fiverr-res.cloudinary.com/image/upload/v1584948052/general_assets/categories/nsc_01/2360.svg",
-          h4: "all",
+          h4: "All",
+          route: "all",
         },
         {
           url: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/graphics-design.d32a2f8.svg",
-          h4: "logo",
+          h4: "Logo",
+          route: "logo",
         },
         {
           url: "https://fiverr-res.cloudinary.com/image/upload/v1584948052/general_assets/categories/nsc_01/2253.svg",
-          h4: "arts and crafts",
+          h4: "Arts And Crafts",
+          route: "arts and crafts",
         },
         {
           url: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/data.718910f.svg",
-          h4: "data entry",
+          h4: "Data Entry",
+          route: "data entry",
         },
         {
           url: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/online-marketing.74e221b.svg",
-          h4: "marketing",
+          h4: "Marketing",
+          route: "marketing",
         },
         {
           url: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/search_perseus/apps/view_all.02245c1.svg",
-          h4: "research and summeries",
+          h4: "Research Snd Summeries",
+          route: "research and summeries",
         },
         {
           url: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/music-audio.320af20.svg",
           h4: "Voice Over",
+          route: "voice over",
+        },
+        {
+          url: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/business.bbdf319.svg",
+          h4: "Business",
+          route: "business",
         },
       ],
     };
@@ -59,7 +71,7 @@ export default {
         this.$router.push("/tag");
         return;
       }
-      this.$router.push("/tag" + "/" + page + "/");
+      this.$router.push("/tag" + "/" + page + "");
     },
   },
   components: {
