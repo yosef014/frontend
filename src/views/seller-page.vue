@@ -42,12 +42,10 @@
             <li class="gig-card" v-for="gig in gigsToShow" :key="gig._id">
             <sellerGigsPreview :gig="gig" />
             </li>
-            <li class="gig-card">
-              <p>gig title</p>
+            <li class="gig-card" v-for="gig in gigsToShow" :key="gig._id">
+              <sellerGigsPreview :gig="gig" />
             </li>
           </ul>
-
-         
         </div>
       </div>
     </div>
