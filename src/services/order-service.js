@@ -27,7 +27,7 @@ async function remove(orderId) {
   // return storageService.remove('order', orderId)
   return await httpService.delete(`order/${orderId}`);
 }
-async function save(order, delay=2000) {
+async function save(order) {
     if (order._id) {
       return await httpService.put(`order/${order._id}`, order);
     } else {

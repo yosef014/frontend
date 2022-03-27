@@ -16,7 +16,35 @@
     </div>
     <gigTabsCarousel></gigTabsCarousel>
 
-    <div class="gig-filters">filters</div>
+    <div class="gig-filters">
+      <section class="">
+        <el-input
+          v-model="filterBy.seller"
+          @input="setFilter"
+          placeholder="Filter by seller"
+        />
+
+        <div>
+          <el-radio-group v-model="filterBy.sortBy" @change="setFilter">
+            <el-radio-button label="title" />
+            <el-radio-button label="Price" />
+            <el-radio-button label="rate" />
+          </el-radio-group>
+        </div>
+
+
+      </section>
+
+      <div class="slider-demo-block">
+        <el-slider
+          v-model="filterBy.price"
+          range
+          show-stops
+          :max="250"
+          @change="setFilter"
+        />
+      </div>
+    </div>
     <ul class="gig-list grid">
       <li v-for="gig in gigsToShow" :key="gig._id">
         <gigsPreview :gig="gig" />
@@ -26,12 +54,19 @@
 </template>
 
 <script>
+import { ref } from "vue";
 import { Carousel, Navigation, Slide } from "vue3-carousel";
 import gigsPreview from "../components/gigs-preview.vue";
 import gigTabsCarousel from "../components/gigs-tabs-carousel.vue";
 export default {
   data() {
-    return {};
+    return {
+      filterBy: {
+        seller: "",
+        price: ref([80, 150]),
+        sortBy: "",
+      },
+    };
   },
   components: {
     gigTabsCarousel,
@@ -48,7 +83,6 @@ export default {
     gigsToShow() {
       const category = this.$route.params.gig;
       if (!category) return this.gigs;
-      // const gigsToDisplay = this.gigs.filter((gig) => gig.category == category);
       const gigsToDisplay = this.gigs.filter((gig) => {
         return gig.category.some((tab) => category.includes(tab));
       });
@@ -60,6 +94,11 @@ export default {
     },
   },
 
-  methods: {},
+  methods: {
+    setFilter() {
+      const filterBy = JSON.parse(JSON.stringify(this.filterBy));
+      this.$store.dispatch({ type: "setFilter", filterBy });
+    },
+  },
 };
 </script>

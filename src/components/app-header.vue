@@ -19,15 +19,17 @@
       </router-link>
       <div :style="{ opacity: isShowNavSearch ? 1 : 0 }" class="nav-search">
         <searchIconVue />
-        <div class="nav-search-results-box" v-if="categoryiesToShow">
+        <div class="nav-search-results-box" v-if="categoriesToShow">
           <h3>Services</h3>
-          <div
+          <ul
             class="nav-serach-result-list"
-            v-for="res in categoryiesToShow"
+            v-for="res in categoriesToShow"
             :key="res"
           >
-            <span @click="categoryChosen(res)">{{ res }}</span>
-          </div>
+            <router-link :to="res.route">
+              <li>{{ res.name }}</li>
+            </router-link>
+          </ul>
         </div>
         <input type="text" placeholder="Find Services" v-model="inputLine" />
         <button>Search</button>
@@ -49,8 +51,10 @@
                 :class="{ 'login-active': showModal.isLogin === true }"
                 class="nav-link"
                 @click="toggleLogin"
+                v-if="!loggedinUser"
                 >Sign In</a
               >
+              <a class="join" v-else>Sign Out</a>
             </a>
           </li>
           <li>
@@ -59,8 +63,26 @@
                 :class="{ 'signup-active': showModal.isSignUp === true }"
                 class="join"
                 @click="toggleSignup"
+                v-if="!loggedinUser"
                 >Join</a
               >
+              <div v-else class="profile-avatar">
+                <router-link to="/seller">
+                  <img
+                    class="logged-user-avatar"
+                    :src="loggedinUser.imgUrl"
+                    @click="routeToProfile"
+                  />
+                  <i
+                    class="notification-indicator"
+                    :style="{
+                      backgroundColor: isGotNotification
+                        ? '#1dbf73'
+                        : '#ff62ad',
+                    }"
+                  ></i>
+                </router-link>
+              </div>
             </a>
           </li>
         </ul>
@@ -104,6 +126,8 @@ export default {
         "business",
         "programming and tech",
       ],
+      loggedinUser: this.$store.getters.loggedinUser,
+      isGotNotification: true,
       showModal: {
         isLogin: false,
         isSignUp: false,
@@ -173,7 +197,7 @@ export default {
 
   methods: {
     categoryChosen(res) {
-      this.inputLine = "";
+      this.inputLine = res;
       this.$router.push("/tag" + "/" + res);
     },
     toggleLogin() {
@@ -254,11 +278,11 @@ export default {
   },
 
   computed: {
-    categoryiesToShow() {
+    categoriesToShow() {
       if (!this.inputLine) return false;
 
       const regex = new RegExp(this.inputLine, "i");
-      return this.categoryies.filter((category) => regex.test(category));
+      return this.categories.filter(({ name }) => regex.test(name));
     },
     toggleCategoriesMenu() {
       return {
@@ -269,6 +293,15 @@ export default {
     onShowNavbar() {
       return {
         "header-transparent": this.isShowNavbar === false,
+      };
+    },
+
+    getLoggedinAvatar() {
+      return {
+        backgroundImage: this.loggedinUser
+          ? 'url("' + this.loggedinUser.imgUrl + '")'
+          : "",
+        backgroundColor: this.loggedinUser ? "#00000" : "#fff",
       };
     },
   },
