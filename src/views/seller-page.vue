@@ -3,17 +3,18 @@
     <div class="profile-page-layout-fluid">
       <div class="profile-page-layout">
         <div class="profile-page-aside-left">
+              <h1>prifile user</h1>
           <div class="user-info">
             <div class="profile-pic">
               <img :src="loggedinUser.imgUrl" alt="" srcset="" />
             </div>
             <p>
-              {{ loggedinUser.username }}
+            user name:  {{ loggedinUser.username }}
             </p>
             <!-- We need to compute user level to upperCase -->
             <p>{{ loggedinUser.level }} user</p>
             <p>
-              {{ loggedinUser.fullname }}
+          full name    {{ loggedinUser.fullname }}
             </p>
           </div>
           <div class="preview-profile-btn">
