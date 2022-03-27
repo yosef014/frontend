@@ -116,7 +116,6 @@
           <gig-about-seller :gig="gig" />
         </div>
       </div>
-    </div>
       <!-- <el-input
             type="textarea"
             v-model="reviewToAdd.review"
@@ -130,6 +129,7 @@
           <p>{{ review.review }}</p>
         </li>
       </ul>  -->
+    </div>
   </div>
 </template>
 

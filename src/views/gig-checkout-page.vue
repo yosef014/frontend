@@ -36,7 +36,6 @@
             <h3>{{ gig.price }}</h3>
           </section>
         </div>
-        
       </div>
       <div class="gig-checkout-summary">
         <h1 class="title">Price Summary</h1>
@@ -55,7 +54,7 @@
         </li>
 
         </ul>
-        <button @click.prevent="purchase" v-if="loggedInUser">Purchase</button>
+        <button @click.prevent="purchase" v-if="loggedInUser" v-loading.fullscreen.lock="fullscreenLoading">Purchase</button>
         <button v-else>Log In To Purchase!</button>
       </div>
     </section>
@@ -76,6 +75,7 @@
       return {
         gig: null,
         order: null,
+        fullscreenLoading:false,
         gigFeaturesList: [
           "Commercial Use",
           "Color",
@@ -113,6 +113,8 @@
         this.order = await orderService.getEmptyOrder();
       },
       async purchase() {
+        this.fullscreenLoading = true;
+        setTimeout(async () => {
         const order = JSON.parse(JSON.stringify(this.order));
         order.createdAt = Date.now();
         order.imgUrl = this.gig.productImgs[0],
@@ -137,8 +139,10 @@
           price: this.gig.price,
           productImgs:this.gig.productImgs,
         };
-        await this.$store.dispatch({ type: "addOrder", order });
         this.$router.push('/user');
+            this.fullscreenLoading = false
+        await this.$store.dispatch({ type: "addOrder", order });
+                }, 2000)
       },
     },
   };
