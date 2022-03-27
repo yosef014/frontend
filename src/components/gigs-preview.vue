@@ -1,7 +1,7 @@
 <template>
+
   <section v-if="gig" class="gig-preview">
     <!-- <div class="gig-img" @click="this.$router.push('/tag' + '/' + gig.category + '/'+ gig._id)"> -->
-
     <el-carousel :autoplay="false" trigger="click" height="197px">
       <el-carousel-item v-for="currImg in gig.productImgs" :key="currImg">
         <div class="img-container">
