@@ -251,6 +251,10 @@ export default {
         this.isShowCategories = true;
       }
     },
+
+    onSignOut() {
+      this.$store.mutation;
+    },
   },
 
   mounted() {},

@@ -17,7 +17,7 @@
 @mixin btn-large {
   padding: 8px 16px;
   height: 48px;
-  
+
   display: block;
   font-size: 14px;
   font-weight: 700;
@@ -46,5 +46,59 @@
   text-transform: none;
   &:focus {
     outline: none;
+  }
+}
+
+/* Media queries Breakpoint mixins */
+
+@mixin for-mobile-layout {
+  @media (max-width: $screen-size-xs) {
+    @content;
+  }
+}
+
+@mixin for-narrow-layout {
+  @media (min-width: $screen-size-s) {
+    @content;
+  }
+}
+
+@mixin for-normal-layout {
+  @media (min-width: $screen-size-l) {
+    @content;
+  }
+}
+
+@mixin for-wide-layout {
+  @media (min-width: $screen-size-xl) {
+    @content;
+  }
+}
+
+@mixin aspect-ratio($type: regular, $width: 1, $height: 1) {
+  position: relative;
+  overflow: hidden;
+  &:before {
+    content: "";
+    display: block;
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  > img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @if ($type == avatar) {
+    > img {
+      border-radius: 50%;
+    }
   }
 }

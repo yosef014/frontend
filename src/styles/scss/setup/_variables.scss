@@ -4,7 +4,11 @@ $clr2: #01411a;
 $gold-clr: #ffbf00;
 $navbar-border: 1px solid #ddd;
 $navbar-hover-shadow: 0px 2px 0px 0px #19a463;
+$border-light: 1px solid #cdcad1;
 $clr-grey: #62646a;
+$clr-light-grey: #fafafa;
+$font-clr: #62646a;
+$title-clr: #404145;
 $clr-green: #1dbf73;
 
 // LAYOUT
@@ -12,9 +16,16 @@ $clr-green: #1dbf73;
 
 // LAYOUT BREAKPOINTS
 $screen-size-xs: 576px;
+//fiver breakpoint small
 $screen-size-s: 600px;
+//fiverr breakpoint medium
 $screen-size-m: 900px;
+// fiverr breakpoint desktop
 $screen-size-l: 1160px;
+// fiverr max width desktop
 $screen-size-xl: 1400px;
+// not needed
 $screen-size-xxl: 1720px;
 
+$button-padding-sml: 0.75rem 1.5rem;
+$card-padding-lrg: 1rem 1.5rem;

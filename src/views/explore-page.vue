@@ -19,7 +19,7 @@
       <filtereEplore> </filtereEplore>
     </div>
     <ul class="gig-list grid">
-      <li v-for="gig in gigsToShow" :key="gig._id">
+      <li class="gig-preview" v-for="gig in gigsToShow" :key="gig._id">
         <gigsPreview :gig="gig" />
       </li>
     </ul>
