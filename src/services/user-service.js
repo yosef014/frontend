@@ -49,19 +49,19 @@ async function login(userCred) {
     // return _saveLocalUser(user)
 
     const user = await httpService.post('auth/login', userCred)
-    // socketService.emit('set-user-socket', user._id);
+    socketService.emit('set-user-socket', user._id);
     if (user) return _saveLocalUser(user)
 }
 async function signup(userCred) {
     // userCred.score = 10000;
     // const user = await storageService.post('user', userCred)
     const user = await httpService.post('auth/signup', userCred)
-    // socketService.emit('set-user-socket', user._id);
+    socketService.emit('set-user-socket', user._id);
     return _saveLocalUser(user)
 }
 async function logout() {
     sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
-    // socketService.emit('unset-user-socket');
+    socketService.emit('unset-user-socket');
     return await httpService.post('auth/logout')
 }
 
@@ -113,8 +113,8 @@ function getLoggedinUser() {
 // })();
 
 // This is relevant when backend is connected
-// (async () => {
-//     var user = getLoggedinUser()
-//     if (user) socketService.emit('set-user-socket', user._id)
-// })();
+(async () => {
+    var user = getLoggedinUser()
+    if (user) socketService.emit('set-user-socket', user._id)
+})();
 
