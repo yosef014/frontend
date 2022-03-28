@@ -4,6 +4,7 @@ export const SOCKET_EMIT_USER_WATCH = 'user-watch';
 export const SOCKET_EVENT_USER_UPDATED = 'user-updated';
 export const SOCKET_EVENT_REVIEW_ADDED = 'review-added';
 export const SOCKET_EVENT_REVIEW_ABOUT_YOU = 'review-about-you';
+export const SOCKET_EVENT_YOSEF_SEND_MSG = 'yosef-send-msg';
 
 
 const baseUrl = (process.env.NODE_ENV === 'production')? '' : '//localhost:3030'

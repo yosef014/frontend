@@ -25,8 +25,7 @@
         <div class="profile-page-aside-right">
           <el-tabs type="border-card">
     <el-tab-pane label="My Active Gigs">
-
- <ul class="my-orders-label">
+ <ul class="my-orders-label" >
             <li class="gig-add-card gig-card">
               <a @click="this.$router.push('/seller/edit')" class="gig-add-btn">
                 +
@@ -40,6 +39,7 @@
               <sellerGigsPreview :gig="gig" />
             </li>
           </ul>
+        
 
     </el-tab-pane>
     <el-tab-pane label="Orders manager">

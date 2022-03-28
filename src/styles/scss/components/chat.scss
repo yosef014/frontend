@@ -1,0 +1,24 @@
+.chat{
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    
+    .chat-box-msgs{
+        background-color: bisque;
+        height: 300px;
+        .chat-box-header{
+            background-color: aliceblue;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            img{
+                height: 30px;
+                width: 30px;
+                border-radius: 50%;
+                margin-right: 10px;
+                margin-left: 20px;
+                
+            }
+        }
+    }
+}

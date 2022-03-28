@@ -42,9 +42,10 @@ export const orderStore = {
       // state.orders = savedOrder;
     },
     updateOrder(state, { savedOrder }) {
+      console.log(savedOrder);
       const idx = state.orders.findIndex(
         (order) => order._id === savedOrder._id
-      );
+        );
       state.orders.splice(idx, 1, savedOrder);
     },
     removeOrder(state, payload) {
