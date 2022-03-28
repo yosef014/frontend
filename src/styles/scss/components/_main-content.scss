@@ -1,6 +1,5 @@
 .disable-scrolling {
   overflow: hidden;
-
 }
 
 .test {
@@ -15,7 +14,8 @@
 //     width: 50% !important;
 //   }
 // }
-@media only screen and (min-width: $screen-size-l) {
+
+@media only screen and (min-width: $screen-size-xl) {
   .max-width-container {
     margin: 0 auto;
     max-width: 1400px;
@@ -26,7 +26,6 @@
       color: #404145;
       font-family: macan-semibold;
       font-weight: 700;
-      padding: 0 18px;
       margin-bottom: 20px;
     }
   }
@@ -48,10 +47,6 @@
   position: absolute;
   top: 0;
 }
-
-
-
-
 
 .subcategory-wrapper img {
   object-fit: cover;

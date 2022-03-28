@@ -15,41 +15,43 @@
 
 //all carousel images in gig list
 
-  .gig-preview {
-      & .el-carousel.el-carousel--horizontal
-      > ul {
-          display: none;
-
+.gig-preview {
+  & .el-carousel.el-carousel--horizontal > ul {
+    display: none;
   }
 }
 
 // all carousel images in gig preview
 
-.gig-gallery-component > section > div > ol > li.carousel__slide.carousel__slide--active.carousel__slide--visible > div {
+.gig-gallery-component
+  > section
+  > div
+  > ol
+  > li.carousel__slide.carousel__slide--active.carousel__slide--visible
+  > div {
+  width: 100%;
+  height: 100%;
+  img {
     width: 100%;
     height: 100%;
-    img {
-        width: 100%;
-        height: 100%;
-    }
+  }
 }
 
 //all carousel buttons in gig preview
 
 .gig-gallery-component > section > ol {
-    padding: 0px;
-    li {
-        .carousel__pagination-button {
-            width: 30px;
-            background-color: #4D5656;
-            transition: .5s;
-            
-        }
-        .carousel__pagination-button--active {
-            background-color: #1dbf73;
-            transition: .5ss;
-        }
+  padding: 0px;
+  li {
+    .carousel__pagination-button {
+      width: 30px;
+      background-color: #4d5656;
+      transition: 0.5s;
     }
+    .carousel__pagination-button--active {
+      background-color: #1dbf73;
+      transition: 0.5ss;
+    }
+  }
 }
 
 //all carousel items in gig catagory page
@@ -60,3 +62,14 @@
 //     }
 // }
 
+> section.gig-overview
+  > div.gig-gallery-component
+  > section
+  > div
+  > ol
+  > li.carousel__slide.carousel__slide--active.carousel__slide--visible {
+  & img {
+    height: 100%;
+    width: 100%;
+  }
+}

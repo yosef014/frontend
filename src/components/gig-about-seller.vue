@@ -6,7 +6,7 @@
         <img :src="gig.owner.imgUrl" alt="" />
       </div>
       <div class="gig-seller-label">
-        <p>{{ gig.owner.fullname }}</p>
+        <h4>{{ gig.owner.fullname }}</h4>
         <p>
           My Specialty :
           <span v-for="category in gig.category" :key="category">
@@ -22,66 +22,66 @@
     <div class="gig-seller-description-header">
       <ul>
         <li>
-          From
+          <p>From</p>
           <p>
             {{ gig.loc }}
           </p>
         </li>
         <li>
-          Member since
+          <p>Member since</p>
           <p>
             {{ gig.memberSince }}
           </p>
         </li>
         <li>
-          Avg. response time
+          <p>Avg. response time</p>
           <p>
             {{ gig.avgResponceTime }}
           </p>
         </li>
         <li>
-          Last delivery
+          <p>Last delivery</p>
           <p>
             {{ gig.lastDelivery }}
           </p>
         </li>
       </ul>
       <div class="gig-seller-description">
-        {{ gig.about }}
+        <p>{{ gig.about }}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import { gigService } from "../services/gig-service";
-  export default {
-    name: "gig-about-seller",
-    // not working dont know why..
-    // props: {
-    //   gig: Object,
-    // },
-    data() {
-      return {
-        gig: null,
-      };
+import { gigService } from "../services/gig-service";
+export default {
+  name: "gig-about-seller",
+  // not working dont know why..
+  // props: {
+  //   gig: Object,
+  // },
+  data() {
+    return {
+      gig: null,
+    };
+  },
+  created() {
+    this.loadGig();
+  },
+  computed: {
+    reviewsLength() {
+      return this.gig.reviewers.length;
     },
-    created() {
-      this.loadGig();
+  },
+  methods: {
+    async loadGig() {
+      const { id } = this.$route.params;
+      this.gig = await gigService.getById(id);
     },
-    computed: {
-      reviewsLength() {
-        return  this.gig.reviewers.length;
-      },
-    },
-    methods: {
-      async loadGig() {
-        const { id } = this.$route.params;
-        this.gig = await gigService.getById(id);
-      },
-    },
-    computed: {},
-  };
+  },
+  computed: {},
+};
 </script>
 
 <style></style>

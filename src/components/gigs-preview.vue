@@ -1,6 +1,5 @@
 <template>
-
-  <section v-if="gig" class="gig-preview">
+  <section v-if="gig">
     <!-- <div class="gig-img" @click="this.$router.push('/tag' + '/' + gig.category + '/'+ gig._id)"> -->
     <el-carousel :autoplay="false" trigger="click" height="197px">
       <el-carousel-item v-for="currImg in gig.productImgs" :key="currImg">
@@ -31,7 +30,7 @@
     </p>
 
     <div class="owner-rating">
-      {{ gig.rate }}<StarIcon /><span>(1K+)</span>
+      <StarIcon />{{ gig.rate }} <span>(1K+)</span>
     </div>
 
     <div class="gig-footer">

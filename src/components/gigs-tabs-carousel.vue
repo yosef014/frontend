@@ -1,7 +1,11 @@
 <template>
   <div class="click-list">
     <div class="gig-categorys-boxes">
-      <Carousel :itemsToShow="5">
+      <Carousel
+        :breakpoints="breakpoints"
+        :settings="settings"
+        :itemsToShow="5"
+      >
         <Slide v-for="slide in slides" :key="slide" class="gig-categorys-box">
           <img :src="slide.url" alt="" @click="pushToPage(slide.route)" />
           <span>{{ slide.name }}</span>
@@ -21,6 +25,37 @@ import { Carousel, Navigation, Slide } from "vue3-carousel";
 export default {
   data() {
     return {
+      settings: {
+        itemsToShow: 1,
+        itemsToScroll: 4,
+        transition: 600,
+        snapAlign: "center",
+        wrapAround: true,
+      },
+      breakpoints: {
+        400: {
+          itemsToShow: 1.5,
+          itemsToScroll: 2,
+          snapAlign: "start",
+        },
+        700: {
+          itemsToShow: 1.5,
+          snapAlign: "start",
+        },
+        800: {
+          itemsToShow: 3,
+          snapAlign: "center",
+        },
+        // 1024 and up
+        1060: {
+          itemsToShow: 4,
+          snapAlign: "start",
+        },
+        1240: {
+          itemsToShow: 5,
+          snapAlign: "start",
+        },
+      },
       slides: [
         {
           url: "https://fiverr-res.cloudinary.com/image/upload/v1584948052/general_assets/categories/nsc_01/2360.svg",

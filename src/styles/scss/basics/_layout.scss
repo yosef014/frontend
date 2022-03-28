@@ -1,50 +1,70 @@
 .page-content-container {
-    padding-top: 120px;
-}
-.trusted-by-container{
-    background-color: rgb(212, 212, 212);
-    height:60px;
-}
-.popular-services-container{
+  margin: 0 auto;
+  padding: 7.5rem 2rem;
+  max-width: 1400px;
 
-    &.max-width-container {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-    }
-    height:60vh;
-    h2 {
+  //   @media (min-width: $screen-size-m) {
+  //     padding: 7.5rem 1rem;
+  //   }
+  //   @media (min-width: $screen-size-l) {
+  //     padding: 7.5rem 1rem;
+  //   }
+  @media (max-width: $screen-size-xl) {
+    padding: 7.5rem 2rem;
+  }
+}
+.trusted-by-container {
+  background-color: rgb(212, 212, 212);
+  height: 60px;
+}
+.popular-services-container {
+  &.max-width-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  height: 60vh;
+  h2 {
+  }
+  & li {
+    width: 20% !important;
+  }
 
-    }
-    & li {
-        width: 20% !important;
-    }
+  & .carousel__prev {
+    position: absolute;
+    left: 18px;
+  }
+  & .carousel__next {
+    position: absolute;
+    right: 18px;
+  }
+}
+.home-info-container {
+  background-color: #f1fdf7;
+  height: 80vh;
+}
+.home-explore-marketplace-container {
+  height: 40vh;
+}
+.home-fiver-business-container {
+  background-color: #0d084d;
+  height: 80vh;
+}
+.home-get-inspired-container {
+  background-color: #f1fdf7;
+  height: 60vh;
+}
+.footer-container {
+  background-color: #2cb16e;
+  height: 60vh;
+}
 
-    & .carousel__prev {
-        position: absolute;
-        left: 18px;
-    }
-    & .carousel__next {
-        position: absolute;
-        right: 18px;
-    }
-}
-.home-info-container{
-    background-color: #f1fdf7;
-    height:80vh;
-}
-.home-explore-marketplace-container{
-    height:40vh;
-}
-.home-fiver-business-container{
-    background-color: #0d084d;
-    height:80vh;
-}
-.home-get-inspired-container{
-    background-color: #f1fdf7;
-    height:60vh;
-}
-.footer-container{
-    background-color: #2cb16e;
-    height:60vh;
+.max-width-container {
+  @media (min-width: $screen-size-xl) {
+    max-width: 1400px;
+    padding: 0 2rem;
+  }
+  @media (max-width: $screen-size-xl) {
+    padding: 0 2rem;
+  }
 }
