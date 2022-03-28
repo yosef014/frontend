@@ -251,6 +251,9 @@ export default {
         this.isShowCategories = true;
       }
     },
+    newMsgNotefication(){
+      alert('you have new msg')
+    }
   },
 
   mounted() {},
@@ -304,6 +307,13 @@ export default {
         backgroundColor: this.loggedinUser ? "#00000" : "#fff",
       };
     },
+  },
+   created() {
+    socketService.setup();
+    socketService.on("chat newMsgNotefication", this.newMsgNotefication);
+  },
+  destroyed() {
+    socketService.off("chat addMsg", this.addMsg);
   },
 };
 </script>

@@ -1,43 +1,58 @@
 <template>
-  <section>
-    chat whit:{{msgTo.fullname}}
-   
-    
-    <ul>
-      <li v-for="(msg, idx) in msgs" :key="idx">
-        <b>{{ msg.from }}:</b>{{ msg.txt }}
-      </li>
-    </ul>
+  <section class="chat">
+    <div class="chat-box-msgs">
+      <div class="chat-box-header">
+        <img :src="msgTo.imgUrl">
+        conversation with: <b>{{ msgTo.fullname }} </b> 
+        <p v-if="userTyping"> {{ userTyping }} is typing..</p>
+      </div>
 
-    <form id="form">
-      <select>
-        <option value="">All</option>
-      </select>
-      <input id="input" autocomplete="off" name="txt" v-model="msg" />
-      <button @click="sendMsg">Send</button>
-    </form>
+      <ul>
+        <li v-for="(msg, idx) in msgs" :key="idx">
+          <span>{{ msg.from }}:</span>
+          {{ msg.txt }}
+        </li>
+      </ul>
+    </div>
+    <div>
+      <form @submit.prevent="sendMsg">
+        <input
+          @input="typing"
+          type="text"
+          v-model="msg.txt"
+          placeholder="Type your message.."
+        />
+        <button>Send</button>
+      </form>
+    </div>
   </section>
 </template>
 
 <script>
 export default {
-   props: {
-      msgTo: Object,
-    },
+  props: {
+    msgTo: Object,
+  },
   data() {
     return {
+      msg: {
+        from: this.$store.getters.loggedinUser?.fullname || "Guest",
+        txt: "",
+      },
       msgs: [],
-      msg: "",
+      topic: this.msgTo._id,
+      userTyping: "",
     };
   },
   created() {
-    this.msgs.push({ from: this.loggedinUser._id, to: this.to, txt: "hello" });
-    socketService.on("chat getMsg", this.getMsg);
-    socketService.on("chat logU", this.logU);
+    socketService.setup();
+    socketService.emit("chat topic", this.topic);
+    socketService.on("chat addMsg", this.addMsg);
+    socketService.on("chat userTyping", this.setTyping);
   },
   destroyed() {
-    socketService.off("chat getMsg", this.getMsg);
     socketService.off("chat addMsg", this.addMsg);
+    socketService.off("chat userTyping", this.isTyping);
   },
   computed: {
     loggedinUser() {
@@ -46,23 +61,49 @@ export default {
   },
 
   methods: {
-    addMsg(msg) {
-      this.msgs.push(msg);
+    sendMsg() {
+      socketService.emit("chat newMsg", this.msg);
+      // next line for when broadcasting from server
+      const msg = JSON.parse(JSON.stringify(this.msg));
+      this.addMsg(msg);
+
+      this.$emit("msgSent");
+      this.doneTyping();
+      this.msg.txt = "";
     },
-    getMsg(msg) {
-      this.msgs.push({
-        from: msg.from,
-        to: this.loggedinUser._id,
-        txt: msg.txt,
+    addMsg(msg) {
+      if (this.$route.name =='user-page') {
+        console.log('u in user page');
+      this.msgs.push(msg);
+      }else{
+        alert('u have new mag to see from',msg.from)
+        console.log('u no on user page');
+      }
+
+    },
+    setTyping({ username, isDoneTyping }) {
+      if (isDoneTyping) return (this.userTyping = "");
+      // if doneTyping then set this.userTyping = ''
+      this.userTyping = username;
+      console.log("this.userTyping", this.userTyping);
+    },
+    typing() {
+      console.log("typing...");
+      const username = this.msg.from;
+      if (!this.msg.txt.length) return this.doneTyping();
+      socketService.emit("chat typing", { username });
+    },
+    doneTyping() {
+      const username = this.msg.from;
+      socketService.emit("chat typing", {
+        username,
+        isDoneTyping: true,
       });
     },
-    sendMsg() {
-      let msg = { from: this.loggedinUser._id, to: this.msgTo.id, txt: this.msg };
-      socketService.emit("chat newMsg", msg);
-      this.msg = "";
-    },
-    logU() {
-      console.log("logUUUUUUUUUUUUUUUUUUUUUUUUUUUUU");
+  },
+  watch: {
+    msgTo(newQuestion, oldQuestion) {
+      socketService.emit("chat topic", newQuestion._id);
     },
   },
 
@@ -70,60 +111,4 @@ export default {
 };
 </script>
 
-<style>
-body {
-  margin: 0;
-  padding-bottom: 3rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif;
-}
-
-#form {
-  background: rgba(0, 0, 0, 0.15);
-  padding: 0.25rem;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  height: 3rem;
-  box-sizing: border-box;
-  backdrop-filter: blur(10px);
-}
-
-#input {
-  border: none;
-  padding: 0 1rem;
-  flex-grow: 1;
-  border-radius: 2rem;
-  margin: 0.25rem;
-}
-
-#input:focus {
-  outline: none;
-}
-
-#form > button {
-  background: #333;
-  border: none;
-  padding: 0 1rem;
-  margin: 0.25rem;
-  border-radius: 3px;
-  outline: none;
-  color: #fff;
-}
-
-#messages {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-#messages > li {
-  padding: 0.5rem 1rem;
-}
-
-#messages > li:nth-child(odd) {
-  background: #efefef;
-}
-</style>
+<style></style>
