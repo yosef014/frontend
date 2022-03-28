@@ -131,36 +131,36 @@ export default {
       this.order = await orderService.getEmptyOrder();
     },
     async purchase() {
-      // this.fullscreenLoading = true;
-      // setTimeout(async () => {
-      //   const order = JSON.parse(JSON.stringify(this.order));
-      //   order.createdAt = Date.now();
-      //   (order.imgUrl = this.gig.productImgs[0]),
-      //     (order.description = this.gig.description);
-      //   order.title = this.gig.title;
-      //   order.buyer = {
-      //     _id: this.loggedInUser._id,
-      //     fullname: this.loggedInUser.fullname,
-      //     imgUrl: this.loggedInUser.imgUrl,
-      //     username: this.loggedInUser.username,
-      //   };
-      //   order.seller = {
-      //     _id: this.gig.owner._id,
-      //     fullname: this.gig.owner.fullname,
-      //     username: this.gig.owner.username,
-      //     imgUrl: this.gig.owner.imgUrl,
-      //   };
-      //   order.gig = {
-      //     _id: this.gig._id,
-      //     title: this.gig.title,
-      //     category: this.gig.category,
-      //     price: this.gig.price,
-      //     productImgs: this.gig.productImgs,
-      //   };
+      this.fullscreenLoading = true;
+      setTimeout(async () => {
+        const order = JSON.parse(JSON.stringify(this.order));
+        order.createdAt = Date.now();
+        (order.imgUrl = this.gig.productImgs[0]),
+          (order.description = this.gig.description);
+        order.title = this.gig.title;
+        order.buyer = {
+          _id: this.loggedInUser._id,
+          fullname: this.loggedInUser.fullname,
+          imgUrl: this.loggedInUser.imgUrl,
+          username: this.loggedInUser.username,
+        };
+        order.seller = {
+          _id: this.gig.owner._id,
+          fullname: this.gig.owner.fullname,
+          username: this.gig.owner.username,
+          imgUrl: this.gig.owner.imgUrl,
+        };
+        order.gig = {
+          _id: this.gig._id,
+          title: this.gig.title,
+          category: this.gig.category,
+          price: this.gig.price,
+          productImgs: this.gig.productImgs,
+        };
         this.$router.push("/user");
-      //   this.fullscreenLoading = false;
-      //   await this.$store.dispatch({ type: "addOrder", order });
-      // }, 2000);
+        this.fullscreenLoading = false;
+        await this.$store.dispatch({ type: "addOrder", order });
+      }, 2000);
       socketService.emit('newOrderAded', this.gig.owner);
     },
   },
