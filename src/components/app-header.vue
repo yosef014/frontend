@@ -19,19 +19,19 @@
       </router-link>
       <div :style="{ opacity: isShowNavSearch ? 1 : 0 }" class="nav-search">
         <searchIconVue />
-        <div class="nav-search-results-box" v-if="categoriesToShow">
+        <ul
+          :class="{ 'search-results-box': categoriesToShow !== false }"
+          class="nav-search-results-box"
+          v-if="categoriesToShow"
+        >
           <h3>Services</h3>
-          <ul
-            class="nav-serach-result-list"
-            v-for="res in categoriesToShow"
-            :key="res"
-          >
-            <router-link :to="res.route">
-              <li>{{ res.name }}</li>
+          <li v-for="res in categoriesToShow" :key="res">
+            <router-link :to="'/tag/' + res.path">
+              <a>{{ res.name }}</a>
             </router-link>
-          </ul>
-        </div>
-        <input type="text" placeholder="Find Services" v-model="inputLine" />
+          </li>
+        </ul>
+        <input type="text" placeholder="Find Services" v-model="inputVal" />
         <button>Search</button>
       </div>
       <div class="link-list">
@@ -90,9 +90,9 @@
     </div>
     <div :style="toggleCategoriesMenu" class="categories-menu-package">
       <ul class="max-width-container">
-        <li v-for="catagory in catagories" :key="catagory.name">
-          <router-link :to="'/tag/' + catagory.path">
-            <a>{{ catagory.name }}</a>
+        <li v-for="category in categories" :key="category.name">
+          <router-link :to="'/tag/' + category.path">
+            <a>{{ category.name }}</a>
           </router-link>
         </li>
       </ul>
@@ -116,16 +116,8 @@ export default {
   },
   data() {
     return {
-      inputLine: "",
-      categoryies: [
-        "logo",
-        "arts and crafts",
-        "research and summeries",
-        "data entry",
-        "marketing",
-        "business",
-        "programming and tech",
-      ],
+      inputVal: "",
+
       loggedinUser: this.$store.getters.loggedinUser,
       isGotNotification: true,
       showModal: {
@@ -140,7 +132,7 @@ export default {
       logoColorState: true,
       linkColorState: false,
       elNavLinks: null,
-      catagories: [
+      categories: [
         {
           name: "Arts And Crafts",
           path: "arts and crafts",
@@ -197,7 +189,7 @@ export default {
 
   methods: {
     categoryChosen(res) {
-      this.inputLine = res;
+      this.inputVal = res;
       this.$router.push("/tag" + "/" + res);
     },
     toggleLogin() {
@@ -220,6 +212,7 @@ export default {
       this.isShowNavSearch = true;
       this.logoColorState = false;
       this.linkColorState = false;
+      this.inputVal = "";
     },
 
     stickNavbar() {
@@ -233,6 +226,7 @@ export default {
     onScroll() {
       if (window.scrollY < 5) {
         this.isShowNavbar = false;
+        this.inputVal = "";
         this.logoColorState = true;
         this.linkColorState = true;
       }
@@ -282,10 +276,10 @@ export default {
 
   computed: {
     categoriesToShow() {
-      if (!this.inputLine) return false;
+      if (!this.inputVal) return false;
 
-      const regex = new RegExp(this.inputLine, "i");
-      return this.categories.filter(({ name }) => regex.test(name));
+      const regex = new RegExp(this.inputVal, "i");
+      return this.categories.filter((category) => regex.test(category.name));
     },
     toggleCategoriesMenu() {
       return {

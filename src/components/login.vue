@@ -58,7 +58,7 @@
             placeholder="Enter username"
           />
           <input
-            type="text"
+            type="password"
             v-model="loginCred.password"
             placeholder="Enter password"
           />
@@ -72,45 +72,45 @@
 </template>
 
 <script>
-  // import { userService } from "../services/user-service";
-  export default {
-    name: "login",
-    // props: { close: Function, open: Function },
-    data() {
-      return {
-        isOpen: false,
-        isShow: false,
-        loginCred: {
-          username: "",
-          password: "",
-        },
-      };
-    },
-    computed: {
-      loggedInUser() {
-        return this.$store.getters.loggedinUser;
+// import { userService } from "../services/user-service";
+export default {
+  name: "login",
+  // props: { close: Function, open: Function },
+  data() {
+    return {
+      isOpen: false,
+      isShow: false,
+      loginCred: {
+        username: "",
+        password: "",
       },
+    };
+  },
+  computed: {
+    loggedInUser() {
+      return this.$store.getters.loggedinUser;
     },
-    methods: {
-      closeModal() {
+  },
+  methods: {
+    closeModal() {
+      this.$emit("closeModal");
+    },
+    async login() {
+      if (!this.loginCred.username || !this.loginCred.password) return;
+      try {
+        console.log(this.loggedInUser);
+        await this.$store.dispatch({
+          type: "login",
+          userCred: this.loginCred,
+        });
         this.$emit("closeModal");
-      },
-      async login() {
-        if (!this.loginCred.username || !this.loginCred.password) return 
-        try {
-          console.log(this.loggedInUser);
-          await this.$store.dispatch({
-            type: "login",
-            userCred: this.loginCred,
-          });
-          this.$emit("closeModal");
-          this.$router.push("/");
-        } catch (err) {
-          console.log(err);
-        }
-      },
+        this.$router.push("/");
+      } catch (err) {
+        console.log(err);
+      }
     },
-  };
+  },
+};
 </script>
 
 <style></style>
