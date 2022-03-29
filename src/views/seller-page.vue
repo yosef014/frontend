@@ -35,14 +35,13 @@
                   <sellerGigsPreview :gig="gig" />
                 </li>
               </ul>
-              <button @click="nextPage">next Page</button>
-        <button @click="prevPage">prev Page</button>
             </el-tab-pane>
             <el-tab-pane label="Orders manager">
               <sellerOrders></sellerOrders>
             </el-tab-pane>
             <el-tab-pane label="Dashboard">Dashboard</el-tab-pane>
           </el-tabs>
+         <el-pagination layout="prev, pager, next" :total="orders.length" :page-size="5" @next-click="nextPage" @prev-click="prevPage" @current-change="handleChange" />
           <!-- <nav class="user-profile-navbar">
             <ul class="nav-links">
               <li
@@ -113,20 +112,17 @@ export default {
 
   methods: {
       nextPage(){
-
       this.pageIdx++
       let maxPage = Math.ceil(this.orders.length / this.pageSize)
          if (this.pageIdx >= maxPage ) return this.pageIdx--
-               console.log('next Page', this.pageIdx);
-      console.log('maxxxx page', maxPage);
-      console.log('pageee size', this.pageSize);
-
     },
     prevPage(){
-
         this.pageIdx--
-         let maxPage = Math.ceil(this.orders.length / this.pageSize)
        if (this.pageIdx < 0) this.pageIdx = 0
+    },
+      handleChange(pageIdx){
+      console.log(pageIdx);
+      this.pageIdx = pageIdx
     },
   },
 
