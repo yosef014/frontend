@@ -65,7 +65,7 @@ export default {
       visible:false,
       filterBy: {
         seller: "",
-        price: 0,
+        price: "",
         // price: ref([0, 250]),
         sortBy: "",
       },
