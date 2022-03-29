@@ -35,13 +35,13 @@
                   <sellerGigsPreview :gig="gig" />
                 </li>
               </ul>
-         <el-pagination layout="prev, pager, next" :total="orders.length" :page-size="5" @next-click="nextPage" @prev-click="prevPage" @current-change="handleChange" />
             </el-tab-pane>
             <el-tab-pane label="Orders manager">
               <sellerOrders></sellerOrders>
             </el-tab-pane>
             <el-tab-pane label="Dashboard">Dashboard</el-tab-pane>
           </el-tabs>
+         <el-pagination layout="prev, pager, next" :total="orders.length" :page-size="5" @next-click="nextPage" @prev-click="prevPage" @current-change="handleChange" />
           <!-- <nav class="user-profile-navbar">
             <ul class="nav-links">
               <li
