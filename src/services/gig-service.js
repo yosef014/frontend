@@ -45,7 +45,6 @@ function _saveLocalGig(gig) {
 }
 async function save(gig) {
     const savedGig = gig
-    console.log('saved gig:::::',savedGig);
     if (savedGig._id) {
       return await httpService.put(`gig/${savedGig._id}`, savedGig);
     } else {

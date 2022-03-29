@@ -251,6 +251,8 @@ export default {
       }
     },
     orderAddedNotefication(ownerOrder) {
+            console.log("amir");
+
       ElNotification({
         title: "new order added!",
         message: `new pending order has been added in seller control`,
@@ -258,15 +260,25 @@ export default {
         position: "bottom-right",
       });
     },
+    orderStatusChanged(status){
+      console.log(status);
+       ElNotification({
+        title: 'your order status changed',
+        message: `status changed to ${status}`,
+        type: "success",
+        position: "bottom-right",
+      });
+
+    },
   },
 
   mounted() {
     window.onresize = () => {
       this.windowWidth = window.innerWidth;
-      console.log(
-        "🚀 ~ file: app-header.vue ~ line 262 ~ mounted ~ this.windowWidth",
-        this.windowWidth
-      );
+      // console.log(
+      //   "🚀 ~ file: app-header.vue ~ line 262 ~ mounted ~ this.windowWidth",
+      //   this.windowWidth
+      // );
     };
   },
 
@@ -327,9 +339,11 @@ export default {
   created() {
     socketService.setup();
     socketService.on("Notefication orderAdded", this.orderAddedNotefication);
+    socketService.on('Notefication statusChanged', this.orderStatusChanged);
   },
   destroyed() {
-    socketService.off("Notefication orderAdded", this.orderAddedNotefication);
+    // socketService.off("Notefication statusChanged", this.orderStatusChanged);
+    // socketService.off("Notefication orderAdded", this.orderAddedNotefication);
   },
 };
 </script>
