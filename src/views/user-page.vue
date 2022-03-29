@@ -60,8 +60,6 @@
           </table>
            <button @click="nextPage">next Page</button>
         <button @click="prevPage">prev Page</button>
-         <el-pagination  layout="prev, pager, next" :total="50" :next-click="nextPage()" />
-         <el-pagination @click="prevPage" layout="prev, pager, next" :total="50" v-model="pageIdx" />
               <!-- <chat :msgTo="msgTo"></chat> -->
 
         </div>
@@ -113,7 +111,10 @@ export default {
     nextPage(){
       this.pageIdx++
       let maxPage = Math.ceil(this.orders.length / this.pageSize)
-         if (this.pageIdx >= maxPage-1 ) return this.pageIdx--
+         if (this.pageIdx >= maxPage ) return this.pageIdx--
+               console.log('next Page', this.pageIdx);
+      console.log('maxxxx page', maxPage);
+      console.log('pageee size', this.pageSize);
     },
     prevPage(){
         this.pageIdx--

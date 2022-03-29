@@ -104,7 +104,7 @@ export default {
     gigsToShow() {
       // if (!this.gigs) return;
       const gigs = this.gigs.filter((gig)=>{
-         return gig?.owner._id == this.loggedinUser._id;
+         return gig.owner._id == this.loggedinUser._id;
       })
       
       return gigs.slice(this.startIdx, this.startIdx + this.pageSize)
@@ -116,7 +116,11 @@ export default {
 
       this.pageIdx++
       let maxPage = Math.ceil(this.orders.length / this.pageSize)
-         if (this.pageIdx >= maxPage-1 ) return this.pageIdx--
+         if (this.pageIdx >= maxPage ) return this.pageIdx--
+               console.log('next Page', this.pageIdx);
+      console.log('maxxxx page', maxPage);
+      console.log('pageee size', this.pageSize);
+
     },
     prevPage(){
 
