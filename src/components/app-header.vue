@@ -101,6 +101,7 @@
 </template>
 
 <script>
+import { ElNotification } from "element-plus";
 import searchIconVue from "../svgs/search-icon.vue";
 import FiiverrLogo from "../svgs/fiiverr-logo.vue";
 import { remove } from "@vue/shared";
@@ -245,8 +246,13 @@ export default {
         this.isShowCategories = true;
       }
     },
-    newMsgNotefication() {
-      alert("you have new msg");
+    orderAddedNotefication(ownerOrder) {
+      ElNotification({
+        title: "new order added!",
+        message: `new pending order has been added in seller control`,
+        type: "success",
+        position: "bottom-right",
+      });
     },
   },
 
@@ -304,10 +310,10 @@ export default {
   },
   created() {
     socketService.setup();
-    socketService.on("chat newMsgNotefication", this.newMsgNotefication);
+    socketService.on("Notefication orderAdded", this.orderAddedNotefication);
   },
   destroyed() {
-    socketService.off("chat addMsg", this.addMsg);
+    socketService.off("Notefication orderAdded", this.orderAddedNotefication);
   },
 };
 </script>

@@ -57,7 +57,7 @@
               </td>
             </tr>
           </table>
-              <chat :msgTo="msgTo"></chat>
+              <!-- <chat :msgTo="msgTo"></chat> -->
 
         </div>
       </div>
