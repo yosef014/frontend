@@ -130,13 +130,11 @@ export default {
     async save() {
       if (this.gigToEdit._id) {
         try {
-          console.log("GigToEdit", this.gigToEdit);
           await this.$store.dispatch({
             type: "updateGig",
             gig: this.gigToEdit,
           });
           this.$router.push("/seller");
-          console.log(this.gigToEdit);
         } catch (err) {
           console.log("Editing Error (gig-edit):", err);
         }

@@ -36,7 +36,8 @@ async function ajax(endpoint, method = 'GET', data = null) {
     )
     console.dir(err)
     if (err.response && err.response.status === 401) {
-      window.location.assign('/login')
+      // window.location.assign('/login')
+      console.log("hhtp service cant get",endpoint);
     }
     throw err
   }

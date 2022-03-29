@@ -100,7 +100,6 @@ export const gigStore = {
         async updateGig({ commit }, { gig }) {
             try {
                 const savedGig = await gigService.save(gig);
-                console.log(savedGig);
                 commit({ type: 'updateGig', savedGig })
                 return savedGig;
             } catch (err) {

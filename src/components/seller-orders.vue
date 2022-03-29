@@ -10,15 +10,14 @@
         <th>STATUS</th>
         <th>ACTIONS</th>
       </tr>
-      <tr v-for="order in ordersToShow" :key="order">
+      <tr v-for="order in orders" :key="order">
         <td>{{ order.buyer.username }}</td>
         <td>{{ order.gig.title }}</td>
         <td>{{ new Date(order.createdAt).toLocaleDateString("iw-IL") }}</td>
         <td>{{ order.gig.price + "$" }}</td>
         <td>{{ order.status }}</td>
         <td>
-          <button @click="changeStatus('approved', order)">✔</button
-          >
+          <button @click="changeStatus('approved', order)">✔</button>
           <button @click="changeStatus('closed', order)">❌</button>
         </td>
       </tr>
@@ -43,12 +42,6 @@ export default {
     orders() {
       return this.$store.getters.orders;
     },
-    ordersToShow() {
-      return this.orders.filter((order) => {
-        console.log(this.loggedinUser._id);
-        return order.seller?._id == this.loggedinUser._id;
-      });
-    },
   },
 
   methods: {
@@ -56,12 +49,12 @@ export default {
       const order = JSON.parse(JSON.stringify(OldOrder));
       order.status = status;
       this.$store.dispatch({ type: "updateOrder", order });
+      socketService.emit("statusChanged", order);
     },
   },
 
   components: {
     charts,
   },
-  
 };
 </script>
