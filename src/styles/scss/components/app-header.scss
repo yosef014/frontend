@@ -198,10 +198,8 @@
 }
 
 .nav-search-results-box {
-  background-color: #fff;
-  border: solid 1px rgb(107, 107, 107);
-  width: 300px;
-  position: absolute;
-  top: 60px;
-  z-index: 10;
+  width: 296px !important;
+  position: fixed !important;
+  top: 55px !important;
+  z-index: 10 !important;
 }

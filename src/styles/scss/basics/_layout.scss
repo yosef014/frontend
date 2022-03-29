@@ -9,7 +9,7 @@
   //   @media (min-width: $screen-size-l) {
   //     padding: 7.5rem 1rem;
   //   }
-  @media (max-width: $screen-size-xl) {
+  @media (min-width: $screen-size-xl) {
     padding: 7.5rem 2rem;
   }
 }

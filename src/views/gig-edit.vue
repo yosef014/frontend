@@ -1,5 +1,5 @@
 <template>
-  <section class="max-width-container page-content-container">
+  <section class="page-content-container">
     <section v-if="gigToEdit" class="edit-gig-container">
       <section class="gig-edit-form-left">
         <section class="section-one">

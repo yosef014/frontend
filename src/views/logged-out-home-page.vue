@@ -63,26 +63,33 @@
                   type="search"
                   autocomplete="off"
                   placeholder='Try "building mobile app"'
-                  v-model="inputLine"
-
-                /><button class="">Search</button>
+                  v-model="inputVal"
+                />
+                <button class="">Search</button>
               </form>
-              <div class="search-results-box" v-if="categoryiesToShow">
-                  <h3>Services</h3>
-                <div class="result-list" v-for="res in categoryiesToShow" :key="res">
-                  <span @click=" this.$router.push('/tag' + '/' + res )">{{res}}</span>
-                </div>
-              </div>
+              <ul
+                :class="{
+                  'search-results-box': setFilteredCategories !== false,
+                }"
+              >
+                <p v-if="setFilteredCategories">Services</p>
+                <li v-for="res in setFilteredCategories" :key="res">
+                  <router-link :to="res.route">{{ res.name }}</router-link>
+                </li>
+              </ul>
             </div>
             <div class="popular">
               Popular:
               <ul>
-                <li
-                  v-for="popularCatagory in getPopularCatagories"
-                  :key="popularCatagory.name"
-                >
-                  <router-link :to="popularCatagory.route">
-                    <a>{{ popularCatagory.name }}</a>
+                <li v-for="index in 4" :key="index">
+                  <router-link
+                    :to="
+                      categories.sort((a, b) => b.searchCount - a.searchCount)[
+                        index
+                      ].route
+                    "
+                  >
+                    <a>{{ categories[index].name }}</a>
                   </router-link>
                 </li>
               </ul>
@@ -100,11 +107,11 @@ import searchIconVue from "../svgs/search-icon.vue";
 export default {
   data() {
     return {
-      inputLine:'',
-      categoryies:['logo','arts and crafts','research and summeries','data entry','marketing','business','programming and tech'],
+      inputVal: "",
+      // categoryies:['logo','arts and crafts','research and summeries','data entry','marketing','business','programming and tech'],
       heroIdx: 0,
       heroTimeout: null,
-      catagories: [
+      categories: [
         {
           name: "Digital Marketing",
           route: "/tag/digital marketing",
@@ -140,21 +147,24 @@ export default {
   },
 
   computed: {
-    getPopularCatagories() {
-      return this.catagories
-        .sort((a, b) => b.searchCount - a.searchCount)
-        .splice(0, 4);
+    getPopularCategories() {
+      return this.categories.sort((a, b) => b.searchCount - a.searchCount);
     },
-    categoryiesToShow(){
-            if  (!this.inputLine) return false
 
-         const regex = new RegExp(this.inputLine, 'i');
-           return this.categoryies.filter(category => regex.test(category))
-    }
+    setFilteredCategories() {
+      if (!this.inputVal) return false;
+      const regex = new RegExp(this.inputVal, "i");
+      return this.categories.filter((category) => regex.test(category.name));
+    },
+    // filteredCategories() {
+    //   if (!this.inputVal) return false;
+
+    //   const regex = new RegExp(this.inputVal, "i");
+    //   return this.categories.filter((category) => regex.test(category.name));
+    // },
   },
 
   mounted() {
-   
     this.elHeroWrappers = document.querySelector(".hero-wrappers");
     this.heroAnimation();
   },
@@ -164,9 +174,6 @@ export default {
   },
 
   methods: {
-  catagoryChoosen(){
-
-  },
     heroAnimation() {
       if (this.$route.path !== "/") return;
       const elHeroWrappers = document.querySelectorAll(".hero-wrapper");
