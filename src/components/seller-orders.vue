@@ -1,7 +1,6 @@
 <template>
   <section>
     <charts></charts>
-<<<<<<< HEAD
     <div class="table">
       <div class="table-header">
         <span>BUYER</span>
@@ -34,29 +33,6 @@
         </div>
       </ul>
     </div>
-=======
-    <table>
-      <tr class="table-header">
-        <th>BUYER</th>
-        <th>GIG</th>
-        <th>DATE</th>
-        <th>TOTAL</th>
-        <th>STATUS</th>
-        <th>ACTIONS</th>
-      </tr>
-      <tr v-for="order in orders" :key="order">
-        <td>{{ order.buyer.username }}</td>
-        <td>{{ order.gig.title }}</td>
-        <td>{{ new Date(order.createdAt).toLocaleDateString("iw-IL") }}</td>
-        <td>{{ order.gig.price + "$" }}</td>
-        <td>{{ order.status }}</td>
-        <td>
-          <button @click="changeStatus('approved', order)">✔</button>
-          <button @click="changeStatus('closed', order)">❌</button>
-        </td>
-      </tr>
-    </table>
->>>>>>> 98ce39ffc44e1a051615a668cef097f9f37f1a13
   </section>
 </template>
 
