@@ -31,27 +31,52 @@
 }
 
 .hero-andrea {
-  background-image: $hero-andrea-large;
+  @media (min-width: $screen-size-l) {
+    background-image: $hero-andrea-large;
+  }
+  @media (max-width: $screen-size-l) {
+    background-image: $hero-andrea-medium;
+  }
   background-color: #023a15;
 }
 
 .hero-moon {
-  background-image: $hero-moon-large;
+  @media (min-width: $screen-size-l) {
+    background-image: $hero-moon-large;
+  }
+  @media (max-width: $screen-size-l) {
+    background-image: $hero-moon-medium;
+  }
   background-color: #b64762;
 }
 
 .hero-gabrielle {
-  background-image: $hero-gabrielle-large;
+  @media (min-width: $screen-size-l) {
+    background-image: $hero-gabrielle-large;
+  }
+  @media (max-width: $screen-size-l) {
+    background-image: $hero-gabrielle-medium;
+  }
   background-color: #7d1a00;
 }
 
 .hero-zack {
-  background-image: $hero-zack-large;
+  @media (min-width: $screen-size-l) {
+    background-image: $hero-zack-large;
+  }
+  @media (max-width: $screen-size-l) {
+    background-image: $hero-zack-medium;
+  }
   background-color: #023a15;
 }
 
 .hero-ritika {
-  background-image: $hero-ritika-large;
+  @media (min-width: $screen-size-l) {
+    background-image: $hero-ritika-large;
+  }
+  @media (max-width: $screen-size-l) {
+    background-image: $hero-ritika-medium;
+  }
   background-color: #540e1f;
 }
 
@@ -259,7 +284,7 @@ form {
     display: flex;
     font-family: macan-light;
     opacity: 0;
-    transition: all 0.5s;
+    transition: all 0.2s;
     animation: fadeout 0.3s forwards;
     &:hover {
       cursor: pointer;
@@ -281,13 +306,11 @@ form {
   0% {
     opacity: 0;
     height: 0;
-    transform: rotateX(90);
   }
 
   100% {
     opacity: 1;
-    height: auto;
+    height: 3rem;
     padding: 1rem;
-    transform: rotateX(0);
   }
 }

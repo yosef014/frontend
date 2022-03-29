@@ -34,7 +34,7 @@
         <input type="text" placeholder="Find Services" v-model="inputVal" />
         <button>Search</button>
       </div>
-      <div class="link-list">
+      <div v-if="windowWidth > 800" class="link-list">
         <ul>
           <li v-for="navLink in navLinks" :key="navLink">
             <router-link :to="navLink.route">
@@ -118,7 +118,7 @@ export default {
   data() {
     return {
       inputVal: "",
-
+      windowWidth: null,
       loggedinUser: this.$store.getters.loggedinUser,
       isGotNotification: true,
       showModal: {
@@ -172,16 +172,6 @@ export default {
         {
           name: "Explore",
           route: "/tag",
-          class: "nav-link",
-        },
-        {
-          name: "ILS",
-          route: "ils",
-          class: "nav-link currency",
-        },
-        {
-          name: "Become A Seller",
-          route: "become a seller",
           class: "nav-link",
         },
       ],
@@ -256,7 +246,15 @@ export default {
     },
   },
 
-  mounted() {},
+  mounted() {
+    window.onresize = () => {
+      this.windowWidth = window.innerWidth;
+      console.log(
+        "🚀 ~ file: app-header.vue ~ line 262 ~ mounted ~ this.windowWidth",
+        this.windowWidth
+      );
+    };
+  },
 
   watch: {
     $route: {

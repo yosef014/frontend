@@ -72,7 +72,7 @@
                   'search-results-box': setFilteredCategories !== false,
                 }"
               >
-                <p v-if="setFilteredCategories">Services</p>
+                <li v-if="setFilteredCategories">Services</li>
                 <li v-for="res in setFilteredCategories" :key="res">
                   <router-link :to="res.route">{{ res.name }}</router-link>
                 </li>
