@@ -31,6 +31,11 @@
 }
 
 .hero-andrea {
+  @media (max-width: $screen-size-s) {
+    background-color: #023a15;
+    background-image: none !important;
+  }
+
   @media (min-width: $screen-size-l) {
     background-image: $hero-andrea-large;
   }
@@ -41,6 +46,11 @@
 }
 
 .hero-moon {
+  @media (max-width: $screen-size-s) {
+    background-color: #023a15;
+    background-image: none !important;
+  }
+
   @media (min-width: $screen-size-l) {
     background-image: $hero-moon-large;
   }
@@ -51,6 +61,11 @@
 }
 
 .hero-gabrielle {
+  @media (max-width: $screen-size-s) {
+    background-color: #023a15;
+    background-image: none !important;
+  }
+
   @media (min-width: $screen-size-l) {
     background-image: $hero-gabrielle-large;
   }
@@ -61,6 +76,11 @@
 }
 
 .hero-zack {
+  @media (max-width: $screen-size-s) {
+    background-color: #023a15;
+    background-image: none !important;
+  }
+
   @media (min-width: $screen-size-l) {
     background-image: $hero-zack-large;
   }
@@ -71,6 +91,11 @@
 }
 
 .hero-ritika {
+  @media (max-width: $screen-size-s) {
+    background-color: #023a15;
+    background-image: none !important;
+  }
+
   @media (min-width: $screen-size-l) {
     background-image: $hero-ritika-large;
   }
@@ -81,6 +106,9 @@
 }
 
 .popular {
+  @media (max-width: $screen-size-m) {
+    display: none;
+  }
   display: flex;
   font-size: 14px;
   font-weight: 600;
@@ -88,6 +116,7 @@
   padding-top: 24px;
   align-items: center;
   font-family: macan-semibold;
+
   ul {
     display: flex;
     flex-wrap: wrap;
@@ -96,6 +125,7 @@
     margin-left: 12px;
     list-style: none;
     list-style-image: none;
+    // justify-content: space-between;
     li {
       margin-right: 12px;
       white-space: nowrap;
@@ -215,7 +245,6 @@ form {
 .header {
   color: aliceblue;
   max-width: 800px;
-  margin-inline-start: 3rem;
   position: relative;
 }
 
@@ -224,6 +253,9 @@ form {
 }
 
 .seller-name {
+  @media (max-width: $screen-size-m) {
+    display: none;
+  }
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -256,9 +288,6 @@ form {
 .search-results-box {
   background-color: #fff;
   color: #000;
-}
-
-.search-results-box {
   z-index: 100;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
