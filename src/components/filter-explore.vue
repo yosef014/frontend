@@ -1,22 +1,40 @@
 <template>
   <section>
-    <section class="">
+    <div class="filter-explore-container">
+
+    <section class="filter-explore-search">
+      Search seller:
       <el-input
         v-model="filterBy.seller"
         @input="setFilter"
         placeholder="Filter by seller"
       />
-
+      </section>
+    <section class="filter-explore-sortby">
       <div>
-        <el-radio-group v-model="filterBy.sortBy" @change="setFilter">
-          <el-radio-button label="title" />
-          <el-radio-button label="Price" />
-          <el-radio-button label="rate" />
-        </el-radio-group>
+        Sory By:
+         <el-select
+        v-model="filterBy.sortBy"
+      placeholder="Select"
+      style="width: 240px"
+      @change="setFilter"
+      
+    >
+      <el-option
+        v-for="item in options"
+        :key="item.value"
+        :label="item.label"
+        :value="item.value"
+        
+      />
+         
+
+    </el-select>
       </div>
-    </section>
+     
 
     <div class="slider-demo-block">
+      Price range:
       <el-slider
         v-model="filterBy.price"
         range
@@ -24,6 +42,8 @@
         :max="250"
         @change="setFilter"
       />
+    </div>
+    </section>
     </div>
   </section>
 </template>
@@ -35,9 +55,23 @@ export default {
     return {
       filterBy: {
         seller: "",
-        price: ref([80, 150]),
+        price: ref([0, 250]),
         sortBy: "",
       },
+      options : [
+  {
+    value: 'Price',
+    label: 'Price',
+  },
+  {
+    value: 'rate',
+    label: 'rate',
+  },
+  {
+    value: 'title',
+    label: 'title',
+  },
+      ]
     };
   },
   components: {},
