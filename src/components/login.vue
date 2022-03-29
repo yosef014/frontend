@@ -105,6 +105,7 @@
           });
           this.$emit("closeModal");
           this.$router.push("/");
+          document.location.reload(true)
         } catch (err) {
           console.log(err);
         }
