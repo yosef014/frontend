@@ -1,2 +1,68 @@
-.table-header {
+.profile-page-aside-right > div {
+  width: 100%;
+  height: 100%;
+  .el-tabs__content {
+    height: 90%;
+  }
+}
+
+.table {
+  display: grid;
+  grid-template-rows: auto;
+  overflow: scroll;
+
+  height: 300px;
+  width: 100%;
+  .table-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
+    background-color: $clr-green;
+
+    color: #f8f9f9;
+    padding: 1rem 0;
+    * {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: macan-semibold;
+    }
+    & *:not(:last-child) {
+      border-right: 1px solid #e5e7e9;
+    }
+  }
+
+  .table-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: macan-regular;
+      padding: 0.5rem 0;
+    }
+    .table-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .close-icon {
+        margin-left: 1rem;
+        &:hover {
+          cursor: pointer;
+          fill: red;
+        }
+      }
+      .circle-checkmark-icon:hover {
+        cursor: pointer;
+        fill: $clr-green;
+      }
+    }
+  }
+
+  .table-row:nth-child(odd) {
+    background-color: #f8f9f9;
+  }
+  .table-row:nth-child(even) {
+    background-color: #e5e7e9;
+  }
 }

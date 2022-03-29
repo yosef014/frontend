@@ -72,7 +72,8 @@
                   'search-results-box': setFilteredCategories !== false,
                 }"
               >
-                <li v-if="setFilteredCategories">Services</li>
+                <p v-if="setFilteredCategories"><ServicesIcon /> Services</p>
+
                 <li v-for="res in setFilteredCategories" :key="res">
                   <router-link :to="res.route">{{ res.name }}</router-link>
                 </li>
@@ -103,6 +104,7 @@
 
 <script>
 import searchIconVue from "../svgs/search-icon.vue";
+import ServicesIcon from "../svgs/services-icon.vue";
 
 export default {
   data() {
@@ -156,6 +158,7 @@ export default {
       const regex = new RegExp(this.inputVal, "i");
       return this.categories.filter((category) => regex.test(category.name));
     },
+
     // filteredCategories() {
     //   if (!this.inputVal) return false;
 
@@ -187,6 +190,7 @@ export default {
 
   components: {
     searchIconVue,
+    ServicesIcon,
   },
 };
 </script>

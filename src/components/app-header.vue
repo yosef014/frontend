@@ -14,9 +14,8 @@
       <span v-if="isMobileDisplay" class="hamburger-menu"
         ><HamburgerMenuIcon />
       </span>
-      <router-link to="/">
+      <router-link class="logo" to="/">
         <FiiverrLogo
-          class="logo"
           :style="{ fill: logoColorState ? '#fff' : '#404145' }"
         ></FiiverrLogo>
       </router-link>
