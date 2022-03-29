@@ -58,8 +58,7 @@
               </td>
             </tr>
           </table>
-           <button @click="nextPage">next Page</button>
-        <button @click="prevPage">prev Page</button>
+         <el-pagination layout="prev, pager, next" :total="orders.length" :page-size="5" @next-click="nextPage" @prev-click="prevPage" @current-change="handleChange" />
               <!-- <chat :msgTo="msgTo"></chat> -->
 
         </div>
@@ -100,11 +99,6 @@ export default {
       });
       return orders.slice(this.startIdx, this.startIdx + this.pageSize)
     },
-    // ordersToShow() {
-    //   return this.orders.filter((order) => {
-    //     return order.buyer._id == this.loggedinUser._id;
-    //   });
-    // },
   },
 
   methods: {
@@ -112,15 +106,15 @@ export default {
       this.pageIdx++
       let maxPage = Math.ceil(this.orders.length / this.pageSize)
          if (this.pageIdx >= maxPage ) return this.pageIdx--
-               console.log('next Page', this.pageIdx);
-      console.log('maxxxx page', maxPage);
-      console.log('pageee size', this.pageSize);
     },
     prevPage(){
         this.pageIdx--
-         let maxPage = Math.ceil(this.orders.length / this.pageSize)
        if (this.pageIdx < 0) this.pageIdx = 0
-    }
+    },
+    handleChange(pageIdx){
+      console.log(pageIdx);
+      this.pageIdx = pageIdx
+    },
   },
 
   components: {
