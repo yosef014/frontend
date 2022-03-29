@@ -1,8 +1,8 @@
 <template>
-  <section class="page-content-container">
+  <section>
     <charts></charts>
     <table>
-      <tr>
+      <tr class="table-header">
         <th>BUYER</th>
         <th>GIG</th>
         <th>DATE</th>
@@ -17,9 +17,12 @@
         <td>{{ order.gig.price + "$" }}</td>
         <td>{{ order.status }}</td>
         <td>
-          <button @click="changeStatus('approved', order)">✔</button
-          >
-          <button @click="changeStatus('closed', order)">❌</button>
+          <button class="approve-btn" @click="changeStatus('approved', order)">
+            ✔
+          </button>
+          <button class="disapprove-btn" @click="changeStatus('closed', order)">
+            ❌
+          </button>
         </td>
       </tr>
     </table>
@@ -62,6 +65,5 @@ export default {
   components: {
     charts,
   },
-  
 };
 </script>
