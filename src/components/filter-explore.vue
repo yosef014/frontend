@@ -13,8 +13,9 @@
     <section class="filter-explore-sortby">
       <div>
 
-        Sory By:
+        Sort By:
          <el-select
+         
         v-model="filterBy.sortBy"
       placeholder="Select"
       style="width: 240px"
@@ -22,6 +23,7 @@
       
     >
       <el-option
+      class="filter-explore-sortby"
         v-for="item in options"
         :key="item.value"
         :label="item.label"
@@ -116,6 +118,10 @@ export default {
 };
 </script>
 <style>
+.filter-explore-sortby{
+   font-size: 1rem;
+  font-family:macan-bold, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
 .box-item{
   font-size: 1rem;
   font-family: Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
