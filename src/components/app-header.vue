@@ -11,13 +11,20 @@
       <SignUp @closeModal="closeModal" />
     </div>
     <div class="logged-out-nav max-width-container">
+      <span v-if="isMobileDisplay" class="hamburger-menu"
+        ><HamburgerMenuIcon />
+      </span>
       <router-link to="/">
         <FiiverrLogo
           class="logo"
           :style="{ fill: logoColorState ? '#fff' : '#404145' }"
         ></FiiverrLogo>
       </router-link>
-      <div :style="{ opacity: isShowNavSearch ? 1 : 0 }" class="nav-search">
+      <div
+        v-if="!isMobileDisplay"
+        :style="{ opacity: isShowNavSearch ? 1 : 0 }"
+        class="nav-search"
+      >
         <searchIconVue />
         <ul
           :class="{ 'search-results-box': categoriesToShow !== false }"
@@ -34,7 +41,7 @@
         <input type="text" placeholder="Find Services" v-model="inputVal" />
         <button>Search</button>
       </div>
-      <div v-if="windowWidth > 800" class="link-list">
+      <div v-if="!isMobileDisplay" class="link-list">
         <ul>
           <li v-for="navLink in navLinks" :key="navLink">
             <router-link :to="navLink.route">
@@ -107,6 +114,7 @@ import FiiverrLogo from "../svgs/fiiverr-logo.vue";
 import { remove } from "@vue/shared";
 import Login from "./login.vue";
 import SignUp from "./sign-up.vue";
+import HamburgerMenuIcon from "../svgs/hamburger-menu-icon.vue";
 import { useDeprecateAppendToBody } from "element-plus";
 export default {
   components: {
@@ -114,6 +122,7 @@ export default {
     FiiverrLogo,
     Login,
     SignUp,
+    HamburgerMenuIcon,
   },
   data() {
     return {
@@ -182,13 +191,11 @@ export default {
     categoryChosen(res) {
       this.inputVal = res;
       this.$router.push("/tag" + "/" + res);
-      
     },
     async doLogout() {
       await this.$store.dispatch({ type: "logout" });
-      document.location.reload(true)
       this.$router.push("/");
-
+      document.location.reload(true);
     },
 
     toggleLogin() {
@@ -324,6 +331,10 @@ export default {
           : "",
         backgroundColor: this.loggedinUser ? "#00000" : "#fff",
       };
+    },
+
+    isMobileDisplay() {
+      return this.windowWidth < 800;
     },
   },
   created() {

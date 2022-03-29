@@ -1,8 +1,8 @@
 <template>
-  <section class="page-content-container">
+  <section>
     <charts></charts>
     <table>
-      <tr>
+      <tr class="table-header">
         <th>BUYER</th>
         <th>GIG</th>
         <th>DATE</th>
