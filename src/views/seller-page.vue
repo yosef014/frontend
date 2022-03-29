@@ -40,7 +40,8 @@
             </li>
           </ul>
         
-
+        <button @click="nextPage">next Page</button>
+        <button @click="prevPage">prev Page</button>
     </el-tab-pane>
     <el-tab-pane label="Orders manager">
 <sellerOrders></sellerOrders>
@@ -60,6 +61,7 @@
           </nav> -->
          
         </div>
+  
       </div>
     </div>
 
@@ -72,6 +74,8 @@ import sellerOrders from "../components/seller-orders.vue";
 export default {
   data() {
     return {
+      pageSize:4,
+      pageIdx:0,
       userProfileNavLink: [
         {
           name: "My Active Gigs",
@@ -85,13 +89,17 @@ export default {
       ],
     };
   },
-  created() {},
+  created() {
+  },
   computed: {
     loggedinUser() {
       return this.$store.getters.loggedinUser;
     },
     orders() {
       return this.$store.getters.orders;
+    },
+    startIdx(){
+      return this.pageIdx * this.pageSize
     },
     ordersToShow() {
       return this.orders.filter((order) => {
@@ -103,13 +111,27 @@ export default {
     },
     gigsToShow() {
       // if (!this.gigs) return;
-      return this.gigs.filter((gig) => {
+      const gigs = this.gigs.filter((gig)=>{
         return gig.owner._id == this.loggedinUser._id;
-      });
+      })
+      return gigs.slice(this.startIdx, this.startIdx + this.pageSize)
     },
   },
 
-  methods: {},
+  methods: {
+      nextPage(){
+
+      this.pageIdx++
+      let maxPage = Math.ceil(this.orders.length / this.pageSize)
+         if (this.pageIdx >= maxPage-1 ) return this.pageIdx--
+    },
+    prevPage(){
+
+        this.pageIdx--
+         let maxPage = Math.ceil(this.orders.length / this.pageSize)
+       if (this.pageIdx < 0) this.pageIdx = 0
+    },
+  },
 
   components: {
     sellerGigsPreview,

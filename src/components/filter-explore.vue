@@ -12,6 +12,7 @@
       </section>
     <section class="filter-explore-sortby">
       <div>
+
         Sory By:
          <el-select
         v-model="filterBy.sortBy"
@@ -28,20 +29,28 @@
         
       />
          
-
     </el-select>
       </div>
-     
-
+      <!-- //slider -->
     <div class="slider-demo-block">
-      Price range:
-      <el-slider
+  <el-popover
+    placement="bottom-end"
+    :title="priceRender"
+    :width="200"
+    trigger="hover"
+  >
+     <el-slider
         v-model="filterBy.price"
-        range
+        :step="5"
         show-stops
+        :show-tooltip="false"
         :max="250"
         @change="setFilter"
       />
+    <template #reference>
+      <el-button>Budget</el-button>
+    </template>
+  </el-popover>
     </div>
     </section>
     </div>
@@ -53,9 +62,11 @@ import { ref } from "vue";
 export default {
   data() {
     return {
+      visible:false,
       filterBy: {
         seller: "",
-        price: ref([0, 250]),
+        price: 0,
+        // price: ref([0, 250]),
         sortBy: "",
       },
       options : [
@@ -76,7 +87,12 @@ export default {
   },
   components: {},
   async created() {},
-  computed: {},
+  computed: {
+     priceRender() {
+      if (this.filterBy.price === 300) return "Any";
+      else return `Price ${this.filterBy.price}`;
+    },
+  },
 
   methods: {
     setFilter() {
