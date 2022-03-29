@@ -44,22 +44,22 @@ import CloseIcon from "../svgs/close-icon.vue";
 export default {
   data() {
     return {
-      userOrders: this.orders,
-      tableData: [
-        {
-          totalMoneyMade: this.getTotalMoney,
-        },
-      ],
+      tableData: [],
     };
   },
   created() {},
-
   computed: {
     loggedinUser() {
       return this.$store.getters.loggedinUser;
     },
     orders() {
       return this.$store.getters.orders;
+    },
+    ordersToShow() {
+      return this.orders.filter((order) => {
+        console.log(this.loggedinUser._id);
+        return order.seller?._id == this.loggedinUser._id;
+      });
     },
   },
 
@@ -68,7 +68,6 @@ export default {
       const order = JSON.parse(JSON.stringify(OldOrder));
       order.status = status;
       this.$store.dispatch({ type: "updateOrder", order });
-      socketService.emit("statusChanged", order);
     },
   },
 
