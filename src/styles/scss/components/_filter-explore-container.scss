@@ -1,0 +1,16 @@
+.filter-explore-container{
+    display: flex;
+    flex-direction: column;
+    .filter-explore-search{
+        input{
+            width: 50%;
+        }
+    }
+    .filter-explore-sortby{
+        display: flex;
+        justify-content: space-between;
+        .slider-demo-block{
+            width: 40%;
+        }
+    }
+}
