@@ -8,6 +8,7 @@
     <br />
     <br />
     <br />
+
     <div class="user-page-layout-container" v-if="loggedinUser">
       <div class="user-page-left">
         <h1>user profile</h1>

@@ -106,6 +106,7 @@ export default {
       const gigs = this.gigs.filter((gig)=>{
          return gig?.owner._id == this.loggedinUser._id;
       })
+      
       return gigs.slice(this.startIdx, this.startIdx + this.pageSize)
     },
   },
