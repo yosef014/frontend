@@ -28,6 +28,9 @@ export default {
   components: {
     appHeader,
   },
+  mounted() {
+    window.onresize();
+  },
 
   // @GUY - שמתי פה דברים שיעזרו לי בהמשף ךרנדר קומפוננטה דינמית באפ הדר
   watch: {

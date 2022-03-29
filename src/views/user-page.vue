@@ -8,7 +8,7 @@
     <br />
     <br />
     <br />
-    <div class="user-page-layout-container">
+    <div class="user-page-layout-container" v-if="loggedinUser">
       <div class="user-page-left">
         <h1>user profile</h1>
         <div class="user-img">
@@ -62,6 +62,9 @@
         </div>
       </div>
     </div>
+    <div v-else>
+      plase log in
+      </div>
   </section>
 </template>
 
