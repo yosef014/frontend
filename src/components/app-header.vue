@@ -11,13 +11,20 @@
       <SignUp @closeModal="closeModal" />
     </div>
     <div class="logged-out-nav max-width-container">
+      <span v-if="isMobileDisplay" class="hamburger-menu"
+        ><HamburgerMenuIcon />
+      </span>
       <router-link to="/">
         <FiiverrLogo
           class="logo"
           :style="{ fill: logoColorState ? '#fff' : '#404145' }"
         ></FiiverrLogo>
       </router-link>
-      <div :style="{ opacity: isShowNavSearch ? 1 : 0 }" class="nav-search">
+      <div
+        v-if="!isMobileDisplay"
+        :style="{ opacity: isShowNavSearch ? 1 : 0 }"
+        class="nav-search"
+      >
         <searchIconVue />
         <ul
           :class="{ 'search-results-box': categoriesToShow !== false }"
@@ -34,7 +41,7 @@
         <input type="text" placeholder="Find Services" v-model="inputVal" />
         <button>Search</button>
       </div>
-      <div v-if="windowWidth > 800" class="link-list">
+      <div v-if="!isMobileDisplay" class="link-list">
         <ul>
           <li v-for="navLink in navLinks" :key="navLink">
             <router-link :to="navLink.route">
@@ -107,6 +114,7 @@ import FiiverrLogo from "../svgs/fiiverr-logo.vue";
 import { remove } from "@vue/shared";
 import Login from "./login.vue";
 import SignUp from "./sign-up.vue";
+import HamburgerMenuIcon from "../svgs/hamburger-menu-icon.vue";
 import { useDeprecateAppendToBody } from "element-plus";
 export default {
   components: {
@@ -114,6 +122,7 @@ export default {
     FiiverrLogo,
     Login,
     SignUp,
+    HamburgerMenuIcon,
   },
   data() {
     return {
@@ -182,13 +191,11 @@ export default {
     categoryChosen(res) {
       this.inputVal = res;
       this.$router.push("/tag" + "/" + res);
-      
     },
     async doLogout() {
       await this.$store.dispatch({ type: "logout" });
       this.$router.push("/");
-      document.location.reload(true)
-
+      document.location.reload(true);
     },
 
     toggleLogin() {
@@ -245,6 +252,8 @@ export default {
       }
     },
     orderAddedNotefication(ownerOrder) {
+            console.log("amir");
+
       ElNotification({
         title: "new order added!",
         message: `new pending order has been added in seller control`,
@@ -252,15 +261,25 @@ export default {
         position: "bottom-right",
       });
     },
+    orderStatusChanged(status){
+      console.log(status);
+       ElNotification({
+        title: 'your order status changed',
+        message: `status changed to ${status}`,
+        type: "success",
+        position: "bottom-right",
+      });
+
+    },
   },
 
   mounted() {
     window.onresize = () => {
       this.windowWidth = window.innerWidth;
-      console.log(
-        "🚀 ~ file: app-header.vue ~ line 262 ~ mounted ~ this.windowWidth",
-        this.windowWidth
-      );
+      // console.log(
+      //   "🚀 ~ file: app-header.vue ~ line 262 ~ mounted ~ this.windowWidth",
+      //   this.windowWidth
+      // );
     };
   },
 
@@ -313,13 +332,19 @@ export default {
         backgroundColor: this.loggedinUser ? "#00000" : "#fff",
       };
     },
+
+    isMobileDisplay() {
+      return this.windowWidth < 800;
+    },
   },
   created() {
     socketService.setup();
     socketService.on("Notefication orderAdded", this.orderAddedNotefication);
+    socketService.on('Notefication statusChanged', this.orderStatusChanged);
   },
   destroyed() {
-    socketService.off("Notefication orderAdded", this.orderAddedNotefication);
+    // socketService.off("Notefication statusChanged", this.orderStatusChanged);
+    // socketService.off("Notefication orderAdded", this.orderAddedNotefication);
   },
 };
 </script>

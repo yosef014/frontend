@@ -216,6 +216,7 @@ form {
   color: aliceblue;
   max-width: 800px;
   margin-inline-start: 3rem;
+  position: relative;
 }
 
 .hero {
@@ -262,7 +263,7 @@ form {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   border: $border-light;
-  width: 45rem;
+  width: 90%;
   height: fit-content;
   position: absolute;
   & p {
