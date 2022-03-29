@@ -54,7 +54,7 @@
                 v-if="!loggedinUser"
                 >Sign In</a
               >
-              <a class="join" v-else>Sign Out</a>
+              <a class="join" v-else @click="doLogout">Sign Out</a>
             </a>
           </li>
           <li>
@@ -182,7 +182,15 @@ export default {
     categoryChosen(res) {
       this.inputVal = res;
       this.$router.push("/tag" + "/" + res);
+      
     },
+    async doLogout() {
+      await this.$store.dispatch({ type: "logout" });
+      this.$router.push("/");
+      document.location.reload(true)
+
+    },
+
     toggleLogin() {
       this.showModal.isLogin = true;
       document.querySelector("body").classList.toggle("disable-scrolling");

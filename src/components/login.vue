@@ -104,6 +104,8 @@ export default {
           userCred: this.loginCred,
         });
         this.$emit("closeModal");
+        document.location.reload(true);
+
         this.$router.push("/");
       } catch (err) {
         console.log(err);
