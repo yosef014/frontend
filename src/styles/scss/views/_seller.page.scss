@@ -5,9 +5,7 @@
 }
 
 .profile-page-layout {
-  margin: 0 auto;
   display: flex;
-  max-width: $screen-size-l;
   gap: 40px;
   width: 100vw;
   height: 60vh;
@@ -16,13 +14,14 @@
   .profile-page-aside-left {
     padding: 2rem;
     height: 100%;
-    width: 40%;
+    width: 20%;
     min-width: 20rem;
     background-color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    border: 1px solid #e5e5e5;
 
     .user-info {
       margin: 0 auto;
@@ -123,7 +122,7 @@
     .gig-card {
       height: 16rem;
       width: 12rem;
-      border: 1px solid grey;
+      border: 1px solid #e5e5e5;
       background-color: #fff;
       margin: 0 1rem 1rem 0;
       display: flex;
@@ -160,6 +159,7 @@
     flex-direction: column;
     align-items: center;
     height: 60vh;
+    width: 80%;
 
     .my-orders-label {
       display: flex;
@@ -247,7 +247,7 @@
   }
 
   .seller-gig-footer {
-    border-top: 1px solid grey;
+    border: 1px solid #e5e5e5;
     width: 100%;
     height: 2rem;
 
@@ -267,18 +267,20 @@
     }
   }
 }
-.chrats-container{
- display: flex;
- justify-content: center;
- gap: 30px;
- margin-top: -100px;
- .chart-one{
-   width: 200px;
+.chrats-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: -100px;
+  .chart-one {
+    width: 200px;
+  }
+  .chart-two {
+    width: 200px;
+  }
+}
 
- }
- .chart-two{
-   width: 200px;
-
- }
-
+div.profile-page-aside-right > div {
+  box-shadow: none !important;
+  border: 1px solid #e5e5e5 !important;
 }

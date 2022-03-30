@@ -114,6 +114,11 @@
 .logo {
   font-family: Chunk;
   font-size: xx-large;
+  @media (max-width: $screen-size-m) {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+  }
 }
 .nav-search {
   margin-right: auto;

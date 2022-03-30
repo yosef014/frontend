@@ -34,9 +34,15 @@
                 <li class="gig-card" v-for="gig in gigsToShow" :key="gig._id">
                   <sellerGigsPreview :gig="gig" />
                 </li>
+                <li class="gig-card" v-for="gig in gigsToShow" :key="gig._id">
+                  <sellerGigsPreview :gig="gig" />
+                </li>
               </ul>
+<<<<<<< HEAD
               <button @click="nextPage">next Page</button>
               <button @click="prevPage">prev Page</button>
+=======
+>>>>>>> 6ed324b895d4f5d1b1b154c23fee2b410ee4e553
             </el-tab-pane>
             <el-tab-pane label="Orders manager">
               <sellerOrders></sellerOrders>
@@ -65,8 +71,11 @@ import sellerOrders from "../components/seller-orders.vue";
 export default {
   data() {
     return {
+<<<<<<< HEAD
       pageSize: 4,
       pageIdx: 0,
+=======
+>>>>>>> 6ed324b895d4f5d1b1b154c23fee2b410ee4e553
       userProfileNavLink: [
         {
           name: "My Active Gigs",
@@ -88,8 +97,15 @@ export default {
     orders() {
       return this.$store.getters.orders;
     },
+<<<<<<< HEAD
     startIdx() {
       return this.pageIdx * this.pageSize;
+=======
+    ordersToShow() {
+      return this.orders.filter((order) => {
+        return order.seller._id == this.loggedinUser._id;
+      });
+>>>>>>> 6ed324b895d4f5d1b1b154c23fee2b410ee4e553
     },
     // ordersToShow() {
     //   return this.orders.filter((order) => {
@@ -100,6 +116,7 @@ export default {
       return this.$store.getters.gigs;
     },
     gigsToShow() {
+<<<<<<< HEAD
       if (!this.gigs) return;
       const gigs = this.gigs.filter((gig) => {
         return gig.owner._id == this.loggedinUser._id;
@@ -120,6 +137,16 @@ export default {
       if (this.pageIdx < 0) this.pageIdx = 0;
     },
   },
+=======
+      // if (!this.gigs) return;
+      return this.gigs.filter((gig) => {
+        return gig.owner._id == this.loggedinUser._id;
+      });
+    },
+  },
+
+  methods: {},
+>>>>>>> 6ed324b895d4f5d1b1b154c23fee2b410ee4e553
 
   components: {
     sellerGigsPreview,

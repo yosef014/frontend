@@ -1,6 +1,7 @@
 <template>
   <section>
     <charts></charts>
+<<<<<<< HEAD
     <table>
       <tr class="table-header">
         <th>BUYER</th>
@@ -22,11 +23,47 @@
         </td>
       </tr>
     </table>
+=======
+    <div class="table">
+      <div class="table-header">
+        <span>BUYER</span>
+        <span>GIG</span>
+        <span>DATE</span>
+        <span>TOTAL</span>
+        <span>STATUS</span>
+        <span>ACTIONS</span>
+      </div>
+      <ul class="table-row" v-for="order in ordersToShow" :key="order">
+        <li>{{ order.buyer.username }}</li>
+        <li class="table-gig-title">{{ order.gig.title }}</li>
+        <li>{{ new Date(order.createdAt).toLocaleDateString("iw-IL") }}</li>
+        <li>{{ order.gig.price + "$" }}</li>
+        <li
+          :style="{
+            color: order.status === 'approved' ? '#27AE60' : '#C0392B',
+          }"
+        >
+          {{ order.status }}
+        </li>
+
+        <div class="table-actions">
+          <CircleCheckmarkIcon
+            :fill="order.status === 'approved' ? '#27AE60' : ''"
+            @click="changeStatus('approved', order)"
+          >
+          </CircleCheckmarkIcon>
+          <CloseIcon @click="changeStatus('closed', order)"></CloseIcon>
+        </div>
+      </ul>
+    </div>
+>>>>>>> 6ed324b895d4f5d1b1b154c23fee2b410ee4e553
   </section>
 </template>
 
 <script>
 import charts from "../components/charts.vue";
+import CircleCheckmarkIcon from "../svgs/circle-checkmark-icon.vue";
+import CloseIcon from "../svgs/close-icon.vue";
 
 export default {
   data() {
@@ -42,9 +79,16 @@ export default {
     orders() {
       return this.$store.getters.orders;
     },
+<<<<<<< HEAD
       ordersToShow() {
       return this.orders.filter((order) => {
         return order.seller._id == this.loggedinUser._id;
+=======
+    ordersToShow() {
+      return this.orders.filter((order) => {
+        console.log(this.loggedinUser._id);
+        return order.seller?._id == this.loggedinUser._id;
+>>>>>>> 6ed324b895d4f5d1b1b154c23fee2b410ee4e553
       });
     },
   },
@@ -54,12 +98,13 @@ export default {
       const order = JSON.parse(JSON.stringify(OldOrder));
       order.status = status;
       this.$store.dispatch({ type: "updateOrder", order });
-      socketService.emit("statusChanged", order);
     },
   },
 
   components: {
     charts,
+    CircleCheckmarkIcon,
+    CloseIcon,
   },
 };
 </script>

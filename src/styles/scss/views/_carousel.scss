@@ -6,11 +6,14 @@
   > section
   > div
   > ol
-  > * {
-  width: 250px;
+  > li {
+  min-width: 280px !important;
   outline: none;
   padding: 0 18px;
   display: unset;
+  & div > a > a > picture img {
+    // aspect-ratio: 252/345;
+  }
 }
 
 //all carousel images in gig list
