@@ -10,10 +10,36 @@
           <div class="profile-pic">
             <img :src="loggedinUser.imgUrl" />
           </div>
-          <p>{{ loggedinUser.username }}</p>
-          <p>{{ loggedinUser.level }}</p>
-          <p>{{ loggedinUser.fullname }}</p>
+          <p>username: {{ loggedinUser.username }}</p>
+          <p>level: {{ loggedinUser.level }}</p>
         </div>
+        
+<div class="demo-progress">
+  Order completion
+    <el-progress :text-inside="true" :stroke-width="15" :percentage="70" />
+    activity
+    <el-progress
+      :text-inside="true"
+      :stroke-width="15"
+      :percentage="100"
+      status="success"
+    />
+    user reviews
+    <el-progress
+      :text-inside="true"
+      :stroke-width="15"
+      :percentage="80"
+      status="warning"
+    />
+    Rating
+    <el-progress
+      :text-inside="true"
+      :stroke-width="15"
+      :percentage="50"
+      status="exception"
+    />
+  </div>
+  
         <div class="preview-controller-btn">
           <p @click="this.$router.push('/seller')">Preview seller controll</p>
         </div>

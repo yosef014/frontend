@@ -10,15 +10,11 @@
     {{ ordersToShow.filter((order) => order.status == "panding").length }}
     <br />
     total price: {{ totalPrice }}
-
     <div class="table">
       <div class="table-header">
-        <span>BUYER</span>
-        <span>GIG</span>
-        <span>DATE</span>
-        <span>TOTAL</span>
-        <span>STATUS</span>
-        <span>ACTIONS</span>
+        <span v-for="category in tabelCategory" :key="category">
+          {{ category }}
+        </span>
       </div>
       <ul class="table-row" v-for="order in ordersToShow" :key="order">
         <li>{{ order.buyer.username }}</li>
@@ -35,12 +31,8 @@
         >
           {{ order.status.toUpperCase() }}
         </li>
-
         <div class="table-actions">
-          <CircleCheckmarkIcon
-            :fill="order.status === 'approved' ? '#27AE60' : ''"
-            @click="changeStatus('approved', order)"
-          >
+          <CircleCheckmarkIcon :fill="order.status === 'approved' ? '#27AE60' : ''" @click="changeStatus('approved', order)">
           </CircleCheckmarkIcon>
           <CloseIcon @click="changeStatus('closed', order)"></CloseIcon>
         </div>
@@ -48,7 +40,6 @@
     </div>
   </section>
 </template>
-
 <script>
 import charts from "../components/charts.vue";
 import CircleCheckmarkIcon from "../svgs/circle-checkmark-icon.vue";
@@ -58,6 +49,7 @@ export default {
   data() {
     return {
       tableData: [],
+      tabelCategory: ["BUYER", "GIG", "DATE", "TOTAL", "STATUS", "ACTIONS"],
     };
   },
   created() {},
