@@ -260,7 +260,7 @@ export default {
       });
     },
     orderStatusChanged(status) {
-      console.log(status);
+      console.log('socket works');
       ElNotification({
         title: "your order status changed",
         message: `status changed to ${status}`,
@@ -273,10 +273,6 @@ export default {
   mounted() {
     window.onresize = () => {
       this.windowWidth = window.innerWidth;
-      // console.log(
-      //   "🚀 ~ file: app-header.vue ~ line 262 ~ mounted ~ this.windowWidth",
-      //   this.windowWidth
-      // );
     };
   },
 
@@ -352,12 +348,9 @@ export default {
     },
   },
   created() {
-    socketService.setup();
     console.log('craeted')
     socketService.on("Notefication orderAdded", this.orderAddedNotefication);
-    socketService.on("Notefication statusChanged", data => {
-      console.log('yessssd',data)
-    });
+    socketService.on("Notefication statusChanged", this.orderStatusChanged);
   },
   destroyed() {
     socketService.off("Notefication statusChanged", this.orderStatusChanged);

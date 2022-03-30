@@ -94,7 +94,6 @@ export default {
   },
   async created() {
     this.loadGig();
-    socketService.setup();
     socketService.emit("chat topic", this.topic);
     socketService.on("chat addMsg", this.addMsg);
   },
