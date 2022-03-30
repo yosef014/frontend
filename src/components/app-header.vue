@@ -78,7 +78,7 @@
       </div>
       <div v-if="!isMobileDisplay" class="link-list">
         <ul>
-          <li v-for="navLink in navLinks" :key="navLink">
+          <li v-for="navLink in navLinks" :key="navLink" @click="loader">
             <router-link :to="navLink.route">
               <a
                 :style="navLink.name === 'business-link' ? setLinkColor : ''"
@@ -115,14 +115,14 @@
                     :src="loggedinUser.imgUrl"
                     @click="routeToProfile"
                   />
-                  <i
+                  <span
                     class="notification-indicator"
                     :style="{
                       backgroundColor: isGotNotification
-                        ? 'orange'
+                        ? 'rgb(207, 13, 13)'
                         : 'rgba(0,0,0,0)',
                     }"
-                    >{{ newMsgCount }}</i
+                    >{{ newMsgCount }}</span
                   >
                 </router-link>
               </div>
@@ -318,7 +318,7 @@ export default {
       });
     },
     orderStatusChanged(status) {
-      console.log(status);
+      console.log("socket works");
       ElNotification({
         title: "your order status changed",
         message: `status changed to ${status}`,
@@ -326,15 +326,19 @@ export default {
         position: "bottom-right",
       });
     },
+    loader() {
+      this.$store.dispatch({ type: "loadGigs" });
+       this.$store.dispatch({ type: 'isLoading', isLoading: true })
+       this.$store.dispatch({type:'loadGigs'})
+        setTimeout(() => {
+           this.$store.dispatch({ type: 'isLoading', isLoading: false })
+        }, 1500);
+      },
   },
 
   mounted() {
     window.onresize = () => {
       this.windowWidth = window.innerWidth;
-      // console.log(
-      //   "🚀 ~ file: app-header.vue ~ line 262 ~ mounted ~ this.windowWidth",
-      //   this.windowWidth
-      // );
     };
   },
 
@@ -407,21 +411,19 @@ export default {
           this.newMsgCount++;
         }
       });
+      if (this.newMsgCount == 0) {
+        this.newMsgCount = ' '
+      }
       return isPending;
     },
   },
   created() {
-    socketService.setup();
-    console.log("craeted");
     socketService.on("Notefication orderAdded", this.orderAddedNotefication);
-    socketService.on("Notefication statusChanged", (data) => {
-      console.log("yessssd", data);
-    });
+    socketService.on("Notefication statusChanged", this.orderStatusChanged);
   },
   destroyed() {
-    socketService.off("Notefication statusChanged", this.orderStatusChanged);
     socketService.off("Notefication orderAdded", this.orderAddedNotefication);
-    console.log("destroyied");
+    socketService.off("Notefication statusChanged", this.orderStatusChanged);
   },
 };
 </script>

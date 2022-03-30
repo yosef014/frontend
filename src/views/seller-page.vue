@@ -49,8 +49,8 @@
         </div>
 
         <div class="profile-page-aside-right">
-          <el-tabs type="border-card">
-            <el-tab-pane label="My Active Gigs">
+          <el-tabs v-model="activeName" type="border-card" @tab-click="togglePagination">
+            <el-tab-pane label="My Active Gigs" name="first" >
               <ul class="my-orders-label">
                 <li class="gig-add-card gig-card">
                   <a
@@ -81,9 +81,9 @@
               </li>
             </ul>
           </nav> -->
-          <div class="seller-paginaton-page">
-           <button @click="prevPage"> &lt; Prev  </button>
-           <button @click="nextPage">Next > </button>
+          <div v-if="openPagination" class="seller-paginaton-page">
+           <el-button @click="prevPage"> &lt; Prev  </el-button>
+           <el-button @click="nextPage">Next > </el-button>
           </div>
         </div>
       </div>
@@ -99,8 +99,10 @@ import sellerOrders from "../components/seller-orders.vue";
 export default {
   data() {
     return {
+      activeName:'first',
       pageSize: 7,
       pageIdx: 0,
+      openPagination:true,
       userProfileNavLink: [
         {
           name: "My Active Gigs",
@@ -143,6 +145,10 @@ export default {
   },
 
   methods: {
+    togglePagination(){
+      if(this.activeName == 1) return this.openPagination = false
+      if(this.activeName === 'first') return this.openPagination = true
+    },
     nextPage() {
       this.pageIdx++;
       let maxPage = Math.ceil(this.orders.length / this.pageSize);

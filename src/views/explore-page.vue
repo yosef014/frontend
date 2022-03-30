@@ -19,11 +19,12 @@
       <filtereEplore> </filtereEplore>
     </div>
     <ul class="gig-list grid">
-      <li class="gig-preview" v-for="gig in gigsToShow" :key="gig._id">
-        <gigsPreview :gig="gig" />
+      <li class="gig-preview" v-for="gig in gigsToShow" :key="gig._id" >
+        <gigsPreview :gig="gig" @click="loader"/>
       </li>
     </ul>
   </div>
+ 
 </template>
 
 <script>
@@ -35,6 +36,7 @@ import filtereEplore from "../components/filter-explore.vue";
 export default {
   data() {
     return {
+      fullscreenLoading:false,
       filterBy: {
         seller: "",
         price: ref([80, 150]),
@@ -55,11 +57,12 @@ export default {
     gigs() {
       return this.$store.getters.gigs;
     },
-    gigsToShow() {
+     gigsToShow() {
       const category = this.$route.params.gig;
       if (!category) return this.gigs;
-      const gigsToDisplay = this.gigs.filter((gig) => {
-        return gig.category.some((tab) => category.includes(tab));
+
+        const gigsToDisplay =  this.gigs.filter((gig) => {
+          return gig.category.some((tab) => category.includes(tab));
       });
       return gigsToDisplay;
     },
@@ -74,6 +77,18 @@ export default {
       const filterBy = JSON.parse(JSON.stringify(this.filterBy));
       this.$store.dispatch({ type: "setFilter", filterBy });
     },
-  },
+
+     loader() {
+       this.$store.dispatch({ type: 'isLoading', isLoading: true })
+        setTimeout(() => {
+           this.$store.dispatch({ type: 'isLoading', isLoading: false })
+        }, 1500);
+      },
+  }
 };
 </script>
+<style>
+.fontsiasd{
+  font-size: 200px;
+}
+</style>

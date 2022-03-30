@@ -1,7 +1,12 @@
 <template>
   <main>
     <appHeader></appHeader>
-
+    <div
+      class="isloading"
+      v-loading.fullscreen.lock="isLoading"
+      element-loading-text="Loading..."
+      element-loading-background="rgba(255,255,255)"
+    ></div>
     <RouterView />
   </main>
 </template>
@@ -20,6 +25,14 @@ export default {
     return {
       appHeader: null,
     };
+  },
+  computed: {
+    isLoading() {
+      return this.$store.getters.isLoading;
+    },
+    setAppHeader() {
+      return this.appHeader;
+    },
   },
 
   methods: {
@@ -42,13 +55,12 @@ export default {
       },
     },
   },
-
-  computed: {
-    setAppHeader() {
-      return this.appHeader;
-    },
-  },
 };
 </script>
-
-<style scoped></style>
+<style>
+.is-loading-state {
+  background-color: blueviolet;
+  font-size: 200px;
+  z-index: 99999999;
+}
+</style>

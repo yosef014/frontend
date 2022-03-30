@@ -87,6 +87,9 @@ export const gigStore = {
             commit({ type: 'setFilter', filterBy })
             dispatch({ type: 'loadGigs' })
         },
+        isLoading({commit },{isLoading}){
+            commit({type:'setLoading', isLoading})
+        },
         async addGig({ commit }, { gig }) {
             try {
                 const savedGig = await gigService.save(gig);
