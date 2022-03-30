@@ -40,19 +40,6 @@
             <li :style="{ color: order.status ? '' : '' }">
               {{ order.status }}
             </li>
-            <li>
-              <button
-                @click="
-                  msgTo = {
-                    fullname: order.seller.fullname,
-                    _id: order.seller._id,
-                    imgUrl: order.seller.imgUrl,
-                  }
-                "
-              >
-                tallk whit seller
-              </button>
-            </li>
           </ul>
         </div>
         <el-pagination

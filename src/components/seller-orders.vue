@@ -16,11 +16,14 @@
         <li>{{ new Date(order.createdAt).toLocaleDateString("iw-IL") }}</li>
         <li>{{ order.gig.price + "$" }}</li>
         <li
+          :class="
+            order.status === 'approved' ? 'approved-active' : 'denied-active'
+          "
           :style="{
-            color: order.status === 'approved' ? '#27AE60' : '#C0392B',
+            color: order.status === 'Pending' ? 'orange' : '',
           }"
         >
-          {{ order.status }}
+          {{ order.status.toUpperCase() }}
         </li>
 
         <div class="table-actions">
@@ -61,6 +64,9 @@ export default {
         return order.seller?._id == this.loggedinUser._id;
       });
     },
+    setStatusColor() {
+      return order.status === "Approved" ? "approved-active" : "denied-active";
+    },
   },
 
   methods: {
@@ -78,3 +84,4 @@ export default {
   },
 };
 </script>
+<style scoped></style>

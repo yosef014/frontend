@@ -26,34 +26,28 @@ export default {
   data() {
     return {
       settings: {
-        itemsToShow: 1,
-        itemsToScroll: 4,
-        transition: 600,
-        snapAlign: "center",
+        itemsToShow: 8,
+        itemsToScroll: 1,
+        transition: 200,
+        snapAlign: "start",
         wrapAround: true,
       },
       breakpoints: {
         400: {
-          itemsToShow: 1.5,
-          itemsToScroll: 2,
-          snapAlign: "start",
+          itemsToShow: 4,
         },
         700: {
-          itemsToShow: 1.5,
-          snapAlign: "start",
+          itemsToShow: 5,
         },
         800: {
-          itemsToShow: 3,
-          snapAlign: "center",
+          itemsToShow: 6,
         },
         // 1024 and up
         1060: {
-          itemsToShow: 4,
-          snapAlign: "start",
+          itemsToShow: 7,
         },
         1240: {
-          itemsToShow: 5,
-          snapAlign: "start",
+          itemsToShow: 8,
         },
       },
       slides: [

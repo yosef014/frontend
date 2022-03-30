@@ -1,16 +1,33 @@
-.filter-explore-container{
+.filter-explore-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  * {
+    margin: 0.3rem 0;
+  }
+  .filter-explore-search {
+    input {
+      width: 50%;
+    }
+  }
+  .filter-explore-sortby {
     display: flex;
-    flex-direction: column;
-    .filter-explore-search{
-        input{
-            width: 50%;
-        }
+    * {
+      margin-inline-end: 1rem;
     }
-    .filter-explore-sortby{
+    // justify-content: space-between;
+    .slider-demo-block {
+      display: flex;
+      align-items: center;
+      width: 40%;
+      .el-switch {
         display: flex;
-        justify-content: space-between;
-        .slider-demo-block{
-            width: 40%;
+        align-items: center;
+        justify-content: center;
+        span > div {
+          top: -4px;
         }
+      }
     }
+  }
 }
