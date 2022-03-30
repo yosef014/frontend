@@ -10,7 +10,7 @@
         <th>STATUS</th>
         <th>ACTIONS</th>
       </tr>
-      <tr v-for="order in orders" :key="order">
+      <tr v-for="order in ordersToShow" :key="order">
         <td>{{ order.buyer.username }}</td>
         <td>{{ order.gig.title }}</td>
         <td>{{ new Date(order.createdAt).toLocaleDateString("iw-IL") }}</td>
@@ -41,6 +41,11 @@ export default {
     },
     orders() {
       return this.$store.getters.orders;
+    },
+      ordersToShow() {
+      return this.orders.filter((order) => {
+        return order.seller._id == this.loggedinUser._id;
+      });
     },
   },
 
