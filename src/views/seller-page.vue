@@ -49,8 +49,8 @@
         </div>
 
         <div class="profile-page-aside-right">
-          <el-tabs type="border-card">
-            <el-tab-pane label="My Active Gigs">
+          <el-tabs v-model="activeName" type="border-card" @tab-click="togglePagination">
+            <el-tab-pane label="My Active Gigs" name="first" >
               <ul class="my-orders-label">
                 <li class="gig-add-card gig-card">
                   <a
@@ -66,7 +66,7 @@
                 </li>
               </ul>
             </el-tab-pane>
-            <el-tab-pane  label="Orders manager">
+            <el-tab-pane label="Orders manager">
               <sellerOrders></sellerOrders>
             </el-tab-pane>
             <el-tab-pane label="Dashboard">Dashboard</el-tab-pane>
@@ -99,6 +99,7 @@ import sellerOrders from "../components/seller-orders.vue";
 export default {
   data() {
     return {
+      activeName:'first',
       pageSize: 7,
       pageIdx: 0,
       openPagination:true,
@@ -144,6 +145,10 @@ export default {
   },
 
   methods: {
+    togglePagination(){
+      if(this.activeName == 1) return this.openPagination = false
+      if(this.activeName === 'first') return this.openPagination = true
+    },
     nextPage() {
       this.pageIdx++;
       let maxPage = Math.ceil(this.orders.length / this.pageSize);
@@ -156,10 +161,6 @@ export default {
     handleChange(pageIdx) {
       this.pageIdx = pageIdx;
     },
-    triggerPagination(){
-      console.log(this.openPagination);
-      this.openPagination = !this.openPagination
-    }
   },
 
   components: {
