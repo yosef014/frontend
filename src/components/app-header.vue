@@ -83,7 +83,7 @@
                     class="notification-indicator"
                     :style="{
                       backgroundColor: isGotNotification
-                        ? 'orange'
+                        ? 'rgb(207, 13, 13)'
                         : 'rgba(0,0,0,0)',
                     }"
                     >{{ newMsgCount }}</i
@@ -260,7 +260,7 @@ export default {
       });
     },
     orderStatusChanged(status) {
-      console.log('socket works');
+      console.log("socket works");
       ElNotification({
         title: "your order status changed",
         message: `status changed to ${status}`,
@@ -344,18 +344,19 @@ export default {
           this.newMsgCount++;
         }
       });
+      if (this.newMsgCount == 0) {
+        this.newMsgCount = ' '
+      }
       return isPending;
     },
   },
   created() {
-    console.log('craeted')
     socketService.on("Notefication orderAdded", this.orderAddedNotefication);
     socketService.on("Notefication statusChanged", this.orderStatusChanged);
   },
   destroyed() {
-    socketService.off("Notefication statusChanged", this.orderStatusChanged);
     socketService.off("Notefication orderAdded", this.orderAddedNotefication);
-    console.log("destroyied");
+    socketService.off("Notefication statusChanged", this.orderStatusChanged);
   },
 };
 </script>

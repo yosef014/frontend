@@ -65,7 +65,6 @@ export default {
     },
     ordersToShow() {
       return this.orders.filter((order) => {
-        console.log(this.loggedinUser._id);
         return order.seller?._id == this.loggedinUser._id;
       });
     },
