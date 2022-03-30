@@ -66,8 +66,7 @@
                 </li>
               </ul>
             </el-tab-pane>
-            <el-tab-pane   @tab-click="openPagination = false" label="Orders manager">
-              <span>hi</span>
+            <el-tab-pane  label="Orders manager">
               <sellerOrders></sellerOrders>
             </el-tab-pane>
             <el-tab-pane label="Dashboard">Dashboard</el-tab-pane>
