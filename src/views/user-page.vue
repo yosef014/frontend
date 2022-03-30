@@ -1,60 +1,72 @@
 <template>
-  <section>
-    <div class="user-page-layout-container" v-if="loggedinUser">
+  <section class="page-content-container">
+    <div
+      class="user-page-layout-container max-width-container"
+      v-if="loggedinUser"
+    >
       <div class="user-page-left">
-        <h1>user profile</h1>
-        <div class="user-img">
-          <img :src="loggedinUser.imgUrl" />
+        <h1>User Profile</h1>
+        <div class="user-info">
+          <div class="profile-pic">
+            <img :src="loggedinUser.imgUrl" />
+          </div>
+          <p>{{ loggedinUser.username }}</p>
+          <p>{{ loggedinUser.level }}</p>
+          <p>{{ loggedinUser.fullname }}</p>
         </div>
-        username: {{ loggedinUser.username }}
-        <p>full name: {{ loggedinUser.fullname }}</p>
-        <p>level: {{ loggedinUser.level }}</p>
-        <button @click="this.$router.push('/seller')">
-          Preview seller controll
-        </button>
+        <div class="preview-controller-btn">
+          <p @click="this.$router.push('/seller')">Preview seller controll</p>
+        </div>
       </div>
 
-      <div class="user-page-orders-main">
+      <div class="user-page-right">
         <h1>orders list</h1>
         <div class="user-page-orders-list">
-          <table>
-            <tr>
-              <th>gig</th>
-              <th>title</th>
-              <th>order date</th>
-              <th>price</th>
-              <th>status</th>
-              <th>massnger</th>
-            </tr>
-            <tr v-for="order in ordersToShow" :key="order">
-              <td><img :src="order.gig.productImgs[0]" /></td>
-              <td>{{ order.gig.title }}</td>
-              <td>
-                {{ new Date(order.createdAt).toLocaleDateString("iw-IL") }}
-              </td>
-              <td>{{ order.gig.price + "$" }}</td>
-              <td>{{ order.status }}</td>
-              <td>
-                <button
-                  @click="
-                    msgTo = {
-                      fullname: order.seller.fullname,
-                      _id: order.seller._id,
-                      imgUrl: order.seller.imgUrl,
-                    }
-                  "
-                >
-                  tallk whit seller
-                </button>
-              </td>
-            </tr>
-          </table>
-         <el-pagination layout="prev, pager, next" :total="orders.length" :page-size="5" @next-click="nextPage" @prev-click="prevPage" @current-change="handleChange" />
-              <!-- <chat :msgTo="msgTo"></chat> -->
-
+          <ul class="table-header">
+            <li>Gig</li>
+            <li>Title</li>
+            <li>Date</li>
+            <li>Price</li>
+            <li>Status</li>
+            <li>Messenger</li>
+          </ul>
+          <ul class="table-row" v-for="order in ordersToShow" :key="order">
+            <li><img :src="order.gig.productImgs[0]" /></li>
+            <li>{{ order.gig.title }}</li>
+            <li>
+              {{ new Date(order.createdAt).toLocaleDateString("iw-IL") }}
+            </li>
+            <li>{{ order.gig.price + "$" }}</li>
+            <li :style="{ color: order.status ? '' : '' }">
+              {{ order.status }}
+            </li>
+            <li>
+              <button
+                @click="
+                  msgTo = {
+                    fullname: order.seller.fullname,
+                    _id: order.seller._id,
+                    imgUrl: order.seller.imgUrl,
+                  }
+                "
+              >
+                tallk whit seller
+              </button>
+            </li>
+          </ul>
         </div>
+        <el-pagination
+          layout="prev, pager, next"
+          :total="orders.length"
+          :page-size="5"
+          @next-click="nextPage"
+          @prev-click="prevPage"
+          @current-change="handleChange"
+        />
+        <!-- <chat :msgTo="msgTo"></chat> -->
       </div>
     </div>
+
     <div v-else>plase log in</div>
   </section>
 </template>
@@ -102,18 +114,18 @@ export default {
   },
 
   methods: {
-    nextPage(){
-      this.pageIdx++
-      let maxPage = Math.ceil(this.orders.length / this.pageSize)
-         if (this.pageIdx >= maxPage ) return this.pageIdx--
+    nextPage() {
+      this.pageIdx++;
+      let maxPage = Math.ceil(this.orders.length / this.pageSize);
+      if (this.pageIdx >= maxPage) return this.pageIdx--;
     },
-    prevPage(){
-        this.pageIdx--
-       if (this.pageIdx < 0) this.pageIdx = 0
+    prevPage() {
+      this.pageIdx--;
+      if (this.pageIdx < 0) this.pageIdx = 0;
     },
-    handleChange(pageIdx){
+    handleChange(pageIdx) {
       console.log(pageIdx);
-      this.pageIdx = pageIdx
+      this.pageIdx = pageIdx;
     },
   },
 
