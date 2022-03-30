@@ -286,17 +286,19 @@ div.profile-page-aside-right > div {
 }
 
 /// gigs pagination seller 
-.el-pagination{
+.seller-paginaton-page{
   position: absolute;
-  top: 280px;
-  margin-right: 14px;
-  justify-content: center;
-  max-width: fit-content;
+  top: 780px;
+  height: 16px !important;
+  display: flex;
+    justify-content: space-evenly;
+    button{
+      background: none;
+      text-decoration: none;
+      border: none;
+      font-size: 20px;
+      font-family: macan-semi;
+    }
   
- 
-    li > { 
-      margin-left: 10px;
-      
-  }
 }
   
