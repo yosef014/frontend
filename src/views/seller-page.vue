@@ -10,9 +10,39 @@
             </div>
             <p>user name: {{ loggedinUser.username }}</p>
             <!-- We need to compute user level to upperCase -->
-            <p>{{ loggedinUser.level }} user</p>
-            <p>full name {{ loggedinUser.fullname }}</p>
+            <p>level: {{ loggedinUser.level }} </p>
+          
           </div>
+          
+
+
+<div class="demo-progress">
+  Order completion
+    <el-progress :text-inside="true" :stroke-width="15" :percentage="70" />
+    On-time delivery
+    <el-progress
+      :text-inside="true"
+      :stroke-width="15"
+      :percentage="100"
+      status="success"
+    />
+    Selling seniority
+    <el-progress
+      :text-inside="true"
+      :stroke-width="15"
+      :percentage="80"
+      status="warning"
+    />
+    Rating
+    <el-progress
+      :text-inside="true"
+      :stroke-width="15"
+      :percentage="50"
+      status="exception"
+    />
+  </div>
+  
+
           <div class="preview-profile-btn">
             <p @click="this.$router.push('/user')">Preview Fiverr Profile</p>
           </div>
@@ -114,4 +144,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.demo-progress .el-progress--line {
+  margin-bottom: 5px;
+  width: 210px;
+}</style>

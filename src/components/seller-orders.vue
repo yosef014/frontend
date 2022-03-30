@@ -1,42 +1,32 @@
 <template>
   <section>
     <charts></charts>
-    orders total {{ordersToShow.length}}
-    <br>
-    aproved: {{ordersToShow.filter((order)=>order.status=='approved').length}}
-        <br>
-    pending: {{ordersToShow.filter((order)=>order.status=='panding').length}}
-        <br>
-    total price: {{totalPrice}}
-    
-
+    orders total {{ ordersToShow.length }}
+    <br />
+    aproved:
+    {{ ordersToShow.filter((order) => order.status == "approved").length }}
+    <br />
+    pending:
+    {{ ordersToShow.filter((order) => order.status == "panding").length }}
+    <br />
+    total price: {{ totalPrice }}
+    <!-- end charts -->
     <div class="table">
       <div class="table-header">
-        <span>BUYER</span>
-        <span>GIG</span>
-        <span>DATE</span>
-        <span>TOTAL</span>
-        <span>STATUS</span>
-        <span>ACTIONS</span>
+        <span v-for="category in tabelCategory" :key="category">
+          {{ category }}
+        </span>
       </div>
       <ul class="table-row" v-for="order in ordersToShow" :key="order">
         <li>{{ order.buyer.username }}</li>
         <li class="table-gig-title">{{ order.gig.title }}</li>
         <li>{{ new Date(order.createdAt).toLocaleDateString("iw-IL") }}</li>
         <li>{{ order.gig.price + "$" }}</li>
-        <li 
-          :style="{
-            color: order.status === 'approved' ? '#27AE60' : '#C0392B',
-          }"
-        >
-          {{ order.status }}
+        <li :class="order.status === 'approved' ? 'approved-active' : 'denied-active'" :style="{color: order.status === 'Pending' ? 'orange' : '',}">
+          {{ order.status.toUpperCase() }}
         </li>
-
         <div class="table-actions">
-          <CircleCheckmarkIcon
-            :fill="order.status === 'approved' ? '#27AE60' : ''"
-            @click="changeStatus('approved', order)"
-          >
+          <CircleCheckmarkIcon :fill="order.status === 'approved' ? '#27AE60' : ''" @click="changeStatus('approved', order)">
           </CircleCheckmarkIcon>
           <CloseIcon @click="changeStatus('closed', order)"></CloseIcon>
         </div>
@@ -44,7 +34,6 @@
     </div>
   </section>
 </template>
-
 <script>
 import charts from "../components/charts.vue";
 import CircleCheckmarkIcon from "../svgs/circle-checkmark-icon.vue";
@@ -54,6 +43,7 @@ export default {
   data() {
     return {
       tableData: [],
+      tabelCategory: ["BUYER", "GIG", "DATE", "TOTAL", "STATUS", "ACTIONS"],
     };
   },
   created() {},
@@ -71,11 +61,12 @@ export default {
       });
     },
     totalPrice() {
-      let totalPrice=0; 
-    this.ordersToShow.forEach((order)=>{ 
-      totalPrice += order.gig.price})
-      return totalPrice
-      }
+      let totalPrice = 0;
+      this.ordersToShow.forEach((order) => {
+        totalPrice += order.gig.price;
+      });
+      return totalPrice;
+    },
   },
 
   methods: {
@@ -84,7 +75,6 @@ export default {
       order.status = status;
       this.$store.dispatch({ type: "updateOrder", order });
       socketService.emit("statusChanged", order);
-
     },
   },
 
@@ -95,3 +85,11 @@ export default {
   },
 };
 </script>
+<style>
+.approved-active {
+  color: green;
+}
+.denied-active {
+  color: red;
+}
+</style>
