@@ -86,7 +86,8 @@
                         ? 'orange'
                         : 'rgba(0,0,0,0)',
                     }"
-                  ></i>
+                    
+                  >{{newMsgCount}}</i>
                 </router-link>
               </div>
             </a>
@@ -125,6 +126,7 @@ export default {
   },
   data() {
     return {
+      newMsgCount:0,
       inputVal: "",
       windowWidth: null,
       loggedinUser: this.$store.getters.loggedinUser,
@@ -338,10 +340,12 @@ export default {
       orders = orders.filter((order) => {
         return order.seller?._id == logedUser._id;
       });
+      this.newMsgCount = 0
       let isPending = false;
       orders.forEach((order) => {
         if (order.status == "Pending") {
           isPending = true;
+          this.newMsgCount++
         }
       });
       return isPending;
