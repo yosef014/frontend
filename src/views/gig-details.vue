@@ -16,12 +16,15 @@
         <section class="gig-overview">
           <ul class="gig-categories-breadcrumbs">
             <li>
-              <a class="gig-category-link">category</a>
+               <span @click="this.$router.push('/')"> FIIVERR</span> 
               <ArrowRightIcon />
             </li>
             <li>
-              <a href="" class="gig-category-link">sub category</a>
+            <span @click="this.$router.push('/tag')">SERVICES</span> 
               <ArrowRightIcon />
+            </li>
+            <li>
+              <a href="" class="gig-category-link">{{gigCategory}}</a>
             </li>
           </ul>
           <h3 id="overview" class="gig-overview-title">
@@ -41,7 +44,7 @@
               <div>
                 <h4 class="gig-seller-name">{{ gig.owner.fullname }}</h4>
 
-                <p class="gig-seller-level-div">Level 2 Seller</p>
+                <p class="gig-seller-level-div">{{gig.level}}</p>
               </div>
 
               <ul class="gig-seller-stars">
@@ -51,8 +54,8 @@
                 <li><StarIcon /></li>
               </ul>
               <!-- Add dynamic rate -->
-              <p class="gig-seller-rating-score">4.9</p>
-              <p class="gig-seller-ratings-count">(194)</p>
+              <p class="gig-seller-rating-score">{{gig.owner.rate}}</p>
+              <p class="gig-seller-ratings-count">({{gig.reviewers.length}})</p>
               <p>10 Orders in Queue</p>
             </div>
           </div>
@@ -180,6 +183,9 @@ export default {
     this.loadGig();
   },
   computed: {
+    gigCategory(){
+      return this.gig.category.toString().toUpperCase()
+    },
     loggedInUser() {
       return this.$store.getters.loggedinUser;
     },

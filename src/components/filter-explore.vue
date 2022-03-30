@@ -2,71 +2,67 @@
   <section>
     <div class="filter-explore-container">
       <!-- // filter by sort  -->
-    <section class="filter-explore-search">
-      Search seller:
-      <el-input
-        v-model="filterBy.seller"
-        @input="setFilter"
-        placeholder="Filter by seller"
-      />
+      <section class="filter-explore-search">
+        Search seller:
+        <el-input
+          v-model="filterBy.seller"
+          @input="setFilter"
+          placeholder="Filter by seller"
+        />
       </section>
-    <section class="filter-explore-sortby">
-      <div>
+      <section class="filter-explore-sortby">
+        <div>
+          Sort By:
+          <el-select
+            v-model="filterBy.sortBy"
+            placeholder="Select"
+            style="width: 240px"
+            @change="setFilter"
+          >
+            <el-option
+              class="filter-explore-sortby"
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            />
+          </el-select>
+        </div>
+        <!-- //filter by budget price -->
+        <div class="slider-demo-block">
+          <el-popover
+            placement="bottom-end"
+            :title="priceRender"
+            :width="200"
+            trigger="hover"
+          >
+            <el-slider
+              v-model="filterBy.price"
+              :step="5"
+              show-stops
+              :show-tooltip="false"
+              :max="250"
+              @change="setFilter"
+            />
+            <template #reference>
+              <el-button>Budget</el-button>
+            </template>
+          </el-popover>
 
-        Sort By:
-         <el-select
-         
-        v-model="filterBy.sortBy"
-      placeholder="Select"
-      style="width: 240px"
-      @change="setFilter"
-      
-    >
-      <el-option
-      class="filter-explore-sortby"
-        v-for="item in options"
-        :key="item.value"
-        :label="item.label"
-        :value="item.value"
-        
-      />
-         
-    </el-select>
-      </div>
-      <!-- //filter by budget price -->
-    <div class="slider-demo-block">
-  <el-popover
-    placement="bottom-end"
-    :title="priceRender"
-    :width="200"
-    trigger="hover"
-  >
-     <el-slider
-        v-model="filterBy.price"
-        :step="5"
-        show-stops
-        :show-tooltip="false"
-        :max="250"
-        @change="setFilter"
-      />
-    <template #reference>
-      <el-button>Budget</el-button>
-    </template>
-  </el-popover>
+          <!-- // filter by best seller -->
+          pro Seller
 
-  <!-- // filter by best seller -->
-      pro Seller
-
-    <el-tooltip
-        class="box-item"
-        effect="dark"
-        placement="bottom-start"
-      >
-       <template #content> <span class="box-item">For best service<br /> and certified professionals </span></template>
-      <el-switch v-model="filterBy.level" @change="setFilter" />
-    </el-tooltip>
-    </div>
-    </section>
+          <el-tooltip class="box-item" effect="dark" placement="bottom-start">
+            <template #content>
+              <span class="box-item"
+                >For best service<br />
+                and certified professionals
+              </span></template
+            >
+            <el-switch v-model="filterBy.level" @change="setFilter" />
+          </el-tooltip>
+        </div>
+      </section>
     </div>
   </section>
 </template>
@@ -76,36 +72,36 @@ import { ref } from "vue";
 export default {
   data() {
     return {
-      visible:false,
+      visible: false,
       filterBy: {
         seller: "",
-        price: "",
+        price: "250",
         // price: ref([0, 250]),
         sortBy: "",
-        level:false,
+        level: false,
       },
-      options : [
-  {
-    value: 'Price',
-    label: 'Price',
-  },
-  {
-    value: 'rate',
-    label: 'rate',
-  },
-  {
-    value: 'title',
-    label: 'title',
-  },
-      ]
+      options: [
+        {
+          value: "Price",
+          label: "Price",
+        },
+        {
+          value: "rate",
+          label: "rate",
+        },
+        {
+          value: "title",
+          label: "title",
+        },
+      ],
     };
   },
   components: {},
   async created() {},
   computed: {
      priceRender() {
-      if (this.filterBy.price === 300) return "Any";
-      else return `Price ${this.filterBy.price}`;
+      if (this.filterBy.price === "250") return "Price: Any";
+      else return `Price: ${this.filterBy.price}$`;
     },
   },
 
@@ -118,11 +114,11 @@ export default {
 };
 </script>
 <style>
-.filter-explore-sortby{
-   font-size: 1rem;
-  font-family:macan-bold, Helvetica Neue, Helvetica, Arial, sans-serif;
+.filter-explore-sortby {
+  font-size: 1rem;
+  font-family: macan-bold, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
-.box-item{
+.box-item {
   font-size: 1rem;
   font-family: Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
 }

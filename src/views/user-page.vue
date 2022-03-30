@@ -66,29 +66,8 @@
             <li :style="{ color: order.status ? '' : '' }">
               {{ order.status }}
             </li>
-            <li>
-              <button
-                @click="
-                  msgTo = {
-                    fullname: order.seller.fullname,
-                    _id: order.seller._id,
-                    imgUrl: order.seller.imgUrl,
-                  }
-                "
-              >
-                tallk whit seller
-              </button>
-            </li>
           </ul>
         </div>
-        <el-pagination
-          layout="prev, pager, next"
-          :total="orders.length"
-          :page-size="5"
-          @next-click="nextPage"
-          @prev-click="prevPage"
-          @current-change="handleChange"
-        />
         <!-- <chat :msgTo="msgTo"></chat> -->
       </div>
     </div>
@@ -130,29 +109,13 @@ export default {
       return this.pageIdx * this.pageSize;
     },
     ordersToShow() {
-      // if (!this.gigs) return;
-      const orders = this.orders.filter((order) => {
+      return  this.orders.filter((order) => {
         return order.buyer._id == this.loggedinUser._id;
       });
-      return orders.slice(this.startIdx, this.startIdx + this.pageSize);
     },
   },
 
-  methods: {
-    nextPage() {
-      this.pageIdx++;
-      let maxPage = Math.ceil(this.orders.length / this.pageSize);
-      if (this.pageIdx >= maxPage) return this.pageIdx--;
-    },
-    prevPage() {
-      this.pageIdx--;
-      if (this.pageIdx < 0) this.pageIdx = 0;
-    },
-    handleChange(pageIdx) {
-      console.log(pageIdx);
-      this.pageIdx = pageIdx;
-    },
-  },
+  methods: {},
 
   components: {
     chat,

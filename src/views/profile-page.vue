@@ -1,11 +1,10 @@
 <template>
   <section class="page-content-container">
-    
     <div class="prifile-page-layout-fluid max-width-container">
       <div class="prifile-page-layout">
-        <div class="profile-page-aside-left">
+        <div class="-page-aside-left">
           <div class="profile-pic">
-            <img :src="loggedinUser.imgUrl " alt=""  />
+            <img :src="loggedinUser.imgUrl" alt="" />
             name:{{ loggedinUser.username }}
           </div>
           <div class="user-info">
@@ -37,7 +36,6 @@
         </div>
       </div>
     </div>
-    
   </section>
 </template>
 
@@ -45,14 +43,12 @@
 export default {
   data() {
     return {
-      user:null
+      user: null,
     };
   },
-  created() {
-  
-  },
+  created() {},
   computed: {
-    users(){
+    users() {
       return this.$store.getters.users;
     },
     loggedinUser() {
@@ -69,9 +65,7 @@ export default {
     },
   },
 
-  methods: {
-
-  },
+  methods: {},
 
   components: {},
 };

@@ -10,7 +10,6 @@
     {{ ordersToShow.filter((order) => order.status == "panding").length }}
     <br />
     total price: {{ totalPrice }}
-    <!-- end charts -->
     <div class="table">
       <div class="table-header">
         <span v-for="category in tabelCategory" :key="category">
@@ -22,7 +21,14 @@
         <li class="table-gig-title">{{ order.gig.title }}</li>
         <li>{{ new Date(order.createdAt).toLocaleDateString("iw-IL") }}</li>
         <li>{{ order.gig.price + "$" }}</li>
-        <li :class="order.status === 'approved' ? 'approved-active' : 'denied-active'" :style="{color: order.status === 'Pending' ? 'orange' : '',}">
+        <li
+          :class="
+            order.status === 'approved' ? 'approved-active' : 'denied-active'
+          "
+          :style="{
+            color: order.status === 'Pending' ? 'orange' : '',
+          }"
+        >
           {{ order.status.toUpperCase() }}
         </li>
         <div class="table-actions">
@@ -60,6 +66,9 @@ export default {
         return order.seller?._id == this.loggedinUser._id;
       });
     },
+    setStatusColor() {
+      return order.status === "Approved" ? "approved-active" : "denied-active";
+    },
     totalPrice() {
       let totalPrice = 0;
       this.ordersToShow.forEach((order) => {
@@ -85,6 +94,7 @@ export default {
   },
 };
 </script>
+<<<<<<< HEAD
 <style>
 .approved-active {
   color: green;
@@ -93,3 +103,6 @@ export default {
   color: red;
 }
 </style>
+=======
+<style scoped></style>
+>>>>>>> 90690a18144a93010ac0c83a912525411730ead2
