@@ -1,6 +1,15 @@
 <template>
   <section>
     <charts></charts>
+    orders total {{ordersToShow.length}}
+    <br>
+    aproved: {{ordersToShow.filter((order)=>order.status=='approved').length}}
+        <br>
+    pending: {{ordersToShow.filter((order)=>order.status=='panding').length}}
+        <br>
+    total price: {{totalPrice}}
+    
+
     <div class="table">
       <div class="table-header">
         <span>BUYER</span>
@@ -61,6 +70,12 @@ export default {
         return order.seller?._id == this.loggedinUser._id;
       });
     },
+    totalPrice() {
+      let totalPrice=0; 
+    this.ordersToShow.forEach((order)=>{ 
+      totalPrice += order.gig.price})
+      return totalPrice
+      }
   },
 
   methods: {
