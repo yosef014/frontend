@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="filter-explore-container">
-
+      <!-- // filter by sort  -->
     <section class="filter-explore-search">
       Search seller:
       <el-input
@@ -13,8 +13,9 @@
     <section class="filter-explore-sortby">
       <div>
 
-        Sory By:
+        Sort By:
          <el-select
+         
         v-model="filterBy.sortBy"
       placeholder="Select"
       style="width: 240px"
@@ -22,6 +23,7 @@
       
     >
       <el-option
+      class="filter-explore-sortby"
         v-for="item in options"
         :key="item.value"
         :label="item.label"
@@ -31,7 +33,7 @@
          
     </el-select>
       </div>
-      <!-- //slider -->
+      <!-- //filter by budget price -->
     <div class="slider-demo-block">
   <el-popover
     placement="bottom-end"
@@ -51,6 +53,18 @@
       <el-button>Budget</el-button>
     </template>
   </el-popover>
+
+  <!-- // filter by best seller -->
+      pro Seller
+
+    <el-tooltip
+        class="box-item"
+        effect="dark"
+        placement="bottom-start"
+      >
+       <template #content> <span class="box-item">For best service<br /> and certified professionals </span></template>
+      <el-switch v-model="filterBy.level" @change="setFilter" />
+    </el-tooltip>
     </div>
     </section>
     </div>
@@ -68,6 +82,7 @@ export default {
         price: "",
         // price: ref([0, 250]),
         sortBy: "",
+        level:false,
       },
       options : [
   {
@@ -102,3 +117,13 @@ export default {
   },
 };
 </script>
+<style>
+.filter-explore-sortby{
+   font-size: 1rem;
+  font-family:macan-bold, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+.box-item{
+  font-size: 1rem;
+  font-family: Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+</style>
