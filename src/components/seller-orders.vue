@@ -94,15 +94,4 @@ export default {
   },
 };
 </script>
-<<<<<<< HEAD
-<style>
-.approved-active {
-  color: green;
-}
-.denied-active {
-  color: red;
-}
-</style>
-=======
 <style scoped></style>
->>>>>>> 90690a18144a93010ac0c83a912525411730ead2
