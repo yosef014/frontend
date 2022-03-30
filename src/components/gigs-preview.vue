@@ -18,7 +18,7 @@
       <img :src="gig.owner.imgUrl" />
       <div class="owner-name-level">
         {{ gig.owner.username }}
-        <h5>Level 2 seller</h5>
+        <h5>{{gig.level}}</h5>
       </div>
     </div>
     <p
@@ -30,7 +30,7 @@
     </p>
 
     <div class="owner-rating">
-      <StarIcon />{{ gig.rate }} <span>(1K+)</span>
+      <StarIcon />{{ gig.rate }} <span>({{gig.reviews}})</span>
     </div>
 
     <div class="gig-footer">

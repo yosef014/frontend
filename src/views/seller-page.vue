@@ -10,9 +10,39 @@
             </div>
             <p>user name: {{ loggedinUser.username }}</p>
             <!-- We need to compute user level to upperCase -->
-            <p>{{ loggedinUser.level }} user</p>
-            <p>full name {{ loggedinUser.fullname }}</p>
+            <p>level: {{ loggedinUser.level }} </p>
+          
           </div>
+          
+
+
+<div class="demo-progress">
+  Order completion
+    <el-progress :text-inside="true" :stroke-width="15" :percentage="70" />
+    On-time delivery
+    <el-progress
+      :text-inside="true"
+      :stroke-width="15"
+      :percentage="100"
+      status="success"
+    />
+    Selling seniority
+    <el-progress
+      :text-inside="true"
+      :stroke-width="15"
+      :percentage="80"
+      status="warning"
+    />
+    Rating
+    <el-progress
+      :text-inside="true"
+      :stroke-width="15"
+      :percentage="50"
+      status="exception"
+    />
+  </div>
+  
+
           <div class="preview-profile-btn">
             <p @click="this.$router.push('/user')">Preview Fiverr Profile</p>
           </div>
@@ -51,9 +81,15 @@
               </li>
             </ul>
           </nav> -->
+          <div class="seller-paginaton-page">
+           <button @click="prevPage"> &lt; Prev  </button>
+           <button @click="nextPage">Next > </button>
+          </div>
         </div>
       </div>
+     
     </div>
+     
   </section>
 </template>
 
@@ -63,6 +99,8 @@ import sellerOrders from "../components/seller-orders.vue";
 export default {
   data() {
     return {
+      pageSize: 7,
+      pageIdx: 0,
       userProfileNavLink: [
         {
           name: "My Active Gigs",
@@ -89,23 +127,35 @@ export default {
         return order.seller._id == this.loggedinUser._id;
       });
     },
-    // ordersToShow() {
-    //   return this.orders.filter((order) => {
-    //     return order.seller._id == this.loggedinUser._id;
-    //   });
-    // },
+   startIdx() {
+      return this.pageIdx * this.pageSize;
+    },
     gigs() {
       return this.$store.getters.gigs;
     },
     gigsToShow() {
       // if (!this.gigs) return;
-      return this.gigs.filter((gig) => {
-        return gig.owner._id == this.loggedinUser._id;
-      });
+      const gigs = this.gigs.filter((gig)=>{
+         return gig.owner._id == this.loggedinUser._id;
+      })
+       return gigs.slice(this.startIdx, this.startIdx + this.pageSize);
     },
   },
 
-  methods: {},
+  methods: {
+    nextPage() {
+      this.pageIdx++;
+      let maxPage = Math.ceil(this.orders.length / this.pageSize);
+      if (this.pageIdx >= maxPage) return this.pageIdx--;
+    },
+    prevPage() {
+      this.pageIdx--;
+      if (this.pageIdx < 0) this.pageIdx = 0;
+    },
+    handleChange(pageIdx) {
+      this.pageIdx = pageIdx;
+    },
+  },
 
   components: {
     sellerGigsPreview,
@@ -114,4 +164,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.demo-progress .el-progress--line {
+  margin-bottom: 5px;
+  width: 210px;
+}</style>

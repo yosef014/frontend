@@ -10,10 +10,36 @@
           <div class="profile-pic">
             <img :src="loggedinUser.imgUrl" />
           </div>
-          <p>{{ loggedinUser.username }}</p>
-          <p>{{ loggedinUser.level }}</p>
-          <p>{{ loggedinUser.fullname }}</p>
+          <p>username: {{ loggedinUser.username }}</p>
+          <p>level: {{ loggedinUser.level }}</p>
         </div>
+        
+<div class="demo-progress">
+  Order completion
+    <el-progress :text-inside="true" :stroke-width="15" :percentage="70" />
+    activity
+    <el-progress
+      :text-inside="true"
+      :stroke-width="15"
+      :percentage="100"
+      status="success"
+    />
+    user reviews
+    <el-progress
+      :text-inside="true"
+      :stroke-width="15"
+      :percentage="80"
+      status="warning"
+    />
+    Rating
+    <el-progress
+      :text-inside="true"
+      :stroke-width="15"
+      :percentage="50"
+      status="exception"
+    />
+  </div>
+  
         <div class="preview-controller-btn">
           <p @click="this.$router.push('/seller')">Preview seller controll</p>
         </div>
@@ -42,14 +68,6 @@
             </li>
           </ul>
         </div>
-        <el-pagination
-          layout="prev, pager, next"
-          :total="orders.length"
-          :page-size="5"
-          @next-click="nextPage"
-          @prev-click="prevPage"
-          @current-change="handleChange"
-        />
         <!-- <chat :msgTo="msgTo"></chat> -->
       </div>
     </div>
@@ -91,29 +109,13 @@ export default {
       return this.pageIdx * this.pageSize;
     },
     ordersToShow() {
-      // if (!this.gigs) return;
-      const orders = this.orders.filter((order) => {
+      return  this.orders.filter((order) => {
         return order.buyer._id == this.loggedinUser._id;
       });
-      return orders.slice(this.startIdx, this.startIdx + this.pageSize);
     },
   },
 
-  methods: {
-    nextPage() {
-      this.pageIdx++;
-      let maxPage = Math.ceil(this.orders.length / this.pageSize);
-      if (this.pageIdx >= maxPage) return this.pageIdx--;
-    },
-    prevPage() {
-      this.pageIdx--;
-      if (this.pageIdx < 0) this.pageIdx = 0;
-    },
-    handleChange(pageIdx) {
-      console.log(pageIdx);
-      this.pageIdx = pageIdx;
-    },
-  },
+  methods: {},
 
   components: {
     chat,
