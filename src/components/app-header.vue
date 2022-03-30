@@ -79,14 +79,14 @@
                     :src="loggedinUser.imgUrl"
                     @click="routeToProfile"
                   />
-                  <i
+                  <span
                     class="notification-indicator"
                     :style="{
                       backgroundColor: isGotNotification
                         ? 'rgb(207, 13, 13)'
                         : 'rgba(0,0,0,0)',
                     }"
-                    >{{ newMsgCount }}</i
+                    >{{ newMsgCount }}</span
                   >
                 </router-link>
               </div>

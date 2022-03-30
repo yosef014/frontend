@@ -1,5 +1,6 @@
 <template>
   <section class="page-content-container">
+    {{ this.$refs }}
     <div
       class="user-page-layout-container max-width-container"
       v-if="loggedinUser"
@@ -13,33 +14,37 @@
           <p>username: {{ loggedinUser.username }}</p>
           <p>level: {{ loggedinUser.level }}</p>
         </div>
-        
-<div class="demo-progress">
-  Order completion
-    <el-progress :text-inside="true" :stroke-width="15" :percentage="70" />
-    activity
-    <el-progress
-      :text-inside="true"
-      :stroke-width="15"
-      :percentage="100"
-      status="success"
-    />
-    user reviews
-    <el-progress
-      :text-inside="true"
-      :stroke-width="15"
-      :percentage="80"
-      status="warning"
-    />
-    Rating
-    <el-progress
-      :text-inside="true"
-      :stroke-width="15"
-      :percentage="50"
-      status="exception"
-    />
-  </div>
-  
+
+        <div class="demo-progress">
+          Order completion
+          <el-progress
+            :text-inside="true"
+            :stroke-width="15"
+            :percentage="70"
+          />
+          activity
+          <el-progress
+            :text-inside="true"
+            :stroke-width="15"
+            :percentage="100"
+            status="success"
+          />
+          user reviews
+          <el-progress
+            :text-inside="true"
+            :stroke-width="15"
+            :percentage="80"
+            status="warning"
+          />
+          Rating
+          <el-progress
+            :text-inside="true"
+            :stroke-width="15"
+            :percentage="50"
+            status="exception"
+          />
+        </div>
+
         <div class="preview-controller-btn">
           <p @click="this.$router.push('/seller')">Preview seller controll</p>
         </div>
@@ -66,6 +71,9 @@
             <li :style="{ color: order.status ? '' : '' }">
               {{ order.status }}
             </li>
+            <div class="time-line-container">
+              <timeLine  @click="showTimeLine()"></timeLine>
+            </div>
           </ul>
         </div>
         <!-- <chat :msgTo="msgTo"></chat> -->
@@ -76,7 +84,7 @@
 </template>
 
 <script>
-import chat from "../components/chat.vue";
+import timeLine from "../components/time-line.vue";
 
 export default {
   data() {
@@ -109,16 +117,20 @@ export default {
       return this.pageIdx * this.pageSize;
     },
     ordersToShow() {
-      return  this.orders.filter((order) => {
+      return this.orders.filter((order) => {
         return order.buyer._id == this.loggedinUser._id;
       });
     },
   },
 
-  methods: {},
+  methods: {
+    showTimeLine(el) {
+      console.log(el);
+    },
+  },
 
   components: {
-    chat,
+    timeLine,
   },
 };
 </script>
