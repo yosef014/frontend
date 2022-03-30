@@ -8,7 +8,7 @@
       <div class="owner-profile-pic">
         <img :src="gig.owner.imgUrl" />
       </div>
-      a
+    
       <div class="owner-info">
         <p>{{ gig.owner.username }}</p>
         <h5>Level 2 seller</h5>

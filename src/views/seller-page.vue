@@ -34,9 +34,6 @@
                 <li class="gig-card" v-for="gig in gigsToShow" :key="gig._id">
                   <sellerGigsPreview :gig="gig" />
                 </li>
-                <li class="gig-card" v-for="gig in gigsToShow" :key="gig._id">
-                  <sellerGigsPreview :gig="gig" />
-                </li>
               </ul>
             </el-tab-pane>
             <el-tab-pane label="Orders manager">

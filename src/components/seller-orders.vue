@@ -1,6 +1,15 @@
 <template>
   <section>
     <charts></charts>
+    orders total {{ordersToShow.length}}
+    <br>
+    aproved: {{ordersToShow.filter((order)=>order.status=='approved').length}}
+        <br>
+    pending: {{ordersToShow.filter((order)=>order.status=='panding').length}}
+        <br>
+    total price: {{totalPrice}}
+    
+
     <div class="table">
       <div class="table-header">
         <span>BUYER</span>
@@ -15,7 +24,7 @@
         <li class="table-gig-title">{{ order.gig.title }}</li>
         <li>{{ new Date(order.createdAt).toLocaleDateString("iw-IL") }}</li>
         <li>{{ order.gig.price + "$" }}</li>
-        <li
+        <li 
           :style="{
             color: order.status === 'approved' ? '#27AE60' : '#C0392B',
           }"
@@ -61,6 +70,12 @@ export default {
         return order.seller?._id == this.loggedinUser._id;
       });
     },
+    totalPrice() {
+      let totalPrice=0; 
+    this.ordersToShow.forEach((order)=>{ 
+      totalPrice += order.gig.price})
+      return totalPrice
+      }
   },
 
   methods: {
@@ -68,6 +83,8 @@ export default {
       const order = JSON.parse(JSON.stringify(OldOrder));
       order.status = status;
       this.$store.dispatch({ type: "updateOrder", order });
+      socketService.emit("statusChanged", order);
+
     },
   },
 
