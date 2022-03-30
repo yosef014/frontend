@@ -81,17 +81,11 @@
               </li>
             </ul>
           </nav> -->
-          <el-pagination
-          class="el-pagination-seller"
-          layout="prev, pager, next"
-          :total="orders.length"
-          :page-size="5"
-          @next-click="nextPage"
-          @prev-click="prevPage"
-          @current-change="handleChange"
-        />
+          <div class="seller-paginaton-page">
+           <button @click="prevPage"> &lt; Prev  </button>
+           <button @click="nextPage">Next > </button>
+          </div>
         </div>
-        
       </div>
      
     </div>
@@ -105,7 +99,7 @@ import sellerOrders from "../components/seller-orders.vue";
 export default {
   data() {
     return {
-      pageSize: 4,
+      pageSize: 7,
       pageIdx: 0,
       userProfileNavLink: [
         {
