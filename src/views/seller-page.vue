@@ -82,8 +82,8 @@
             </ul>
           </nav> -->
           <div v-if="openPagination" class="seller-paginaton-page">
-           <button @click="prevPage"> &lt; Prev  </button>
-           <button @click="nextPage">Next > </button>
+           <el-button @click="prevPage"> &lt; Prev  </el-button>
+           <el-button @click="nextPage">Next > </el-button>
           </div>
         </div>
       </div>
