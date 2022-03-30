@@ -1,5 +1,41 @@
 <template>
   <div
+    @click="toggleMenu"
+    class="side-menu-container"
+    :class="isMenuOpen ? 'side-menu' : ''"
+  >
+    <nav>
+      <li v-if="loggedinUser" class="profile-avatar">
+        <router-link to="/seller">
+          <div class="user-avatar">
+            <img
+              class="logged-user-avatar"
+              :src="loggedinUser.imgUrl"
+              @click="routeToProfile"
+            />
+            <a
+              class="notification-indicator"
+              :style="{
+                backgroundColor: isGotNotification ? 'orange' : 'rgba(0,0,0,0)',
+              }"
+              >{{ newMsgCount }}</a
+            >
+          </div>
+          <div class="user-info">
+            <span>{{ loggedinUser.username }}</span>
+            <span>{{ newMsgCount }} New Messages</span>
+          </div>
+        </router-link>
+      </li>
+      <li v-if="!loggedinUser" @click="toggleSignup" class="join">Sign Up</li>
+      <li v-if="!loggedinUser" @click="toggleLogin">Sign In</li>
+      <li v-if="loggedinUser"><a class="join">Sign Out</a></li>
+      <li>Become A Seller</li>
+      <li>Explore</li>
+    </nav>
+    <div class="toggle-menu"></div>
+  </div>
+  <div
     :style="{ position: isHomePage ? 'fixed' : 'absolute' }"
     :class="onShowNavbar"
     class="logged-out-nav-container"
@@ -11,7 +47,7 @@
       <SignUp @closeModal="closeModal" />
     </div>
     <div class="logged-out-nav max-width-container">
-      <span v-if="isMobileDisplay" class="hamburger-menu"
+      <span @click="toggleMenu" v-if="isMobileDisplay" class="hamburger-menu"
         ><HamburgerMenuIcon />
       </span>
       <router-link class="logo" to="/">
@@ -95,7 +131,19 @@
         </ul>
       </div>
     </div>
-    <div :style="toggleCategoriesMenu" class="categories-menu-package">
+    <div
+      v-if="isMobileDisplay"
+      :style="toggleCategoriesMenu"
+      class="mobile-search-bar-container"
+    >
+      <SearchIcon class="search-icon" />
+      <input placeholder="Search" class="mobile-search-bar" type="text" />
+    </div>
+    <div
+      v-if="!isMobileDisplay"
+      :style="toggleCategoriesMenu"
+      class="categories-menu-package"
+    >
       <ul class="max-width-container">
         <li v-for="category in categories" :key="category.name">
           <router-link :to="'/tag/' + category.path">
@@ -116,6 +164,7 @@ import Login from "./login.vue";
 import SignUp from "./sign-up.vue";
 import HamburgerMenuIcon from "../svgs/hamburger-menu-icon.vue";
 import { useDeprecateAppendToBody } from "element-plus";
+import SearchIcon from "../svgs/search-icon.vue";
 export default {
   components: {
     searchIconVue,
@@ -123,6 +172,7 @@ export default {
     Login,
     SignUp,
     HamburgerMenuIcon,
+    SearchIcon,
   },
   data() {
     return {
@@ -130,6 +180,7 @@ export default {
       inputVal: "",
       windowWidth: null,
       loggedinUser: this.$store.getters.loggedinUser,
+      isMenuOpen: false,
       showModal: {
         isLogin: false,
         isSignUp: false,
@@ -142,6 +193,7 @@ export default {
       logoColorState: true,
       linkColorState: false,
       elNavLinks: null,
+      isMenuOpen: false,
       categories: [
         {
           name: "Arts And Crafts",
@@ -192,10 +244,16 @@ export default {
       this.inputVal = res;
       this.$router.push("/tag" + "/" + res);
     },
+
     async doLogout() {
       await this.$store.dispatch({ type: "logout" });
       this.$router.push("/");
       document.location.reload(true);
+    },
+
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen;
+      document.querySelector("body").classList.toggle("disable-scrolling");
     },
 
     toggleLogin() {
@@ -315,6 +373,7 @@ export default {
         transform: this.isShowCategories ? "rotateX(0deg)" : "rotateX(90deg)",
       };
     },
+
     onShowNavbar() {
       return {
         "header-transparent": this.isShowNavbar === false,
