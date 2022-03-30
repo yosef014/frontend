@@ -1,29 +1,6 @@
 <template>
   <section>
     <charts></charts>
-<<<<<<< HEAD
-    <table>
-      <tr class="table-header">
-        <th>BUYER</th>
-        <th>GIG</th>
-        <th>DATE</th>
-        <th>TOTAL</th>
-        <th>STATUS</th>
-        <th>ACTIONS</th>
-      </tr>
-      <tr v-for="order in ordersToShow" :key="order">
-        <td>{{ order.buyer.username }}</td>
-        <td>{{ order.gig.title }}</td>
-        <td>{{ new Date(order.createdAt).toLocaleDateString("iw-IL") }}</td>
-        <td>{{ order.gig.price + "$" }}</td>
-        <td>{{ order.status }}</td>
-        <td>
-          <button @click="changeStatus('approved', order)">✔</button>
-          <button @click="changeStatus('closed', order)">❌</button>
-        </td>
-      </tr>
-    </table>
-=======
     <div class="table">
       <div class="table-header">
         <span>BUYER</span>
@@ -56,7 +33,6 @@
         </div>
       </ul>
     </div>
->>>>>>> 6ed324b895d4f5d1b1b154c23fee2b410ee4e553
   </section>
 </template>
 
@@ -79,16 +55,10 @@ export default {
     orders() {
       return this.$store.getters.orders;
     },
-<<<<<<< HEAD
-      ordersToShow() {
-      return this.orders.filter((order) => {
-        return order.seller._id == this.loggedinUser._id;
-=======
     ordersToShow() {
       return this.orders.filter((order) => {
         console.log(this.loggedinUser._id);
         return order.seller?._id == this.loggedinUser._id;
->>>>>>> 6ed324b895d4f5d1b1b154c23fee2b410ee4e553
       });
     },
   },
