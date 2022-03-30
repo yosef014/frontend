@@ -1,6 +1,5 @@
 <template>
   <section class="page-content-container">
-    {{ this.$refs }}
     <div
       class="user-page-layout-container max-width-container"
       v-if="loggedinUser"
