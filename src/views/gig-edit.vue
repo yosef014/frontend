@@ -53,6 +53,7 @@
         </section>
         <section class="section-three">
           <img-upload class="image-uploader" @save="saveImg" />
+          <img v-for="img in imgUrls" :key="img" :src="img" alt="" class="image-upload-display">
         </section>
       </section>
       <section class="gig-edit-form-right">
@@ -113,6 +114,7 @@ export default {
   methods: {
     saveImg(imgUrl) {
       this.gigToEdit.productImgs.push(imgUrl);
+      this.imgUrls.push(imgUrl)
     },
     setAvatar(imgUrl) {
       this.userAvatar = imgUrl;

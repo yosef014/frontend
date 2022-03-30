@@ -2,11 +2,13 @@
   display: flex;
   // background-color: #f7f7f7;
   flex-wrap: wrap;
-  
+  padding: 1rem;
+  background-color: #f7f7f7;
 
   .gig-order-preview {
     display: flex;
     height: 50%;
+    flex-wrap: wrap;
     & section {
       display: flex;
       flex-direction: column;
@@ -28,10 +30,11 @@
 }
 
 .gig-order-summary {
-  height: 80vh;
+  height: fit-content;
   width: 70%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 1rem;
 }
 .gig-checkout-summary {
   border: 1px solid #dddddd;
@@ -42,7 +45,7 @@
   padding: 1rem 1.5rem;
   background-color: #fff;
   .title {
-    margin-bottom:1rem ;
+    margin-bottom: 1rem;
     font-family: macan-bold;
   }
 
@@ -61,17 +64,16 @@
   }
 
   & button {
-    padding: 12px 24px ;
+    padding: 12px 24px;
     margin-top: 1rem;
     background-color: #1dbf73;
     color: white;
     border: none;
     border-radius: 3px;
-   &:hover {
+    &:hover {
       background-color: #3fca89;
     }
   }
- 
 }
 
 .gig-order-details {
@@ -80,7 +82,7 @@
   width: 50%;
   height: 50%;
   padding-top: 1rem;
-  
+
   .details-title {
     margin-bottom: 1rem;
   }
@@ -90,7 +92,6 @@
     justify-content: space-between;
     height: 40%;
     li {
-      
       display: flex;
       align-items: center;
       width: 30rem;
@@ -102,7 +103,7 @@
 }
 
 .gig-order-preview .block-one {
-  padding: 0 1rem;
+  padding: 1rem;
   h1 {
     margin-bottom: 1rem;
     font-family: macan-bold;
@@ -113,24 +114,22 @@
   }
   & p {
     font-size: 16px;
-
   }
 }
 
 .gig-order-preview .block-two {
   width: 30%;
   height: 30%;
-  
+  padding: 1rem;
+
   & img {
     object-fit: cover;
     width: 14rem;
     height: 8rem;
+    aspect-ratio: 200/330;
   }
 }
 
-
-
-
-.block-one .gig-rate>* {
+.block-one .gig-rate > * {
   margin-inline-end: 1rem;
 }

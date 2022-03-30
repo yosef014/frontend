@@ -32,7 +32,10 @@
           {{ order.status.toUpperCase() }}
         </li>
         <div class="table-actions">
-          <CircleCheckmarkIcon :fill="order.status === 'approved' ? '#27AE60' : ''" @click="changeStatus('approved', order)">
+          <CircleCheckmarkIcon
+            :fill="order.status === 'approved' ? '#27AE60' : ''"
+            @click="changeStatus('approved', order)"
+          >
           </CircleCheckmarkIcon>
           <CloseIcon @click="changeStatus('closed', order)"></CloseIcon>
         </div>

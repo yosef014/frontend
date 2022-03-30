@@ -86,8 +86,8 @@
                         ? 'orange'
                         : 'rgba(0,0,0,0)',
                     }"
-                    
-                  >{{newMsgCount}}</i>
+                    >{{ newMsgCount }}</i
+                  >
                 </router-link>
               </div>
             </a>
@@ -126,7 +126,7 @@ export default {
   },
   data() {
     return {
-      newMsgCount:0,
+      newMsgCount: 0,
       inputVal: "",
       windowWidth: null,
       loggedinUser: this.$store.getters.loggedinUser,
@@ -336,12 +336,12 @@ export default {
       orders = orders.filter((order) => {
         return order.seller?._id == logedUser._id;
       });
-      this.newMsgCount = 0
+      this.newMsgCount = 0;
       let isPending = false;
       orders.forEach((order) => {
         if (order.status == "Pending") {
           isPending = true;
-          this.newMsgCount++
+          this.newMsgCount++;
         }
       });
       return isPending;
@@ -355,7 +355,7 @@ export default {
   destroyed() {
     socketService.off("Notefication statusChanged", this.orderStatusChanged);
     socketService.off("Notefication orderAdded", this.orderAddedNotefication);
-      console.log('destroyied')
+    console.log("destroyied");
   },
 };
 </script>
