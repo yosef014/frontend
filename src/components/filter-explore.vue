@@ -79,7 +79,7 @@ export default {
       visible:false,
       filterBy: {
         seller: "",
-        price: "",
+        price: "250",
         // price: ref([0, 250]),
         sortBy: "",
         level:false,
@@ -104,8 +104,8 @@ export default {
   async created() {},
   computed: {
      priceRender() {
-      if (this.filterBy.price === 300) return "Any";
-      else return `Price ${this.filterBy.price}`;
+      if (this.filterBy.price === "250") return "Price: Any";
+      else return `Price: ${this.filterBy.price}`;
     },
   },
 
