@@ -66,7 +66,8 @@
                 </li>
               </ul>
             </el-tab-pane>
-            <el-tab-pane label="Orders manager">
+            <el-tab-pane   @tab-click="openPagination = false" label="Orders manager">
+              <span>hi</span>
               <sellerOrders></sellerOrders>
             </el-tab-pane>
             <el-tab-pane label="Dashboard">Dashboard</el-tab-pane>
@@ -81,7 +82,7 @@
               </li>
             </ul>
           </nav> -->
-          <div class="seller-paginaton-page">
+          <div v-if="openPagination" class="seller-paginaton-page">
            <button @click="prevPage"> &lt; Prev  </button>
            <button @click="nextPage">Next > </button>
           </div>
@@ -101,6 +102,7 @@ export default {
     return {
       pageSize: 7,
       pageIdx: 0,
+      openPagination:true,
       userProfileNavLink: [
         {
           name: "My Active Gigs",
@@ -155,6 +157,10 @@ export default {
     handleChange(pageIdx) {
       this.pageIdx = pageIdx;
     },
+    triggerPagination(){
+      console.log(this.openPagination);
+      this.openPagination = !this.openPagination
+    }
   },
 
   components: {

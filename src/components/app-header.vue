@@ -42,7 +42,7 @@
       </div>
       <div v-if="!isMobileDisplay" class="link-list">
         <ul>
-          <li v-for="navLink in navLinks" :key="navLink">
+          <li v-for="navLink in navLinks" :key="navLink" @click="loader">
             <router-link :to="navLink.route">
               <a
                 :style="navLink.name === 'business-link' ? setLinkColor : ''"
@@ -268,6 +268,14 @@ export default {
         position: "bottom-right",
       });
     },
+    loader() {
+      this.$store.dispatch({ type: "loadGigs" });
+       this.$store.dispatch({ type: 'isLoading', isLoading: true })
+       this.$store.dispatch({type:'loadGigs'})
+        setTimeout(() => {
+           this.$store.dispatch({ type: 'isLoading', isLoading: false })
+        }, 1500);
+      },
   },
 
   mounted() {

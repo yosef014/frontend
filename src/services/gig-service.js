@@ -16,13 +16,14 @@ export const gigService = {
 
 
 
-function getGigs(filterBy) {
+async function getGigs(filterBy) {
     // return storageService.query('gig')
-    return httpService.get(`gig`, filterBy)
+        return httpService.get(`gig`, filterBy)
 }
 
 async function getById(gigId) {
     // const gig = await storageService.get('gig', gigId)
+    await new Promise(resolve =>  setTimeout(resolve,1500));
     const gig = await httpService.get(`gig/${gigId}`)
     return gig;
 }
