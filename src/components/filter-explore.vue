@@ -99,15 +99,9 @@ export default {
   components: {},
   async created() {},
   computed: {
-<<<<<<< HEAD
-    priceRender() {
-      if (this.filterBy.price === 300) return "Any";
-      else return `Price ${this.filterBy.price}`;
-=======
      priceRender() {
       if (this.filterBy.price === "250") return "Price: Any";
       else return `Price: ${this.filterBy.price}`;
->>>>>>> 7056cd861927ae778ee643df68b556bfe985a4c7
     },
   },
 
