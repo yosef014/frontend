@@ -32,7 +32,10 @@
           {{ order.status.toUpperCase() }}
         </li>
         <div class="table-actions">
-          <CircleCheckmarkIcon :fill="order.status === 'approved' ? '#27AE60' : ''" @click="changeStatus('approved', order)">
+          <CircleCheckmarkIcon
+            :fill="order.status === 'approved' ? '#27AE60' : ''"
+            @click="changeStatus('approved', order)"
+          >
           </CircleCheckmarkIcon>
           <CloseIcon @click="changeStatus('closed', order)"></CloseIcon>
         </div>
@@ -62,7 +65,6 @@ export default {
     },
     ordersToShow() {
       return this.orders.filter((order) => {
-        console.log(this.loggedinUser._id);
         return order.seller?._id == this.loggedinUser._id;
       });
     },

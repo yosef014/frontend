@@ -45,7 +45,6 @@ export default {
     };
   },
   created() {
-    socketService.setup();
     socketService.emit("chat topic", this.topic);
     socketService.on("chat addMsg", this.addMsg);
     socketService.on("chat userTyping", this.setTyping);

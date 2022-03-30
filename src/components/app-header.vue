@@ -79,15 +79,15 @@
                     :src="loggedinUser.imgUrl"
                     @click="routeToProfile"
                   />
-                  <i
+                  <span
                     class="notification-indicator"
                     :style="{
                       backgroundColor: isGotNotification
-                        ? 'orange'
+                        ? 'rgb(207, 13, 13)'
                         : 'rgba(0,0,0,0)',
                     }"
-                    
-                  >{{newMsgCount}}</i>
+                    >{{ newMsgCount }}</span
+                  >
                 </router-link>
               </div>
             </a>
@@ -126,7 +126,7 @@ export default {
   },
   data() {
     return {
-      newMsgCount:0,
+      newMsgCount: 0,
       inputVal: "",
       windowWidth: null,
       loggedinUser: this.$store.getters.loggedinUser,
@@ -260,7 +260,7 @@ export default {
       });
     },
     orderStatusChanged(status) {
-      console.log(status);
+      console.log("socket works");
       ElNotification({
         title: "your order status changed",
         message: `status changed to ${status}`,
@@ -281,10 +281,6 @@ export default {
   mounted() {
     window.onresize = () => {
       this.windowWidth = window.innerWidth;
-      // console.log(
-      //   "🚀 ~ file: app-header.vue ~ line 262 ~ mounted ~ this.windowWidth",
-      //   this.windowWidth
-      // );
     };
   },
 
@@ -348,29 +344,27 @@ export default {
       orders = orders.filter((order) => {
         return order.seller?._id == logedUser._id;
       });
-      this.newMsgCount = 0
+      this.newMsgCount = 0;
       let isPending = false;
       orders.forEach((order) => {
         if (order.status == "Pending") {
           isPending = true;
-          this.newMsgCount++
+          this.newMsgCount++;
         }
       });
+      if (this.newMsgCount == 0) {
+        this.newMsgCount = ' '
+      }
       return isPending;
     },
   },
   created() {
-    socketService.setup();
-    console.log('craeted')
     socketService.on("Notefication orderAdded", this.orderAddedNotefication);
-    socketService.on("Notefication statusChanged", data => {
-      console.log('yessssd',data)
-    });
+    socketService.on("Notefication statusChanged", this.orderStatusChanged);
   },
   destroyed() {
-    socketService.off("Notefication statusChanged", this.orderStatusChanged);
     socketService.off("Notefication orderAdded", this.orderAddedNotefication);
-      console.log('destroyied')
+    socketService.off("Notefication statusChanged", this.orderStatusChanged);
   },
 };
 </script>
