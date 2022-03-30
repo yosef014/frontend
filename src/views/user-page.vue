@@ -53,7 +53,6 @@
         <!-- <chat :msgTo="msgTo"></chat> -->
       </div>
     </div>
-
     <div v-else>plase log in</div>
   </section>
 </template>

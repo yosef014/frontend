@@ -34,9 +34,6 @@
                 <li class="gig-card" v-for="gig in gigsToShow" :key="gig._id">
                   <sellerGigsPreview :gig="gig" />
                 </li>
-                <li class="gig-card" v-for="gig in gigsToShow" :key="gig._id">
-                  <sellerGigsPreview :gig="gig" />
-                </li>
               </ul>
             </el-tab-pane>
             <el-tab-pane label="Orders manager">
@@ -92,6 +89,11 @@ export default {
         return order.seller._id == this.loggedinUser._id;
       });
     },
+    // ordersToShow() {
+    //   return this.orders.filter((order) => {
+    //     return order.seller._id == this.loggedinUser._id;
+    //   });
+    // },
     gigs() {
       return this.$store.getters.gigs;
     },
