@@ -342,8 +342,8 @@ export default {
     socketService.on('Notefication statusChanged', this.orderStatusChanged);
   },
   destroyed() {
-    // socketService.off("Notefication statusChanged", this.orderStatusChanged);
-    // socketService.off("Notefication orderAdded", this.orderAddedNotefication);
+    socketService.off("Notefication statusChanged", this.orderStatusChanged);
+    socketService.off("Notefication orderAdded", this.orderAddedNotefication);
   },
 };
 </script>

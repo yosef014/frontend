@@ -1,6 +1,6 @@
 .page-content-container {
   margin: 0 auto;
-  padding: 7.5rem 2rem;
+  padding: 7.5rem 2rem 0 2rem;
   max-width: 1400px;
 
   //   @media (min-width: $screen-size-m) {
@@ -10,7 +10,7 @@
   //     padding: 7.5rem 1rem;
   //   }
   @media (min-width: $screen-size-xl) {
-    padding: 7.5rem 2rem;
+    padding: 7.5rem 2rem 0 2rem;
   }
 }
 .trusted-by-container {
@@ -27,7 +27,7 @@
   h2 {
   }
   & li {
-    width: 20% !important;
+    // width: 20% !important;
   }
 
   & .carousel__prev {
@@ -62,9 +62,9 @@
 .max-width-container {
   @media (min-width: $screen-size-xl) {
     max-width: 1400px;
-    padding: 0 2rem;
+    // padding: 0 2rem;
   }
   @media (max-width: $screen-size-xl) {
-    padding: 0 2rem;
+    // padding: 0 2rem;
   }
 }

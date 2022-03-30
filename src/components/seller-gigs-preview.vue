@@ -1,13 +1,14 @@
 <template>
-  <section  class="seller-orders-preview-card">
+  <section class="seller-orders-preview-card">
     <div class="seller-gig-img-container">
       <img :src="gig.productImgs[0]" />
     </div>
 
-    <div class="owner-prev-container"  > 
+    <div class="owner-prev-container">
       <div class="owner-profile-pic">
         <img :src="gig.owner.imgUrl" />
       </div>
+      a
       <div class="owner-info">
         <p>{{ gig.owner.username }}</p>
         <h5>Level 2 seller</h5>

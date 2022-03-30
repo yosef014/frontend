@@ -34,6 +34,9 @@
                 <li class="gig-card" v-for="gig in gigsToShow" :key="gig._id">
                   <sellerGigsPreview :gig="gig" />
                 </li>
+                <li class="gig-card" v-for="gig in gigsToShow" :key="gig._id">
+                  <sellerGigsPreview :gig="gig" />
+                </li>
               </ul>
             </el-tab-pane>
             <el-tab-pane label="Orders manager">
@@ -41,7 +44,6 @@
             </el-tab-pane>
             <el-tab-pane label="Dashboard">Dashboard</el-tab-pane>
           </el-tabs>
-         <el-pagination layout="prev, pager, next" :total="orders.length" :page-size="5" @next-click="nextPage" @prev-click="prevPage" @current-change="handleChange" />
           <!-- <nav class="user-profile-navbar">
             <ul class="nav-links">
               <li
@@ -53,7 +55,6 @@
             </ul>
           </nav> -->
         </div>
-  
       </div>
     </div>
   </section>
@@ -65,8 +66,6 @@ import sellerOrders from "../components/seller-orders.vue";
 export default {
   data() {
     return {
-      pageSize:4,
-      pageIdx:0,
       userProfileNavLink: [
         {
           name: "My Active Gigs",
@@ -80,8 +79,7 @@ export default {
       ],
     };
   },
-  created() {
-  },
+  created() {},
   computed: {
     loggedinUser() {
       return this.$store.getters.loggedinUser;
@@ -89,42 +87,28 @@ export default {
     orders() {
       return this.$store.getters.orders;
     },
-    startIdx(){
-      return this.pageIdx * this.pageSize
-    },
     ordersToShow() {
       return this.orders.filter((order) => {
         return order.seller._id == this.loggedinUser._id;
       });
     },
+    // ordersToShow() {
+    //   return this.orders.filter((order) => {
+    //     return order.seller._id == this.loggedinUser._id;
+    //   });
+    // },
     gigs() {
       return this.$store.getters.gigs;
     },
     gigsToShow() {
       // if (!this.gigs) return;
-      const gigs = this.gigs.filter((gig)=>{
-         return gig.owner._id == this.loggedinUser._id;
-      })
-      
-      return gigs.slice(this.startIdx, this.startIdx + this.pageSize)
+      return this.gigs.filter((gig) => {
+        return gig.owner._id == this.loggedinUser._id;
+      });
     },
   },
 
-  methods: {
-      nextPage(){
-      this.pageIdx++
-      let maxPage = Math.ceil(this.orders.length / this.pageSize)
-         if (this.pageIdx >= maxPage ) return this.pageIdx--
-    },
-    prevPage(){
-        this.pageIdx--
-       if (this.pageIdx < 0) this.pageIdx = 0
-    },
-      handleChange(pageIdx){
-      console.log(pageIdx);
-      this.pageIdx = pageIdx
-    },
-  },
+  methods: {},
 
   components: {
     sellerGigsPreview,
