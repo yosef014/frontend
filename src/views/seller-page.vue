@@ -51,9 +51,21 @@
               </li>
             </ul>
           </nav> -->
+          <el-pagination
+          class="el-pagination-seller"
+          layout="prev, pager, next"
+          :total="orders.length"
+          :page-size="5"
+          @next-click="nextPage"
+          @prev-click="prevPage"
+          @current-change="handleChange"
+        />
         </div>
+        
       </div>
+     
     </div>
+     
   </section>
 </template>
 
@@ -63,6 +75,8 @@ import sellerOrders from "../components/seller-orders.vue";
 export default {
   data() {
     return {
+      pageSize: 4,
+      pageIdx: 0,
       userProfileNavLink: [
         {
           name: "My Active Gigs",
@@ -89,23 +103,35 @@ export default {
         return order.seller._id == this.loggedinUser._id;
       });
     },
-    // ordersToShow() {
-    //   return this.orders.filter((order) => {
-    //     return order.seller._id == this.loggedinUser._id;
-    //   });
-    // },
+   startIdx() {
+      return this.pageIdx * this.pageSize;
+    },
     gigs() {
       return this.$store.getters.gigs;
     },
     gigsToShow() {
       // if (!this.gigs) return;
-      return this.gigs.filter((gig) => {
-        return gig.owner._id == this.loggedinUser._id;
-      });
+      const gigs = this.gigs.filter((gig)=>{
+         return gig.owner._id == this.loggedinUser._id;
+      })
+       return gigs.slice(this.startIdx, this.startIdx + this.pageSize);
     },
   },
 
-  methods: {},
+  methods: {
+    nextPage() {
+      this.pageIdx++;
+      let maxPage = Math.ceil(this.orders.length / this.pageSize);
+      if (this.pageIdx >= maxPage) return this.pageIdx--;
+    },
+    prevPage() {
+      this.pageIdx--;
+      if (this.pageIdx < 0) this.pageIdx = 0;
+    },
+    handleChange(pageIdx) {
+      this.pageIdx = pageIdx;
+    },
+  },
 
   components: {
     sellerGigsPreview,

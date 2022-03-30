@@ -101,7 +101,7 @@ export default {
   computed: {
      priceRender() {
       if (this.filterBy.price === "250") return "Price: Any";
-      else return `Price: ${this.filterBy.price}`;
+      else return `Price: ${this.filterBy.price}$`;
     },
   },
 

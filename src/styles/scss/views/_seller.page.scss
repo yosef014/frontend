@@ -282,5 +282,21 @@
 
 div.profile-page-aside-right > div {
   box-shadow: none !important;
-  border: 1px solid #e5e5e5 !important;
+  // border: 1px solid #e5e5e5 !important; // i touched this guy , emil.
 }
+
+/// gigs pagination seller 
+.el-pagination{
+  position: absolute;
+  top: 280px;
+  margin-right: 14px;
+  justify-content: center;
+  max-width: fit-content;
+  
+ 
+    li > { 
+      margin-left: 10px;
+      
+  }
+}
+  
