@@ -13,12 +13,9 @@
 
     <div class="table">
       <div class="table-header">
-        <span>BUYER</span>
-        <span>GIG</span>
-        <span>DATE</span>
-        <span>TOTAL</span>
-        <span>STATUS</span>
-        <span>ACTIONS</span>
+        <span v-for="category in tableCategories" :key="category">
+          {{ category }}
+        </span>
       </div>
       <ul class="table-row" v-for="order in ordersToShow" :key="order">
         <li>{{ order.buyer.username }}</li>

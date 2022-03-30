@@ -83,10 +83,11 @@
                     class="notification-indicator"
                     :style="{
                       backgroundColor: isGotNotification
-                        ? '#1dbf73'
-                        : '#ff62ad',
+                        ? 'orange'
+                        : 'rgba(0,0,0,0)',
                     }"
-                  ></i>
+                    >{{ newMsgCount }}</i
+                  >
                 </router-link>
               </div>
             </a>
@@ -125,10 +126,10 @@ export default {
   },
   data() {
     return {
+      newMsgCount: 0,
       inputVal: "",
       windowWidth: null,
       loggedinUser: this.$store.getters.loggedinUser,
-      isGotNotification: true,
       showModal: {
         isLogin: false,
         isSignUp: false,
@@ -251,8 +252,6 @@ export default {
       }
     },
     orderAddedNotefication(ownerOrder) {
-            console.log("amir");
-
       ElNotification({
         title: "new order added!",
         message: `new pending order has been added in seller control`,
@@ -260,15 +259,14 @@ export default {
         position: "bottom-right",
       });
     },
-    orderStatusChanged(status){
+    orderStatusChanged(status) {
       console.log(status);
-       ElNotification({
-        title: 'your order status changed',
+      ElNotification({
+        title: "your order status changed",
         message: `status changed to ${status}`,
         type: "success",
         position: "bottom-right",
       });
-
     },
   },
 
@@ -335,15 +333,36 @@ export default {
     isMobileDisplay() {
       return this.windowWidth < 800;
     },
+    isGotNotification() {
+      const logedUser = this.$store.getters.loggedinUser;
+      if (!logedUser) return false;
+      let orders = this.$store.getters.orders;
+      orders = orders.filter((order) => {
+        return order.seller?._id == logedUser._id;
+      });
+      this.newMsgCount = 0;
+      let isPending = false;
+      orders.forEach((order) => {
+        if (order.status == "Pending") {
+          isPending = true;
+          this.newMsgCount++;
+        }
+      });
+      return isPending;
+    },
   },
   created() {
     socketService.setup();
+    console.log("craeted");
     socketService.on("Notefication orderAdded", this.orderAddedNotefication);
-    socketService.on('Notefication statusChanged', this.orderStatusChanged);
+    socketService.on("Notefication statusChanged", (data) => {
+      console.log("yessssd", data);
+    });
   },
   destroyed() {
     socketService.off("Notefication statusChanged", this.orderStatusChanged);
     socketService.off("Notefication orderAdded", this.orderAddedNotefication);
+    console.log("destroyied");
   },
 };
 </script>
