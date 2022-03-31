@@ -154,10 +154,11 @@ export default {
         };
         await this.$store.dispatch({ type: "addOrder", order });
         this.$router.push("/user");
-        this.$store.dispatch({ type: 'isLoading', isLoading: false })
       socketService.emit('newOrderAded', this.gig.owner);
-    },
-    loader(){
+      this.$store.dispatch({ type: 'isLoading', isLoading: true })
+        setTimeout(() => {
+           this.$store.dispatch({ type: 'isLoading', isLoading: false })
+        }, 1000);
     },
   },
 };
