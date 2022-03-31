@@ -9,12 +9,21 @@
 .table {
   display: grid;
   grid-template-rows: auto;
+<<<<<<< HEAD
   overflow: scroll;
   
 
+=======
+>>>>>>> d8d982351f3728c85738dbc6438ea3bfb7b20b45
   max-height: 500px;
   width: 100%;
+
+  .table-content{
+    height: 45vh;
+    overflow:scroll ;
+  }
   .table-header {
+    max-height: 4rem;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
     background-color: $clr-green;
@@ -40,8 +49,10 @@
   }
 
   .table-row {
+    max-height: 4rem;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
+    
 
     li {
       display: flex;
@@ -81,4 +92,10 @@
 }
 .denied-active {
   color: red;
+}
+
+.charts-box{
+  display: flex;
+  justify-content: center;
+  gap: 15px;
 }

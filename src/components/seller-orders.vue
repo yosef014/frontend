@@ -1,15 +1,7 @@
 <template>
   <section>
-    <charts></charts>
-    orders total {{ ordersToShow.length }}
-    <br />
-    aproved:
-    {{ ordersToShow.filter((order) => order.status == "approved").length }}
-    <br />
-    pending:
-    {{ ordersToShow.filter((order) => order.status == "panding").length }}
-    <br />
-    total price: {{ totalPrice }}
+    <charts :ordersToShow="ordersToShow"></charts>
+
     <div class="table">
       <div class="table-header">
         <span v-for="category in tabelCategory" :key="category">
