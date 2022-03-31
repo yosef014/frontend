@@ -319,6 +319,7 @@ export default {
       this.$store.dispatch({ type: "loadOrders" });
     },
     orderStatusChanged(status) {
+      this.$store.dispatch({ type: "loadOrders" });
       console.log("socket works");
       ElNotification({
         title: "your order status changed",

@@ -1,47 +1,95 @@
 <template>
-  <section>
-     <el-progress type="circle" :percentage="0" />
-    <el-progress type="circle" :percentage="25" />
-    <el-progress type="circle" :percentage="100" status="success" />
-    <!-- <div class="chrats-container">
-      <div class="chart-one">
-        <BarChart :chartData="testData" :width="90" :height="90" />
-      </div>
-      <div class="chart-two">
-        <DoughnutChart :chartData="testData" :width="90" :height="90" />
-      </div>
-    </div> -->
+  <section class="charts-box">
+ <el-progress type="dashboard" :percentage="approvedOrders" color="green">
+      <template #default="{ percentage }">
+        <span class="percentage-value">{{ percentage }}%</span>
+        <span class="percentage-label">approvedOrders</span>
+      </template>
+    </el-progress>
+
+ <el-progress type="dashboard" :percentage="pendingOrders" color="orange">
+      <template #default="{ percentage }">
+        <span class="percentage-value">{{ percentage }}%</span>
+        <span class="percentage-label">complete </span>
+      </template>
+    </el-progress>
+
+ <el-progress type="dashboard" :percentage="closedOrders" color="blue">
+      <template #default="{ percentage }">
+        <span class="percentage-value">{{ percentage }}%</span>
+        <span class="percentage-label">closed</span>
+      </template>
+    </el-progress>
+  
   </section>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-import { BarChart,DoughnutChart } from "vue-chart-3";
-import { Chart, registerables } from "chart.js";
-
-Chart.register(...registerables);
-
-export default defineComponent({
-  name: "Home",
-  components: { BarChart ,DoughnutChart},
-  setup() {
-    const testData = {
-      labels: ["Paris", "Nîmes", "Toulon", "Perpignan", "Autre"],
-      datasets: [
-        {
-          data: [30, 40, 60, 70, 5],
-          backgroundColor: [
-            "#77CEFF",
-            "#0079AF",
-            "#123E6B",
-            "#97B0C4",
-            "#A5C8ED",
-          ],
-        },
-      ],
-    };
-
-    return { testData };
+<script >
+export default {
+    props: {
+    ordersToShow: Object,
   },
-});
+  data() {
+    return {
+     
+    };
+  },
+  created() {},
+  computed: {
+    totalPrice() {
+      let totalPrice = 0;
+      this.ordersToShow.forEach((order) => {
+        totalPrice += order.gig.price;
+      });
+      return totalPrice;
+    },
+    closedOrders() {
+      let closed= this.ordersToShow.filter((order) => order.status == "closed").length
+      closed= closed / this.ordersToShow.length; 
+      let present = closed * 100
+      return present.toFixed()
+     
+    },
+    approvedOrders() {
+      let approved= this.ordersToShow.filter((order) => order.status == "approved").length
+      approved= approved / this.ordersToShow.length; 
+      let present = approved * 100
+      return present.toFixed()
+     
+    },
+    pendingOrders() {
+      let pending= this.ordersToShow.filter((order) => order.status == "Pending").length
+      pending= pending / this.ordersToShow.length; 
+      let present = pending * 100
+      return (100 - present).toFixed()
+     
+    },
+  },
+
+  methods: {
+  },
+
+  components: {
+  },
+};
 </script>
+
+<style scoped>
+.percentage-value {
+  display: block;
+  margin-top: 10px;
+  font-size: 28px;
+}
+.percentage-label {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+}
+.demo-progress .el-progress--line {
+  margin-bottom: 15px;
+  width: 350px;
+}
+.demo-progress .el-progress--circle {
+  margin-right: 15px;
+}
+</style>
