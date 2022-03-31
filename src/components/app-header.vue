@@ -316,6 +316,7 @@ export default {
         type: "success",
         position: "bottom-right",
       });
+      this.$store.dispatch({ type: "loadOrders" });
     },
     orderStatusChanged(status) {
       console.log("socket works");
@@ -328,12 +329,12 @@ export default {
     },
     loader() {
       this.$store.dispatch({ type: "loadGigs" });
-       this.$store.dispatch({ type: 'isLoading', isLoading: true })
-       this.$store.dispatch({type:'loadGigs'})
-        setTimeout(() => {
-           this.$store.dispatch({ type: 'isLoading', isLoading: false })
-        }, 1500);
-      },
+      this.$store.dispatch({ type: "isLoading", isLoading: true });
+      this.$store.dispatch({ type: "loadGigs" });
+      setTimeout(() => {
+        this.$store.dispatch({ type: "isLoading", isLoading: false });
+      }, 1500);
+    },
   },
 
   mounted() {
@@ -412,7 +413,7 @@ export default {
         }
       });
       if (this.newMsgCount == 0) {
-        this.newMsgCount = ' '
+        this.newMsgCount = " ";
       }
       return isPending;
     },

@@ -89,7 +89,7 @@
                 </ul>
               </div>
               <div class="checkout-card-footer">
-                <router-link :to="'/checkout/' + gig._id">
+                <router-link :to="'/checkout/' + gig._id" @click="loader">
                   <button class="checkout-btn">
                     <p>Continue</p>
                     <p>({{ gig.price }})</p>
@@ -223,6 +223,12 @@ export default {
         behavior: "smooth",
       });
     },
+    loader(){
+      this.$store.dispatch({ type: 'isLoading', isLoading: true })
+        setTimeout(() => {
+           this.$store.dispatch({ type: 'isLoading', isLoading: false })
+        }, 1500);
+      },
   },
 };
 </script>

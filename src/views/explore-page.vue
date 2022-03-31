@@ -33,7 +33,9 @@ import { Carousel, Navigation, Slide } from "vue3-carousel";
 import gigsPreview from "../components/gigs-preview.vue";
 import gigTabsCarousel from "../components/gigs-tabs-carousel.vue";
 import filtereEplore from "../components/filter-explore.vue";
+
 export default {
+  
   data() {
     return {
       fullscreenLoading:false,

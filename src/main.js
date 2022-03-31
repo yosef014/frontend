@@ -10,14 +10,19 @@ import signUp from "./components/sign-up.vue";
 import VueUniversalModal from "vue-universal-modal";
 import "vue-universal-modal/dist/index.css";
 import "element-plus/dist/index.css";
+// import VueMeta from 'vue-meta'
+
 
 const app = createApp(App);
+// app.use(VueMeta)
 app.use(router);
 app.use(store);
 app.use(ElementPlus);
 app.use(VueUniversalModal, {
   teleportTarget: "#modals",
 });
+
+
 app.component("login", login);
 app.component("signUp", signUp);
 app.component("imgUpload", imgUpload);
