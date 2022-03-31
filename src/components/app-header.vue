@@ -329,9 +329,7 @@ export default {
       });
     },
     loader() {
-      this.$store.dispatch({ type: "loadGigs" });
       this.$store.dispatch({ type: "isLoading", isLoading: true });
-      this.$store.dispatch({ type: "loadGigs" });
       setTimeout(() => {
         this.$store.dispatch({ type: "isLoading", isLoading: false });
       }, 1500);

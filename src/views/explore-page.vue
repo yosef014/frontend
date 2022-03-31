@@ -20,7 +20,7 @@
     </div>
     <ul class="gig-list grid">
       <li class="gig-preview" v-for="gig in gigsToShow" :key="gig._id" >
-        <gigsPreview :gig="gig" @click="loader"/>
+        <gigsPreview :gig="gig" @click="loader" />
       </li>
     </ul>
   </div>
@@ -54,7 +54,8 @@ export default {
     Navigation,
     filtereEplore,
   },
-  async created() {},
+  async created() {
+  },
   computed: {
     gigs() {
       return this.$store.getters.gigs;
@@ -79,7 +80,6 @@ export default {
       const filterBy = JSON.parse(JSON.stringify(this.filterBy));
       this.$store.dispatch({ type: "setFilter", filterBy });
     },
-
      loader() {
        this.$store.dispatch({ type: 'isLoading', isLoading: true })
         setTimeout(() => {
