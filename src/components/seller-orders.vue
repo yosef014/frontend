@@ -1,21 +1,14 @@
 <template>
   <section>
-    <charts></charts>
-    orders total {{ ordersToShow.length }}
-    <br />
-    aproved:
-    {{ ordersToShow.filter((order) => order.status == "approved").length }}
-    <br />
-    pending:
-    {{ ordersToShow.filter((order) => order.status == "panding").length }}
-    <br />
-    total price: {{ totalPrice }}
+    <charts :ordersToShow="ordersToShow"></charts>
+   
     <div class="table">
       <div class="table-header">
         <span v-for="category in tabelCategory" :key="category">
           {{ category }}
         </span>
       </div>
+      <div class="table-content">
       <ul class="table-row" v-for="order in ordersToShow" :key="order">
         <li>{{ order.buyer.username }}</li>
         <li class="table-gig-title">{{ order.gig.title }}</li>
@@ -40,6 +33,7 @@
           <CloseIcon @click="changeStatus('closed', order)"></CloseIcon>
         </div>
       </ul>
+      </div>
     </div>
   </section>
 </template>
