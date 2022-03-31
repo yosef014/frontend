@@ -61,7 +61,7 @@ export default {
       return this.$store.getters.loggedinUser;
     },
     orders() {
-      return this.$store.getters.orders;
+      return this.$store.getters.orders
     },
     ordersToShow() {
       return this.orders.filter((order) => {
