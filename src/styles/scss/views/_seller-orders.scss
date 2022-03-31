@@ -9,6 +9,12 @@
 .table {
   display: grid;
   grid-template-rows: auto;
+<<<<<<< HEAD
+  overflow: scroll;
+  
+
+=======
+>>>>>>> d8d982351f3728c85738dbc6438ea3bfb7b20b45
   max-height: 500px;
   width: 100%;
 
@@ -21,6 +27,9 @@
     display: grid;
     grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
     background-color: $clr-green;
+    max-height: 5rem;
+    
+
 
     color: #f8f9f9;
     padding: 1rem 0;
@@ -34,6 +43,9 @@
     & *:not(:last-child) {
       border-right: 1px solid #e5e7e9;
     }
+  }
+  .table-content {
+    height: 500px;
   }
 
   .table-row {
