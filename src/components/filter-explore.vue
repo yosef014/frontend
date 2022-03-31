@@ -18,7 +18,6 @@
         <el-select
           v-model="filterBy.sortBy"
           placeholder="Select"
-          style="width: 240px"
           @change="setFilter"
         >
           <el-option

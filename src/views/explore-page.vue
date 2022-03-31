@@ -1,9 +1,9 @@
 <template>
   <div class="page-content-container" v-if="gigsToShow">
     <div class="breadcrumbs">
-      <span @click="this.$router.push('/')"> FIIVERR</span> >
-      <span @click="this.$router.push('/tag')">SERVICES</span> >
-      <span> {{ breadcrumbsToShow.toUpperCase() }} </span>>
+      <span @click="this.$router.push('/')"> FIIVERR ></span>
+      <span @click="this.$router.push('/tag')">SERVICES ></span>
+      <span> {{ breadcrumbsToShow.toUpperCase() }} ></span>
       <h1>
         {{
           breadcrumbsToShow
@@ -12,19 +12,18 @@
             .join(" ")
         }}
       </h1>
-      {{ gigsToShow.length }} Services Available
+      <p>{{ gigsToShow.length }} Services Available</p>
     </div>
     <gigTabsCarousel></gigTabsCarousel>
     <div class="gig-filters">
       <filtereEplore> </filtereEplore>
     </div>
     <ul class="gig-list grid">
-      <li class="gig-preview" v-for="gig in gigsToShow" :key="gig._id" >
+      <li class="gig-preview" v-for="gig in gigsToShow" :key="gig._id">
         <gigsPreview :gig="gig" @click="loader" />
       </li>
     </ul>
   </div>
- 
 </template>
 
 <script>
@@ -35,10 +34,9 @@ import gigTabsCarousel from "../components/gigs-tabs-carousel.vue";
 import filtereEplore from "../components/filter-explore.vue";
 
 export default {
-  
   data() {
     return {
-      fullscreenLoading:false,
+      fullscreenLoading: false,
       filterBy: {
         seller: "",
         price: ref([80, 150]),
@@ -60,12 +58,12 @@ export default {
     gigs() {
       return this.$store.getters.gigs;
     },
-     gigsToShow() {
+    gigsToShow() {
       const category = this.$route.params.gig;
       if (!category) return this.gigs;
 
-        const gigsToDisplay =  this.gigs.filter((gig) => {
-          return gig.category.some((tab) => category.includes(tab));
+      const gigsToDisplay = this.gigs.filter((gig) => {
+        return gig.category.some((tab) => category.includes(tab));
       });
       return gigsToDisplay;
     },
@@ -80,6 +78,16 @@ export default {
       const filterBy = JSON.parse(JSON.stringify(this.filterBy));
       this.$store.dispatch({ type: "setFilter", filterBy });
     },
+<<<<<<< HEAD
+
+    loader() {
+      this.$store.dispatch({ type: "isLoading", isLoading: true });
+      setTimeout(() => {
+        this.$store.dispatch({ type: "isLoading", isLoading: false });
+      }, 1500);
+    },
+  },
+=======
      loader() {
        this.$store.dispatch({ type: 'isLoading', isLoading: true })
         setTimeout(() => {
@@ -87,10 +95,11 @@ export default {
         }, 1500);
       },
   }
+>>>>>>> e25cde880af9942e4583669527cce14d596df96b
 };
 </script>
 <style>
-.fontsiasd{
+.fontsiasd {
   font-size: 200px;
 }
 </style>

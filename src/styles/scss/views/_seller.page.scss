@@ -162,6 +162,8 @@
     align-items: center;
     height: 100%;
     width: 80%;
+    background-color: #fff;
+    border: $border-light;
 
     .my-orders-label {
       display: flex;
@@ -289,9 +291,13 @@ div.profile-page-aside-right > div {
 
 /// gigs pagination seller 
 .seller-paginaton-page{
-  position: absolute;
-  top: 780px;
-  height: 16px !important;
+  span {
+    font-family: macan-regular;
+    
+  }
+  border-top: 1px solid #cdcad1 ;
+  width: 100%;
+  // height: 16px !important;
   display: flex;
     justify-content: space-evenly;
     button{
@@ -301,5 +307,9 @@ div.profile-page-aside-right > div {
       font-size: 20px;
       font-family: macan-semi;
     }
+}
+
+.el-tabs--border-card {
+  border: none !important;
 }
   
