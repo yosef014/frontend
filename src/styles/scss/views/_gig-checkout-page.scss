@@ -2,8 +2,12 @@
   display: flex;
   // background-color: #f7f7f7;
   flex-wrap: wrap;
-  padding: 1rem;
+  padding: 3rem 0;
   background-color: #f7f7f7;
+  @include for-mobile-layout {
+    justify-content: center;
+    align-items: center;
+  }
 
   .gig-order-preview {
     display: flex;
@@ -120,7 +124,7 @@
 .gig-order-preview .block-two {
   width: 30%;
   height: 30%;
-  padding: 1rem;
+  padding: 0 1rem;
 
   & img {
     object-fit: cover;

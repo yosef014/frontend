@@ -1,45 +1,40 @@
 .paypal {
-    content: url($paypal);
-  }
-  
-  .p-and-g {
-    content: url($p-and-g);
-  }
-  
-  .netflix {
-    content: url($netflix);
-  }
-  
-  .google {
-    content: url($google);
-  }
-  
-  .facebook {
-    content: url($facebook);
-  }
+  content: url($paypal);
+}
 
-  .trusted-by-wrapper {
-    margin-bottom: 96px;
-    background-color: #fafafa;
+.p-and-g {
+  content: url($p-and-g);
+}
 
+.netflix {
+  content: url($netflix);
+}
 
+.google {
+  content: url($google);
+}
+
+.facebook {
+  content: url($facebook);
+}
+
+.trusted-by-wrapper {
+  margin-bottom: 96px;
+  background-color: #fafafa;
+  @include for-mobile-layout {
+    display: none;
   }
+}
 
-  .trusted-by {
-      display: flex;
-      height: 95px;
-      justify-content: center;
-      margin: auto;
+.trusted-by {
+  display: flex;
+  height: 95px;
+  justify-content: center;
+  margin: auto;
+}
 
-    
-      
-  }
-
-  .trusted-by >* {
-    background-repeat: no-repeat;
-    margin: auto 40px;
-    height: 70px;
-    
-
-    
-  }
+.trusted-by > * {
+  background-repeat: no-repeat;
+  margin: auto 40px;
+  height: 70px;
+}

@@ -3,13 +3,15 @@
     <div class="filter-explore-container">
       <!-- // filter by sort  -->
 
-      Search seller:
-      <el-input
-        class="filter-explore-search"
-        v-model="filterBy.seller"
-        @input="setFilter"
-        placeholder="Filter by seller"
-      />
+      <div class="seller-search-container">
+        <p>Search Seller</p>
+        <el-input
+          class="filter-explore-search"
+          v-model="filterBy.seller"
+          @input="setFilter"
+          placeholder="Filter by seller"
+        />
+      </div>
 
       <div class="filter-explore-sortby">
         Sort By:
