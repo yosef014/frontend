@@ -60,7 +60,6 @@
           Purchase
         </button>
         <button v-else>Log In To Purchase!</button>
-        <button @click="sendMsg">notification socket test</button>
       </div>
     </section>
   </div>

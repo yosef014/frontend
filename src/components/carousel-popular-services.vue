@@ -1,4 +1,4 @@
-<template #addons="{ slidesWidth }">
+<template>
   <Carousel :settings="settings" :breakpoints="breakpoints">
     <Slide v-for="slide in slides" :key="slide" >
       <div>
@@ -25,7 +25,6 @@
       <Navigation />
     </template>
   </Carousel>
-  <template v-if="isLoading"> loading</template>
 </template>
 
 <script>
