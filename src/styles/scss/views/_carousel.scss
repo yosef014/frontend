@@ -5,7 +5,7 @@
   > div.popular-services-container.max-width-container
   > section
   > div
-  > ol
+  > ol 
   > li {
   min-width: 280px !important;
   outline: none;
@@ -14,6 +14,10 @@
   & div > a > a > picture img {
     // aspect-ratio: 252/345;
   }
+}
+#app > main > div:nth-child(3) > div.popular-services-container.max-width-container > section > div .carousel__track .carousel__slide {
+  justify-content: start;
+  padding: 0 .8rem;
 }
 
 //all carousel images in gig list
