@@ -69,18 +69,9 @@
             <el-tab-pane label="Orders manager">
               <sellerOrders></sellerOrders>
             </el-tab-pane>
-            <el-tab-pane label="Dashboard">Dashboard</el-tab-pane>
+           
           </el-tabs>
-          <!-- <nav class="user-profile-navbar">
-            <ul class="nav-links">
-              <li
-                v-for="userProfileNavLink in userProfileNavLink"
-                :key="userProfileNavLink"
-              >
-                {{ userProfileNavLink.name }}
-              </li>
-            </ul>
-          </nav> -->
+      
           <div v-if="openPagination" class="seller-paginaton-page">
            <el-button @click="prevPage"> &lt; Prev  </el-button>
            <el-button @click="nextPage">Next > </el-button>
