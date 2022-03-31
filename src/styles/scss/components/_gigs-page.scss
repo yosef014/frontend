@@ -29,6 +29,17 @@
   margin: 0 auto;
   margin-top: 60px;
   cursor: pointer;
+  span {
+    font-family: macan-light;
+    padding-right:.5rem;
+  }
+  h1 {
+    padding: 1rem 0;
+    font-family: macan-bold;
+  }
+  p {
+    font-family: macan-regular;
+  }
 
   span {
     &:hover {
