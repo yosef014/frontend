@@ -19,7 +19,6 @@ export default {
   created() {
     this.$store.dispatch({ type: "loadGigs" });
     this.$store.dispatch({ type: "loadOrders" });
-    this.$store.dispatch({type:'isLoading', isLoading:false})
   },
 
   data() {

@@ -18,6 +18,7 @@ export const gigService = {
 
 async function getGigs(filterBy) {
     // return storageService.query('gig')
+    // await new Promise(resolve =>  setTimeout(resolve,1500));
         return httpService.get(`gig`, filterBy)
 }
 

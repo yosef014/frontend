@@ -54,7 +54,8 @@ export default {
     Navigation,
     filtereEplore,
   },
-  async created() {},
+  async created() {
+  },
   computed: {
     gigs() {
       return this.$store.getters.gigs;
