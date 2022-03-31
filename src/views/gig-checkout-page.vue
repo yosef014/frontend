@@ -42,15 +42,15 @@
         <ul>
           <li>
             <p>Subtotal</p>
-            <p>{{ gig.price }}</p>
+            <p>{{ gig.price }}$</p>
           </li>
           <li>
             <p>Service Fee</p>
-            <p>{{ serviceFee }}</p>
+            <p>{{ serviceFee }}$</p>
           </li>
           <li>
             <p>Final Price</p>
-            <p>{{ finalPrice }}</p>
+            <p>{{ finalPrice }}$</p>
           </li>
         </ul>
         <button

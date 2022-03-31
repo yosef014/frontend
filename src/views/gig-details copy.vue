@@ -1,4 +1,5 @@
 <template>
+   
   <nav :style="setSticky" class="gig-details-navbar-container">
     <div class="gig-details-navbar max-width-container">
       <li

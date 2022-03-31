@@ -52,7 +52,8 @@ export default {
     Navigation,
     filtereEplore,
   },
-  async created() {},
+  async created() {
+  },
   computed: {
     gigs() {
       return this.$store.getters.gigs;
@@ -77,6 +78,7 @@ export default {
       const filterBy = JSON.parse(JSON.stringify(this.filterBy));
       this.$store.dispatch({ type: "setFilter", filterBy });
     },
+<<<<<<< HEAD
 
     loader() {
       this.$store.dispatch({ type: "isLoading", isLoading: true });
@@ -85,6 +87,15 @@ export default {
       }, 1500);
     },
   },
+=======
+     loader() {
+       this.$store.dispatch({ type: 'isLoading', isLoading: true })
+        setTimeout(() => {
+           this.$store.dispatch({ type: 'isLoading', isLoading: false })
+        }, 1500);
+      },
+  }
+>>>>>>> e25cde880af9942e4583669527cce14d596df96b
 };
 </script>
 <style>

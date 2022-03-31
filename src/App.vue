@@ -1,12 +1,12 @@
 <template>
   <main>
     <appHeader></appHeader>
-    <div
+    <!-- <div
       class="isloading"
       v-loading.fullscreen.lock="isLoading"
       element-loading-text="Loading..."
       element-loading-background="rgba(255,255,255)"
-    ></div>
+    ></div> -->
     <RouterView />
   </main>
 </template>
@@ -19,7 +19,6 @@ export default {
   created() {
     this.$store.dispatch({ type: "loadGigs" });
     this.$store.dispatch({ type: "loadOrders" });
-    this.$store.dispatch({type:'isLoading', isLoading:false})
   },
 
   data() {
@@ -58,10 +57,4 @@ export default {
   },
 };
 </script>
-<style>
-.is-loading-state {
-  background-color: blueviolet;
-  font-size: 200px;
-  z-index: 99999999;
-}
-</style>
+

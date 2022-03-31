@@ -18,12 +18,13 @@ export const gigService = {
 
 async function getGigs(filterBy) {
     // return storageService.query('gig')
+    // await new Promise(resolve =>  setTimeout(resolve,1500));
         return httpService.get(`gig`, filterBy)
 }
 
 async function getById(gigId) {
     // const gig = await storageService.get('gig', gigId)
-    await new Promise(resolve =>  setTimeout(resolve,1500));
+    // await new Promise(resolve =>  setTimeout(resolve,1500));
     const gig = await httpService.get(`gig/${gigId}`)
     return gig;
 }

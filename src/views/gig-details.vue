@@ -10,7 +10,6 @@
       </li>
     </ul>
   </nav>
-  div.
   <div class="page-content-container">
     <div v-if="gig" class="gig-details-container max-width-container">
       <div class="gig-details-main-content">
@@ -74,7 +73,7 @@
             <div class="card-content-container">
               <div class="checkout-card-header">
                 <h4 class="gig-title">Silver</h4>
-                <h4 class="gig-price">{{ gig.price }}</h4>
+                <h4 class="gig-price">{{ gig.price }}$</h4>
               </div>
               <div class="checkout-card-content">
                 <p>
@@ -89,10 +88,10 @@
                 </ul>
               </div>
               <div class="checkout-card-footer">
-                <router-link :to="'/checkout/' + gig._id" @click="loader">
+                <router-link :to="'/checkout/' + gig._id">
                   <button class="checkout-btn">
                     <p>Continue</p>
-                    <p>({{ gig.price }})</p>
+                    <p>({{ gig.price }}$)</p>
                   </button>
                 </router-link>
               </div>
@@ -196,7 +195,9 @@ export default {
     loggedInUser() {
       return this.$store.getters.loggedinUser;
     },
-
+     isLoading() {
+      return this.$store.getters.isLoading;
+    },
     setSticky() {
       return this.isSticky
         ? { position: "fixed", top: "0" }
