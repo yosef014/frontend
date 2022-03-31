@@ -56,7 +56,6 @@
         <button
           @click.prevent="purchase"
           v-if="loggedInUser"
-          v-loading.fullscreen.lock="fullscreenLoading"
         >
           Purchase
         </button>
@@ -82,7 +81,6 @@ export default {
     return {
       gig: null,
       order: null,
-      fullscreenLoading: false,
       gigFeaturesList: [
         "Commercial Use",
         "Color",
@@ -130,8 +128,6 @@ export default {
       this.order = await orderService.getEmptyOrder();
     },
     async purchase() {
-      this.fullscreenLoading = true;
-      setTimeout(async () => {
         const order = JSON.parse(JSON.stringify(this.order));
         order.createdAt = Date.now();
         (order.imgUrl = this.gig.productImgs[0]),
@@ -156,11 +152,13 @@ export default {
           price: this.gig.price,
           productImgs: this.gig.productImgs,
         };
-        this.$router.push("/user");
-        this.fullscreenLoading = false;
         await this.$store.dispatch({ type: "addOrder", order });
-      }, 2000);
+        this.$router.push("/user");
       socketService.emit('newOrderAded', this.gig.owner);
+      this.$store.dispatch({ type: 'isLoading', isLoading: true })
+        setTimeout(() => {
+           this.$store.dispatch({ type: 'isLoading', isLoading: false })
+        }, 1000);
     },
   },
 };
