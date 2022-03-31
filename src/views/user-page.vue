@@ -21,13 +21,6 @@
             :stroke-width="15"
             :percentage="70"
           />
-          activity
-          <el-progress
-            :text-inside="true"
-            :stroke-width="15"
-            :percentage="100"
-            status="success"
-          />
           user reviews
           <el-progress
             :text-inside="true"
@@ -35,12 +28,20 @@
             :percentage="80"
             status="warning"
           />
+
           Rating
           <el-progress
             :text-inside="true"
             :stroke-width="15"
             :percentage="50"
             status="exception"
+          />
+          activity
+          <el-progress
+            :text-inside="true"
+            :stroke-width="15"
+            :percentage="100"
+            status="success"
           />
         </div>
 
@@ -60,7 +61,7 @@
             <li>Status</li>
             <li>Messenger</li>
           </ul>
-          <ul class="table-row" v-for="order in ordersToShow" :key="order">
+          <ul class="table-row" v-for="order in ordersToShow" :key="order"  @click="showTimeLine(order._id)">
             <li><img :src="order.gig.productImgs[0]" /></li>
             <li>{{ order.gig.title }}</li>
             <li>
@@ -71,7 +72,10 @@
               {{ order.status }}
             </li>
             <div class="time-line-container">
-              <timeLine  @click="showTimeLine()"></timeLine>
+              <timeLine
+               
+                v-if="isTimeLineShowen && currOrderId == order._id"
+              ></timeLine>
             </div>
           </ul>
         </div>
@@ -88,6 +92,8 @@ import timeLine from "../components/time-line.vue";
 export default {
   data() {
     return {
+      isTimeLineShowen: false,
+      currOrderId: null,
       msgTo: {
         fullname: "guest",
         id: "623f4e421513c14a270f61a4",
@@ -123,8 +129,9 @@ export default {
   },
 
   methods: {
-    showTimeLine(el) {
-      console.log(el);
+    showTimeLine(orderId) {
+      this.isTimeLineShowen = !this.isTimeLineShowen;
+      this.currOrderId = orderId;
     },
   },
 
