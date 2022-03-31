@@ -76,10 +76,13 @@
 }
 
 .approved-active {
-  color: green;
+  color: #27AE60;
 }
-.denied-active {
+.closed-active {
   color: red;
+}
+.pending-active {
+  color: orange;
 }
 
 .charts-box{

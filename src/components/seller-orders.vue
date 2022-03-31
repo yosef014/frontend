@@ -1,47 +1,19 @@
 <template>
   <section>
     <charts :ordersToShow="ordersToShow"></charts>
-   
     <div class="table">
       <div class="table-header">
         <span v-for="category in tabelCategory" :key="category">
           {{ category }}
         </span>
       </div>
-      <div class="table-content">
-      <ul class="table-row" v-for="order in ordersToShow" :key="order">
-        <li>{{ order.buyer.username }}</li>
-        <li class="table-gig-title">{{ order.gig.title }}</li>
-        <li>{{ new Date(order.createdAt).toLocaleDateString("iw-IL") }}</li>
-        <li>{{ order.gig.price + "$" }}</li>
-        <li
-          :class="
-            order.status === 'approved' ? 'approved-active' : 'denied-active'
-          "
-          :style="{
-            color: order.status === 'Pending' ? 'orange' : '',
-          }"
-        >
-          {{ order.status.toUpperCase() }}
-        </li>
-        <div class="table-actions">
-          <CircleCheckmarkIcon
-            :fill="order.status === 'approved' ? '#27AE60' : ''"
-            @click="changeStatus('approved', order)"
-          >
-          </CircleCheckmarkIcon>
-          <CloseIcon @click="changeStatus('closed', order)"></CloseIcon>
-        </div>
-      </ul>
-      </div>
+      <ordersPreview @changeStatus="changeStatus" :ordersToShow="ordersToShow"></ordersPreview>
     </div>
   </section>
 </template>
 <script>
 import charts from "../components/charts.vue";
-import CircleCheckmarkIcon from "../svgs/circle-checkmark-icon.vue";
-import CloseIcon from "../svgs/close-icon.vue";
-
+import ordersPreview from "../components/seller-order-preview.vue";
 export default {
   data() {
     return {
@@ -49,21 +21,17 @@ export default {
       tabelCategory: ["BUYER", "GIG", "DATE", "TOTAL", "STATUS", "ACTIONS"],
     };
   },
-  created() {},
   computed: {
     loggedinUser() {
       return this.$store.getters.loggedinUser;
     },
     orders() {
-      return this.$store.getters.orders
+      return this.$store.getters.orders;
     },
     ordersToShow() {
       return this.orders.filter((order) => {
         return order.seller?._id == this.loggedinUser._id;
       });
-    },
-    setStatusColor() {
-      return order.status === "Approved" ? "approved-active" : "denied-active";
     },
     totalPrice() {
       let totalPrice = 0;
@@ -73,7 +41,6 @@ export default {
       return totalPrice;
     },
   },
-
   methods: {
     changeStatus(status, OldOrder) {
       const order = JSON.parse(JSON.stringify(OldOrder));
@@ -82,12 +49,9 @@ export default {
       socketService.emit("statusChanged", order);
     },
   },
-
   components: {
     charts,
-    CircleCheckmarkIcon,
-    CloseIcon,
+    ordersPreview,
   },
 };
 </script>
-<style scoped></style>
