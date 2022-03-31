@@ -14,7 +14,7 @@
       </div>
 
       <div class="filter-explore-sortby">
-        Sort By:
+        <p>Sort By:</p>
         <el-select
           v-model="filterBy.sortBy"
           placeholder="Select"
@@ -46,23 +46,23 @@
             :max="250"
             @change="setFilter"
           />
-          <template #reference>
+          <template class="budget-btn" #reference>
             <el-button>Budget</el-button>
           </template>
         </el-popover>
 
         <!-- // filter by best seller -->
-        pro Seller
-
+      </div>
+      <div class="sortby-pro-seller-container">
         <el-tooltip class="box-item" effect="dark" placement="bottom-start">
-          <template #content>
-            <span class="box-item"
-              >For best service<br />
-              and certified professionals
-            </span></template
-          >
-          <el-switch v-model="filterBy.level" @change="setFilter" />
+          <template #content> </template>
+          <el-switch
+            class="pro-seller-switch"
+            v-model="filterBy.level"
+            @change="setFilter"
+          />
         </el-tooltip>
+        <p>Pro Services</p>
       </div>
     </div>
   </section>
