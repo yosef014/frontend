@@ -15,7 +15,7 @@
         </p>
         <p>
           Reviews:
-          <span> ({{ reviewsLength }}) </span>
+          <span> ({{ gig.reviewers.length }}) </span>
         </p>
       </div>
     </div>
@@ -69,11 +69,7 @@ export default {
   created() {
     this.loadGig();
   },
-  computed: {
-    reviewsLength() {
-      return this.gig.reviewers.length;
-    },
-  },
+  computed: {},
   methods: {
     async loadGig() {
       const { id } = this.$route.params;
