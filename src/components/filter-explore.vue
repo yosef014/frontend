@@ -53,14 +53,11 @@
         <!-- // filter by best seller -->
       </div>
       <div class="sortby-pro-seller-container">
-        <el-tooltip class="box-item" effect="dark" placement="bottom-start">
-          <template #content> </template>
           <el-switch
             class="pro-seller-switch"
             v-model="filterBy.level"
             @change="setFilter"
           />
-        </el-tooltip>
         <p>Pro Services</p>
       </div>
     </div>
