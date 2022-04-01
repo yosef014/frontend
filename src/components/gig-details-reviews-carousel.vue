@@ -3,9 +3,6 @@
     <div class="gig-reviews-carousel">
       <header class="gig-reviews-carousel-header">
         <h2 class="gig-section-title">What people loved about this seller</h2>
-        <button class="gig-see-all-reviews-btn">
-          See all reviews //href to reviews
-        </button>
       </header>
     </div>
     <Carousel :settings="settings" :breakpoints="breakpoints">

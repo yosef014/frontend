@@ -8,12 +8,13 @@
       element-loading-background="rgba(255,255,255)"
     ></div> -->
     <RouterView />
+    <appFooter></appFooter>
   </main>
 </template>
 
 <script>
 import appHeader from "./components/app-header.vue";
-// import appHeader from "./components/logged-out-app-header-copy.vue";
+import appFooter from "./components/app-footer.vue";
 export default {
   name: "app",
   created() {
@@ -40,6 +41,7 @@ export default {
   },
   components: {
     appHeader,
+    appFooter,
   },
   mounted() {
     window.onresize();
