@@ -90,7 +90,7 @@ import sellerOrders from "../components/seller-orders.vue";
 export default {
   data() {
     return {
-      color:'#909399',
+      color:'#67c23a',
       activeName:'first',
       pageSize: 7,
       pageIdx: 0,

@@ -221,11 +221,10 @@ export default {
             transcript === "logo design" ||
             transcript === "design"
           )
-            this.$router.push("/tag/logo");
+          this.$router.push("/tag/logo");
           console.log("entered");
           // else if(transcript)
-          if (transcript === "Yosef")
-            window.open("https://www.pwp.co.il/", "_blank");
+          if (transcript === "Yosef") window.open("https://www.pwp.co.il/", "_blank");
         }, 2500);
       });
 
@@ -237,7 +236,6 @@ export default {
           recognition.stop();
         }, 1500);
       });
-
       recognition.start();
     },
     heroAnimation() {

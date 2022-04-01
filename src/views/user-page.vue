@@ -93,7 +93,7 @@ import timeLine from "../components/time-line.vue";
 export default {
   data() {
     return {
-      color:'#909399',
+      color:'#67c23a',
       isTimeLineShowen: false,
       currOrderId: null,
       msgTo: {
