@@ -47,7 +47,7 @@ import StarIcon from "../svgs/star-icon.vue";
 export default {
   name: "gig-details-review",
   components: {
-    StarIcon
+    StarIcon,
   },
   data() {
     return {

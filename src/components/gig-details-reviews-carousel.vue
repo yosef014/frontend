@@ -16,10 +16,10 @@
                     <span class="gig-review-span-name">{{gigReview.name}}</span>
                     <span><img :src="gigReview.flag" alt=""></span>
                     <span>{{gigReview.country}}</span>
-                    <span><StarIcon/><small>(5)</small></span>
+                    <span><StarIcon /><small>(5)</small></span>
                 </div>
                 <div class="gig-description-carousel">
-                  helo
+                  {{gigReview.review.slice(0,85)}}
                 </div>
           </div>
         </div>
@@ -47,7 +47,7 @@
       Carousel,
       Slide,
       Navigation,
-      StarIcon
+      StarIcon,
     },
     data() {
       return {
@@ -73,22 +73,26 @@
       };
     },
     created () {
+      this.longText()
     },
     computed: {
-
+      computedText(){
+        return this.longText()
+      }
     },
     methods: {
-      // longText(){
-      //   const longText = this.gig.reviewers.forEach(function (arrayItem) {
-      //   const length = 85;
-      //   const text = arrayItem.review
-      //   var review = arrayItem.review.length;
-      //   // console.log(review);
-      //   if(review > length) return  text.substring(0, length) + '...';
-      //   else return text;
-      //   });
-      //   return longText
-      // }
+      longText(){
+        return this.gig.reviewers.forEach(function (arrayItem) {
+        const length = 85;
+        const text = arrayItem.review
+        var review = arrayItem.review.length;
+        // console.log(review);
+        console.log(text);
+        console.log(review);
+        if(review > length) return  text.substring(0, length) + '...';
+        else return text;
+        });
+      }
     }
   };
 </script>

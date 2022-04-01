@@ -1,5 +1,5 @@
 <template>
-  <main class="">
+  <main>
     <appHeader></appHeader>
     <!-- <div
       class="isloading"

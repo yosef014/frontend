@@ -67,7 +67,7 @@ export default {
       isFavorite: false,
     };
   },
-  components: { StarIcon, FavoriteIcon },
+  // components: { StarIcon, FavoriteIcon },
   created() {},
   computed: {
     setStarsToRender() {

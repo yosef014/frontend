@@ -1,5 +1,5 @@
 
-console.log('Service Worker Registered!');
+// console.log('Service Worker Registered!');
 
 
 // This function build an array of urls,
@@ -7,7 +7,7 @@ console.log('Service Worker Registered!');
 // example: key: 'main.js' value: 'alert(3)'
 self.addEventListener('install', event => {
 
-    console.log('Installing service worker...');
+    // console.log('Installing service worker...');
     // var count = 0;
 
     // setInterval(()=>{
@@ -31,7 +31,7 @@ self.addEventListener('install', event => {
 });
 
 self.addEventListener('fetch', event => {
-    console.log('Fetch of: ', event.request.url);
+    // console.log('Fetch of: ', event.request.url);
 
     event.respondWith(
         // the response is resolved to null if there is no match 
