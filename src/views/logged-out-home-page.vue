@@ -205,6 +205,8 @@ export default {
       setTimeout(()=>{
         if(transcript === 'logo' || transcript === 'logo design' || transcript === 'design') this.$router.push('/tag/logo') 
         console.log('entered');
+        // else if(transcript)
+        if(transcript === 'Yosef') window.open('https://www.pwp.co.il/', '_blank');
       },2500)
       });
 
