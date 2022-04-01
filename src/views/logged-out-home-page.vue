@@ -44,7 +44,7 @@
             </div>
           </div>
         </div>
-        <div class="hero max-width-container">
+        <div class="hero">
           <div class="header">
             <h1 class="font-domaine">
               <span
@@ -53,7 +53,6 @@
               >
             </h1>
             <div class="search-bar-package search_bar-package">
-          
               <form class="">
                 <span
                   class="search-icon icon"
@@ -67,8 +66,19 @@
                   v-model="inputVal"
                 />
                 <button class="">Search</button>
-                <img class="speech-recognition-image" v-if="!isRecording" src="@/assets/voice.svg" alt="" @click="startTxtToSpeech">
-                <img class="speech-recognition-gif" v-else src="@/assets/recording-wave.gif" alt="">
+                <img
+                  class="speech-recognition-image"
+                  v-if="!isRecording"
+                  src="@/assets/voice.svg"
+                  alt=""
+                  @click="startTxtToSpeech"
+                />
+                <img
+                  class="speech-recognition-gif"
+                  v-else
+                  src="@/assets/recording-wave.gif"
+                  alt=""
+                />
               </form>
               <ul
                 :class="{
@@ -112,8 +122,8 @@ import ServicesIcon from "../svgs/services-icon.vue";
 export default {
   data() {
     return {
-      inputVal: '',
-      isRecording:false,
+      inputVal: "",
+      isRecording: false,
       transcription: [],
       // inputVal: [
       //   {speech:''},{txt:''}
@@ -186,41 +196,47 @@ export default {
 
   methods: {
     startTxtToSpeech() {
-      
-     window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      window.SpeechRecognition =
+        window.SpeechRecognition || window.webkitSpeechRecognition;
 
       const recognition = new SpeechRecognition();
       recognition.interimResults = true;
-      recognition.lang = 'en-US';
+      recognition.lang = "en-US";
 
       this.isRecording = true;
-      recognition.addEventListener('result', e => {
+      recognition.addEventListener("result", (e) => {
         const transcript = Array.from(e.results)
-      .map(result => result[0])
-      .map(result => result.transcript)
-      .join('');
-      this.inputVal = transcript;
-      setTimeout(()=>{
-        this.isRecording = false;
-      },2000)
-      setTimeout(()=>{
-        if(transcript === 'logo' || transcript === 'logo design' || transcript === 'design') this.$router.push('/tag/logo') 
-        console.log('entered');
-        // else if(transcript)
-        if(transcript === 'Yosef') window.open('https://www.pwp.co.il/', '_blank');
-      },2500)
+          .map((result) => result[0])
+          .map((result) => result.transcript)
+          .join("");
+        this.inputVal = transcript;
+        setTimeout(() => {
+          this.isRecording = false;
+        }, 2000);
+        setTimeout(() => {
+          if (
+            transcript === "logo" ||
+            transcript === "logo design" ||
+            transcript === "design"
+          )
+            this.$router.push("/tag/logo");
+          console.log("entered");
+          // else if(transcript)
+          if (transcript === "Yosef")
+            window.open("https://www.pwp.co.il/", "_blank");
+        }, 2500);
       });
 
-  // recognition.addEventListener('end', recognition.start);
+      // recognition.addEventListener('end', recognition.start);
       recognition.addEventListener("end", () => {
         setTimeout(() => {
           this.transcription.push(this.inputVal);
           this.inputVal = "";
           recognition.stop();
         }, 1500);
-     });
+      });
 
-    recognition.start();
+      recognition.start();
     },
     heroAnimation() {
       if (this.$route.path !== "/") return;

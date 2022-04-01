@@ -1,7 +1,14 @@
+.app-container {
+  padding: 0 2rem;
+}
+
 .page-content-container {
   margin: 0 auto;
   padding: 7.5rem 2rem 0 2rem;
   max-width: 1400px;
+  @include for-mobile-layout {
+    padding: 7.5rem 1rem;
+  }
 
   //   @media (min-width: $screen-size-m) {
   //     padding: 7.5rem 1rem;
@@ -80,7 +87,7 @@
     
   }
   @media (max-width: $screen-size-xl) {
-    padding: 0 2rem;
+    // padding: 0 2rem;
   }
   
 }
