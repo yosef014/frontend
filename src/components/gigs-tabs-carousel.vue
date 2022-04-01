@@ -1,6 +1,6 @@
 <template>
   <div class="click-list">
-    <div class="gig-categorys-boxes">
+    <div class="gig-categorys-boxes" v-if="!isLoading" >
       <Carousel
         :breakpoints="breakpoints"
         :settings="settings"
@@ -111,6 +111,9 @@ export default {
   async created() {},
   computed: {
     gigs() {},
+    isLoading(){
+      return this.$store.getters.isLoading
+    }
   },
 };
 </script>

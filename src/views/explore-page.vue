@@ -1,6 +1,6 @@
 <template>
-  <div class="page-content-container" v-if="gigsToShow">
-    <div class="breadcrumbs">
+  <div class="page-content-container" v-if="!isLoading">
+    <div class="breadcrumbs" v-if="gigsToShow">
       <span @click="this.$router.push('/')"> FIIVERR ></span>
       <span @click="this.$router.push('/tag')">SERVICES ></span>
       <span> {{ breadcrumbsToShow.toUpperCase() }} ></span>
@@ -20,7 +20,7 @@
     </div>
     <ul class="gig-list grid">
       <li class="gig-preview" v-for="gig in gigsToShow" :key="gig._id">
-        <gigsPreview :gig="gig" @click="loader" />
+        <gigsPreview :gig="gig" />
       </li>
     </ul>
   </div>
@@ -57,6 +57,9 @@ export default {
     gigs() {
       return this.$store.getters.gigs;
     },
+    isLoading(){
+      return this.$store.getters.isLoading;
+    },
     gigsToShow() {
       const category = this.$route.params.gig;
       if (!category) return this.gigs;
@@ -76,12 +79,6 @@ export default {
     setFilter() {
       const filterBy = JSON.parse(JSON.stringify(this.filterBy));
       this.$store.dispatch({ type: "setFilter", filterBy });
-    },
-    loader() {
-      this.$store.dispatch({ type: "isLoading", isLoading: true });
-      setTimeout(() => {
-        this.$store.dispatch({ type: "isLoading", isLoading: false });
-      }, 1500);
     },
     capSentence() {
       return this.breadcrumbsToShow

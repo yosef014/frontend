@@ -1,5 +1,5 @@
 <template>
-  <div class="page-content-container">
+  <div class="page-content-container" v-if="!isLoading">
     <section v-if="gig" class="gig-checkout-page gig-page">
       <div class="gig-order-summary">
         <div class="gig-order-preview">
@@ -116,6 +116,9 @@ export default {
     starsToRender() {
       return Math.floor(this.gig.rate + 1);
     },
+    isLoading(){
+      return this.$store.getters.isLoading;
+    }
   },
   methods: {
     sendMsg() {
@@ -154,10 +157,6 @@ export default {
         await this.$store.dispatch({ type: "addOrder", order });
         this.$router.push("/user");
       socketService.emit('newOrderAded', this.gig.owner);
-      this.$store.dispatch({ type: 'isLoading', isLoading: true })
-        setTimeout(() => {
-           this.$store.dispatch({ type: 'isLoading', isLoading: false })
-        }, 1000);
     },
   },
 };

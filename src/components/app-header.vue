@@ -78,8 +78,8 @@
       </div>
       <div v-if="!isMobileDisplay" class="link-list">
         <ul>
-          <li v-for="navLink in navLinks" :key="navLink" @click="loader">
-            <router-link :to="navLink.route">
+          <li v-for="navLink in navLinks" :key="navLink">
+            <router-link :to="navLink.route" @click="loader">
               <a
                 :style="navLink.name === 'business-link' ? setLinkColor : ''"
                 :class="navLink.class"
@@ -328,7 +328,7 @@ export default {
         position: "bottom-right",
       });
     },
-    loader() {
+     loader() {
       this.$store.dispatch({ type: "isLoading", isLoading: true });
       setTimeout(() => {
         this.$store.dispatch({ type: "isLoading", isLoading: false });
@@ -377,7 +377,9 @@ export default {
         transform: this.isShowCategories ? "rotateX(0deg)" : "rotateX(90deg)",
       };
     },
-
+    isLoading(){
+      this.$store.getters.isLoading;
+    },
     onShowNavbar() {
       return {
         "header-transparent": this.isShowNavbar === false,

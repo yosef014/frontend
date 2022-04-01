@@ -40,10 +40,10 @@ self.addEventListener('fetch', event => {
                 var res = response;
 
                 if (!res) {
-                    console.log(event.request.url, '- NOT IN CACHE, FETCHED FROM NETWORK!')
+                    // console.log(event.request.url, '- NOT IN CACHE, FETCHED FROM NETWORK!')
                     res = fetch(event.request)
                 } else {
-                    console.log(event.request.url, 'FOUND IN CACHE')
+                    // console.log(event.request.url, 'FOUND IN CACHE')
                 }
                 return res
             })
