@@ -71,6 +71,7 @@
     color: #404145;
     font-family: Helvetica, Helvetica, Arial, sans-serif;
     font-weight: 700;
+    
   }
   h4 {
     position: relative;
@@ -95,10 +96,16 @@
 
 // Explore the marketplace -------------- //
 
-.main-categories ol,
+.Explore-the-marketplace .main-categories ,
 ul {
   list-style: none;
   list-style-image: none;
+}
+
+h2 {
+
+    padding-left: 1rem;
+    font-family: macan-semibold;
 }
 
 .categories-list {
@@ -162,7 +169,7 @@ ul {
 // info home page ------------
 
 .home-page-info-container {
-  padding-top: 64px;
+  // padding-top: 64px;
   padding-bottom: 64px;
   flex: 0 1 auto;
   flex-flow: row wrap;
@@ -170,26 +177,36 @@ ul {
   margin-bottom: 5.938rem;
   width: 100%;
   .main-info {
+    
     .content {
       display: flex;
       flex-flow: row wrap;
       flex: 0 1 auto;
-      flex-direction: column;
-      align-items: center;
+      // @include for-wide-layout {
+        
+      // }
       @include for-normal-layout {
+        flex-direction: column;
+        align-items: center;
         flex-direction: row;
+        
+        // align-items: stretch;
       }
+      
     }
     .home-page-info {
-      padding: 0 8px 48px;
-      flex: 0 0 auto;
+      padding: 4rem 1rem ;
+      // flex: 0 0 auto;
       align-items: center;
       flex-flow: row wrap;
       @include for-normal-layout {
-        padding-bottom: 0;
-        padding-right: 7.29%;
+        // padding: 4rem 1rem;
         flex-basis: 46.66667%;
         max-width: 46.66667%;
+      }
+      @include for-mobile-layout {
+        padding: 1rem;
+
       }
       li {
         padding-bottom: 24px;
@@ -231,6 +248,7 @@ ul {
     }
     .home-page-img {
       position: relative;
+      
       img {
         width: 100%;
         object-fit: contain;
@@ -239,7 +257,8 @@ ul {
       @include for-normal-layout {
         flex-basis: 53.33333%;
         min-width: 50px;
-        max-width: 43.33333%;
+        // max-width: 43.33333%;
+        
       }
     }
   }
