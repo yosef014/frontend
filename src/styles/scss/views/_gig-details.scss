@@ -55,7 +55,6 @@
     position: relative;
     top: 0;
     justify-self: center;
-    max-width: 25rem;
   }
 
   .gig-checkout-card {
@@ -173,6 +172,9 @@
 
 .gig-description-section {
   grid-column: 1/2;
+  .gig-description p {
+    padding: 1rem 0;
+  }
 }
 
 .gig-details-main-content {
@@ -185,8 +187,9 @@
     column-gap: 10%;
   }
   @media (max-width: 800px) {
-    grid-template-columns: 0.8fr;
-    grid-auto-rows: auto;
+    
+   
+    row-gap: 30px;
     justify-items: center;
     .gig-sidebar-right {
       display: flex;
@@ -197,6 +200,9 @@
 }
 
 .gig-details-main-content {
+  h2 {
+    padding-bottom: 2rem;
+  }
   h4 {
     font-family: macan-bold;
   }
@@ -206,6 +212,7 @@
     font-family: macan-bold;
     font-size: 2rem;
     padding-bottom: 1rem;
+    line-height: 1.4;
     @include for-mobile-layout {
       font-size: 1.5rem;
     }
@@ -224,8 +231,8 @@
 }
 
 // all sections selector
-.gig-details-main-content > * {
-  margin-bottom: 1rem;
+.gig-details-main-content > section {
+  padding: 1rem 0;
   // width: 100%;
 }
 
@@ -239,6 +246,11 @@
     height: 3rem;
     align-items: center;
     flex-wrap: wrap;
+    span , a {
+      font-family: macan-light;
+      color: #62646a;
+      padding-inline-end: 1rem;
+    }
     & li {
       margin-inline-end: 1rem;
       a {
@@ -399,14 +411,26 @@
 }
 
 .gig-details-carousel {
-  // width: 100%;
+  width: 100%;
   height: 100%;
+  padding: 2rem 0;
+  .carousel__viewport {
+    aspect-ratio: 16/9;
+    width: 100%;
+    .carousel__track {
+      height: auto;
+      width: 100%;
+    }
+  }
   li {
     display: block;
   }
   .details-carousel-image {
-    aspect-ratio: 200/330;
+    // aspect-ratio: 200/330;
     object-fit: cover;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16/9;
   }
 }
 

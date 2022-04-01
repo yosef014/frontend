@@ -54,31 +54,31 @@
             </h1>
             <div class="search-bar-package search_bar-package">
               <form class="">
-                <span
-                  class="search-icon icon"
-                  aria-hidden="true"
-                  style="width: 16px; height: 16px"
-                  ><searchIconVue /></span
-                ><input
-                  type="search"
-                  autocomplete="off"
-                  placeholder='Try "building mobile app"'
-                  v-model="inputVal"
-                />
+                <div class="search-bar-container">
+                  <span
+                    class="search-icon icon"
+                    aria-hidden="true"
+                    style="width: 16px; height: 16px"
+                    ><searchIconVue /></span
+                  ><input
+                    type="search"
+                    autocomplete="off"
+                    placeholder='Try "building mobile app"'
+                    v-model="inputVal"
+                  />
+                  <SpeechIcon
+                    v-if="!isRecording"
+                    src="@/assets/voice.svg"
+                    alt=""
+                    @click="startTxtToSpeech"
+                  />
+                  <RecordingIcon
+                    v-else
+                    src="@/assets/recording-wave.gif"
+                    alt=""
+                  />
+                </div>
                 <button class="">Search</button>
-                <img
-                  class="speech-recognition-image"
-                  v-if="!isRecording"
-                  src="@/assets/voice.svg"
-                  alt=""
-                  @click="startTxtToSpeech"
-                />
-                <img
-                  class="speech-recognition-gif"
-                  v-else
-                  src="@/assets/recording-wave.gif"
-                  alt=""
-                />
               </form>
               <ul
                 :class="{
@@ -118,6 +118,8 @@
 <script>
 import searchIconVue from "../svgs/search-icon.vue";
 import ServicesIcon from "../svgs/services-icon.vue";
+import SpeechIcon from "../svgs/microphone-icon.vue";
+import RecordingIcon from "../svgs/recording-icon.vue";
 
 export default {
   data() {
@@ -258,6 +260,8 @@ export default {
   components: {
     searchIconVue,
     ServicesIcon,
+    SpeechIcon,
+    RecordingIcon,
   },
 };
 </script>
