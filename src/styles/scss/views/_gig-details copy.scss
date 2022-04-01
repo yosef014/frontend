@@ -397,9 +397,17 @@
   margin-bottom: 64px;
   .gig-review-header {
     display: flex;
+    padding: 0 0 0 34px;
     .gig-review-name {
+      margin-right: 10px;
       font-size: 16px;
+      font-family: macan-regular;
       line-height: 140%;
+    }
+    img{
+      height: 24px;
+      width: 24px;
+      margin-right: 10px;
     }
     .gig-review-country-flag {
       display: inline-flex;
@@ -432,9 +440,6 @@
 }
 .gig-carousel-details {
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
 }
 .gig-review-description {
