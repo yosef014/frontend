@@ -248,6 +248,7 @@ h2 {
     }
     .home-page-img {
       position: relative;
+      margin: auto;
       
       img {
         width: 100%;
@@ -255,7 +256,7 @@ h2 {
         padding-inline: 8px;
       }
       @include for-normal-layout {
-        flex-basis: 53.33333%;
+        flex-basis: 52.5%;
         min-width: 50px;
         // max-width: 43.33333%;
         
