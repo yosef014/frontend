@@ -65,6 +65,8 @@
                   placeholder='Try "building mobile app"'
                   v-model="inputVal"
                 />
+                <img class="speech-recognition-image" v-if="!isRecording" src="@/assets/voice.svg" alt="" @click="startTxtToSpeech">
+                <img class="speech-recognition-gif" v-else src="@/assets/recording-wave.gif" alt="">
                 <button class="">Search</button>
               </form>
               <ul
@@ -109,7 +111,12 @@ import ServicesIcon from "../svgs/services-icon.vue";
 export default {
   data() {
     return {
-      inputVal: "",
+      inputVal: '',
+      isRecording:false,
+      transcription: [],
+      // inputVal: [
+      //   {speech:''},{txt:''}
+      //   ],
       // categoryies:['logo','arts and crafts','research and summeries','data entry','marketing','business','programming and tech'],
       heroIdx: 0,
       heroTimeout: null,
@@ -177,6 +184,42 @@ export default {
   },
 
   methods: {
+    startTxtToSpeech() {
+      // initialisation of voicereco
+     window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+      const recognition = new SpeechRecognition();
+      recognition.interimResults = true;
+      recognition.lang = 'en-US';
+
+      this.isRecording = true;
+      recognition.addEventListener('result', e => {
+        const transcript = Array.from(e.results)
+      .map(result => result[0])
+      .map(result => result.transcript)
+      .join('');
+      // const poopScript = transcript.replace(/logo design|logo|shit|dump/gi, ':)'  );
+      this.inputVal = transcript;
+      setTimeout(()=>{
+        this.isRecording = false;
+      },2000)
+      setTimeout(()=>{
+        if(transcript === 'logo' || transcript === 'logo design' || transcript === 'design') this.$router.push('/tag/logo') 
+        console.log('entered');
+      },2500)
+      });
+
+  // recognition.addEventListener('end', recognition.start);
+      recognition.addEventListener("end", () => {
+        setTimeout(() => {
+          this.transcription.push(this.inputVal);
+          this.inputVal = "";
+          recognition.stop();
+        }, 1500);
+     });
+
+    recognition.start();
+    },
     heroAnimation() {
       if (this.$route.path !== "/") return;
       const elHeroWrappers = document.querySelectorAll(".hero-wrapper");

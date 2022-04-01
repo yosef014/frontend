@@ -11,7 +11,7 @@
       >
         <!--prevent on drop and dragover is importent soo the img will not open in the browser-->
         <img
-          :src="isDragOver ? 'src/assets/box.png' : 'src/assets/upload.png'"
+          :src="isDragOver ? '@/assets/box.png' : '@/assets/upload.png'"
           alt="Drop images here"
         />
         <h3>Choose an image <span class="light"> or drag it here</span></h3>
@@ -25,7 +25,7 @@
       />
     </template>
     <!-- LOADER -->
-    <img v-else src="src/assets/loader.gif" alt="" />
+    <img v-else src="@/assets/loader.gif" alt="" />
   </div>
 </template>
 

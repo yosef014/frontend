@@ -232,3 +232,22 @@ ul {
     padding-right: 11%;
   }
 }
+
+// speech recognition svg 
+
+.speech-recognition-image{
+  position: relative;
+    right: 40px;
+    transition: 0.3s;
+    transition-duration: 0.3s;
+}
+
+.speech-recognition-gif{
+  height: 24px;
+  width: 24px;
+  position: relative;
+  right: 40px;
+  top:10px;
+  transition: 0.5s;
+  transition-duration: 0.3s;
+}
