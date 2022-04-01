@@ -187,11 +187,11 @@ export default {
       this.heroTimeout = setTimeout(this.heroAnimation, 6000);
     },
     loader() {
-       this.$store.dispatch({ type: 'isLoading', isLoading: true })
-        setTimeout(() => {
-           this.$store.dispatch({ type: 'isLoading', isLoading: false })
-        }, 1500);
-      },
+      this.$store.dispatch({ type: "isLoading", isLoading: true });
+      setTimeout(() => {
+        this.$store.dispatch({ type: "isLoading", isLoading: false });
+      }, 1500);
+    },
   },
 
   components: {

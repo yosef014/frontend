@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="">
     <appHeader></appHeader>
     <!-- <div
       class="isloading"
@@ -57,4 +57,3 @@ export default {
   },
 };
 </script>
-

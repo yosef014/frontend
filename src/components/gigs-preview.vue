@@ -1,7 +1,7 @@
 <template>
   <section v-if="gig">
     <!-- <div class="gig-img" @click="this.$router.push('/tag' + '/' + gig.category + '/'+ gig._id)"> -->
-    <el-carousel :autoplay="false" trigger="click" height="197px">
+    <el-carousel :autoplay="false" trigger="click">
       <el-carousel-item v-for="currImg in gig.productImgs" :key="currImg">
         <div class="img-container">
           <img
@@ -17,8 +17,8 @@
     <div class="owner-prev">
       <img :src="gig.owner.imgUrl" />
       <div class="owner-name-level">
-        {{ gig.owner.username }}
-        <h5>{{gig.level}}</h5>
+        <a>{{ gig.owner.username }}</a>
+        <h5>{{ capSentence }}</h5>
       </div>
     </div>
     <p
@@ -30,17 +30,22 @@
     </p>
 
     <div class="owner-rating">
-      <StarIcon />{{ gig.rate }} <span>({{gig.reviews}})</span>
+      <StarIcon />{{ gig.rate }} <span>({{ gig.reviews }})</span>
     </div>
 
     <div class="gig-footer">
       <el-tooltip content="Add to favorite" placement="top">
-        <FavoriteIcon />
+        <FavoriteIcon
+          @click="setFavorite"
+          :style="{ fill: this.isFavorite ? '#FF0000' : '#b5b6ba' }"
+        />
       </el-tooltip>
 
       <div class="price">
-        <h6>starting at</h6>
-        <span> ${{ gig.price }}</span>
+        <small>STARTING AT</small>
+        <span>
+          ${{ gig.price.toFixed(0) }} <sup>{{ getDecimals }}</sup>
+        </span>
       </div>
     </div>
   </section>
@@ -58,7 +63,9 @@ export default {
     FavoriteIcon,
   },
   data() {
-    return {};
+    return {
+      isFavorite: false,
+    };
   },
   components: { StarIcon, FavoriteIcon },
   created() {},
@@ -66,7 +73,25 @@ export default {
     setStarsToRender() {
       return gig.reviews;
     },
+
+    getDecimals() {
+      return (this.gig.price % 1).toFixed(2).substring(2);
+    },
+
+    capSentence() {
+      return this.gig.level
+        .split(" ")
+        .map((word) => word.split("")[0].toUpperCase() + word.substring(1))
+        .join(" ");
+    },
+    setFavoriteColor() {
+      return;
+    },
   },
-  methods: {},
+  methods: {
+    setFavorite() {
+      this.isFavorite = !this.isFavorite;
+    },
+  },
 };
 </script>

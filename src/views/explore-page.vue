@@ -83,6 +83,12 @@ export default {
         this.$store.dispatch({ type: "isLoading", isLoading: false });
       }, 1500);
     },
+    capSentence() {
+      return this.breadcrumbsToShow
+        .split(" ")
+        .map((word) => word.split("")[0].toUpperCase() + word.substring(1))
+        .join(" ");
+    },
   },
 };
 </script>

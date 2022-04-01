@@ -1,5 +1,9 @@
 <template>
-  <Carousel :settings="settings" :breakpoints="breakpoints">
+  <Carousel
+    class="popular-service-carousel"
+    :settings="settings"
+    :breakpoints="breakpoints"
+  >
     <Slide v-for="slide in slides" :key="slide">
       <div>
         <!-- <div class="carousel__item"> -->
@@ -44,39 +48,33 @@ export default {
   data() {
     return {
       settings: {
-        itemsToShow: 2,
+        // itemsToShow: 2,
         itemsToScroll: 3,
         transition: 600,
         snapAlign: "start",
-        // wrapAround: true,
+        wrapAround: true,
       },
       breakpoints: {
         // 700px and up
         200: {
-          itemToShow: 1,
-          snapAlign: "start",
-          transition: 200,
-          itemsToScroll: 6,
-        },
-        400: {
           itemToShow: 2,
-          snapAlign: "start",
-          transition: 200,
+          // itemsToScroll: 1,
+        },
+        600: {
+          itemToShow: 2,
+          // itemsToScroll: 1,
         },
 
-        700: {
+        760: {
           itemsToShow: 3,
-          snapAlign: "start",
         },
 
         // 1024 and up
         1060: {
           itemsToShow: 4,
-          snapAlign: "start",
         },
-        1240: {
+        1300: {
           itemsToShow: 5,
-          snapAlign: "start",
         },
       },
 

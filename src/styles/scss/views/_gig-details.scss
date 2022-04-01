@@ -186,8 +186,13 @@
   }
   @media (max-width: 800px) {
     grid-template-columns: 0.8fr;
-    
+    grid-auto-rows: auto;
     justify-items: center;
+    .gig-sidebar-right {
+      display: flex;
+      flex-direction: column;
+      height: fit-content;
+    }
   }
 }
 
@@ -213,7 +218,7 @@
 
   p {
     font-family: macan-regular;
-    line-height: 1.4;
+    line-height: 1.5;
     color: #82858c;
   }
 }
