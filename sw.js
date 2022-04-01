@@ -30,7 +30,6 @@ self.addEventListener('install', event => {
 
 });
 
-
 self.addEventListener('fetch', event => {
     console.log('Fetch of: ', event.request.url);
 

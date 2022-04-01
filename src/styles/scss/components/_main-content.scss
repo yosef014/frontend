@@ -36,46 +36,28 @@
 }
 
 .subcategory-wrapper img {
-  object-fit: cover;
-  display: block;
-  height: 345px;
-  width: 100%;
-  border-radius: 4px;
-  -webkit-transition: opacity 0.3s ease-in-out;
-  -o-transition: opacity 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out;
-  position: absolute;
-  top: 0;
+  
 }
 
-.subcategory-wrapper img {
-  object-fit: cover;
-  display: block;
-  height: 345px;
-  width: 100%;
-  border-radius: 4px;
-  -webkit-transition: opacity 0.3s ease-in-out;
-  -o-transition: opacity 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out;
-  position: absolute;
-  top: 0;
-}
 
 .subcategory-wrapper {
   height: 345px;
   background-color: #efeff0;
   cursor: pointer;
+  aspect-ratio: 330/200;
+  width: 252px;
   img {
     object-fit: cover;
     display: block;
     height: 345px;
-    width: 100%;
+    width: 252px;
     border-radius: 4px;
     -webkit-transition: opacity 0.3s ease-in-out;
     -o-transition: opacity 0.3s ease-in-out;
     transition: opacity 0.3s ease-in-out;
     position: absolute;
     top: 0;
+
   }
 }
 
@@ -125,10 +107,12 @@ ul {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+
   li {
-    padding-bottom: 55px;
-    width: 20%;
+    padding: 22px;
+    
     text-align: center;
+    flex: 1 1 0;
   }
   li > {
     a {
@@ -177,23 +161,93 @@ ul {
 
 // info home page ------------
 
-.selling-proposition-wrapper {
-  margin-bottom: 96px;
-  padding: 32px 32px 64px;
-}
-
-.selling-proposition {
-  padding-top: 96px;
-  padding-bottom: 96px;
-}
-
-.grid-items {
-  display: flex;
+.home-page-info-container {
+  padding-top: 64px;
+  padding-bottom: 64px;
   flex: 0 1 auto;
+  flex-flow: row wrap;
+  background-color: #f1fdf7;
+  margin-bottom: 5.938rem;
+  width: 100%;
+  .main-info {
+    .content {
+      display: flex;
+      flex-flow: row wrap;
+      flex: 0 1 auto;
+      flex-direction: column;
+      align-items: center;
+      @include for-normal-layout {
+        flex-direction: row;
+      }
+    }
+    .home-page-info {
+      padding: 0 8px 48px;
+      flex: 0 0 auto;
+      align-items: center;
+      flex-flow: row wrap;
+      @include for-normal-layout {
+        padding-bottom: 0;
+        padding-right: 7.29%;
+        flex-basis: 46.66667%;
+        max-width: 46.66667%;
+      }
+      li {
+        padding-bottom: 24px;
+        list-style: none;
+        list-style-image: none;
+        h6 {
+          display: flex;
+          padding-bottom: 8px;
+          align-items: flex-start;
+          font-size: 18px;
+          line-height: 140%;
+          font-weight: 700;
+          color: #404145;
+          margin-block-start: 2.33em;
+          margin-block-end: 2.33em;
+          margin: 0;
+          span {
+            fill: rgb(122, 125, 133);
+            margin-right: 10px;
+            min-width: 24px;
+          }
+        }
+        p {
+          font-size: 18px;
+          font-stretch: 100%;
+          font-weight: 400;
+          line-height: 26px;
+          text-align: left;
+        }
+      }
+      h2 {
+        padding-bottom: 24px;
+        font-size: 32px;
+        line-height: 120%;
+        font-weight: 700;
+        color: #404145;
+        font-family: macan-bold;
+      }
+    }
+    .home-page-img {
+      position: relative;
+      img {
+        width: 100%;
+        object-fit: contain;
+        padding-inline: 8px;
+      }
+      @include for-normal-layout {
+        flex-basis: 53.33333%;
+        min-width: 50px;
+        max-width: 43.33333%;
+      }
+    }
+  }
 }
-.video-modal {
-  position: relative;
-}
+
+
+
+
 
 .video-modal .picture-wrapper:after {
   content: "";
@@ -231,4 +285,23 @@ ul {
     line-height: 26px;
     padding-right: 11%;
   }
+}
+
+// speech recognition svg 
+
+.speech-recognition-image{
+  position: relative;
+    right: 40px;
+    transition: 0.3s;
+    transition-duration: 0.3s;
+}
+
+.speech-recognition-gif{
+  height: 24px;
+  width: 24px;
+  position: relative;
+  right: 40px;
+  top:10px;
+  transition: 0.5s;
+  transition-duration: 0.3s;
 }

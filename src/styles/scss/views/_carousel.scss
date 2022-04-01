@@ -1,20 +1,38 @@
 // all carousel items in popular service container
-#app
-  > main
-  > div:nth-child(2)
-  > div.popular-services-container.max-width-container
-  > section
-  > div
-  > ol
-  > li {
-  min-width: 280px !important;
-  outline: none;
-  padding: 0 18px;
-  display: unset;
-  & div > a > a > picture img {
-    // aspect-ratio: 252/345;
-  }
-}
+// #app
+//   > main
+//   > div:nth-child(2)
+//   > div.popular-services-container.max-width-container
+//   > section
+//   > div
+//   > ol 
+//   > li {
+//   min-width: 280px !important;
+//   outline: none;
+//   display: unset;
+  
+//   & div > a > a > picture img {
+//     // aspect-ratio: 252/345;
+//   }
+// }
+// li:not(:last-child) {
+//   padding-right: .5rem;
+//   justify-content: start;
+  
+// }
+
+// #app > main > div:nth-child(3) > div.popular-services-container.max-width-container > section > div .carousel__track .carousel__slide {
+//   justify-content: start;
+//   padding: 0 .8rem;
+// }
+
+// #app > main > div:nth-child(3) > div.popular-services-container.max-width-container > section {
+//   .carousel__prev {
+//     // position: relative;
+//     left: 50%;
+//   }
+// }
+
 
 //all carousel images in gig list
 
@@ -25,3 +43,10 @@
 }
 
 // all carousel images in gig preview
+
+// .popular-services-container .carousel {
+//   display: grid;
+//   overflow: hidden;
+//   gap: 20px;
+
+// }

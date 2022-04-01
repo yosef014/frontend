@@ -17,11 +17,10 @@ export default {};
 </script>
 
 <style>
-    .favorite-icon {
-        fill: #f74040;
-    }
-        .favorite-icon:hover {
-            cursor: pointer;
-        }
+.favorite-icon:focus {
+  outline: none;
+}
+.favorite-icon:hover {
+  cursor: pointer;
+}
 </style>
-

@@ -3,7 +3,7 @@
     <div class="profile-page-layout-fluid">
       <div class="profile-page-layout max-width-container">
         <div class="profile-page-aside-left">
-          <h1>prifile user</h1>
+          <h1>Seller Profile</h1>
           <div class="user-info">
             <div class="profile-pic">
               <img :src="loggedinUser.imgUrl" alt="" srcset="" />
@@ -18,27 +18,27 @@
 
 <div class="demo-progress">
   Order completion
-    <el-progress :text-inside="true" :stroke-width="15" :percentage="70" />
+    <el-progress :text-inside="true" :stroke-width="15" :percentage="70" :color="color" />
     On-time delivery
     <el-progress
       :text-inside="true"
       :stroke-width="15"
       :percentage="100"
-      status="success"
+      :color="color"
     />
     Selling seniority
     <el-progress
       :text-inside="true"
       :stroke-width="15"
       :percentage="80"
-      status="warning"
+      :color="color"
     />
     Rating
     <el-progress
       :text-inside="true"
       :stroke-width="15"
       :percentage="50"
-      status="exception"
+      :color="color"
     />
   </div>
   
@@ -90,6 +90,7 @@ import sellerOrders from "../components/seller-orders.vue";
 export default {
   data() {
     return {
+      color:'#909399',
       activeName:'first',
       pageSize: 7,
       pageIdx: 0,

@@ -73,7 +73,7 @@
             <div class="card-content-container">
               <div class="checkout-card-header">
                 <h4 class="gig-title">Silver</h4>
-                <h4 class="gig-price">{{ gig.price }}$</h4>
+                <h4 class="gig-price">${{ gig.price }}</h4>
               </div>
               <div class="checkout-card-content">
                 <p>
@@ -91,7 +91,7 @@
                 <router-link :to="'/checkout/' + gig._id">
                   <button class="checkout-btn">
                     <p>Continue</p>
-                    <p>({{ gig.price }}$)</p>
+                    <p>(${{ gig.price }})</p>
                   </button>
                 </router-link>
               </div>

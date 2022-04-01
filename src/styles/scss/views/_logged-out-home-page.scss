@@ -246,7 +246,10 @@ form {
   color: aliceblue;
   max-width: 800px;
   position: relative;
-  padding-left: 1rem;
+  @include for-mobile-layout {
+    padding-left: 1rem;
+
+  }
 }
 
 .hero {

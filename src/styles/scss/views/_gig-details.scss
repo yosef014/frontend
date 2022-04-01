@@ -186,8 +186,13 @@
   }
   @media (max-width: 800px) {
     grid-template-columns: 0.8fr;
-    
+    grid-auto-rows: auto;
     justify-items: center;
+    .gig-sidebar-right {
+      display: flex;
+      flex-direction: column;
+      height: fit-content;
+    }
   }
 }
 
@@ -213,7 +218,7 @@
 
   p {
     font-family: macan-regular;
-    line-height: 1.4;
+    line-height: 1.5;
     color: #82858c;
   }
 }
@@ -402,6 +407,41 @@
   .details-carousel-image {
     aspect-ratio: 200/330;
     object-fit: cover;
+  }
+}
+
+
+// gig carousel details review
+
+.gig-carousel-details {
+  display: flex;
+  flex-direction: column;
+  .gig-review-description{
+    max-width: 390px;
+  }
+  .gig-review-header {
+    display: flex;
+    padding: 0 0 0 34px;
+    .gig-review-name {
+      margin-right: 10px;
+      font-size: 16px;
+      font-family: macan-regular;
+      line-height: 140%;
+    }
+    .gig-review-country-name{
+      position: relative;
+    top: 2px;
+    }
+    .gig-review-country-flag{
+      font-family: macan-regular;
+      display: flex;
+    }
+    img{
+      height: 24px;
+      width: 24px;
+      margin-right: 10px;
+      bottom: 2px;
+    }
   }
 }
 

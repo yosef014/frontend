@@ -20,13 +20,14 @@
             :text-inside="true"
             :stroke-width="15"
             :percentage="70"
+            :color="color"
           />
           user reviews
           <el-progress
             :text-inside="true"
             :stroke-width="15"
             :percentage="80"
-            status="warning"
+            :color="color"
           />
 
           Rating
@@ -34,14 +35,14 @@
             :text-inside="true"
             :stroke-width="15"
             :percentage="50"
-            status="exception"
+            :color="color"
           />
           activity
           <el-progress
             :text-inside="true"
             :stroke-width="15"
             :percentage="100"
-            status="success"
+            :color="color"
           />
         </div>
 
@@ -92,6 +93,7 @@ import timeLine from "../components/time-line.vue";
 export default {
   data() {
     return {
+      color:'#909399',
       isTimeLineShowen: false,
       currOrderId: null,
       msgTo: {
