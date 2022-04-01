@@ -53,6 +53,7 @@
               >
             </h1>
             <div class="search-bar-package search_bar-package">
+          
               <form class="">
                 <span
                   class="search-icon icon"
@@ -65,9 +66,9 @@
                   placeholder='Try "building mobile app"'
                   v-model="inputVal"
                 />
+                <button class="">Search</button>
                 <img class="speech-recognition-image" v-if="!isRecording" src="@/assets/voice.svg" alt="" @click="startTxtToSpeech">
                 <img class="speech-recognition-gif" v-else src="@/assets/recording-wave.gif" alt="">
-                <button class="">Search</button>
               </form>
               <ul
                 :class="{
