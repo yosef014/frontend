@@ -7,23 +7,20 @@
     </div>
     <Carousel :settings="settings" :breakpoints="breakpoints">
       <Slide v-for="gigReview in gig.reviewers" :key="gigReview">
-        <div class="gig-carousel__item">
-          <div class="gig-review-user-profile-img">
-            <img :src="gigReview.imgUrl" alt="" />
-          </div>
-          <div class="gig-carousel-details">
-            <div class="gig-review-header">
-              <h6 class="gig-review-name">{{ gigReview.name }}</h6>
-              <div class="gig-review-country-flag">
-                <img :src="gigReview.flag" alt="" />
-                <div class="gig-review-country-name">
-                  {{ gigReview.country }}
-                </div>
-              </div>
+          <div class="gig-reviews-carousel-wrapper">
+            <div class="gig-reviews-profile-img-carousel">
+            <span>{{gigReview.name.charAt(0)}}</span>
             </div>
-            <p class="gig-review-description">
-              {{ gigReview.review }}
-            </p>
+              <div class="gig-reviews-wrapper">
+                <div class="gig-reviews-header-carousel">
+                    <span class="gig-review-span-name">{{gigReview.name}}</span>
+                    <span><img :src="gigReview.flag" alt=""></span>
+                    <span>{{gigReview.country}}</span>
+                    <span><StarIcon/><small>(5)</small></span>
+                </div>
+                <div class="gig-description-carousel">
+                  helo
+                </div>
           </div>
         </div>
       </Slide>
@@ -35,8 +32,10 @@
   </section>
 </template>
 
+
 <script>
   import { Carousel, Navigation, Slide, Pagination } from "vue3-carousel";
+  import StarIcon from "../svgs/star-icon.vue";
   import "vue3-carousel/dist/carousel.css";
   export default {
     name: "ExamplePagination",
@@ -48,6 +47,7 @@
       Carousel,
       Slide,
       Navigation,
+      StarIcon
     },
     data() {
       return {
@@ -72,5 +72,24 @@
         },
       };
     },
+    created () {
+    },
+    computed: {
+
+    },
+    methods: {
+      // longText(){
+      //   const longText = this.gig.reviewers.forEach(function (arrayItem) {
+      //   const length = 85;
+      //   const text = arrayItem.review
+      //   var review = arrayItem.review.length;
+      //   // console.log(review);
+      //   if(review > length) return  text.substring(0, length) + '...';
+      //   else return text;
+      //   });
+      //   return longText
+      // }
+    }
   };
 </script>
+ 
