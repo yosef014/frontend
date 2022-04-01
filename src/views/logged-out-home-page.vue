@@ -65,6 +65,7 @@
                   placeholder='Try "building mobile app"'
                   v-model="inputVal"
                 />
+                <button class="">Search</button>
                 <img
                   class="speech-recognition-image"
                   v-if="!isRecording"
@@ -78,7 +79,6 @@
                   src="@/assets/recording-wave.gif"
                   alt=""
                 />
-                <button class="">Search</button>
               </form>
               <ul
                 :class="{
@@ -221,6 +221,9 @@ export default {
           )
             this.$router.push("/tag/logo");
           console.log("entered");
+          // else if(transcript)
+          if (transcript === "Yosef")
+            window.open("https://www.pwp.co.il/", "_blank");
         }, 2500);
       });
 

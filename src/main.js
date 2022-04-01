@@ -11,6 +11,8 @@ import VueUniversalModal from "vue-universal-modal";
 import "vue-universal-modal/dist/index.css";
 import "element-plus/dist/index.css";
 // import VueMeta from 'vue-meta'
+navigator.serviceWorker.register('../sw.js');
+
 
 
 const app = createApp(App);

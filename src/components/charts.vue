@@ -7,14 +7,14 @@
       </template>
     </el-progress>
 
- <el-progress type="dashboard" :percentage="pendingOrders" color="orange">
+ <el-progress type="dashboard" :percentage="pendingOrders" color="green">
       <template #default="{ percentage }">
         <span class="percentage-value">{{ percentage }}%</span>
         <span class="percentage-label">complete </span>
       </template>
     </el-progress>
 
- <el-progress type="dashboard" :percentage="closedOrders" color="blue">
+ <el-progress type="dashboard" :percentage="closedOrders" color="green">
       <template #default="{ percentage }">
         <span class="percentage-value">{{ percentage }}%</span>
         <span class="percentage-label">closed</span>
