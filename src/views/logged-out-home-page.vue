@@ -225,6 +225,7 @@ export default {
           console.log("entered");
           // else if(transcript)
           if (transcript === "Yosef") window.open("https://www.pwp.co.il/", "_blank");
+          this.$store.dispatch({type:'isLoading', isLoading:true})
         }, 2500);
       });
 
