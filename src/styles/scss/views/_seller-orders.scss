@@ -1,9 +1,7 @@
-.profile-page-aside-right > div {
+.profile-page-aside-right .el-tabs {
   width: 100%;
-  height: 100%;
-  .el-tabs__content {
-    height: 90%;
-  }
+  flex: 1;
+  
 }
 
 .table {
@@ -82,10 +80,13 @@
 }
 
 .approved-active {
-  color: green;
+  color: #27AE60;
 }
-.denied-active {
+.closed-active {
   color: red;
+}
+.pending-active {
+  color: orange;
 }
 
 .charts-box{

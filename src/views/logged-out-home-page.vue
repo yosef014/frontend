@@ -185,7 +185,7 @@ export default {
 
   methods: {
     startTxtToSpeech() {
-      // initialisation of voicereco
+      
      window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
       const recognition = new SpeechRecognition();
@@ -198,7 +198,6 @@ export default {
       .map(result => result[0])
       .map(result => result.transcript)
       .join('');
-      // const poopScript = transcript.replace(/logo design|logo|shit|dump/gi, ':)'  );
       this.inputVal = transcript;
       setTimeout(()=>{
         this.isRecording = false;

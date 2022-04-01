@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
 <section class="page-content-container">
  <div>
     <div class="speech-to-txt" @click="startTxtToSpeech">Speech to txt</div>
@@ -11,22 +12,48 @@
 
   </div>
 </section>
+=======
+  <section class="page-content-container">
+    <div>
+      <div class="speech-to-txt" @click="startTxtToSpeech">Speech to txt</div>
+      <div class="speech-transciption">
+        <div v-for="(word, index) in transcription_" :key="index">
+          {{ word }}
+        </div>
+        <div>{{ runtimeTranscription_ }}</div>
+      </div>
+
+      <div class="txt-to-speech" @click="startSpeechToTxt">Txt to speech</div>
+    </div>
+  </section>
+>>>>>>> d05dd9d0f93d2beadd929c62e790cb21a31344d1
 </template>
 
 <script>
 export default {
   data() {
     return {
+<<<<<<< HEAD
       runtimeTranscription: '',
       transcription: [],
       lang_: "es-ES",
     }
   },
   mounted () {
+=======
+      runtimeTranscription_: "",
+      transcription_: [],
+      lang_: "es-ES",
+    };
+  },
+  mounted() {
+    this.startSpeechToTxt();
+>>>>>>> d05dd9d0f93d2beadd929c62e790cb21a31344d1
   },
   methods: {
     startTxtToSpeech() {
       // initialisation of voicereco
+<<<<<<< HEAD
      window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
     const recognition = new SpeechRecognition();
@@ -56,6 +83,36 @@ export default {
     },
 }
 }
+=======
+      window.SpeechRecognition =
+        window.SpeechRecognition || window.webkitSpeechRecognition;
+      const recognition = new window.SpeechRecognition();
+      recognition.lang = this.lang_;
+      recognition.interimResults = true;
+      // event current voice reco word
+      recognition.addEventListener("result", (event) => {
+        const text = Array.from(event.results)
+          .map((result) => result[0])
+          .map((result) => result.transcript)
+          .join("");
+        this.runtimeTranscription_ = text;
+      });
+      // end of transcription
+      recognition.addEventListener("end", () => {
+        this.transcription_.push(this.runtimeTranscription_);
+        this.runtimeTranscription_ = "";
+        recognition.stop();
+      });
+      recognition.start();
+    },
+    startSpeechToTxt() {
+      // start speech to txt
+      var utterance = new SpeechSynthesisUtterance("Message Envoyé");
+      window.speechSynthesis.speak(utterance);
+    },
+  },
+};
+>>>>>>> d05dd9d0f93d2beadd929c62e790cb21a31344d1
 </script>
 
 <style lang="scss">
