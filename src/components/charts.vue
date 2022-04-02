@@ -20,6 +20,7 @@
         <span class="percentage-label">Closed Orders</span>
       </template>
     </el-progress>
+    <p>{{ totalMoneyMade }}</p>
   </section>
 </template>
 
@@ -33,12 +34,13 @@ export default {
   },
   created() {},
   computed: {
-    totalPrice() {
-      let totalPrice = 0;
-      this.ordersToShow.forEach((order) => {
-        totalPrice += order.gig.price;
-      });
-      return totalPrice;
+    totalMoneyMade() {
+      let sum = 0;
+      this.ordersToShow
+        .filter((order) => order.status === "approved" && order.gig.price)
+        .forEach((order) => (sum += order.gig.price));
+
+      return sum;
     },
     closedOrders() {
       let closed = this.ordersToShow.filter(
@@ -75,7 +77,6 @@ export default {
 <style scoped>
 .percentage-value {
   display: block;
-  margin-top: 10px;
   font-size: 28px;
 }
 .percentage-label {
@@ -85,7 +86,6 @@ export default {
 }
 .demo-progress .el-progress--line {
   margin-bottom: 15px;
-  width: 350px;
 }
 .demo-progress .el-progress--circle {
   margin-right: 15px;
