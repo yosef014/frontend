@@ -1,7 +1,14 @@
+.app-container {
+  padding: 0 2rem;
+}
+
 .page-content-container {
   margin: 0 auto;
-  padding: 7.5rem 2rem 0 2rem;
+  padding: 7.5rem 1rem ;
   max-width: 1400px;
+  @include for-mobile-layout {
+    padding: 7.5rem 1rem;
+  }
 
   //   @media (min-width: $screen-size-m) {
   //     padding: 7.5rem 1rem;
@@ -10,7 +17,7 @@
   //     padding: 7.5rem 1rem;
   //   }
   @media (min-width: $screen-size-xl) {
-    padding: 7.5rem 2rem 0 2rem;
+    padding: 7.5rem 0;
   }
 }
 .trusted-by-container {
@@ -69,10 +76,7 @@
   background-color: #f1fdf7;
   height: 60vh;
 }
-.footer-container {
-  background-color: #2cb16e;
-  height: 60vh;
-}
+
 
 .max-width-container {
   @media (min-width: $screen-size-xl) {
@@ -80,7 +84,7 @@
     
   }
   @media (max-width: $screen-size-xl) {
-    padding: 0 2rem;
+    // padding: 0 2rem;
   }
   
 }

@@ -46,11 +46,12 @@
 
 .gig-order-summary {
   height: fit-content;
-  width: 70%;
+  // width: 50%;
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
 }
+
 .gig-checkout-summary {
   border: 1px solid #dddddd;
   display: flex;
@@ -59,6 +60,14 @@
   width: 18.75rem;
   padding: 1rem 1.5rem;
   background-color: #fff;
+  margin-left: auto;
+  @media (max-width: 630px) {
+    margin: auto;
+  }
+  @media (max-width: 1210px ) {
+      margin: auto;
+  }
+  margin-right: 1rem;
   .title {
     margin-bottom: 1rem;
     font-family: macan-bold;
@@ -133,15 +142,14 @@
 }
 
 .gig-order-preview .block-two {
-  width: 30%;
-  height: 30%;
+  height: 100%;
   padding: 0 1rem;
-
-  & img {
+  .image-container {
+    aspect-ratio: 16/9;
+  }
+   img {
     object-fit: cover;
-    width: 14rem;
-    height: 8rem;
-    aspect-ratio: 200/330;
+    width: 100%;
   }
 }
 

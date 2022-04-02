@@ -1,28 +1,30 @@
 <template>
-  <section class="page-content-container">
+  <section class="page-content-container" v-if="!isLoading">
     <div
       class="user-page-layout-container max-width-container"
       v-if="loggedinUser"
     >
       <div class="user-page-left">
         <h1>User Profile</h1>
-        <div class="user-info">
+        <div class="user-section">
           <div class="profile-pic">
             <img :src="loggedinUser.imgUrl" />
           </div>
-          <p>username: {{ loggedinUser.username }}</p>
-          <p>level: {{ loggedinUser.level }}</p>
+          <div class="user-info">
+            <p class="username">{{ loggedinUser.username }}</p>
+            <p class="user-level">{{ capSentence }} Seller</p>
+          </div>
         </div>
 
         <div class="demo-progress">
-          Order completion
+          <p>Order completion</p>
           <el-progress
             :text-inside="true"
             :stroke-width="15"
             :percentage="70"
             :color="color"
           />
-          user reviews
+          <p>User Reviews</p>
           <el-progress
             :text-inside="true"
             :stroke-width="15"
@@ -30,14 +32,14 @@
             :color="color"
           />
 
-          Rating
+          <p>Rating</p>
           <el-progress
             :text-inside="true"
             :stroke-width="15"
             :percentage="50"
             :color="color"
           />
-          activity
+          <p>Activity</p>
           <el-progress
             :text-inside="true"
             :stroke-width="15"
@@ -52,7 +54,7 @@
       </div>
 
       <div class="user-page-right">
-        <h1>orders list</h1>
+        <h1>My Orders</h1>
         <div class="user-page-orders-list">
           <ul class="table-header">
             <li>Gig</li>
@@ -60,9 +62,13 @@
             <li>Date</li>
             <li>Price</li>
             <li>Status</li>
-            <li>Messenger</li>
           </ul>
-          <ul class="table-row" v-for="order in ordersToShow" :key="order"  @click="showTimeLine(order._id)">
+          <ul
+            class="table-row"
+            v-for="order in ordersToShow"
+            :key="order"
+            @click="showTimeLine(order._id)"
+          >
             <li><img :src="order.gig.productImgs[0]" /></li>
             <li>{{ order.gig.title }}</li>
             <li>
@@ -74,7 +80,6 @@
             </li>
             <div class="time-line-container">
               <timeLine
-               
                 v-if="isTimeLineShowen && currOrderId == order._id"
               ></timeLine>
             </div>
@@ -93,7 +98,7 @@ import timeLine from "../components/time-line.vue";
 export default {
   data() {
     return {
-      color:'#909399',
+      color: "#67c23a",
       isTimeLineShowen: false,
       currOrderId: null,
       msgTo: {
@@ -117,8 +122,18 @@ export default {
     loggedinUser() {
       return this.$store.getters.loggedinUser;
     },
+
+    capSentence() {
+      return this.loggedinUser.level
+        .split(" ")
+        .map((word) => word.split("")[0].toUpperCase() + word.substring(1))
+        .join(" ");
+    },
     orders() {
       return this.$store.getters.orders;
+    },
+    isLoading() {
+      return this.$store.getters.isLoading;
     },
     startIdx() {
       return this.pageIdx * this.pageSize;

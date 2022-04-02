@@ -9,9 +9,33 @@
 
     <ul class="gig-details-review-list">
       <li class="review-item" v-for="review in gig.reviewers" :key="review">
-        <h5>{{ review.name }}</h5>
-
-        <p>{{ review.review }}</p>
+        <div class="gig-reviews-profile-img">
+          <span>{{review.name.charAt(0)}}</span>
+        </div>
+        <div class="gig-reviews-wrapper">
+          <div class="gig-reviews-header">
+          <div class="gig-reviews-details">
+          <span>{{review.name}}</span>
+          <span><StarIcon />
+          <small>5</small>
+          </span>
+          </div>
+          <div class="gig-reviews-flag">
+            <img :src="review.flag" alt="">
+            <span>{{review.country}}</span>
+          </div>
+          </div>
+          <div class="gig-reviews-description">
+          {{review.review}}
+          </div>
+          <div class="gig-review-published">
+            <p>Published 2 months ago</p>
+          </div>
+          <div class="gig-review-like-dislike">
+          <span>like</span>
+          <span>dislike</span>
+        </div>
+        </div>
       </li>
     </ul>
   </div>
@@ -19,8 +43,12 @@
 
 <script>
 import { gigService } from "../services/gig-service";
+import StarIcon from "../svgs/star-icon.vue";
 export default {
   name: "gig-details-review",
+  components: {
+    StarIcon,
+  },
   data() {
     return {
       gig: null,
@@ -29,8 +57,8 @@ export default {
       },
     };
   },
-  created() {
-    this.loadGig();
+  async created() {
+    await this.loadGig();
   },
   computed: {
     loggedInUser() {

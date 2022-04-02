@@ -2,7 +2,7 @@
   <div
     @click="toggleMenu"
     class="side-menu-container"
-    :class="isMenuOpen ? 'side-menu' : ''"
+    :class="isMenuOpen ? 'show-side-menu' : 'hide-side-menu'"
   >
     <nav>
       <li v-if="loggedinUser" class="profile-avatar">
@@ -23,7 +23,8 @@
           </div>
           <div class="user-info">
             <span>{{ loggedinUser.username }}</span>
-            <span>{{ newMsgCount }} New Messages</span>
+            <span v-if="newMsgCount > 0">{{ newMsgCount }} New Messages</span>
+            <span v-else>No New Messages</span>
           </div>
         </router-link>
       </li>
@@ -31,7 +32,9 @@
       <li v-if="!loggedinUser" @click="toggleLogin">Sign In</li>
       <li v-if="loggedinUser"><a class="join">Sign Out</a></li>
       <li>Become A Seller</li>
-      <li>Explore</li>
+      <router-link to="/tag">
+        <li>Explore</li>
+      </router-link>
     </nav>
     <div class="toggle-menu"></div>
   </div>
@@ -47,7 +50,11 @@
       <SignUp @closeModal="closeModal" />
     </div>
     <div class="logged-out-nav max-width-container">
-      <span @click="toggleMenu" v-if="isMobileDisplay" class="hamburger-menu"
+      <span
+        @click="toggleMenu"
+        v-if="isMobileDisplay"
+        :style="toggleColor"
+        class="hamburger-menu"
         ><HamburgerMenuIcon />
       </span>
       <router-link class="logo" to="/">
@@ -78,8 +85,8 @@
       </div>
       <div v-if="!isMobileDisplay" class="link-list">
         <ul>
-          <li v-for="navLink in navLinks" :key="navLink" @click="loader">
-            <router-link :to="navLink.route">
+          <li v-for="navLink in navLinks" :key="navLink">
+            <router-link :to="navLink.route" @click="loader">
               <a
                 :style="navLink.name === 'business-link' ? setLinkColor : ''"
                 :class="navLink.class"
@@ -345,6 +352,7 @@ export default {
   watch: {
     $route: {
       handler({ path, name }) {
+        window.scrollTo(0, 0);
         this.isHomePage = path === "/";
         if (!this.isHomePage) {
           removeEventListener("scroll", this.onScroll);
@@ -378,6 +386,13 @@ export default {
       };
     },
 
+    toggleColor() {
+      return { fill: this.isShowNavbar ? "#000" : "#fff" };
+    },
+
+    isLoading() {
+      this.$store.getters.isLoading;
+    },
     onShowNavbar() {
       return {
         "header-transparent": this.isShowNavbar === false,

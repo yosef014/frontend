@@ -1,10 +1,12 @@
 <template>
-  <div class="page-content-container">
+  <div class="page-content-container" v-if="!isLoading">
     <section v-if="gig" class="gig-checkout-page gig-page">
       <div class="gig-order-summary">
         <div class="gig-order-preview">
           <section class="block-two">
-            <img :src="gig.productImgs[0]" alt="" />
+            <div class="image-container">
+              <img :src="gig.productImgs[0]" alt="" />
+            </div>
             <div class="gig-order-details">
               <h1 class="details-title">Order Details</h1>
               <ul class="gig-features">
@@ -53,12 +55,7 @@
             <p>${{ finalPrice }}</p>
           </li>
         </ul>
-        <button
-          @click.prevent="purchase"
-          v-if="loggedInUser"
-        >
-          Purchase
-        </button>
+        <button @click.prevent="purchase" v-if="loggedInUser">Purchase</button>
         <button v-else>Log In To Purchase!</button>
       </div>
     </section>
@@ -116,6 +113,9 @@ export default {
     starsToRender() {
       return Math.floor(this.gig.rate + 1);
     },
+    isLoading() {
+      return this.$store.getters.isLoading;
+    },
   },
   methods: {
     sendMsg() {
@@ -127,37 +127,33 @@ export default {
       this.order = await orderService.getEmptyOrder();
     },
     async purchase() {
-        const order = JSON.parse(JSON.stringify(this.order));
-        order.createdAt = Date.now();
-        (order.imgUrl = this.gig.productImgs[0]),
-          (order.description = this.gig.description);
-        order.title = this.gig.title;
-        order.buyer = {
-          _id: this.loggedInUser._id,
-          fullname: this.loggedInUser.fullname,
-          imgUrl: this.loggedInUser.imgUrl,
-          username: this.loggedInUser.username,
-        };
-        order.seller = {
-          _id: this.gig.owner._id,
-          fullname: this.gig.owner.fullname,
-          username: this.gig.owner.username,
-          imgUrl: this.gig.owner.imgUrl,
-        };
-        order.gig = {
-          _id: this.gig._id,
-          title: this.gig.title,
-          category: this.gig.category,
-          price: this.gig.price,
-          productImgs: this.gig.productImgs,
-        };
-        await this.$store.dispatch({ type: "addOrder", order });
-        this.$router.push("/user");
-      socketService.emit('newOrderAded', this.gig.owner);
-      this.$store.dispatch({ type: 'isLoading', isLoading: true })
-        setTimeout(() => {
-           this.$store.dispatch({ type: 'isLoading', isLoading: false })
-        }, 1000);
+      const order = JSON.parse(JSON.stringify(this.order));
+      order.createdAt = Date.now();
+      (order.imgUrl = this.gig.productImgs[0]),
+        (order.description = this.gig.description);
+      order.title = this.gig.title;
+      order.buyer = {
+        _id: this.loggedInUser._id,
+        fullname: this.loggedInUser.fullname,
+        imgUrl: this.loggedInUser.imgUrl,
+        username: this.loggedInUser.username,
+      };
+      order.seller = {
+        _id: this.gig.owner._id,
+        fullname: this.gig.owner.fullname,
+        username: this.gig.owner.username,
+        imgUrl: this.gig.owner.imgUrl,
+      };
+      order.gig = {
+        _id: this.gig._id,
+        title: this.gig.title,
+        category: this.gig.category,
+        price: this.gig.price,
+        productImgs: this.gig.productImgs,
+      };
+      await this.$store.dispatch({ type: "addOrder", order });
+      this.$router.push("/user");
+      socketService.emit("newOrderAded", this.gig.owner);
     },
   },
 };

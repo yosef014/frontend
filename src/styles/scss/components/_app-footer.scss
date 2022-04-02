@@ -1,8 +1,27 @@
-.footer-container{
-    img{
-        height: 16px;
-        width: 16px;
-        svg{
+.footer-container {
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem 1rem;
+    border-top: 1px solid #e4e5e7 ;
+    align-items: center;
+    .worker-logo {
+        width: 60%;
+        @media (max-width: 800px) {
+            width: 100%;
+            justify-content: space-evenly;
+        }
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+    .social-media-icons {
+        display: flex;
+        margin: auto;
+        padding: 1rem 0;
+        *:not(:last-child) {
+            padding-right: 2rem
 
         }
     }

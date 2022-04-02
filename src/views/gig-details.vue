@@ -1,5 +1,5 @@
 <template>
-  <nav :style="setSticky" class="gig-details-navbar-container">
+  <nav :style="setSticky" class="gig-details-navbar-container" v-if="!isLoading">
     <ul class="gig-details-navbar max-width-container">
       <li
         :class="{ 'gig-nav-link-active': link.active === true }"
@@ -10,7 +10,7 @@
       </li>
     </ul>
   </nav>
-  <div class="page-content-container">
+  <div class="page-content-container" v-if="!isLoading">
     <div v-if="gig" class="gig-details-container max-width-container">
       <div class="gig-details-main-content">
         <section class="gig-overview">
@@ -88,7 +88,7 @@
                 </ul>
               </div>
               <div class="checkout-card-footer">
-                <router-link :to="'/checkout/' + gig._id">
+                <router-link :to="'/checkout/' + gig._id" @click="loader">
                   <button class="checkout-btn">
                     <p>Continue</p>
                     <p>(${{ gig.price }})</p>

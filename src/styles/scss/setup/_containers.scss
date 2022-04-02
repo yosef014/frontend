@@ -1,0 +1,12 @@
+.logged-out-nav, .categories-menu-package ul {
+    @include for-narrow-layout {
+        padding: 0 1rem;
+      }
+    
+      @include for-wide-layout {
+        padding: 0px;
+      }
+      @include for-mobile-layout {
+        padding: 0 1rem;
+      }
+} 

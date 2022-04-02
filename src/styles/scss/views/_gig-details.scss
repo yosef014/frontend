@@ -46,7 +46,7 @@
 }
 
 .gig-sidebar-right {
-  height: 60vh;
+  // height: 60vh;
   position: sticky;
   top: 70px;
   grid-column: 2/3;
@@ -55,7 +55,6 @@
     position: relative;
     top: 0;
     justify-self: center;
-    max-width: 25rem;
   }
 
   .gig-checkout-card {
@@ -173,6 +172,9 @@
 
 .gig-description-section {
   grid-column: 1/2;
+  .gig-description p {
+    padding: 1rem 0;
+  }
 }
 
 .gig-details-main-content {
@@ -185,8 +187,9 @@
     column-gap: 10%;
   }
   @media (max-width: 800px) {
-    grid-template-columns: 0.8fr;
-    grid-auto-rows: auto;
+    
+   
+    row-gap: 30px;
     justify-items: center;
     .gig-sidebar-right {
       display: flex;
@@ -197,6 +200,10 @@
 }
 
 .gig-details-main-content {
+  h2 {
+    padding-bottom: 2rem;
+    
+  }
   h4 {
     font-family: macan-bold;
   }
@@ -206,8 +213,10 @@
     font-family: macan-bold;
     font-size: 2rem;
     padding-bottom: 1rem;
+    line-height: 1.4;
     @include for-mobile-layout {
       font-size: 1.5rem;
+
     }
   }
 
@@ -224,8 +233,8 @@
 }
 
 // all sections selector
-.gig-details-main-content > * {
-  margin-bottom: 1rem;
+.gig-details-main-content > section {
+  padding: 1rem 0;
   // width: 100%;
 }
 
@@ -239,6 +248,11 @@
     height: 3rem;
     align-items: center;
     flex-wrap: wrap;
+    span , a {
+      font-family: macan-light;
+      color: #62646a;
+      padding-inline-end: 1rem;
+    }
     & li {
       margin-inline-end: 1rem;
       a {
@@ -369,6 +383,8 @@
   grid-column: 1/2;
 }
 
+//// gigs reviews component ul - li 
+
 .gig-reviews-section .gig-details-reviews-container {
   display: flex;
   flex-direction: column;
@@ -388,8 +404,66 @@
   .gig-details-review-list {
     padding-top: 1rem;
     .review-item {
-      padding: 1rem 0;
+      display: flex;
+      padding: 1rem 0 2rem 2rem;
       border-top: 1px solid grey;
+      .gig-reviews-profile-img{
+        background-color: #e4e5e7;
+        max-width: 2rem;
+        margin-left: -2rem;
+        margin-right: 1em;
+        border-radius: 50%;
+        color: #fff;
+        font-weight: 700;
+        height: 2rem;
+        text-transform: uppercase;
+        width: 100%;
+        span{
+          position: relative;
+          left: 11px;
+          top: 7px;
+          font-family: macan-light;
+        }
+      }
+      .gig-reviews-header{
+        .gig-reviews-details{
+          padding: 5px 0;
+          span{
+            font-family: macan-bold;
+
+          }
+        }
+        .gig-reviews-details > {
+          span:not(:first-child) {
+            margin-left:0.7em
+          }
+        }
+        small{
+          margin-left: 5px;
+        }
+        .gig-reviews-flag{
+          display: flex;
+          img{
+            width: 1.4rem;
+            height: 1.4rem;
+          }
+          span{
+            margin-left:0.7em;
+            color: #62646a;
+            position: relative;
+            top: 2px;
+            font-family: macan,Helvetica Neue,Helvetica,Arial,sans-serif;
+          }
+        }
+      }
+      .gig-reviews-description{
+        padding: 1em 0;
+        font-family: macan,Helvetica Neue,Helvetica,Arial,sans-serif;;
+      }
+      .gig-review-like-dislike{
+        padding: 12px 0;
+        font-family: macan-bold,Helvetica Neue,Helvetica,Arial,sans-serif;
+      }
       h5 {
         font-size: 1rem;
         padding: 1rem 0;
@@ -399,14 +473,26 @@
 }
 
 .gig-details-carousel {
-  // width: 100%;
+  width: 100%;
   height: 100%;
+  padding: 2rem 0;
+  .carousel__viewport {
+    aspect-ratio: 16/9;
+    width: 100%;
+    .carousel__track {
+      height: auto;
+      width: 100%;
+    }
+  }
   li {
     display: block;
   }
   .details-carousel-image {
-    aspect-ratio: 200/330;
+    // aspect-ratio: 200/330;
     object-fit: cover;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16/9;
   }
 }
 
@@ -444,6 +530,63 @@
     }
   }
 }
+// // gig reviews details review carousel 
+
+.gig-reviews-carousel-wrapper{
+    display: flex;
+    width: inherit;
+    padding: 16px 24px;
+    border: 1px solid #e4e5e7;
+    border-radius: 4px;
+      .gig-reviews-profile-img-carousel{
+        background-color: #e4e5e7;
+        max-width: 2rem;
+        margin-right: 1em;
+        border-radius: 50%;
+        color: #fff;
+        font-weight: 700;
+        height: 2rem;
+        text-transform: uppercase;
+        width: 100%;
+        span{
+          position: relative;
+          left: 1px;
+          top: 7px;
+        }
+      }
+      .gig-reviews-header-carousel{
+        display: flex;
+        padding-bottom: 4px;
+        .gig-review-span-name{
+          font-family:  macan-bold;
+        }
+        img{
+          height: 24px;
+          width: 24px;
+          bottom: 4px;
+          position: relative;
+        }
+        span {
+          color: #62646a;
+          position: relative;
+          font-family: macan,Helvetica Neue,Helvetica,Arial,sans-serif;
+          top: 2px;
+          display: inline-flex;
+        }
+        small{
+          margin-left: 5px;
+        }
+      }
+      .gig-reviews-header-carousel > {
+        span:not(:first-child) {
+          margin-left:0.7em
+        }
+      }
+      .gig-description-carousel{
+        text-align: start;
+        font-family: macan,Helvetica Neue,Helvetica,Arial,sans-serif;
+      }
+    }
 
 // .gig-gallery-component
 //   > section

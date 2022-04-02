@@ -1,5 +1,6 @@
 <template>
   <svg
+    class="hamburger-icon"
     xmlns="http://www.w3.org/2000/svg"
     width="23"
     height="19"
@@ -15,4 +16,8 @@
 export default {};
 </script>
 
-<style></style>
+<style>
+.hamburger-icon:hover {
+  cursor: pointer;
+}
+</style>
