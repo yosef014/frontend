@@ -1,26 +1,21 @@
 <template>
   <footer>
-      <div class="footer-container">
+      <div class="footer-container app-container">
           <div class="footer-worker-logo">
               Worker.
-          </div>
           <div class="footer-worker-ltd">
               &copy; Worker International Ltd.2022
           </div>
-          <div class="footer-worker-createdBy">
-              
           </div>
-
           <div class="social-logos">
           <ul>
-            <li><i class="fa fa-twitter"></i></li>
-            <li><i class="fa fa-facebook"></i></li>
-            <li><i class="fa fa-linkedin"></i></li>
-            <li><i class="fa fa-pinterest"></i></li>
-            <li><i class="fa fa-instagram"></i></li>
+            <li><a class="fa fa-twitter"></a></li>
+            <li><a class="fa fa-facebook"></a></li>
+            <li><a class="fa fa-linkedin"></a></li>
+            <li><a class="fa fa-pinterest"></a></li>
+            <li><a class="fa fa-instagram"></a></li>
           </ul>
           </div>
-
       </div>
   </footer>
 </template>
