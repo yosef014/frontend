@@ -2,6 +2,8 @@
   display: flex;
   padding: 1rem 0;
   flex-wrap: wrap;
+  
+  
   // justify-content: center;
   align-items: center;
   p {
@@ -11,7 +13,17 @@
   justify-items: start;
   * {
     margin: 0.1rem;
+    
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      div {
+        // margin: 0px;
+      }
+  
   }
+
+  
 
   .filter-explore-sortby {
     font-size: 1rem;
@@ -25,9 +37,10 @@
 }
 
 .sortby-pro-seller-container {
-  display: flex;
-  justify-content: center;
-    align-items: center;
+  // display: flex;
+  // justify-content: center;
+  margin-left: auto;
+    // align-items: center;
     
     .pro-seller-switch  {
       padding-right: 1rem;
@@ -41,9 +54,9 @@
 }
 
 .seller-search-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
 
   .el-input {
     display: flex;
@@ -54,9 +67,9 @@
 
 
 .slider-demo-block {
-  display: flex;
-  justify-content: center;
-    align-items: center;
+  // display: flex;
+  // justify-content: center;
+  //   align-items: center;
   .budget-btn {
     display: flex;
     

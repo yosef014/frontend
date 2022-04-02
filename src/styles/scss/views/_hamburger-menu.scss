@@ -1,16 +1,7 @@
 .side-menu-container {
   height: 100vh;
   width: 100vw;
-  left: -200%;
   position: fixed;
-  //   z-index: 9999999;
-}
-
-body .side-menu {
-  overflow: hidden;
-}
-
-body .side-menu-container.side-menu {
   display: flex;
   z-index: 99999;
   .toggle-menu {
@@ -20,15 +11,6 @@ body .side-menu-container.side-menu {
 
     display: flex;
   }
-  transform: translateX(200%);
-  cursor: pointer;
-  background-color: rgba($color: #000000, $alpha: 0);
-  backdrop-filter: blur(2px);
-  animation: blur 0.2s forwards;
-  animation-delay: 0.5s;
-  transition: 0.5s ease-out;
-
-  overflow: hidden;
   nav {
     cursor: default;
 
@@ -76,25 +58,86 @@ body .side-menu-container.side-menu {
       }
     }
   }
+  //   z-index: 9999999;
 }
 
-@keyframes blur {
-  25% {
-    background-color: rgba($color: #000000, $alpha: 0.1);
+body .side-menu {
+  overflow: hidden;
+}
+
+body .side-menu-container.show-side-menu {
+  
+  
+  transform: translateX(0%);
+  cursor: pointer;
+  background-color: rgba($color: #000000, $alpha: 0.4);
+  backdrop-filter: blur(2px);
+  // animation: showSideMenu 0.1s forwards linear;
+//   animation-delay: 0.5s;
+  transition: .5s ease-out;
+
+  overflow: hidden;
+  
+}
+
+body .side-menu-container.hide-side-menu {
+  transform: translateX(-100%);
+  // background-color: rgba($color: #000000, $alpha: 0.4);
+  // left: 0px;
+  // backdrop-filter: blur(.5px);
+
+  // animation: hideSideMenu 0.1s forwards linear;
+
+
+  transition: 1s ease-out ;
+  // transition-delay: .5s
+
+}
+
+@keyframes showSideMenu {
+  0% {
+    background-color: rgba($color: #000000, $alpha: 0);
     backdrop-filter: blur(0.5px);
-  }
-  50% {
-    background-color: rgba($color: #000000, $alpha: 0.2);
-    backdrop-filter: blur(1px);
-  }
-  75% {
-    background-color: rgba($color: #000000, $alpha: 0.3);
-    backdrop-filter: blur(1.5px);
   }
   100% {
     background-color: rgba($color: #000000, $alpha: 0.4);
     backdrop-filter: blur(2px);
   }
+  // 50% {
+  //   background-color: rgba($color: #000000, $alpha: 0.2);
+  //   backdrop-filter: blur(1px);
+  // }
+  // 75% {
+  //   background-color: rgba($color: #000000, $alpha: 0.3);
+  //   backdrop-filter: blur(1.5px);
+  // }
+  // 100% {
+  //   background-color: rgba($color: #000000, $alpha: 0.4);
+  //   backdrop-filter: blur(2px);
+  // }
+}
+
+@keyframes hideSideMenu {
+  0% {
+    background-color: rgba($color: #000000, $alpha: 0.4);
+    backdrop-filter: blur(2px);
+  }
+  100% {
+    background-color: rgba($color: #000000, $alpha: 0);
+    backdrop-filter: blur(0px);
+  }
+  // 50% {
+  //   background-color: rgba($color: #000000, $alpha: 0.3);
+  //   backdrop-filter: blur(1px);
+  // }
+  // 75% {
+  //   background-color: rgba($color: #000000, $alpha: 0.2);
+  //   backdrop-filter: blur(.5px);
+  // }
+  // 100% {
+  //   background-color: rgba($color: #000000, $alpha: 0.1);
+  //   backdrop-filter: blur(0px);
+  // }
 }
 
 // body.menu-active {

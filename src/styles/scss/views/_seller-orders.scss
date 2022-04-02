@@ -53,6 +53,10 @@
       font-family: macan-regular;
       padding: 0.5rem 0;
     }
+    li:first-child {
+      justify-self: start;
+      padding-left: .5rem;
+    }
     .table-actions {
       display: flex;
       justify-content: center;
@@ -75,7 +79,7 @@
     background-color: #f8f9f9;
   }
   .table-row:nth-child(even) {
-    background-color: #e5e7e9;
+    background-color: #F2F3F4;
   }
 }
 

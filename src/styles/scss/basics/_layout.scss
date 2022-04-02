@@ -4,7 +4,7 @@
 
 .page-content-container {
   margin: 0 auto;
-  padding: 7.5rem 2rem 0 2rem;
+  padding: 7.5rem 1rem ;
   max-width: 1400px;
   @include for-mobile-layout {
     padding: 7.5rem 1rem;
@@ -17,7 +17,7 @@
   //     padding: 7.5rem 1rem;
   //   }
   @media (min-width: $screen-size-xl) {
-    padding: 7.5rem 2rem 0 2rem;
+    padding: 7.5rem 0;
   }
 }
 .trusted-by-container {
