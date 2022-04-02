@@ -86,7 +86,7 @@
       <div v-if="!isMobileDisplay" class="link-list">
         <ul>
           <li v-for="navLink in navLinks" :key="navLink">
-            <router-link :to="navLink.route" @click="loader">
+            <router-link :to="navLink.route">
               <a
                 :style="navLink.name === 'business-link' ? setLinkColor : ''"
                 :class="navLink.class"
@@ -334,12 +334,6 @@ export default {
         type: "success",
         position: "bottom-right",
       });
-    },
-    loader() {
-      this.$store.dispatch({ type: "isLoading", isLoading: true });
-      setTimeout(() => {
-        this.$store.dispatch({ type: "isLoading", isLoading: false });
-      }, 1500);
     },
   },
 

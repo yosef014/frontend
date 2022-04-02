@@ -9,7 +9,7 @@
         <!-- <div class="carousel__item"> -->
 
         <div class="subcategory-wrapper">
-          <router-link :to="slide.to" @click="loader">
+          <router-link :to="slide.to">
             <a class="subcategory">
               <h4>
                 <small>{{ slide.small }}</small>
@@ -147,12 +147,6 @@ export default {
   },
   computed: {},
   methods: {
-    loader() {
-      this.$store.dispatch({ type: "isLoading", isLoading: true });
-      setTimeout(() => {
-        this.$store.dispatch({ type: "isLoading", isLoading: false });
-      }, 1500);
-    },
   },
 };
 </script>

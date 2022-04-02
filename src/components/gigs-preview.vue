@@ -2,7 +2,7 @@
   <section v-if="gig">
     <!-- <div class="gig-img" @click="this.$router.push('/tag' + '/' + gig.category + '/'+ gig._id)"> -->
     <el-carousel :autoplay="false" trigger="click">
-      <el-carousel-item v-for="currImg in gig.productImgs" :key="currImg" @click="loader">
+      <el-carousel-item v-for="currImg in gig.productImgs" :key="currImg">
         <div class="img-container">
           <img
             :src="currImg"
@@ -93,12 +93,6 @@ export default {
   methods: {
     setFavorite() {
       this.isFavorite = !this.isFavorite;
-    },
-      loader() {
-      this.$store.dispatch({ type: "isLoading", isLoading: true });
-      setTimeout(() => {
-        this.$store.dispatch({ type: "isLoading", isLoading: false });
-      }, 1500);
     },
   },
 };
