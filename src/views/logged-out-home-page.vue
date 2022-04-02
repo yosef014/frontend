@@ -95,7 +95,7 @@
             <div class="popular">
               Popular:
               <ul>
-                <li v-for="index in 4" :key="index" @click="loader">
+                <li v-for="index in 4" :key="index">
                   <router-link
                     :to="
                       categories.sort((a, b) => b.searchCount - a.searchCount)[
@@ -247,12 +247,6 @@ export default {
       elHeroWrappers[this.heroIdx].style.opacity = "1";
       this.heroIdx++;
       this.heroTimeout = setTimeout(this.heroAnimation, 6000);
-    },
-    loader() {
-      this.$store.dispatch({ type: "isLoading", isLoading: true });
-      setTimeout(() => {
-        this.$store.dispatch({ type: "isLoading", isLoading: false });
-      }, 1500);
     },
   },
 

@@ -6,8 +6,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview --port 5050",
-    "serve": "vite preview",
-    "https-preview": "serve dist"
+    "serve": "vite preview"
   },
   "dependencies": {
     "axios": "^0.26.1",
@@ -26,7 +25,6 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.2.2",
-    "https-localhost": "^4.7.1",
     "sass": "^1.49.9",
     "scss": "^0.2.4",
     "vite": "^2.8.4",
