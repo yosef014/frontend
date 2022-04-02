@@ -10,13 +10,17 @@
           <div class="footer-worker-createdBy">
               
           </div>
-          <div class="footer-worker-icons">
-              <img src="@/assets/facebook.svg" alt="">
-              <img src="@/assets/linkdin.svg" alt="">
-              <img src="@/assets/pintrest.svg" alt="">
-              <img src="@/assets/twitter.svg" alt="">
-              <img src="@/assets/instagram.svg" alt="">
+
+          <div class="social-logos">
+          <ul>
+            <li><i class="fa fa-twitter"></i></li>
+            <li><i class="fa fa-facebook"></i></li>
+            <li><i class="fa fa-linkedin"></i></li>
+            <li><i class="fa fa-pinterest"></i></li>
+            <li><i class="fa fa-instagram"></i></li>
+          </ul>
           </div>
+
       </div>
   </footer>
 </template>
