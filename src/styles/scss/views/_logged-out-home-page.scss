@@ -329,7 +329,10 @@ form {
 
 .hero {
   z-index: 10;
-  padding: 0 1rem;
+  @media (max-width: 1400px) {
+    padding: 0 1rem;
+
+  }
   max-width: $screen-size-xl;
   width: 100%;
   margin: auto;  
@@ -378,6 +381,9 @@ form {
   border-bottom-right-radius: 5px;
   border: $border-light;
   width: 90%;
+  @include for-mobile-layout {
+    width: 100%;
+  }
   height: fit-content;
   position: absolute;
   & p {

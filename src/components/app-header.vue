@@ -352,6 +352,7 @@ export default {
   watch: {
     $route: {
       handler({ path, name }) {
+        window.scrollTo(0, 0);
         this.isHomePage = path === "/";
         if (!this.isHomePage) {
           removeEventListener("scroll", this.onScroll);

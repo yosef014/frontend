@@ -10,38 +10,39 @@
             </div>
             <p>user name: {{ loggedinUser.username }}</p>
             <!-- We need to compute user level to upperCase -->
-            <p>level: {{ loggedinUser.level }} </p>
-          
+            <p>level: {{ loggedinUser.level }}</p>
           </div>
-          
 
-
-<div class="demo-progress">
-  Order completion
-    <el-progress :text-inside="true" :stroke-width="15" :percentage="70" :color="color" />
-    On-time delivery
-    <el-progress
-      :text-inside="true"
-      :stroke-width="15"
-      :percentage="100"
-      :color="color"
-    />
-    Selling seniority
-    <el-progress
-      :text-inside="true"
-      :stroke-width="15"
-      :percentage="80"
-      :color="color"
-    />
-    Rating
-    <el-progress
-      :text-inside="true"
-      :stroke-width="15"
-      :percentage="50"
-      :color="color"
-    />
-  </div>
-  
+          <div class="demo-progress">
+            <p>Order Completion</p>
+            <el-progress
+              :text-inside="true"
+              :stroke-width="15"
+              :percentage="70"
+              :color="color"
+            />
+            <p>On-Time Delivery</p>
+            <el-progress
+              :text-inside="true"
+              :stroke-width="15"
+              :percentage="100"
+              :color="color"
+            />
+            <p>Selling Seniority</p>
+            <el-progress
+              :text-inside="true"
+              :stroke-width="15"
+              :percentage="80"
+              :color="color"
+            />
+            <p>Rating</p>
+            <el-progress
+              :text-inside="true"
+              :stroke-width="15"
+              :percentage="50"
+              :color="color"
+            />
+          </div>
 
           <div class="preview-profile-btn">
             <p @click="this.$router.push('/user')">Preview Fiverr Profile</p>
@@ -49,8 +50,12 @@
         </div>
 
         <div class="profile-page-aside-right">
-          <el-tabs v-model="activeName" type="border-card" @tab-click="togglePagination">
-            <el-tab-pane label="My Active Gigs" name="first" >
+          <el-tabs
+            v-model="activeName"
+            type="border-card"
+            @tab-click="togglePagination"
+          >
+            <el-tab-pane label="My Active Gigs" name="first">
               <ul class="my-orders-label">
                 <li class="gig-add-card gig-card">
                   <a
@@ -69,18 +74,15 @@
             <el-tab-pane label="Orders manager">
               <sellerOrders></sellerOrders>
             </el-tab-pane>
-           
           </el-tabs>
-      
+
           <div v-if="openPagination" class="seller-paginaton-page">
-           <el-button @click="prevPage"> &lt; Prev  </el-button>
-           <el-button @click="nextPage">Next > </el-button>
+            <el-button @click="prevPage"> &lt; Prev </el-button>
+            <el-button @click="nextPage">Next > </el-button>
           </div>
         </div>
       </div>
-     
     </div>
-     
   </section>
 </template>
 
@@ -90,11 +92,11 @@ import sellerOrders from "../components/seller-orders.vue";
 export default {
   data() {
     return {
-      color:'#67c23a',
-      activeName:'first',
+      color: "#67c23a",
+      activeName: "first",
       pageSize: 7,
       pageIdx: 0,
-      openPagination:true,
+      openPagination: true,
       userProfileNavLink: [
         {
           name: "My Active Gigs",
@@ -121,7 +123,7 @@ export default {
         return order.seller._id == this.loggedinUser._id;
       });
     },
-   startIdx() {
+    startIdx() {
       return this.pageIdx * this.pageSize;
     },
     gigs() {
@@ -129,17 +131,17 @@ export default {
     },
     gigsToShow() {
       // if (!this.gigs) return;
-      const gigs = this.gigs.filter((gig)=>{
-         return gig.owner._id == this.loggedinUser._id;
-      })
-       return gigs.slice(this.startIdx, this.startIdx + this.pageSize);
+      const gigs = this.gigs.filter((gig) => {
+        return gig.owner._id == this.loggedinUser._id;
+      });
+      return gigs.slice(this.startIdx, this.startIdx + this.pageSize);
     },
   },
 
   methods: {
-    togglePagination(){
-      if(this.activeName == 1) return this.openPagination = false
-      if(this.activeName === 'first') return this.openPagination = true
+    togglePagination() {
+      if (this.activeName == 1) return (this.openPagination = false);
+      if (this.activeName === "first") return (this.openPagination = true);
     },
     nextPage() {
       this.pageIdx++;
@@ -165,5 +167,5 @@ export default {
 <style>
 .demo-progress .el-progress--line {
   margin-bottom: 5px;
-  width: 210px;
-}</style>
+}
+</style>
