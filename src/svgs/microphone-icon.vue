@@ -7,18 +7,18 @@
     <path
       data-name="layer2"
       d="M41 32a10 10 0 0 1-10 10 10 10 0 0 1-10-10V12A10 10 0 0 1 31 2a10 10 0 0 1 10 10z"
-      fill="none"
+      fill="transparent"
       stroke="#202020"
-      stroke-miterlimit="10"
-      stroke-width="2"
+      stroke-miterlimit="5"
+      stroke-width="4"
     ></path>
     <path
       data-name="layer1"
       d="M49 22v10a18 18 0 0 1-18 18 18 18 0 0 1-18-18V22m18 28v12m-10 0h20"
-      fill="none"
+      fill="transparent"
       stroke="#202020"
-      stroke-miterlimit="10"
-      stroke-width="2"
+      stroke-miterlimit="5"
+      stroke-width="4"
     ></path>
   </svg>
 </template>

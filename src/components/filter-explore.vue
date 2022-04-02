@@ -53,11 +53,11 @@
         <!-- // filter by best seller -->
       </div>
       <div class="sortby-pro-seller-container">
-          <el-switch
-            class="pro-seller-switch"
-            v-model="filterBy.level"
-            @change="setFilter"
-          />
+        <el-switch
+          class="pro-seller-switch"
+          v-model="filterBy.level"
+          @change="setFilter"
+        />
         <p>Pro Services</p>
       </div>
     </div>
@@ -83,12 +83,12 @@ export default {
           label: "Price",
         },
         {
-          value: "rate",
-          label: "rate",
+          value: "Rate",
+          label: "Rate",
         },
         {
-          value: "title",
-          label: "title",
+          value: "Title",
+          label: "Title",
         },
       ],
     };
