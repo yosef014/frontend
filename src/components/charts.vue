@@ -1,38 +1,35 @@
 <template>
   <section class="charts-box">
- <el-progress type="dashboard" :percentage="approvedOrders" color="green">
+    <el-progress type="dashboard" :percentage="approvedOrders" color="#67c23a">
       <template #default="{ percentage }">
         <span class="percentage-value">{{ percentage }}%</span>
-        <span class="percentage-label">approvedOrders</span>
+        <span class="percentage-label">Approved Orders</span>
       </template>
     </el-progress>
 
- <el-progress type="dashboard" :percentage="pendingOrders" color="green">
+    <el-progress type="dashboard" :percentage="pendingOrders" color="#67c23a">
       <template #default="{ percentage }">
         <span class="percentage-value">{{ percentage }}%</span>
-        <span class="percentage-label">complete </span>
+        <span class="percentage-label">Completed Orders </span>
       </template>
     </el-progress>
 
- <el-progress type="dashboard" :percentage="closedOrders" color="green">
+    <el-progress type="dashboard" :percentage="closedOrders" color="#67c23a">
       <template #default="{ percentage }">
         <span class="percentage-value">{{ percentage }}%</span>
-        <span class="percentage-label">closed</span>
+        <span class="percentage-label">Closed Orders</span>
       </template>
     </el-progress>
-  
   </section>
 </template>
 
-<script >
+<script>
 export default {
-    props: {
+  props: {
     ordersToShow: Object,
   },
   data() {
-    return {
-     
-    };
+    return {};
   },
   created() {},
   computed: {
@@ -44,33 +41,34 @@ export default {
       return totalPrice;
     },
     closedOrders() {
-      let closed= this.ordersToShow.filter((order) => order.status == "closed").length
-      closed= closed / this.ordersToShow.length; 
-      let present = closed * 100
-      return present.toFixed()
-     
+      let closed = this.ordersToShow.filter(
+        (order) => order.status == "closed"
+      ).length;
+      closed = closed / this.ordersToShow.length;
+      let present = closed * 100;
+      return present.toFixed();
     },
     approvedOrders() {
-      let approved= this.ordersToShow.filter((order) => order.status == "approved").length
-      approved= approved / this.ordersToShow.length; 
-      let present = approved * 100
-      return present.toFixed()
-     
+      let approved = this.ordersToShow.filter(
+        (order) => order.status == "approved"
+      ).length;
+      approved = approved / this.ordersToShow.length;
+      let present = approved * 100;
+      return present.toFixed();
     },
     pendingOrders() {
-      let pending= this.ordersToShow.filter((order) => order.status == "Pending").length
-      pending= pending / this.ordersToShow.length; 
-      let present = pending * 100
-      return (100 - present).toFixed()
-     
+      let pending = this.ordersToShow.filter(
+        (order) => order.status == "Pending"
+      ).length;
+      pending = pending / this.ordersToShow.length;
+      let present = pending * 100;
+      return (100 - present).toFixed();
     },
   },
 
-  methods: {
-  },
+  methods: {},
 
-  components: {
-  },
+  components: {},
 };
 </script>
 
