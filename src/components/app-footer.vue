@@ -1,31 +1,22 @@
 <template>
-  <footer>
-      <div class="footer-container app-container">
-          <div class="footer-worker-logo">
-              Worker.
-          <div class="footer-worker-ltd">
-              &copy; Worker International Ltd.2022
-          </div>
-          </div>
-          <div class="social-logos">
-          <ul>
-            <li><a class="fa fa-twitter"></a></li>
-            <li><a class="fa fa-facebook"></a></li>
-            <li><a class="fa fa-linkedin"></a></li>
-            <li><a class="fa fa-pinterest"></a></li>
-            <li><a class="fa fa-instagram"></a></li>
-          </ul>
-          </div>
-      </div>
+  <footer class="footer-container app-container">
+    <div class="worker-logo">
+      Worker.
+      <div class="sworker-ltd">&copy; Worker International Ltd.2022</div>
+    </div>
+
+    <ul class="social-media-icons">
+      <li><a class="fa fa-twitter"></a></li>
+      <li><a class="fa fa-facebook"></a></li>
+      <li><a class="fa fa-linkedin"></a></li>
+      <li><a class="fa fa-pinterest"></a></li>
+      <li><a class="fa fa-instagram"></a></li>
+    </ul>
   </footer>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
-<style>
-
-</style>
+<style></style>

@@ -114,12 +114,22 @@
     }
   }
 
-  .my-orders-label {
+  
+
+  .profile-page-aside-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 80%;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+
+   .my-orders-label {
     flex-wrap: wrap;
     display: flex;
-    height: 70%;
-    display: flex;
-    justify-content: center;
+    // justify-content: center;
+    margin-left: auto;
 
     .gig-card {
       height: 16rem;
@@ -155,20 +165,6 @@
       }
     }
   }
-
-  .profile-page-aside-right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    width: 80%;
-    background-color: #fff;
-    border: 1px solid #e5e5e5;
-
-    .my-orders-label {
-      display: flex;
-      width: 100%;
-    }
     .my-orders-list {
       height: 90px;
       background-color: rgb(17, 219, 219);

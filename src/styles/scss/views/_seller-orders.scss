@@ -97,4 +97,18 @@
   display: flex;
   justify-content: center;
   gap: 15px;
+  span {
+    font-family: macan-regular;
+    padding: 0 1rem;
+   
+  }
+  .percentage-value {
+    font-size: 1.5rem ;
+    margin: 0;
+    
+  }
+  .el-progress-text {
+    height: 50%;
+    
+  }
 }

@@ -25,7 +25,7 @@
       />
     </template>
     <!-- LOADER -->
-    <img v-else src="@/assets/loader.gif" alt="" />
+    <!-- <img v-else src="@/assets/loader.gif" alt="" /> -->
   </div>
 </template>
 

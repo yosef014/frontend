@@ -21,7 +21,7 @@
   align-items: center;
   justify-content: space-between;
 
-  .user-info {
+  .user-section {
     margin: 0 auto;
     width: 100%;
     display: flex;
@@ -37,13 +37,33 @@
       width: 100%;
       border-radius: 50%;
     }
-    & > *:not(:first-child) {
-      height: 2.5rem;
-      display: flex;
-      align-items: center;
-      font-size: 1.5rem;
+    
+    .user-info {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      padding-top: 1rem;
+      p {
+        font-family: macan-semibold;
+        font-size: 1rem;
+        padding: .5rem 0;
+
+
+      }
+      .user-level {
+        // margin-left: auto;
+        // justify-self: right;
+        justify-content: center;
+        justify-self: left;
+        color: #74767e;
+      }
+      .username {
+        justify-self: left;
+        justify-content: center;
+      }
     }
   }
+  
   .preview-controller-btn {
     padding: 0.6rem 1.5rem;
     background-color: white;
@@ -63,6 +83,29 @@
     }
   }
 }
+.demo-progress {
+  width: 100% !important;
+  p {
+    font-family: macan-regular;
+    padding-top: .5rem;
+  }
+  * {
+    width: auto ;
+    margin: .1rem 0;
+    .el-progress-bar__outer {
+      padding: .6rem 0;
+      width: 100% !important;
+      span {
+        font-family: macan-regular;
+        padding-right: .5rem;
+        font-size: 13px;
+      }
+    }
+    .el-progrss-bar-inner {
+      top: 2px;
+    }
+  }
+}
 
 .user-page-right {
   display: flex;
@@ -76,6 +119,9 @@
     align-items: center;
     justify-content: center;
     font-family: macan-bold;
+    padding-bottom: 1rem;
+
+
   }
 
   .user-page-orders-list {
@@ -86,7 +132,7 @@
 
     .table-header {
       display: grid;
-      grid-template-columns: 2fr 4fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 2fr 4fr 1fr 1fr 1fr;
       background-color: $clr-green;
       color: #f8f9f9;
       margin-bottom: 1rem;
@@ -109,7 +155,7 @@
     }
     .table-row {
       display: grid;
-      grid-template-columns: 1.7fr 3fr 1fr 1fr 1fr;
+      grid-template-columns: 1.7fr 4fr 1fr 1fr 1fr;
       place-items: center;
       .time-line-container {
         grid-column: 1 /6;
