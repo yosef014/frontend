@@ -85,8 +85,8 @@
       </div>
       <div v-if="!isMobileDisplay" class="link-list">
         <ul>
-          <li v-for="navLink in navLinks" :key="navLink" @click="loader">
-            <router-link :to="navLink.route">
+          <li v-for="navLink in navLinks" :key="navLink">
+            <router-link :to="navLink.route" @click="loader">
               <a
                 :style="navLink.name === 'business-link' ? setLinkColor : ''"
                 :class="navLink.class"
@@ -389,6 +389,9 @@ export default {
       return { fill: this.isShowNavbar ? "#000" : "#fff" };
     },
 
+    isLoading() {
+      this.$store.getters.isLoading;
+    },
     onShowNavbar() {
       return {
         "header-transparent": this.isShowNavbar === false,

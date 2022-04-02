@@ -1,14 +1,14 @@
 <template>
   <main>
     <appHeader></appHeader>
-    <!-- <div
+    <div
       class="isloading"
       v-loading.fullscreen.lock="isLoading"
       element-loading-text="Loading..."
       element-loading-background="rgba(255,255,255)"
-    ></div> -->
+    ></div>
     <RouterView />
-    <appFooter></appFooter>
+    <appFooter v-if="!isLoading"></appFooter>
   </main>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <section class="page-content-container">
+  <section class="page-content-container" v-if="!isLoading">
     <div
       class="user-page-layout-container max-width-container"
       v-if="loggedinUser"
@@ -93,7 +93,7 @@ import timeLine from "../components/time-line.vue";
 export default {
   data() {
     return {
-      color:'#909399',
+      color:'#67c23a',
       isTimeLineShowen: false,
       currOrderId: null,
       msgTo: {
@@ -119,6 +119,9 @@ export default {
     },
     orders() {
       return this.$store.getters.orders;
+    },
+    isLoading(){
+      return this.$store.getters.isLoading;
     },
     startIdx() {
       return this.pageIdx * this.pageSize;

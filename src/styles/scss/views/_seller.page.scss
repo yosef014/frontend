@@ -225,6 +225,13 @@
     justify-content: center;
     display: flex;
     overflow: hidden;
+    font-family: macan-regular;
+    font-size: 0.875rem;
+
+  }
+  .owner-rating{
+    font-family: macan-regular;
+    font-size: 0.875rem;
   }
   .owner-prev-container {
     display: flex;
@@ -236,6 +243,19 @@
       display: flex;
       flex-direction: column;
       padding-inline-start: 1rem;
+      font-size: 14px;
+      p{
+        font-family: macan-semibold;
+      }
+      h5{
+        font-family: macan-regular;
+        color: #7a7d85;
+        line-height: 1.5;
+        font-weight: normal;
+      }
+      .title{
+        font-size: 14px;
+      }
     }
     .owner-profile-pic {
       display: flex;
@@ -268,6 +288,15 @@
       & > *:hover {
         cursor: pointer;
       }
+    }
+    .price{
+      font-size: 0.875rem;
+    color: #404145;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-inline-start: rem(6px);
+    font-family: macan-light;
+    font-family: macan-semibold;
     }
   }
 }
