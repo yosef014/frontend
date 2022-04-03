@@ -22,7 +22,7 @@
     </el-progress>
     <el-progress type="dashboard" :percentage="closedOrders" color="#67c23a">
       <template #default="{ percentage }">
-        <span class="percentage-value">${{ totalMoneyMade }}</span>
+        <span class="percentage-value">${{ totalMoneyMade.toFixed() }}</span>
         <span class="percentage-label">Total profit</span>
       </template>
     </el-progress>
