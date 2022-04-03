@@ -239,6 +239,7 @@ export default {
         setTimeout(() => {
           this.transcription.push(this.inputVal);
           this.inputVal = "";
+          this.isRecording = false;
           recognition.stop();
         }, 1500);
       });
