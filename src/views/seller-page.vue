@@ -4,7 +4,7 @@
       <div class="profile-page-layout max-width-container">
         <div class="profile-page-aside-left">
           <div class="seller-controller">
-            <span class="signout-btn">Sign Out</span>
+            <span @click="dologout" class="signout-btn">Sign Out</span>
           </div>
 
           <div class="user-info">
@@ -154,6 +154,13 @@ export default {
       if (this.activeName == 1) return (this.openPagination = false);
       if (this.activeName === "first") return (this.openPagination = true);
     },
+
+    async doLogout() {
+      await this.$store.dispatch({ type: "logout" });
+      this.$router.push("/");
+      document.location.reload(true);
+    },
+
     nextPage() {
       this.pageIdx++;
       let maxPage = Math.ceil(this.orders.length / this.pageSize);

@@ -5,7 +5,9 @@
       v-if="loggedinUser"
     >
       <div class="user-page-left">
-        <h1>User Profile</h1>
+        <div class="seller-controller">
+          <span @click="dologout" class="signout-btn">Sign Out</span>
+        </div>
         <div class="user-section">
           <div class="profile-pic">
             <img :src="loggedinUser.imgUrl" />
@@ -149,6 +151,11 @@ export default {
     showTimeLine(orderId) {
       this.isTimeLineShowen = !this.isTimeLineShowen;
       this.currOrderId = orderId;
+    },
+    async doLogout() {
+      await this.$store.dispatch({ type: "logout" });
+      this.$router.push("/");
+      document.location.reload(true);
     },
   },
 
