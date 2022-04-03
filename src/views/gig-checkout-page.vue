@@ -35,7 +35,7 @@
                 </ul>
               </div>
             </div>
-            <h3>{{ gig.price }}</h3>
+            <h3>${{ gig.price }}</h3>
           </section>
         </div>
       </div>

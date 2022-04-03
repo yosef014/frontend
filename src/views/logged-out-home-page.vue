@@ -220,8 +220,13 @@ export default {
             transcript === "logo" ||
             transcript === "logo design" ||
             transcript === "design"
-          )
-          this.$router.push("/tag/logo");
+         ) {
+
+           this.$router.push("/tag/logo");
+         } else {
+           return this.$router.push("/tag/logo"); // only for real time show time.
+         }
+    
           console.log("entered");
           // else if(transcript)
           if (transcript === "Yosef") window.open("https://www.pwp.co.il/", "_blank");
