@@ -1,5 +1,9 @@
 <template>
   <div class="page-content-container" v-if="!isLoading">
+  <div
+  v-loading.fullscreen.lock="isLoading"
+  element-loading-text="Loading..."
+  element-loading-background="rgba(255,255,255)">
     <section v-if="gig" class="gig-checkout-page gig-page">
       <div class="gig-order-summary">
         <div class="gig-order-preview">
@@ -60,6 +64,7 @@
       </div>
     </section>
   </div>
+</div>
 </template>
 
 <script>
@@ -103,12 +108,12 @@ export default {
     reviewsLength() {
       return this.gig.reviewers.length;
     },
-    finalPrice() {
-      const finalPrice = this.gig.price - this.serviceFee;
-      return finalPrice.toFixed(2);
-    },
     serviceFee() {
-      return ((this.gig.price * 10) / 100).toFixed(2);
+        return ((this.gig.price * 10) / 100).toFixed(2);
+    },
+    finalPrice() {
+      const finalPrice = this.gig.price + (+this.serviceFee);
+      return finalPrice.toFixed(2);
     },
     starsToRender() {
       return Math.floor(this.gig.rate + 1);

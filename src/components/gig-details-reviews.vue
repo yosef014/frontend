@@ -30,7 +30,7 @@
           {{review.review}}
           </div>
           <div class="gig-review-published">
-            <p>Published 2 months ago</p>
+            <p>{{review.reviewedAt}}</p>
           </div>
           <div class="gig-review-like-dislike">
           <span>
