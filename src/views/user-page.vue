@@ -5,7 +5,9 @@
       v-if="loggedinUser"
     >
       <div class="user-page-left">
-        <h1>User Profile</h1>
+        <div class="seller-controller">
+          <span @click="doLogout" class="signout-btn">Sign Out</span>
+        </div>
         <div class="user-section">
           <div class="profile-pic">
             <img :src="loggedinUser.imgUrl" />
@@ -13,6 +15,7 @@
           <div class="user-info">
             <p class="username">{{ loggedinUser.username }}</p>
             <p class="user-level">{{ capSentence }} Seller</p>
+            <p class="total-profit">Total Profit: ${{ totalMoneyMade }}</p>
           </div>
         </div>
 
@@ -122,6 +125,14 @@ export default {
     loggedinUser() {
       return this.$store.getters.loggedinUser;
     },
+    totalMoneyMade() {
+      let sum = 0;
+      this.ordersToShow
+        .filter((order) => order.status === "approved" && order.gig.price)
+        .forEach((order) => (sum += order.gig.price));
+
+      return sum;
+    },
 
     capSentence() {
       return this.loggedinUser.level
@@ -149,6 +160,11 @@ export default {
     showTimeLine(orderId) {
       this.isTimeLineShowen = !this.isTimeLineShowen;
       this.currOrderId = orderId;
+    },
+    async doLogout() {
+      await this.$store.dispatch({ type: "logout" });
+      this.$router.push("/");
+      document.location.reload(true);
     },
   },
 

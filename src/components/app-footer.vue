@@ -1,22 +1,29 @@
 <template>
-  <footer class="footer-container app-container">
-    <div class="worker-logo">
-      Worker.
-      <div class="sworker-ltd">&copy; Worker International Ltd.2022</div>
-    </div>
+  <div class="footer-container">
+    <footer class="footer">
+      <div class="worker-logo">
+        <WorkerLogo />
+        <div class="sworker-ltd">&copy; International Ltd.2022</div>
+      </div>
 
-    <ul class="social-media-icons">
-      <li><a class="fa fa-twitter"></a></li>
-      <li><a class="fa fa-facebook"></a></li>
-      <li><a class="fa fa-linkedin"></a></li>
-      <li><a class="fa fa-pinterest"></a></li>
-      <li><a class="fa fa-instagram"></a></li>
-    </ul>
-  </footer>
+      <ul class="social-media-icons">
+        <li><a class="fa fa-twitter"></a></li>
+        <li><a class="fa fa-facebook"></a></li>
+        <li><a class="fa fa-linkedin"></a></li>
+        <li><a class="fa fa-pinterest"></a></li>
+        <li><a class="fa fa-instagram"></a></li>
+      </ul>
+    </footer>
+  </div>
 </template>
 
 <script>
-export default {};
+import WorkerLogo from "../svgs/fiiverr-logo.vue";
+export default {
+  components: {
+    WorkerLogo,
+  },
+};
 </script>
 
 <style></style>

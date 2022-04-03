@@ -1,16 +1,16 @@
 .user-page-layout-container {
   margin: 0 auto;
   display: flex;
-  padding: 1rem 2rem;
+  padding: 1rem ;
   gap: 40px;
   width: 100vw;
-  height: 80vh;
+  height: 74vh;
   justify-content: space-between;
   background-color: #f7f7f7;
 }
 .user-page-left {
   font-family: domaine-display-web-medium-italic;
-
+  border: 1px solid #e5e5e5;
   padding: 2rem;
   height: 100%;
   width: 20%;
@@ -20,6 +20,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+
+  .total-profit {
+    font-family: macan-regular;
+    color: #74767e;
+  }
 
   .user-section {
     margin: 0 auto;
@@ -37,6 +42,8 @@
       width: 100%;
       border-radius: 50%;
     }
+
+
     
     .user-info {
       width: 100%;
@@ -113,7 +120,8 @@
   flex-direction: column;
   background-color: #fff;
   padding: 2rem;
-  //   height: 100%;
+  border: 1px solid #e5e5e5;
+    height: 100%;
   & h1 {
     display: flex;
     align-items: center;

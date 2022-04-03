@@ -35,7 +35,7 @@
                 </ul>
               </div>
             </div>
-            <h3>{{ gig.price }}</h3>
+            <h3>${{ gig.price }}</h3>
           </section>
         </div>
       </div>
@@ -60,6 +60,11 @@
       </div>
     </section>
   </div>
+  <div
+  v-loading.fullscreen.lock="isLoading"
+  element-loading-text="Loading..."
+  element-loading-background="rgba(255,255,255)">
+</div>
 </template>
 
 <script>
@@ -103,12 +108,12 @@ export default {
     reviewsLength() {
       return this.gig.reviewers.length;
     },
-    finalPrice() {
-      const finalPrice = this.gig.price - this.serviceFee;
-      return finalPrice.toFixed(2);
-    },
     serviceFee() {
-      return ((this.gig.price * 10) / 100).toFixed(2);
+        return ((this.gig.price * 10) / 100).toFixed(2);
+    },
+    finalPrice() {
+      const finalPrice = this.gig.price + (+this.serviceFee);
+      return finalPrice.toFixed(2);
     },
     starsToRender() {
       return Math.floor(this.gig.rate + 1);

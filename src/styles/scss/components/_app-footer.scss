@@ -1,6 +1,12 @@
 .footer-container {
     height: 10vh;
     width: 100vw;
+
+}
+
+.footer {
+    max-width: 1400px;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     padding: 1rem 1rem;
@@ -15,11 +21,17 @@
         display: flex;
         justify-content: space-between;
         padding: 1rem;
+        align-items: center;
     }
+
     .social-media-icons {
         display: flex;
-        margin: auto;
+        margin: 0 0 0 auto;
+        @media (max-width: 800px) {
+            margin: auto;
+        }
         padding: 1rem 0;
+        justify-content: end;
         *:not(:last-child) {
             padding-right: 2rem
 
