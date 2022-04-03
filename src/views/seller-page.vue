@@ -4,7 +4,7 @@
       <div class="profile-page-layout max-width-container">
         <div class="profile-page-aside-left">
           <div class="seller-controller">
-            <span @click="dologout" class="signout-btn">Sign Out</span>
+            <span @click="doLogout" class="signout-btn">Sign Out</span>
           </div>
 
           <div class="user-info">
@@ -15,6 +15,7 @@
               <p>{{ loggedinUser.username }}</p>
               <!-- We need to compute user level to upperCase -->
               <p class="seller-level">{{ capSentence }} Seller</p>
+              <p class="total-profit">Total Profit: ${{ totalMoneyMade }}</p>
             </div>
           </div>
 
@@ -133,6 +134,14 @@ export default {
       return this.orders.filter((order) => {
         return order.seller._id == this.loggedinUser._id;
       });
+    },
+    totalMoneyMade() {
+      let sum = 0;
+      this.ordersToShow
+        .filter((order) => order.status === "approved" && order.gig.price)
+        .forEach((order) => (sum += order.gig.price));
+
+      return sum;
     },
     startIdx() {
       return this.pageIdx * this.pageSize;

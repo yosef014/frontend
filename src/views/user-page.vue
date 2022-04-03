@@ -6,7 +6,7 @@
     >
       <div class="user-page-left">
         <div class="seller-controller">
-          <span @click="dologout" class="signout-btn">Sign Out</span>
+          <span @click="doLogout" class="signout-btn">Sign Out</span>
         </div>
         <div class="user-section">
           <div class="profile-pic">
@@ -15,6 +15,7 @@
           <div class="user-info">
             <p class="username">{{ loggedinUser.username }}</p>
             <p class="user-level">{{ capSentence }} Seller</p>
+            <p class="total-profit">Total Profit: ${{ totalMoneyMade }}</p>
           </div>
         </div>
 
@@ -123,6 +124,14 @@ export default {
   computed: {
     loggedinUser() {
       return this.$store.getters.loggedinUser;
+    },
+    totalMoneyMade() {
+      let sum = 0;
+      this.ordersToShow
+        .filter((order) => order.status === "approved" && order.gig.price)
+        .forEach((order) => (sum += order.gig.price));
+
+      return sum;
     },
 
     capSentence() {

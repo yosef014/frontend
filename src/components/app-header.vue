@@ -311,8 +311,8 @@ export default {
     },
     orderAddedNotefication(ownerOrder) {
       ElNotification({
-        title: "new order added!",
-        message: `new pending order has been added in seller control`,
+        title: "New Order Added!",
+        message: `New Pending Order Has Been Added In Seller Control`,
         type: "success",
         position: "bottom-right",
       });
@@ -322,8 +322,8 @@ export default {
       this.$store.dispatch({ type: "loadOrders" });
       console.log("socket works");
       ElNotification({
-        title: "your order status changed",
-        message: `status changed to ${status}`,
+        title: "Your Order Status Changed",
+        message: `Status Changed To ${status}`,
         type: "success",
         position: "bottom-right",
       });

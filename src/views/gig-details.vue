@@ -1,5 +1,9 @@
 <template>
-  <nav :style="setSticky" class="gig-details-navbar-container" v-if="!isLoading">
+  <nav
+    :style="setSticky"
+    class="gig-details-navbar-container"
+    v-if="!isLoading"
+  >
     <ul class="gig-details-navbar max-width-container">
       <li
         :class="{ 'gig-nav-link-active': link.active === true }"
@@ -120,10 +124,10 @@
           <gig-about-seller :gig="gig" />
         </section>
         <section class="gig-reviews-section">
-          <gig-details-reviews :gig="gig" />
           <div id="reviews" class="gig-reviews-carousel-component">
             <gig-details-reviews-carousel :gig="gig" />
           </div>
+          <gig-details-reviews :gig="gig" />
         </section>
       </div>
     </div>
@@ -195,7 +199,7 @@ export default {
     loggedInUser() {
       return this.$store.getters.loggedinUser;
     },
-     isLoading() {
+    isLoading() {
       return this.$store.getters.isLoading;
     },
     setSticky() {

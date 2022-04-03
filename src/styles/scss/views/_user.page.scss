@@ -21,6 +21,11 @@
   align-items: center;
   justify-content: space-between;
 
+  .total-profit {
+    font-family: macan-regular;
+    color: #74767e;
+  }
+
   .user-section {
     margin: 0 auto;
     width: 100%;
@@ -37,6 +42,8 @@
       width: 100%;
       border-radius: 50%;
     }
+
+
     
     .user-info {
       width: 100%;
