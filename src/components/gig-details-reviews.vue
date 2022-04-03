@@ -6,7 +6,7 @@
       v-model="reviewToAdd.review"
       placeholder="What was your goal in buying this Gig? How did the seller help you achieve it?"
     ></el-input>
-    <button class="review-add-btn" @click="addReview()">Add Review</button>
+    <!-- <button class="review-add-btn" @click="addReview()">Add Review</button> -->
 
     <ul class="gig-details-review-list">
       <li class="review-item" v-for="review in gig.reviewers" :key="review">
