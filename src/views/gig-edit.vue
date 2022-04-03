@@ -24,7 +24,7 @@
         <section class="section-two">
           <div class="category-group-form">
             <h3>Category</h3>
-            <el-select v-model="gigToEdit.category" placeholder="Category">
+            <el-select v-model="gigToEdit.categories" placeholder="Category">
               <el-option
                 v-for="item in categories"
                 :key="item.label"

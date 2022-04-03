@@ -7,10 +7,7 @@
           {{ category }}
         </span>
       </div>
-      <ordersPreview
-        @changeStatus="changeStatus"
-        :ordersToShow="ordersToShow"
-      ></ordersPreview>
+      <ordersPreview @changeStatus="changeStatus" :ordersToShow="ordersToShow"></ordersPreview>
     </div>
   </section>
 </template>
