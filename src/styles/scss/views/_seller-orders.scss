@@ -61,12 +61,14 @@
   }
   .table-content {
     height: 500px;
+    
   }
 
   .table-row {
     max-height: 4rem;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
+   
     
 
     li {
@@ -75,6 +77,7 @@
       align-items: center;
       font-family: macan-regular;
       padding: 0.5rem 0;
+      
     }
     li:first-child {
       justify-self: start;

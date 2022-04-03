@@ -23,16 +23,11 @@ export default {
   },
 
   data() {
-    return {
-      appHeader: null,
-    };
+    return {};
   },
   computed: {
     isLoading() {
       return this.$store.getters.isLoading;
-    },
-    setAppHeader() {
-      return this.appHeader;
     },
   },
 
@@ -43,19 +38,9 @@ export default {
     appHeader,
     appFooter,
   },
-  mounted() {
-    window.onresize();
-  },
+  mounted() {},
 
   // @GUY - שמתי פה דברים שיעזרו לי בהמשף ךרנדר קומפוננטה דינמית באפ הדר
-  watch: {
-    $route: {
-      handler({ path }) {
-        if (path === "/") this.appHeader = "appHeader";
-        if (path === "/business") this.appHeader = "businessHeader";
-        if (path === "/seller") this.appHeader = "sellerHeader";
-      },
-    },
-  },
+  watch: {},
 };
 </script>

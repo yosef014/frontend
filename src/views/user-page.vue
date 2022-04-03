@@ -15,7 +15,9 @@
           <div class="user-info">
             <p class="username">{{ loggedinUser.username }}</p>
             <p class="user-level">{{ capSentence }} Seller</p>
-            <p class="total-profit">Total Profit: ${{ totalMoneyMade }}</p>
+            <p class="total-profit">
+              Total Profit: ${{ totalMoneyMade.toFixed(0) }}
+            </p>
           </div>
         </div>
 
@@ -77,9 +79,9 @@
             <li>
               {{ new Date(order.createdAt).toLocaleDateString("iw-IL") }}
             </li>
-            <li>{{ order.gig.price + "$" }}</li>
+            <li>{{ "$" + order.gig.price }}</li>
             <li :style="{ color: order.status ? '' : '' }">
-              {{ order.status }}
+              {{ order.status.toUpperCase() }}
             </li>
             <div class="time-line-container">
               <timeLine

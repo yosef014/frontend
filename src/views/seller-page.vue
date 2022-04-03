@@ -15,7 +15,9 @@
               <p>{{ loggedinUser.username }}</p>
               <!-- We need to compute user level to upperCase -->
               <p class="seller-level">{{ capSentence }} Seller</p>
-              <p class="total-profit">Total Profit: ${{ totalMoneyMade }}</p>
+              <p class="total-profit">
+                Total Profit: ${{ totalMoneyMade.toFixed(0) }}
+              </p>
             </div>
           </div>
 
