@@ -14,6 +14,11 @@
       </li>
     </ul>
   </nav>
+   <div
+      v-loading.fullscreen.lock="isLoading"
+      element-loading-text="Loading..."
+      element-loading-background="rgba(255,255,255)"
+    >
   <div class="page-content-container" v-if="!isLoading">
     <div v-if="gig" class="gig-details-container max-width-container">
       <div class="gig-details-main-content">
@@ -132,12 +137,7 @@
       </div>
     </div>
   </div>
-   <div
-      class="isloading"
-      v-loading.fullscreen.lock="isLoading"
-      element-loading-text="Loading..."
-      element-loading-background="rgba(255,255,255)"
-    ></div>
+  </div>
 </template>
 
 <script>
