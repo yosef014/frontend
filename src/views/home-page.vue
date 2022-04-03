@@ -23,9 +23,6 @@
     <div class="home-explore-marketplace-container">
       <ExploreTheMarketplace />
     </div>
-    <div class="home-fiver-business-container">fiverr business</div>
-    <div class="home-get-inspired-container">get-inspired</div>
-    <div class="footer-container">footer</div>
   </div>
 </template>
 

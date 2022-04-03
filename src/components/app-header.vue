@@ -30,7 +30,7 @@
       </li>
       <li v-if="!loggedinUser" @click="toggleSignup" class="join">Sign Up</li>
       <li v-if="!loggedinUser" @click="toggleLogin">Sign In</li>
-      <li v-if="loggedinUser"><a class="join">Sign Out</a></li>
+      <!-- <li v-if="loggedinUser"><a class="join">Sign Out</a></li> -->
       <li>Become A Seller</li>
       <router-link to="/tag">
         <li>Explore</li>
@@ -94,7 +94,7 @@
               >
             </router-link>
           </li>
-          <li>
+          <li v-if="!loggedinUser">
             <a>
               <a
                 :class="{ 'login-active': showModal.isLogin === true }"
@@ -103,7 +103,6 @@
                 v-if="!loggedinUser"
                 >Sign In</a
               >
-              <a class="join" v-else @click="doLogout">Sign Out</a>
             </a>
           </li>
           <li>
@@ -250,12 +249,6 @@ export default {
     categoryChosen(res) {
       this.inputVal = res;
       this.$router.push("/tag" + "/" + res);
-    },
-
-    async doLogout() {
-      await this.$store.dispatch({ type: "logout" });
-      this.$router.push("/");
-      document.location.reload(true);
     },
 
     toggleMenu() {

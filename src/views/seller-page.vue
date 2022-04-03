@@ -3,14 +3,19 @@
     <div class="profile-page-layout-fluid">
       <div class="profile-page-layout max-width-container">
         <div class="profile-page-aside-left">
-          <h1>Seller Profile</h1>
+          <div class="seller-controller">
+            <span @click="dologout" class="signout-btn">Sign Out</span>
+          </div>
+
           <div class="user-info">
             <div class="profile-pic">
               <img :src="loggedinUser.imgUrl" alt="" srcset="" />
             </div>
-            <p>user name: {{ loggedinUser.username }}</p>
-            <!-- We need to compute user level to upperCase -->
-            <p>level: {{ loggedinUser.level }}</p>
+            <div class="user-section">
+              <p>{{ loggedinUser.username }}</p>
+              <!-- We need to compute user level to upperCase -->
+              <p class="seller-level">{{ capSentence }} Seller</p>
+            </div>
           </div>
 
           <div class="demo-progress">
@@ -115,6 +120,12 @@ export default {
     loggedinUser() {
       return this.$store.getters.loggedinUser;
     },
+    capSentence() {
+      return this.loggedinUser.level
+        .split(" ")
+        .map((word) => word.split("")[0].toUpperCase() + word.substring(1))
+        .join(" ");
+    },
     orders() {
       return this.$store.getters.orders;
     },
@@ -143,6 +154,13 @@ export default {
       if (this.activeName == 1) return (this.openPagination = false);
       if (this.activeName === "first") return (this.openPagination = true);
     },
+
+    async doLogout() {
+      await this.$store.dispatch({ type: "logout" });
+      this.$router.push("/");
+      document.location.reload(true);
+    },
+
     nextPage() {
       this.pageIdx++;
       let maxPage = Math.ceil(this.orders.length / this.pageSize);

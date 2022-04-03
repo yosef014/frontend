@@ -4,6 +4,29 @@
   
 }
 
+.seller-controller {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;  
+}
+
+
+.signout-btn {
+  padding: 7px 10px;
+  border: solid 1px #1dbf73;
+  border-radius: 4px;
+  font-family: macan-regular;
+  display: flex;
+  
+  
+      &:hover {
+        border: solid 1px #1dbf73;
+        background-color: #1dbf73;
+        color: white ;
+        cursor: pointer;
+      }
+}
+
 .table {
   display: grid;
   grid-template-rows: auto;

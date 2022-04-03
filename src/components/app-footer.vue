@@ -1,8 +1,8 @@
 <template>
   <footer class="footer-container app-container">
     <div class="worker-logo">
-      Worker.
-      <div class="sworker-ltd">&copy; Worker International Ltd.2022</div>
+      <WorkerLogo />
+      <div class="sworker-ltd">&copy; International Ltd.2022</div>
     </div>
 
     <ul class="social-media-icons">
@@ -16,7 +16,12 @@
 </template>
 
 <script>
-export default {};
+import WorkerLogo from "../svgs/fiiverr-logo.vue";
+export default {
+  components: {
+    WorkerLogo,
+  },
+};
 </script>
 
 <style></style>
