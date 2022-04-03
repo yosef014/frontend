@@ -87,8 +87,6 @@
         const text = arrayItem.review
         var review = arrayItem.review.length;
         // console.log(review);
-        console.log(text);
-        console.log(review);
         if(review > length) return  text.substring(0, length) + '...';
         else return text;
         });
