@@ -1,11 +1,12 @@
 <template>
   <div v-if="gig" class="gig-details-reviews-container">
     <el-input
+      v-if="openReview"
       type="textarea"
       v-model="reviewToAdd.review"
       placeholder="What was your goal in buying this Gig? How did the seller help you achieve it?"
     ></el-input>
-    <button class="review-add-btn" @click="addReview()">add</button>
+    <button class="review-add-btn" @click="addReview()">Add Review</button>
 
     <ul class="gig-details-review-list">
       <li class="review-item" v-for="review in gig.reviewers" :key="review">
@@ -32,8 +33,12 @@
             <p>Published 2 months ago</p>
           </div>
           <div class="gig-review-like-dislike">
-          <span>like</span>
-          <span>dislike</span>
+          <span>
+            <img src="@/assets/like.png" alt="">
+            Helpful</span>
+          <span>
+            <img src="@/assets/dislike.png" alt="">
+            Not Helpful</span>
         </div>
         </div>
       </li>
@@ -52,6 +57,7 @@ export default {
   data() {
     return {
       gig: null,
+      openReview:false,
       reviewToAdd: {
         review: "",
       },

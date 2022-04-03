@@ -1,0 +1,8 @@
+{
+    "short_name": "worker app",
+    "name": "worker appliction",
+    "start_url": "/index.html",
+    "background_color": "#3367D6",
+    "display": "standalone",
+    "theme-color": "#19a463"
+  }

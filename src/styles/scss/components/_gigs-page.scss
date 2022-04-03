@@ -39,12 +39,13 @@
   p {
     font-family: macan-regular;
   }
-
-  span {
-    &:hover {
-      color: #1dbf73;
+  span{
+    &:hover{
+      text-decoration: underline;
+      cursor: pointer;
     }
   }
+
 }
 .gig-categorys-boxes {
   margin: 0 auto;
