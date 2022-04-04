@@ -1,5 +1,15 @@
 .gig-checkout-page {
   display: flex;
+  p {
+    font-family: macan-regular;
+    line-height: 1.4;
+  }
+  h1, h2, h3 {
+    font-family: macan-semibold;
+  }
+  min-height: 60vh;
+
+
   // background-color: #f7f7f7;
   flex-wrap: wrap;
   padding: 3rem 0;

@@ -12,13 +12,13 @@
     <circle
       cx="50"
       cy="50"
-      r="37"
+      r="41"
       stroke-miterlimit="10"
       fill="#fff"
       stroke-width="8"
       stroke="#333"
     />
-    <circle class="recording-circle" cx="50" cy="50" r="21" fill="#e15b64" />
+    <circle class="recording-circle" cx="50" cy="50" r="25" fill="#e15b64" />
     <metadata xmlns:d="https://loading.io/stock/">
       <d:name>record</d:name>
       <d:tags>record,copy,log,save,keep,clone,player</d:tags>

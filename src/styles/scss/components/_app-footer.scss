@@ -17,6 +17,11 @@
         @media (max-width: 800px) {
             width: 100%;
             justify-content: space-evenly;
+            .sworker-ltd {
+                display: flex;
+                justify-content: start;
+                padding-top: .75rem;
+            }
         }
         display: flex;
         justify-content: space-between;

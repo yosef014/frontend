@@ -14,7 +14,7 @@
       </div>
 
       <div class="filter-explore-sortby">
-        <p>Sort By:</p>
+        <p>Sort By</p>
         <el-select
           v-model="filterBy.sortBy"
           placeholder="Select"
@@ -94,23 +94,22 @@ export default {
     };
   },
   components: {},
-  async created() {
-  },
+  async created() {},
   computed: {
     priceRender() {
       if (this.filterBy.price === "250") return "Price: Any";
       else return `Price: ${this.filterBy.price}$`;
     },
-    isLoading(){
+    isLoading() {
       return this.$store.getters.isLoading;
-    }
+    },
   },
 
   methods: {
     setFilter() {
       const filterBy = JSON.parse(JSON.stringify(this.filterBy));
       this.$store.dispatch({ type: "setFilter", filterBy });
-      this.$store.dispatch({type:'isLoading', isLoading:false})
+      this.$store.dispatch({ type: "isLoading", isLoading: false });
     },
   },
 };

@@ -54,12 +54,12 @@
         </div>
 
         <div class="preview-controller-btn">
-          <p @click="this.$router.push('/seller')">Preview seller controll</p>
+          <p @click="this.$router.push('/seller')">Preview Seller Manager</p>
         </div>
       </div>
 
       <div class="user-page-right">
-        <h1>My Orders</h1>
+        <h1>My Orders Timeline</h1>
         <div class="user-page-orders-list">
           <ul class="table-header">
             <li>Gig</li>

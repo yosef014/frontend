@@ -3,6 +3,7 @@
   z-index: 8;
   width: 100vw;
   height: 40px;
+  // margin-left: .5rem;
   // display: flex;
   // align-items: center;
   opacity: 1;
@@ -22,7 +23,7 @@
       align-items: center;
       justify-content: center;
       height: 100%;
-      margin: 0 23px;
+      margin: 0 23px 0 1rem;
       &:hover {
         cursor: pointer;
 
@@ -76,6 +77,10 @@
       flex-direction: column;
       border: $border-light;
       margin-bottom: 1rem;
+      b {
+        font-family: macan-semibold;
+        letter-spacing: .9px;
+      }
 
       & li {
         display: flex;
@@ -104,6 +109,14 @@
         margin-bottom: 1rem;
         display: flex;
         flex: 1;
+      }
+
+      .gig-features-container {
+        display: flex;
+        flex-direction: column;
+        li:not(:last-child) {
+          margin-bottom: 1rem;
+        }
       }
     }
 
@@ -206,6 +219,7 @@
 .gig-details-main-content {
   h2 {
     padding-bottom: 2rem;
+    padding-left: 0;
     
   }
   h4 {
@@ -244,7 +258,7 @@
 
 .gig-details-container {
   // margin-block-start: 2rem;
-  padding-top: 4rem;
+  padding-top: 3rem;
 
   .gig-categories-breadcrumbs {
     display: flex;
@@ -416,7 +430,7 @@
     .review-item {
       display: flex;
       padding: 1rem 0 2rem 2rem;
-      border-top: 1px solid grey;
+      border-top: 1px solid #62646a;
       .gig-reviews-profile-img{
         background-color: #e4e5e7;
         max-width: 2rem;
@@ -439,7 +453,7 @@
         .gig-reviews-details{
           padding: 5px 0;
           span{
-            font-family: macan-bold;
+            font-family: macan-semibold;
 
           }
         }
@@ -611,53 +625,3 @@
       }
     }
 
-// .gig-gallery-component
-//   > section
-//   > div
-//   > ol
-//   > li.carousel__slide.carousel__slide--active.carousel__slide--visible
-//   > div {
-//   width: 100%;
-//   height: 100%;
-//   img {
-//     width: 100%;
-//     height: 100%;
-//   }
-// }
-
-// //all carousel buttons in gig preview
-
-// .gig-gallery-component > section > ol {
-//   padding: 0px;
-//   li {
-//     .carousel__pagination-button {
-//       width: 30px;
-//       background-color: #4d5656;
-//       transition: 0.5s;
-//     }
-//     .carousel__pagination-button--active {
-//       background-color: #1dbf73;
-//       transition: 0.5ss;
-//     }
-//   }
-// }
-
-//all carousel items in gig catagory page
-// .page-content-container > div.click-list > div > section > div > ol > li {
-//     :hover {
-//         cursor: pointer;
-//         box-shadow: 0 3.4623px 6.1418px rgba(0,0,0,.0523),0 7.92923px 12.9218px rgba(0,0,0,.0476886),0 9px 15px rgba(0,0,0,.08);
-//     }
-// }
-
-// > section.gig-overview
-//   > div.gig-gallery-component
-//   > section
-//   > div
-//   > ol
-//   > li.carousel__slide.carousel__slide--active.carousel__slide--visible {
-//   & img {
-//     height: 100%;
-//     width: 100%;
-//   }
-// }

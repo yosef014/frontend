@@ -17,10 +17,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      div {
-        // margin: 0px;
+      
+      @include for-mobile-layout {
+        margin: 0.1rem 0;
       }
-  
   }
 
   
@@ -30,6 +30,22 @@
     font-family: macan-bold, Helvetica Neue, Helvetica, Arial, sans-serif;
     align-items: center;
     display: flex;
+    p {
+      padding: 0 1rem;
+    }
+    @include for-mobile-layout {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      p {
+        padding: 0 1rem 0 0;
+      }
+      .el-select {
+        width: 200px;
+        
+      }
+
+    }
     
     
    
@@ -54,13 +70,24 @@
 }
 
 .seller-search-container {
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
+  p {
+    padding-right: 1rem;
+  }
+  @include for-mobile-layout {
+    width: 100%;
+    margin-right: 0px;
+    display: flex;
+    justify-content: space-between;
+    
+  }
+
+  .el-select {
+    width: 180px;
+  }
 
   .el-input {
-    display: flex;
-    flex: 1;
+    width: 180px;
+    
   }
 
 }

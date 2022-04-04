@@ -4,7 +4,7 @@
       <li>{{ order.buyer.username }}</li>
       <li class="table-gig-title">{{ order.gig.title }}</li>
       <li>{{ new Date(order.createdAt).toLocaleDateString("iw-IL") }}</li>
-      <li>{{ order.gig.price + "$" }}</li>
+      <li>{{ "$" + order.gig.price }}</li>
       <li :class="setStatusClr(order)">
         {{ order.status.toUpperCase() }}
       </li>
@@ -27,18 +27,14 @@
 import CircleCheckmarkIcon from "../svgs/circle-checkmark-icon.vue";
 import CloseIcon from "../svgs/close-icon.vue";
 export default {
-    props: {
+  props: {
     ordersToShow: Object,
   },
   data() {
-    return {
-
-    };
+    return {};
   },
   created() {},
-  computed: {
-
-  },
+  computed: {},
 
   methods: {
     setStatusClr(order) {
@@ -47,13 +43,12 @@ export default {
       if (status == "closed") return "closed-active";
       if (status == "Pending") return "pending-active";
     },
-    changeStatus(status, order){
-this.$emit("changeStatus",status,order);
-
+    changeStatus(status, order) {
+      this.$emit("changeStatus", status, order);
     },
   },
   components: {
-     CircleCheckmarkIcon,
+    CircleCheckmarkIcon,
     CloseIcon,
   },
 };

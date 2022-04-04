@@ -53,7 +53,7 @@
           </div>
 
           <div class="preview-profile-btn">
-            <p @click="this.$router.push('/user')">Preview Fiverr Profile</p>
+            <p @click="this.$router.push('/user')">Preview Orders Timeline</p>
           </div>
         </div>
 

@@ -14,129 +14,129 @@
       </li>
     </ul>
   </nav>
-   <div
-      v-loading.fullscreen.lock="isLoading"
-      element-loading-text="Loading..."
-      element-loading-background="rgba(255,255,255)"
-    >
-  <div class="page-content-container" v-if="!isLoading">
-    <div v-if="gig" class="gig-details-container max-width-container">
-      <div class="gig-details-main-content">
-        <section class="gig-overview">
-          <div class="gig-overview-block-one">
-            <ul class="gig-categories-breadcrumbs">
-              <li>
-                <span @click="this.$router.push('/')"> FIIVERR</span>
-                <ArrowRightIcon />
-              </li>
-              <li>
-                <span @click="this.$router.push('/tag')">SERVICES</span>
-                <ArrowRightIcon />
-              </li>
-              <li>
-                <a href="" class="gig-category-link">{{ gigCategory }}</a>
-              </li>
-            </ul>
-            <h3 id="overview" class="gig-overview-title">
-              {{ gig.title }}
-            </h3>
-            <div class="gig-seller-info-container">
-              <div class="gig-seller-pic">
-                <!-- //import picture from database/json to here -->
-                <img
-                  class="B9j8CWn"
-                  :src="gig.owner.imgUrl"
-                  alt="raziul99"
-                  loading="lazy"
-                />
-              </div>
-              <div class="gig-seller-info">
-                <div>
-                  <h4 class="gig-seller-name">{{ gig.owner.fullname }}</h4>
-
-                  <p class="gig-seller-level-div">{{ gig.level }}</p>
+  <div
+    v-loading.fullscreen.lock="isLoading"
+    element-loading-text="Loading..."
+    element-loading-background="rgba(255,255,255)"
+  >
+    <div class="page-content-container" v-if="!isLoading">
+      <div v-if="gig" class="gig-details-container max-width-container">
+        <div class="gig-details-main-content">
+          <section class="gig-overview">
+            <div class="gig-overview-block-one">
+              <ul class="gig-categories-breadcrumbs">
+                <li>
+                  <span @click="this.$router.push('/')"> FIIVERR</span>
+                  <ArrowRightIcon />
+                </li>
+                <li>
+                  <span @click="this.$router.push('/tag')">SERVICES</span>
+                  <ArrowRightIcon />
+                </li>
+                <li>
+                  <a href="" class="gig-category-link">{{ gigCategory }}</a>
+                </li>
+              </ul>
+              <h3 id="overview" class="gig-overview-title">
+                {{ gig.title }}
+              </h3>
+              <div class="gig-seller-info-container">
+                <div class="gig-seller-pic">
+                  <!-- //import picture from database/json to here -->
+                  <img
+                    class="B9j8CWn"
+                    :src="gig.owner.imgUrl"
+                    alt="raziul99"
+                    loading="lazy"
+                  />
                 </div>
+                <div class="gig-seller-info">
+                  <div>
+                    <h4 class="gig-seller-name">{{ gig.owner.fullname }}</h4>
 
-                <ul class="gig-seller-stars">
-                  <!-- <li v-for="star in starsToRender" :key="star">
+                    <p class="gig-seller-level-div">{{ gig.level }}</p>
+                  </div>
+
+                  <ul class="gig-seller-stars">
+                    <!-- <li v-for="star in starsToRender" :key="star">
                   <StarIcon />
                 </li> -->
-                  <li><StarIcon /></li>
-                </ul>
-                <!-- Add dynamic rate -->
-                <p class="gig-seller-rating-score">{{ gig.owner.rate }}</p>
-                <p class="gig-seller-ratings-count">
-                  ({{ gig.reviewers.length }})
-                </p>
-                <p>10 Orders in Queue</p>
+                    <li><StarIcon /></li>
+                  </ul>
+                  <!-- Add dynamic rate -->
+                  <p class="gig-seller-rating-score">{{ gig.owner.rate }}</p>
+                  <p class="gig-seller-ratings-count">
+                    ({{ gig.reviewers.length }})
+                  </p>
+                  <p>10 Orders in Queue</p>
+                </div>
               </div>
-            </div>
 
-            <div class="gig-gallery-component">
-              <gig-details-gallery-carousel :gig="gig" />
-            </div>
-          </div>
-        </section>
-        <section class="gig-sidebar-right">
-          <div class="gig-checkout-card">
-            <div class="card-content-container">
-              <div class="checkout-card-header">
-                <h4 class="gig-title">Silver</h4>
-                <h4 class="gig-price">${{ gig.price }}</h4>
+              <div class="gig-gallery-component">
+                <gig-details-gallery-carousel :gig="gig" />
               </div>
-              <div class="checkout-card-content">
+            </div>
+          </section>
+          <section class="gig-sidebar-right">
+            <div class="gig-checkout-card">
+              <div class="card-content-container">
+                <div class="checkout-card-header">
+                  <h4 class="gig-title">Silver</h4>
+                  <h4 class="gig-price">${{ gig.price }}</h4>
+                </div>
+                <div class="checkout-card-content">
+                  <p>
+                    3 Unique Concepts + Color Palette + Source files + JPG, PNG
+                  </p>
+                  <b class="gig-revisions">Unlimited Revisions</b>
+                  <ul class="gig-features-container">
+                    <li v-for="feature in features" :key="feature">
+                      <Checkmark />
+                      <p>{{ feature }}</p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="checkout-card-footer">
+                  <router-link :to="'/checkout/' + gig._id">
+                    <button class="checkout-btn">
+                      <p>Continue</p>
+                      <p>(${{ gig.price }})</p>
+                    </button>
+                  </router-link>
+                </div>
+              </div>
+              <div class="gig-contact-seller-wrapper">
+                <button class="gig-contact-seller-btn">
+                  <p>Contact Seller</p>
+                  <ArrowDownIcon class="arrow-down" />
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <section id="gig-description" class="gig-description-section">
+            <div class="gig-description-container">
+              <h3 class="gig-section-title">About This Gig</h3>
+
+              <div class="gig-description">
                 <p>
-                  3 Unique Concepts + Color Palette + Source files + JPG, PNG
+                  {{ gig.description }}
                 </p>
-                <b class="gig-revisions">Unlimited Revisions</b>
-                <ul class="gig-features-container">
-                  <li>
-                    <Checkmark />
-                    <p>Includes Logo Design</p>
-                  </li>
-                </ul>
-              </div>
-              <div class="checkout-card-footer">
-                <router-link :to="'/checkout/' + gig._id">
-                  <button class="checkout-btn">
-                    <p>Continue</p>
-                    <p>(${{ gig.price }})</p>
-                  </button>
-                </router-link>
               </div>
             </div>
-            <div class="gig-contact-seller-wrapper">
-              <button class="gig-contact-seller-btn">
-                <p>Contact Seller</p>
-                <ArrowDownIcon class="arrow-down" />
-              </button>
+          </section>
+          <section id="seller-description" class="seller-description-section">
+            <gig-about-seller :gig="gig" />
+          </section>
+          <section class="gig-reviews-section">
+            <div id="reviews" class="gig-reviews-carousel-component">
+              <gig-details-reviews-carousel :gig="gig" />
             </div>
-          </div>
-        </section>
-
-        <section id="gig-description" class="gig-description-section">
-          <div class="gig-description-container">
-            <h3 class="gig-section-title">About This Gig</h3>
-
-            <div class="gig-description">
-              <p>
-                {{ gig.description }}
-              </p>
-            </div>
-          </div>
-        </section>
-        <section id="seller-description" class="seller-description-section">
-          <gig-about-seller :gig="gig" />
-        </section>
-        <section class="gig-reviews-section">
-          <div id="reviews" class="gig-reviews-carousel-component">
-            <gig-details-reviews-carousel :gig="gig" />
-          </div>
-          <gig-details-reviews :gig="gig" />
-        </section>
+            <gig-details-reviews :gig="gig" />
+          </section>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 </template>
 
@@ -166,6 +166,13 @@ export default {
       gig: null,
       isSticky: false,
       currSection: null,
+      features: [
+        "Includes Logo Design",
+        "Logo Vector File",
+        "Printable File",
+        "Social Media Kit",
+        "Source File",
+      ],
       gigDetailsNavLinks: [
         {
           name: "Overview",
