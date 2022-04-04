@@ -15,7 +15,7 @@
         >
         </CircleCheckmarkIcon>
         <CloseIcon
-          @click="changeStatus('closed', order)"
+          @click="changeStatus('denied', order)"
           fill="red"
         ></CloseIcon>
       </div>
@@ -40,7 +40,7 @@ export default {
     setStatusClr(order) {
       const status = order.status;
       if (status == "approved") return "approved-active";
-      if (status == "closed") return "closed-active";
+      if (status == "denied") return "denied-active";
       if (status == "Pending") return "pending-active";
     },
     changeStatus(status, order) {

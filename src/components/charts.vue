@@ -14,13 +14,13 @@
       </template>
     </el-progress>
 
-    <el-progress type="dashboard" :percentage="closedOrders" color="#67c23a">
+    <el-progress type="dashboard" :percentage="deniedOrders" color="#67c23a">
       <template #default="{ percentage }">
         <span class="percentage-value">{{ percentage }}%</span>
-        <span class="percentage-label">Closed Orders</span>
+        <span class="percentage-label">Denied Orders</span>
       </template>
     </el-progress>
-    <el-progress type="dashboard" :percentage="closedOrders" color="#67c23a">
+    <el-progress type="dashboard" :percentage="deniedOrders" color="#67c23a">
       <template #default="{ percentage }">
         <span class="percentage-value">${{ totalMoneyMade.toFixed(0) }}</span>
         <span class="percentage-label">Total Profit</span>
@@ -48,12 +48,12 @@ export default {
 
       return sum;
     },
-    closedOrders() {
-      let closed = this.ordersToShow.filter(
-        (order) => order.status == "closed"
+    deniedOrders() {
+      let denied = this.ordersToShow.filter(
+        (order) => order.status == "denied"
       ).length;
-      closed = closed / this.ordersToShow.length;
-      let present = closed * 100;
+      denied = denied / this.ordersToShow.length;
+      let present = denied * 100;
       return present.toFixed();
     },
     approvedOrders() {
