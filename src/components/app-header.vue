@@ -184,7 +184,7 @@ export default {
     return {
       newMsgCount: 0,
       inputVal: "",
-      windowWidth: null,
+      windowWidth: window.innerWidth,
       loggedinUser: this.$store.getters.loggedinUser,
       isMenuOpen: false,
       showModal: {
@@ -333,6 +333,7 @@ export default {
   mounted() {
     window.onresize = () => {
       this.windowWidth = window.innerWidth;
+      console.log(this.windowWidth);
     };
   },
 
