@@ -46,6 +46,10 @@
       }
 
     }
+
+    .el-select-drop__item {
+      font-family: macan-regular;
+    }
     
     
    
@@ -92,6 +96,11 @@
 
 }
 
+.el-popper.el-popover {
+  font-family: macan-regular;
+
+}
+
 
 .slider-demo-block {
   // display: flex;
@@ -101,6 +110,8 @@
     display: flex;
     
   }
+
+ 
   .el-switch {
     display: flex;
     align-items: center;
