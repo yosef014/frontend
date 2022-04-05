@@ -53,9 +53,9 @@ export default {
     filtereEplore,
   },
    created() {
-    setTimeout(()=>{
-      this.$store.dispatch({type:'isLoading', isLoading:false})
-    },1500)
+    // setTimeout(()=>{
+    //   this.$store.dispatch({type:'isLoading', isLoading:false})
+    // },1500)
   },
   computed: {
     gigs() {
