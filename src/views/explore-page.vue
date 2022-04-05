@@ -27,74 +27,70 @@
 </template>
 
 <script>
-import { ref } from "vue";
-import { Carousel, Navigation, Slide } from "vue3-carousel";
-import gigsPreview from "../components/gigs-preview.vue";
-import gigTabsCarousel from "../components/gigs-tabs-carousel.vue";
-import filtereEplore from "../components/filter-explore.vue";
+  import { ref } from "vue";
+  import { Carousel, Navigation, Slide } from "vue3-carousel";
+  import gigsPreview from "../components/gigs-preview.vue";
+  import gigTabsCarousel from "../components/gigs-tabs-carousel.vue";
+  import filtereEplore from "../components/filter-explore.vue";
 
-export default {
-  data() {
-    return {
-      fullscreenLoading: false,
-      filterBy: {
-        seller: "",
-        price: ref([80, 150]),
-        sortBy: "",
+  export default {
+    data() {
+      return {
+        fullscreenLoading: false,
+        filterBy: {
+          seller: "",
+          price: ref([80, 150]),
+          sortBy: "",
+        },
+      };
+    },
+    components: {
+      gigTabsCarousel,
+      gigsPreview,
+      Carousel,
+      Slide,
+      Navigation,
+      filtereEplore,
+    },
+    created() {},
+    computed: {
+      gigs() {
+        return this.$store.getters.gigs;
       },
-    };
-  },
-  components: {
-    gigTabsCarousel,
-    gigsPreview,
-    Carousel,
-    Slide,
-    Navigation,
-    filtereEplore,
-  },
-   created() {
-    // setTimeout(()=>{
-    //   this.$store.dispatch({type:'isLoading', isLoading:false})
-    // },1500)
-  },
-  computed: {
-    gigs() {
-      return this.$store.getters.gigs;
-    },
-    isLoading(){
-      return this.$store.getters.isLoading;
-    },
-    gigsToShow() {
-      const category = this.$route.params.gig;
-      if (!category) return this.gigs;
+      isLoading() {
+        return this.$store.getters.isLoading;
+      },
+      gigsToShow() {
+        const category = this.$route.params.gig;
+        if (!category) return this.gigs;
 
-      const gigsToDisplay = this.gigs.filter((gig) => {
-        return gig.category.some((tab) => category.includes(tab));
-      });
-      return gigsToDisplay;
+        const gigsToDisplay = this.gigs.filter((gig) => {
+          return gig.category.some((tab) => category.includes(tab));
+        });
+        return gigsToDisplay;
+      },
+      breadcrumbsToShow() {
+        if (this.$route.params.gig) return this.$route.params.gig;
+        return "all gigs";
+      },
     },
-    breadcrumbsToShow() {
-      if (this.$route.params.gig) return this.$route.params.gig;
-      return "all gigs";
-    },
-  },
 
-  methods: {
-    setFilter() {
-      const filterBy = JSON.parse(JSON.stringify(this.filterBy));
-      this.$store.dispatch({ type: "setFilter", filterBy });
+    methods: {
+      setFilter() {
+        const filterBy = JSON.parse(JSON.stringify(this.filterBy));
+        this.$store.dispatch({ type: "setFilter", filterBy });
+      },
+      capSentence() {
+        return this.breadcrumbsToShow
+          .split(" ")
+          .map((word) => word.split("")[0].toUpperCase() + word.substring(1))
+          .join(" ");
+      },
     },
-    capSentence() {
-      return this.breadcrumbsToShow
-        .split(" ")
-        .map((word) => word.split("")[0].toUpperCase() + word.substring(1))
-        .join(" ");
-    },
-  },
-};
+  };
 </script>
 <style>
-.fontsiasd {
-  font-size: 200px;
-}
+  .fontsiasd {
+    font-size: 200px;
+  }
 </style>
