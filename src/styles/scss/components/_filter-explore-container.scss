@@ -2,6 +2,10 @@
   display: flex;
   padding: 1rem 0;
   flex-wrap: wrap;
+
+  span {
+    font-family: macan-regular;
+  }
   
   
   // justify-content: center;
@@ -46,13 +50,6 @@
       }
 
     }
-
-    .el-select-drop__item {
-      font-family: macan-regular;
-    }
-    
-    
-   
   }
 }
 
@@ -96,7 +93,7 @@
 
 }
 
-.el-popper.el-popover {
+.el-popper.el-popover span {
   font-family: macan-regular;
 
 }
@@ -121,4 +118,13 @@
       // left: 6px;
     }
   }
+}
+
+
+.el-popper span {
+  font-family: macan-regular;
+}
+
+.el-popover__title {
+  font-family: macan-regular;
 }
